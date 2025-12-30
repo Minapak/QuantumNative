@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftUI
-
+import Combine
 // MARK: - Progress View Model
 @MainActor
 class ProgressViewModel: ObservableObject {

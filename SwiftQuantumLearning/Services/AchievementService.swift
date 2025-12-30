@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftUI
-
+import Combine 
 // MARK: - Achievement Service
 /// Service responsible for managing achievements and badges
 @MainActor

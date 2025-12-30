@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+import Foundation
 // MARK: - Learning Level Model
 struct LearningLevel: Identifiable {
     let id: Int

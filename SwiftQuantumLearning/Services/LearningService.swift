@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftUI
-
+import Combine 
 // MARK: - Learning Service
 /// Service responsible for managing learning content and curriculum
 @MainActor

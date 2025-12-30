@@ -6,7 +6,9 @@
 //  Copyright © 2025 SwiftQuantum. All rights reserved.
 //
 
+import Foundation
 import SwiftUI
+import Combine
 
 @MainActor
 class HomeViewModel: ObservableObject {

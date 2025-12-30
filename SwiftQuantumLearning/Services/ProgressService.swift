@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import Combine 
 
 // MARK: - Progress Service
 /// Service responsible for tracking and updating user progress

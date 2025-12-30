@@ -107,7 +107,7 @@ struct QuantumButton: View {
             .scaleEffect(isPressed ? 0.98 : 1.0)
         }
         .buttonStyle(PlainButtonStyle())
-        .onLongPressGesture(minimumDuration: 0) { _ in
+        .onLongPressGesture(minimumDuration: 0) { 
             isPressed = true
         } onPressingChanged: { pressing in
             withAnimation(.easeInOut(duration: 0.1)) {
@@ -145,7 +145,7 @@ struct FloatingActionButton: View {
                 .scaleEffect(isPressed ? 0.9 : 1.0)
         }
         .buttonStyle(PlainButtonStyle())
-        .onLongPressGesture(minimumDuration: 0) { _ in
+        .onLongPressGesture(minimumDuration: 0) { 
             isPressed = true
         } onPressingChanged: { pressing in
             withAnimation(.spring()) {

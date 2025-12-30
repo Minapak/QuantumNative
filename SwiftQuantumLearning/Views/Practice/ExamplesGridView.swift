@@ -81,6 +81,8 @@ struct BasicOperationsExample: View {
         }
         .background(Color.bgDark)
         .navigationTitle("Basic Operations")
-        .navigationBarTitleDisplayMode(.inline)
+#if os(iOS)
+       .navigationBarTitleDisplayMode(.inline)
+       #endif
     }
 }

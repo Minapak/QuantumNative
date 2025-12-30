@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Combine
+import SwiftUI
 
 // MARK: - Complex Number
 struct Complex {

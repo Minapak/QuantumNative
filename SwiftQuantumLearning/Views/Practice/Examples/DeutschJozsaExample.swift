@@ -48,7 +48,9 @@ struct DeutschJozsaExample: View {
             .padding()
         }
         .navigationTitle("Deutsch-Jozsa")
-        .navigationBarTitleDisplayMode(.inline)
+     #if os(iOS)
+      .navigationBarTitleDisplayMode(.inline)
+      #endif
     }
     
     private var explanationCard: some View {

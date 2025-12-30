@@ -8,48 +8,41 @@
 
 import Foundation
 import SwiftUI
-import Combine 
+import Combine
 
-// MARK: - Progress Service
-/// Service responsible for tracking and updating user progress
 @MainActor
 class ProgressService: ObservableObject {
     
     // MARK: - Singleton
     static let shared = ProgressService()
     
-    // MARK: - Published Properties
     @Published var userProgress: UserProgress
     @Published var dailyGoals: DailyGoals
     
-    // MARK: - Private Properties
     private let storageService = StorageService.shared
     private let achievementService = AchievementService.shared
     
-    // MARK: - Initialization
     private init() {
         self.userProgress = UserProgress()
         self.dailyGoals = DailyGoals()
         loadProgress()
     }
     
-    // MARK: - Progress Management
-    
-    /// Load user progress from storage
     func loadProgress() {
         userProgress = storageService.loadUserProgress() ?? UserProgress()
         dailyGoals = storageService.loadDailyGoals() ?? DailyGoals()
     }
     
-    /// Save current progress
     func saveProgress() {
         storageService.saveUserProgress(userProgress)
         storageService.saveDailyGoals(dailyGoals)
     }
     
     /// Add XP and check for level up
+    @discardableResult
     func addXP(_ amount: Int, reason: String = "General") -> Bool {
         let previousLevel = userProgress.userLevel
+        userProgress.totalXP += amount
         userProgress.addXP(amount)
         
         // Track XP source
@@ -63,7 +56,6 @@ class ProgressService: ObservableObject {
         return userProgress.userLevel > previousLevel
     }
     
-    /// Complete a level
     func completeLevel(_ levelId: Int) {
         userProgress.completeLevel(levelId)
         
@@ -72,34 +64,33 @@ class ProgressService: ObservableObject {
         
         // Check achievements
         achievementService.checkLevelAchievements(
-            completedCount: userProgress.completedLevelIds.count
+            completedCount: userProgress.completedLevels.count
         )
         
         saveProgress()
     }
     
-    /// Update streak
     func updateStreak() {
         let today = Calendar.current.startOfDay(for: Date())
+        let lastDay = Calendar.current.startOfDay(for: userProgress.lastActiveDate)
+        let daysDifference = Calendar.current.dateComponents([.day],
+                                                            from: lastDay,
+                                                            to: today).day ?? 0
         
-        if let lastDate = userProgress.lastStudyDate {
-            let lastDay = Calendar.current.startOfDay(for: lastDate)
-            let daysDifference = Calendar.current.dateComponents([.day], 
-                                                                from: lastDay, 
-                                                                to: today).day ?? 0
-            
-            if daysDifference == 1 {
-                userProgress.currentStreak += 1
-            } else if daysDifference > 1 {
-                userProgress.currentStreak = 1
-            }
-        } else {
+        if daysDifference == 0 {
+            // Same day, no change needed
+            return
+        } else if daysDifference == 1 {
+            // Next day, increment streak
+            userProgress.currentStreak += 1
+        } else if daysDifference > 1 {
+            // Missed days, reset streak
             userProgress.currentStreak = 1
         }
         
-        userProgress.longestStreak = max(userProgress.longestStreak, 
+        userProgress.longestStreak = max(userProgress.longestStreak,
                                         userProgress.currentStreak)
-        userProgress.lastStudyDate = Date()
+        userProgress.lastActiveDate = Date()
         
         // Check streak achievements
         achievementService.checkStreakAchievements(
@@ -109,19 +100,15 @@ class ProgressService: ObservableObject {
         saveProgress()
     }
     
-    /// Track XP source for analytics
     private func trackXPSource(amount: Int, reason: String) {
-        // This could be expanded to track detailed analytics
         print("Added \(amount) XP for: \(reason)")
     }
     
-    /// Reset daily goals (called at midnight)
     func resetDailyGoals() {
         dailyGoals = DailyGoals()
         saveProgress()
     }
     
-    /// Check if daily goals are completed
     func checkDailyGoalsCompletion() -> Bool {
         return dailyGoals.levelsCompletedToday >= dailyGoals.targetLevels &&
                dailyGoals.xpEarnedToday >= dailyGoals.targetXP

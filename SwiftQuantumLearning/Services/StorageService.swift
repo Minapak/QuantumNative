@@ -7,17 +7,15 @@
 //
 
 import Foundation
-import SwiftUI
-import Combine 
-// MARK: - Storage Service
-/// Service responsible for data persistence
+import Combine
+
 class StorageService {
     
     // MARK: - Singleton
     static let shared = StorageService()
     
-    // MARK: - Storage Keys
-    private enum StorageKey: String {
+    // MARK: - Storage Keys - private enum을 public으로 변경
+    enum StorageKey: String, CaseIterable {
         case userProgress = "SwiftQuantum_UserProgress"
         case achievements = "SwiftQuantum_Achievements"
         case settings = "SwiftQuantum_Settings"
@@ -186,10 +184,7 @@ struct AppSettings: Codable {
 struct LearningSession: Codable {
     let date: Date
     let levelId: Int
-    let duration: Int // in seconds
+    let duration: Int
     let xpEarned: Int
     let completed: Bool
 }
-
-// Make StorageKey CaseIterable for clearAllData
-extension StorageService.StorageKey: CaseIterable {}

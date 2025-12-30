@@ -5,16 +5,92 @@
 //  Created by SwiftQuantum Team
 //  Copyright © 2025 SwiftQuantum. All rights reserved.
 //
-//  MARK: - Design System: Unified Theme
-//  This file brings together all design tokens and provides
-//  convenient access to the complete design system.
-//
 
 import SwiftUI
 
+// MARK: - Spacing System
+enum QuantumSpacing {
+    static let xxs: CGFloat = 2
+    static let xs: CGFloat = 4
+    static let sm: CGFloat = 8
+    static let md: CGFloat = 16
+    static let lg: CGFloat = 24
+    static let xl: CGFloat = 32
+    static let xxl: CGFloat = 48
+    
+    static let cardPadding: CGFloat = 16
+    static let sectionSpacing: CGFloat = 24
+    
+    enum CornerRadius {
+        static let sm: CGFloat = 4
+        static let md: CGFloat = 8
+        static let lg: CGFloat = 12
+        static let xl: CGFloat = 16
+        static let round: CGFloat = 999
+    }
+}
+
+// MARK: - Text Styles
+enum QuantumTextStyle {
+    static func title() -> Font {
+        .system(size: 28, weight: .bold)
+    }
+    
+    static func headline() -> Font {
+        .system(size: 20, weight: .semibold)
+    }
+    
+    static func body() -> Font {
+        .system(size: 16)
+    }
+    
+    static func caption() -> Font {
+        .system(size: 14)
+    }
+    
+    static func small() -> Font {
+        .system(size: 12)
+    }
+}
+
+// MARK: - Additional Color Extensions
+extension Color {
+    static let bgElevated = Color(white: 0.15)
+    
+    static let gradientAccent = LinearGradient(
+        colors: [.quantumCyan, .quantumPurple],
+        startPoint: .leading,
+        endPoint: .trailing
+    )
+    
+    // Hex initializer
+    init(hex: String) {
+        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int: UInt64 = 0
+        Scanner(string: hex).scanHexInt64(&int)
+        let a, r, g, b: UInt64
+        switch hex.count {
+        case 3: // RGB (12-bit)
+            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+        case 6: // RGB (24-bit)
+            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+        case 8: // ARGB (32-bit)
+            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+        default:
+            (a, r, g, b) = (255, 0, 0, 0)
+        }
+        
+        self.init(
+            .sRGB,
+            red: Double(r) / 255,
+            green: Double(g) / 255,
+            blue:  Double(b) / 255,
+            opacity: Double(a) / 255
+        )
+    }
+}
+
 // MARK: - Quantum Theme
-/// Central access point for all design system tokens
-/// Usage: QuantumTheme.colors.primary, QuantumTheme.spacing.md, etc.
 enum QuantumTheme {
     
     // MARK: - Color Tokens
@@ -40,86 +116,76 @@ enum QuantumTheme {
         static let surfaceElevated = Color.bgElevated
     }
     
-    // MARK: - Spacing Tokens (Alias for QuantumSpacing)
+    // MARK: - Spacing Tokens
     typealias Spacing = QuantumSpacing
     
-    // MARK: - Typography Tokens (Alias for QuantumTextStyle)
+    // MARK: - Typography Tokens
     typealias TextStyle = QuantumTextStyle
     
     // MARK: - Animation Tokens
     enum Animation {
-        /// Quick animation for micro-interactions (0.15s)
         static let quick = SwiftUI.Animation.easeOut(duration: 0.15)
-        
-        /// Standard animation for most transitions (0.25s)
         static let standard = SwiftUI.Animation.easeInOut(duration: 0.25)
-        
-        /// Smooth animation for larger movements (0.35s)
         static let smooth = SwiftUI.Animation.easeInOut(duration: 0.35)
-        
-        /// Spring animation for bouncy effects
         static let spring = SwiftUI.Animation.spring(response: 0.4, dampingFraction: 0.7)
-        
-        /// Gentle spring for subtle movements
         static let gentleSpring = SwiftUI.Animation.spring(response: 0.5, dampingFraction: 0.8)
     }
     
     // MARK: - Shadow Tokens
     enum Shadow {
-        /// Subtle shadow for cards
         static func card() -> some View {
             Color.black.opacity(0.2)
         }
         
-        /// Shadow radius for cards
         static let cardRadius: CGFloat = 8
-        
-        /// Shadow offset for cards
         static let cardOffset = CGSize(width: 0, height: 4)
-        
-        /// Elevated shadow for modals
         static let elevatedRadius: CGFloat = 16
         static let elevatedOffset = CGSize(width: 0, height: 8)
     }
     
-    // MARK: - Haptic Feedback
+    // MARK: - Haptic Feedback (iOS Only)
+    #if os(iOS)
     enum Haptics {
-        /// Light haptic for selections
         static func light() {
             let impactLight = UIImpactFeedbackGenerator(style: .light)
             impactLight.impactOccurred()
         }
         
-        /// Medium haptic for confirmations
         static func medium() {
             let impactMedium = UIImpactFeedbackGenerator(style: .medium)
             impactMedium.impactOccurred()
         }
         
-        /// Success haptic for completions
         static func success() {
             let notification = UINotificationFeedbackGenerator()
             notification.notificationOccurred(.success)
         }
         
-        /// Error haptic for failures
         static func error() {
             let notification = UINotificationFeedbackGenerator()
             notification.notificationOccurred(.error)
         }
         
-        /// Selection haptic for tab changes
         static func selection() {
             let selection = UISelectionFeedbackGenerator()
             selection.selectionChanged()
         }
     }
+    #else
+    // macOS placeholder - no haptics
+    enum Haptics {
+        static func light() { }
+        static func medium() { }
+        static func success() { }
+        static func error() { }
+        static func selection() { }
+    }
+    #endif
 }
 
 // MARK: - Theme Environment Key
-/// Environment key for theme customization
 private struct ThemeEnvironmentKey: EnvironmentKey {
-    static let defaultValue: Bool = true  // true = dark mode
+    static let defaultValue: Bool = true
 }
 
 extension EnvironmentValues {
@@ -130,7 +196,6 @@ extension EnvironmentValues {
 }
 
 // MARK: - Card Style Modifier
-/// Standard card styling with background, padding, and corner radius
 struct QuantumCardModifier: ViewModifier {
     var padding: CGFloat = QuantumSpacing.cardPadding
     var cornerRadius: CGFloat = QuantumSpacing.CornerRadius.md
@@ -153,7 +218,6 @@ struct QuantumCardModifier: ViewModifier {
 }
 
 // MARK: - Glass Morphism Modifier
-/// Applies a glass-like effect to views
 struct GlassMorphismModifier: ViewModifier {
     var cornerRadius: CGFloat = QuantumSpacing.CornerRadius.md
     var opacity: Double = 0.1
@@ -172,7 +236,6 @@ struct GlassMorphismModifier: ViewModifier {
 }
 
 // MARK: - Glow Effect Modifier
-/// Adds a glow effect around views
 struct GlowModifier: ViewModifier {
     let color: Color
     let radius: CGFloat
@@ -186,7 +249,6 @@ struct GlowModifier: ViewModifier {
 
 // MARK: - View Extensions for Theme
 extension View {
-    /// Applies standard card styling
     func quantumCard(
         padding: CGFloat = QuantumSpacing.cardPadding,
         cornerRadius: CGFloat = QuantumSpacing.CornerRadius.md,
@@ -199,7 +261,6 @@ extension View {
         ))
     }
     
-    /// Applies glass morphism effect
     func glassMorphism(
         cornerRadius: CGFloat = QuantumSpacing.CornerRadius.md,
         opacity: Double = 0.1
@@ -210,7 +271,6 @@ extension View {
         ))
     }
     
-    /// Adds glow effect
     func quantumGlow(
         color: Color = .quantumCyan,
         radius: CGFloat = 8
@@ -218,7 +278,6 @@ extension View {
         modifier(GlowModifier(color: color, radius: radius))
     }
     
-    /// Standard background gradient
     func quantumBackground() -> some View {
         self.background(
             LinearGradient(
@@ -235,7 +294,6 @@ extension View {
 }
 
 // MARK: - Button Styles
-/// Primary button style with gradient background
 struct QuantumPrimaryButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
     
@@ -249,9 +307,11 @@ struct QuantumPrimaryButtonStyle: ButtonStyle {
             .background(
                 RoundedRectangle(cornerRadius: QuantumSpacing.CornerRadius.md)
                     .fill(
-                        isEnabled
-                            ? Color.gradientAccent
-                            : LinearGradient(colors: [.locked], startPoint: .leading, endPoint: .trailing)
+                        LinearGradient(
+                            colors: isEnabled ? [.quantumCyan, .quantumPurple] : [.locked, .locked],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )
                     )
             )
             .opacity(configuration.isPressed ? 0.8 : 1.0)
@@ -260,7 +320,6 @@ struct QuantumPrimaryButtonStyle: ButtonStyle {
     }
 }
 
-/// Secondary button style with outline
 struct QuantumSecondaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -283,7 +342,6 @@ struct QuantumSecondaryButtonStyle: ButtonStyle {
     }
 }
 
-/// Tertiary button style (text only)
 struct QuantumTertiaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -305,66 +363,4 @@ extension ButtonStyle where Self == QuantumSecondaryButtonStyle {
 
 extension ButtonStyle where Self == QuantumTertiaryButtonStyle {
     static var quantumTertiary: QuantumTertiaryButtonStyle { QuantumTertiaryButtonStyle() }
-}
-
-// MARK: - Preview Provider
-#Preview("Theme Showcase") {
-    ScrollView {
-        VStack(spacing: 24) {
-            // Card Demo
-            Text("Card Styles")
-                .font(.headline)
-                .foregroundColor(.textPrimary)
-            
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Standard Card")
-                    .font(.subheadline)
-                    .foregroundColor(.textPrimary)
-                Text("This is a card with default styling")
-                    .font(.caption)
-                    .foregroundColor(.textSecondary)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .quantumCard()
-            
-            // Glass Morphism Demo
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Glass Effect")
-                    .font(.subheadline)
-                    .foregroundColor(.textPrimary)
-                Text("Frosted glass appearance")
-                    .font(.caption)
-                    .foregroundColor(.textSecondary)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(16)
-            .glassMorphism()
-            
-            // Button Styles
-            Text("Button Styles")
-                .font(.headline)
-                .foregroundColor(.textPrimary)
-            
-            Button("Primary Button") {}
-                .buttonStyle(.quantumPrimary)
-            
-            Button("Secondary Button") {}
-                .buttonStyle(.quantumSecondary)
-            
-            Button("Tertiary Button →") {}
-                .buttonStyle(.quantumTertiary)
-            
-            // Glow Effect
-            Text("Glow Effect")
-                .font(.headline)
-                .foregroundColor(.textPrimary)
-            
-            Image(systemName: "atom")
-                .font(.system(size: 48))
-                .foregroundColor(.quantumCyan)
-                .quantumGlow()
-        }
-        .padding()
-    }
-    .quantumBackground()
 }

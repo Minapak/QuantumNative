@@ -41,14 +41,25 @@ struct ConceptDetailView: View {
         }
         .background(Color.bgDark)
         .navigationTitle(conceptData.title)
+        #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+        #endif
         .toolbar {
+            #if os(iOS)
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: { isBookmarked.toggle() }) {
                     Image(systemName: isBookmarked ? "bookmark.fill" : "bookmark")
                         .foregroundColor(.quantumCyan)
                 }
             }
+            #else
+            ToolbarItem(placement: .automatic) {
+                Button(action: { isBookmarked.toggle() }) {
+                    Image(systemName: isBookmarked ? "bookmark.fill" : "bookmark")
+                        .foregroundColor(.quantumCyan)
+                }
+            }
+            #endif
         }
     }
     
@@ -153,23 +164,56 @@ struct ConceptData {
             return ConceptData(
                 title: "Qubit",
                 category: "Fundamentals",
-                description: "A qubit is the basic unit of quantum information...",
+                description: "A qubit is the basic unit of quantum information. Unlike classical bits that must be either 0 or 1, qubits can exist in a superposition of both states simultaneously.",
                 formula: "|ψ⟩ = α|0⟩ + β|1⟩",
                 keyPoints: [
-                    "Can be in superposition",
-                    "Measurement collapses state",
-                    "Represented on Bloch sphere"
+                    "Can exist in superposition of |0⟩ and |1⟩ states",
+                    "Measurement collapses the quantum state",
+                    "Represented as a point on the Bloch sphere",
+                    "Physical implementations include photons, ions, and superconducting circuits"
                 ],
                 relatedConcepts: ["Superposition", "Measurement", "Bloch Sphere"]
+            )
+        case "superposition":
+            return ConceptData(
+                title: "Superposition",
+                category: "Fundamentals",
+                description: "Superposition is a fundamental principle of quantum mechanics where a quantum system can exist in multiple states simultaneously until measured.",
+                formula: "|+⟩ = (|0⟩ + |1⟩)/√2",
+                keyPoints: [
+                    "Enables quantum parallelism",
+                    "Created using Hadamard gate",
+                    "Destroyed upon measurement",
+                    "Key to quantum speedup"
+                ],
+                relatedConcepts: ["Qubit", "Hadamard Gate", "Measurement"]
+            )
+        case "entanglement":
+            return ConceptData(
+                title: "Entanglement",
+                category: "Advanced Concepts",
+                description: "Quantum entanglement is a phenomenon where two or more particles become interconnected, and the quantum state of each particle cannot be described independently.",
+                formula: "|Φ+⟩ = (|00⟩ + |11⟩)/√2",
+                keyPoints: [
+                    "Einstein called it 'spooky action at a distance'",
+                    "Cannot be used for faster-than-light communication",
+                    "Key resource for quantum computing and quantum communication",
+                    "Created using CNOT gate after Hadamard"
+                ],
+                relatedConcepts: ["Bell States", "CNOT Gate", "Quantum Teleportation"]
             )
         default:
             return ConceptData(
                 title: "Quantum Concept",
                 category: "General",
-                description: "Description of the quantum concept...",
+                description: "This is a fundamental concept in quantum computing that demonstrates the unique properties of quantum systems.",
                 formula: nil,
-                keyPoints: ["Key point 1", "Key point 2"],
-                relatedConcepts: ["Related 1", "Related 2"]
+                keyPoints: [
+                    "Important quantum principle",
+                    "Used in quantum algorithms",
+                    "Differs from classical computing"
+                ],
+                relatedConcepts: ["Qubit", "Superposition", "Entanglement"]
             )
         }
     }

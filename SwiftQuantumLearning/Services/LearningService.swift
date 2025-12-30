@@ -8,9 +8,8 @@
 
 import Foundation
 import SwiftUI
-import Combine 
-// MARK: - Learning Service
-/// Service responsible for managing learning content and curriculum
+import Combine
+
 @MainActor
 class LearningService: ObservableObject {
     
@@ -36,7 +35,6 @@ class LearningService: ObservableObject {
     func loadLearningContent() {
         isLoading = true
         
-        // Load from bundled data or remote source
         DispatchQueue.main.async { [weak self] in
             self?.availableLevels = LearningLevel.allLevels
             self?.isLoading = false
@@ -64,12 +62,10 @@ class LearningService: ObservableObject {
             return false
         }
         
-        // First level is always unlocked
         if level.number == 1 {
             return true
         }
         
-        // Check if previous level in track is completed
         let trackLevels = getLevels(for: level.track)
         guard let currentIndex = trackLevels.firstIndex(where: { $0.id == levelId }),
               currentIndex > 0 else {
@@ -80,16 +76,22 @@ class LearningService: ObservableObject {
         return completedLevels.contains(previousLevel.id)
     }
     
-    /// Calculate total XP for track
+    /// Complete a lesson
+    func completeLesson(levelId: Int, lessonId: String) {
+        print("Completing lesson \(lessonId) in level \(levelId)")
+    }
+    
+    /// Calculate total XP for track - 수정된 reduce
     func getTotalXP(for track: Track) -> Int {
-        getLevels(for: track).reduce(0) { $0 + 100 } // Base XP per level
+        getLevels(for: track).reduce(0) { accumulator, level in
+            accumulator + level.xpReward
+        }
     }
     
     /// Get recommended next level based on user progress
     func getRecommendedLevel(completedLevels: Set<Int>) -> LearningLevel? {
-        // Find first uncompleted level that is unlocked
         for level in availableLevels {
-            if !completedLevels.contains(level.id) && 
+            if !completedLevels.contains(level.id) &&
                isLevelUnlocked(level.id, completedLevels: completedLevels) {
                 return level
             }

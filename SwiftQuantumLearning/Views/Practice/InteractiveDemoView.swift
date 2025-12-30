@@ -83,12 +83,21 @@ struct DemoDetailView: View {
                     .foregroundColor(.textPrimary)
             }
             .navigationTitle(demo.title)
+            #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
+            #endif
             .toolbar {
+                #if os(iOS)
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") { dismiss() }
                         .foregroundColor(.quantumCyan)
                 }
+                #else
+                ToolbarItem(placement: .automatic) {
+                    Button("Done") { dismiss() }
+                        .foregroundColor(.quantumCyan)
+                }
+                #endif
             }
         }
     }

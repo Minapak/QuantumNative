@@ -8,42 +8,32 @@
 
 import Foundation
 import SwiftUI
-import Combine 
-// MARK: - Achievement View Model
+import Combine
+
 @MainActor
 class AchievementViewModel: ObservableObject {
-    
-    // MARK: - Published Properties
     @Published var achievements: [Achievement] = []
     @Published var unlockedCount: Int = 0
     @Published var totalCount: Int = 0
     @Published var completionPercentage: Int = 0
     @Published var totalAchievementXP: Int = 0
-    @Published var showNotification: Bool = false
-    @Published var recentlyUnlocked: Achievement?
+    @Published var recentUnlocks: [Achievement] = []
     
-    // MARK: - Services
     private let achievementService = AchievementService.shared
     
-    // MARK: - Initialization
     init() {
         loadAchievements()
     }
     
-    // MARK: - Methods
     func loadAchievements() {
+        // Achievement.allAchievements 사용
         achievements = Achievement.allAchievements
+        totalCount = achievements.count
         updateStatistics()
-        
-        // Update unlock status for each achievement
-        for index in achievements.indices {
-            achievements[index].isUnlocked = achievementService.isUnlocked(achievements[index].id)
-        }
     }
     
-    func unlockAchievement(_ achievementId: String) {
-        achievementService.unlockAchievement(achievementId)
-        loadAchievements()
+    func achievements(for category: Category) -> [Achievement] {
+        achievements.filter { $0.category == category }
     }
     
     private func updateStatistics() {
@@ -52,9 +42,18 @@ class AchievementViewModel: ObservableObject {
         totalCount = stats.totalCount
         completionPercentage = stats.completionPercentage
         totalAchievementXP = stats.totalXPEarned
+        
+        // Recent unlocks
+        recentUnlocks = achievements
+            .filter { achievementService.isUnlocked($0.id) }
+            .sorted {
+                (achievementService.getUnlockDate(for: $0.id) ?? Date()) >
+                (achievementService.getUnlockDate(for: $1.id) ?? Date())
+            }
+            .prefix(3)
+            .map { $0 }
     }
     
-    // MARK: - Sample Data
     static let sample: AchievementViewModel = {
         let vm = AchievementViewModel()
         vm.unlockedCount = 12

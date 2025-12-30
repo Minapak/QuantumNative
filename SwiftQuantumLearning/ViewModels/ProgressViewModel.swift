@@ -9,12 +9,10 @@
 import Foundation
 import SwiftUI
 import Combine
-// MARK: - Progress View Model
+
 @MainActor
 class ProgressViewModel: ObservableObject {
-    
-    // MARK: - Published Properties
-    @Published var userProgress: UserProgress
+    @Published var userProgress: UserProgress = UserProgress()
     @Published var totalXP: Int = 0
     @Published var currentLevel: Int = 1
     @Published var currentStreak: Int = 0
@@ -22,14 +20,16 @@ class ProgressViewModel: ObservableObject {
     @Published var completedLevelsCount: Int = 0
     @Published var userName: String = "Quantum Learner"
     @Published var studyTimeMinutes: Int = 0
+    @Published var userLevel: Int = 1
+    @Published var xpUntilNextLevel: Int = 500
+    @Published var levelProgress: Double = 0.0
+    @Published var totalLevelsCount: Int = 10
+    @Published var overallProgressPercentage: Int = 0
     
-    // MARK: - Computed Properties
-    var xpToNextLevel: Int {
-        (currentLevel + 1) * 100 - (totalXP % 100)
-    }
+    private let progressService = ProgressService.shared
     
-    var progressToNextLevel: Double {
-        Double(totalXP % 100) / 100.0
+    init() {
+        loadProgress()
     }
     
     var studyTimeText: String {
@@ -41,34 +41,25 @@ class ProgressViewModel: ObservableObject {
         return "\(minutes) min"
     }
     
-    // MARK: - Services
-    private let progressService = ProgressService.shared
-    
-    // MARK: - Initialization
-    init() {
-        self.userProgress = UserProgress()
-        loadProgress()
-    }
-    
-    // MARK: - Methods
     func loadProgress() {
+        progressService.loadProgress()
         userProgress = progressService.userProgress
         updatePublishedProperties()
     }
     
-    func addXP(_ amount: Int, reason: String = "General") {
+    @discardableResult
+    func addXP(_ amount: Int, reason: String = "General") -> Bool {
         let leveledUp = progressService.addXP(amount, reason: reason)
         updatePublishedProperties()
-        
-        if leveledUp {
-            // Handle level up celebration
-            QuantumTheme.Haptics.success()
-        }
+        return leveledUp
     }
     
-    func completeLevel(_ levelId: Int) {
-        progressService.completeLevel(levelId)
-        updatePublishedProperties()
+    func completeLevel(_ levelId: String, xp: Int) {
+        if let id = Int(levelId) {
+            progressService.completeLevel(id)
+            addXP(xp, reason: "Level completed")
+            updatePublishedProperties()
+        }
     }
     
     func updateStreak() {
@@ -85,13 +76,19 @@ class ProgressViewModel: ObservableObject {
     
     private func updatePublishedProperties() {
         totalXP = userProgress.totalXP
-        currentLevel = userProgress.userLevel
+        currentLevel = userProgress.currentLevel
+        userLevel = userProgress.userLevel
         currentStreak = userProgress.currentStreak
         longestStreak = userProgress.longestStreak
-        completedLevelsCount = userProgress.completedLevelIds.count
+        completedLevelsCount = userProgress.completedLevels.count
+        userName = userProgress.userName
+        studyTimeMinutes = userProgress.studyTimeMinutes
+        xpUntilNextLevel = userProgress.xpUntilNextLevel
+        levelProgress = userProgress.levelProgress
+        totalLevelsCount = LearningLevel.allLevels.count
+        overallProgressPercentage = totalLevelsCount > 0 ? (completedLevelsCount * 100) / totalLevelsCount : 0
     }
     
-    // MARK: - Sample Data
     static let sample: ProgressViewModel = {
         let vm = ProgressViewModel()
         vm.totalXP = 1250

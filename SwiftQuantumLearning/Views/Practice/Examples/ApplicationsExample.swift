@@ -66,7 +66,9 @@ struct ApplicationsExample: View {
             .padding(.vertical)
         }
         .navigationTitle("Applications")
+        #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+        #endif
         .sheet(item: $selectedApplication) { app in
             ApplicationDetailView(application: app)
         }
@@ -199,12 +201,21 @@ struct ApplicationDetailView: View {
                     .padding()
                 }
             }
+            #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
+            #endif
             .toolbar {
+                #if os(iOS)
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") { dismiss() }
                         .foregroundColor(.quantumCyan)
                 }
+                #else
+                ToolbarItem(placement: .automatic) {
+                    Button("Done") { dismiss() }
+                        .foregroundColor(.quantumCyan)
+                }
+                #endif
             }
         }
     }

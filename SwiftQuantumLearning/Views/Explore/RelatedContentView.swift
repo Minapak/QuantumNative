@@ -28,7 +28,9 @@ struct RelatedContentView: View {
         }
         .background(Color.bgDark)
         .navigationTitle("Related Content")
-        .navigationBarTitleDisplayMode(.inline)
+#if os(iOS)
+           .navigationBarTitleDisplayMode(.inline)
+           #endif
     }
     
     private var relatedLevelsSection: some View {

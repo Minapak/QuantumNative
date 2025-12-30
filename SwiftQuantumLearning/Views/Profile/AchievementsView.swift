@@ -38,12 +38,21 @@ struct AchievementsView: View {
                 }
             }
             .navigationTitle("Achievements")
+            #if os(iOS)
             .navigationBarTitleDisplayMode(.large)
+            #endif
             .toolbar {
+                #if os(iOS)
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") { dismiss() }
                         .foregroundColor(.quantumCyan)
                 }
+                #else
+                ToolbarItem(placement: .automatic) {
+                    Button("Done") { dismiss() }
+                        .foregroundColor(.quantumCyan)
+                }
+                #endif
             }
         }
     }

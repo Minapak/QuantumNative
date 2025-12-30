@@ -8,75 +8,76 @@
 
 import SwiftUI
 
-// MARK: - Quantum Random Number Example
 struct RandomNumberExample: View {
-    @State private var randomNumbers: [Int] = []
+    @State private var randomBits: String = ""
+    @State private var decimalValue: Int = 0
     @State private var isGenerating = false
-    @State private var numberOfBits = 8
+    @State private var bitCount = 8
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 24) {
-                // Explanation
-                explanationCard
-                
-                // Configuration
-                configurationSection
-                
-                // Generate button
-                generateButton
-                
-                // Results
-                if !randomNumbers.isEmpty {
-                    resultsSection
+        ZStack {
+            Color.bgDark.ignoresSafeArea()
+            
+            ScrollView {
+                VStack(spacing: 24) {
+                    explanationCard
+                    settingsCard
+                    generateButton
+                    
+                    if !randomBits.isEmpty {
+                        resultsCard
+                    }
                 }
+                .padding(20)
             }
-            .padding()
         }
         .navigationTitle("Quantum RNG")
+        #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+        #endif
     }
     
     private var explanationCard: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Label("How It Works", systemImage: "info.circle")
+            Text("True Randomness")
                 .font(.headline)
-                .foregroundColor(.quantumCyan)
+                .foregroundColor(.textPrimary)
             
-            Text("""
-            Quantum random number generation uses the inherent randomness of quantum mechanics. \
-            By preparing qubits in superposition and measuring them, we get truly random bits.
-            """)
-            .font(.subheadline)
-            .foregroundColor(.textSecondary)
+            Text("Quantum random number generation uses quantum superposition to create truly random bits. Each qubit is put in superposition and measured, collapsing to 0 or 1 with perfect randomness.")
+                .font(.subheadline)
+                .foregroundColor(.textSecondary)
+                .lineSpacing(4)
         }
-        .padding()
+        .padding(20)
         .background(Color.bgCard)
-        .cornerRadius(12)
+        .cornerRadius(16)
     }
     
-    private var configurationSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
+    private var settingsCard: some View {
+        VStack(alignment: .leading, spacing: 16) {
             Text("Number of Bits")
                 .font(.headline)
                 .foregroundColor(.textPrimary)
             
-            HStack {
-                Text("\(numberOfBits)")
-                    .font(.title2.bold())
-                    .foregroundColor(.quantumCyan)
-                    .frame(width: 50)
-                
-                Slider(value: Binding(
-                    get: { Double(numberOfBits) },
-                    set: { numberOfBits = Int($0) }
-                ), in: 1...16, step: 1)
-                .tint(.quantumCyan)
+            Picker("Bits", selection: $bitCount) {
+                Text("4 bits").tag(4)
+                Text("8 bits").tag(8)
+                Text("16 bits").tag(16)
             }
+            .pickerStyle(SegmentedPickerStyle())
+            
+            HStack {
+                Text("Max value:")
+                    .foregroundColor(.textSecondary)
+                Text("\(Int(pow(2.0, Double(bitCount))) - 1)")
+                    .font(.system(.body, design: .monospaced))
+                    .foregroundColor(.quantumCyan)
+            }
+            .font(.caption)
         }
-        .padding()
+        .padding(20)
         .background(Color.bgCard)
-        .cornerRadius(12)
+        .cornerRadius(16)
     }
     
     private var generateButton: some View {
@@ -84,106 +85,92 @@ struct RandomNumberExample: View {
             HStack {
                 if isGenerating {
                     ProgressView()
-                        .tint(.bgDark)
+                        .progressViewStyle(CircularProgressViewStyle(tint: .bgDark))
+                        .scaleEffect(0.8)
                 } else {
-                    Image(systemName: "dice")
-                    Text("Generate Quantum Random Number")
+                    Image(systemName: "dice.fill")
                 }
+                Text(isGenerating ? "Generating..." : "Generate Random Number")
             }
             .font(.headline)
             .foregroundColor(.bgDark)
             .frame(maxWidth: .infinity)
-            .padding()
+            .padding(.vertical, 14)
             .background(Color.quantumCyan)
             .cornerRadius(12)
         }
         .disabled(isGenerating)
     }
     
-    private var resultsSection: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Generated Numbers")
-                .font(.headline)
-                .foregroundColor(.textPrimary)
+    private var resultsCard: some View {
+        VStack(spacing: 20) {
+            // Binary display
+            VStack(spacing: 8) {
+                Text("Binary")
+                    .font(.caption)
+                    .foregroundColor(.textSecondary)
+                
+                Text(randomBits)
+                    .font(.system(.title2, design: .monospaced))
+                    .foregroundColor(.quantumPurple)
+            }
             
-            ForEach(Array(randomNumbers.suffix(5).enumerated()), id: \.offset) { _, number in
-                RandomNumberCard(
-                    decimal: number,
-                    binary: String(number, radix: 2).padLeft(toLength: numberOfBits),
-                    hex: String(format: "0x%02X", number)
-                )
+            Divider()
+                .background(Color.textTertiary.opacity(0.3))
+            
+            // Decimal display
+            VStack(spacing: 8) {
+                Text("Decimal")
+                    .font(.caption)
+                    .foregroundColor(.textSecondary)
+                
+                Text("\(decimalValue)")
+                    .font(.system(.largeTitle, design: .rounded).bold())
+                    .foregroundColor(.quantumCyan)
+            }
+            
+            // Visualization
+            HStack(spacing: 4) {
+                ForEach(0..<randomBits.count, id: \.self) { index in
+                    let bit = String(randomBits[randomBits.index(randomBits.startIndex, offsetBy: index)])
+                    Circle()
+                        .fill(bit == "1" ? Color.quantumCyan : Color.textTertiary.opacity(0.3))
+                        .frame(width: 8, height: 8)
+                }
             }
         }
+        .padding(20)
+        .background(Color.bgCard)
+        .cornerRadius(16)
     }
     
     private func generateRandomNumber() {
         isGenerating = true
+        randomBits = ""
         
-        // Simulate quantum random generation
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            let maxValue = Int(pow(2.0, Double(numberOfBits))) - 1
-            let randomValue = Int.random(in: 0...maxValue)
-            
-            withAnimation {
-                randomNumbers.append(randomValue)
-                isGenerating = false
-            }
-            
-            QuantumTheme.Haptics.success()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.animateGeneration()
         }
     }
-}
-
-// MARK: - Random Number Card
-struct RandomNumberCard: View {
-    let decimal: Int
-    let binary: String
-    let hex: String
     
-    var body: some View {
-        HStack(spacing: 16) {
-            VStack(alignment: .leading, spacing: 4) {
-                Text("Decimal")
-                    .font(.caption)
-                    .foregroundColor(.textTertiary)
-                Text("\(decimal)")
-                    .font(.headline)
-                    .foregroundColor(.textPrimary)
-            }
-            
-            VStack(alignment: .leading, spacing: 4) {
-                Text("Binary")
-                    .font(.caption)
-                    .foregroundColor(.textTertiary)
-                Text(binary)
-                    .font(.caption.monospaced())
-                    .foregroundColor(.quantumCyan)
-            }
-            
-            Spacer()
-            
-            VStack(alignment: .trailing, spacing: 4) {
-                Text("Hex")
-                    .font(.caption)
-                    .foregroundColor(.textTertiary)
-                Text(hex)
-                    .font(.caption.monospaced())
-                    .foregroundColor(.quantumPurple)
+    private func animateGeneration() {
+        var bits = ""
+        
+        for i in 0..<bitCount {
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(i) * 0.1) {
+                let bit = Bool.random() ? "1" : "0"
+                bits.append(bit)
+                
+                withAnimation {
+                    self.randomBits = bits.padding(toLength: self.bitCount, withPad: " ", startingAt: 0)
+                }
+                
+                if i == bitCount - 1 {
+                    self.randomBits = bits
+                    self.decimalValue = Int(bits, radix: 2) ?? 0
+                    self.isGenerating = false
+                }
             }
         }
-        .padding()
-        .background(Color.bgCard)
-        .cornerRadius(8)
-    }
-}
-
-// String extension for padding
-extension String {
-    func padLeft(toLength length: Int, withPad pad: String = "0") -> String {
-        let currentLength = self.count
-        if currentLength >= length {
-            return self
-        }
-        return String(repeating: pad, count: length - currentLength) + self
     }
 }

@@ -46,7 +46,9 @@ struct QuantumGatesExample: View {
             .padding()
         }
         .navigationTitle("Quantum Gates")
-        .navigationBarTitleDisplayMode(.inline)
+#if os(iOS)
+      .navigationBarTitleDisplayMode(.inline)
+      #endif
     }
     
     private var stateDisplay: some View {

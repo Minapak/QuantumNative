@@ -1,5 +1,5 @@
 //
-//  LearningViewModel.swift
+//  LearnViewModel.swift
 //  SwiftQuantum Learning App
 //
 //  Created by SwiftQuantum Team
@@ -16,7 +16,7 @@ import Combine
 // MARK: - Learning ViewModel
 /// ViewModel for managing learning content and navigation
 @MainActor
-class LearningViewModel: ObservableObject {
+class LearnViewModel: ObservableObject {
     
     // MARK: - Published Properties
     
@@ -242,10 +242,10 @@ class LearningViewModel: ObservableObject {
 }
 
 // MARK: - Preview Helper
-extension LearningViewModel {
+extension LearnViewModel {
     /// Sample ViewModel for previews
-    static var sample: LearningViewModel {
-        let vm = LearningViewModel()
+    static var sample: LearnViewModel {
+        let vm = LearnViewModel()
         // Mark first two levels as completed
         vm.updateLevelProgress(levelId: 1, isCompleted: true, progress: 100)
         vm.updateLevelProgress(levelId: 2, isCompleted: true, progress: 100)
@@ -255,9 +255,9 @@ extension LearningViewModel {
 }
 
 // MARK: - Preview Provider
-#Preview("Learning ViewModel Demo") {
+#Preview("Learn ViewModel Demo") {
     struct LearningDemo: View {
-        @StateObject private var viewModel = LearningViewModel.sample
+        @StateObject private var viewModel = LearnViewModel.sample
         
         var body: some View {
             NavigationStack {

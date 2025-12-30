@@ -1,5 +1,5 @@
 //
-//  ExploreScreenView.swift
+//  ExploreView.swift
 //  SwiftQuantum Learning App
 //
 //  Created by SwiftQuantum Team
@@ -40,7 +40,7 @@ struct ExploreItem: Identifiable {
 
 // MARK: - Explore Screen View
 /// Main explore screen with concept discovery
-struct ExploreScreenView: View {
+struct ExploreView: View {
     
     // MARK: - State
     @State private var searchText = ""
@@ -703,8 +703,8 @@ struct RelatedConceptChip: View {
 }
 
 // MARK: - Preview Provider
-#Preview("Explore Screen") {
-    ExploreScreenView()
+#Preview("Explore") {
+    ExploreView()
         .preferredColorScheme(.dark)
 }
 

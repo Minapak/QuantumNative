@@ -1,5 +1,5 @@
 //
-//  PracticeScreenView.swift
+//  PracticeView.swift
 //  SwiftQuantum Learning App
 //
 //  Created by SwiftQuantum Team
@@ -44,9 +44,9 @@ struct PracticeItem: Identifiable {
     }
 }
 
-// MARK: - Practice Screen View
-/// Main practice screen with grid of experiments
-struct PracticeScreenView: View {
+// MARK: - Practice View
+/// Main practice with grid of experiments
+struct PracticeView: View {
     
     // MARK: - Environment
     @EnvironmentObject var progressViewModel: ProgressViewModel
@@ -761,8 +761,8 @@ struct ComingSoonView: View {
 }
 
 // MARK: - Preview Provider
-#Preview("Practice Screen") {
-    PracticeScreenView()
+#Preview("Practice") {
+    PracticeView()
         .environmentObject(ProgressViewModel.sample)
         .preferredColorScheme(.dark)
 }

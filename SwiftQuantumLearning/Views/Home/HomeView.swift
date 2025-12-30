@@ -1,5 +1,5 @@
 //
-//  HomeScreenView.swift
+//  HomeView.swift
 //  SwiftQuantum Learning App
 //
 //  Created by SwiftQuantum Team
@@ -14,7 +14,7 @@ import SwiftUI
 
 // MARK: - Home Screen View
 /// Main home screen displaying user progress and daily activities
-struct HomeScreenView: View {
+struct HomeView: View {
     
     // MARK: - Environment
     @EnvironmentObject var progressViewModel: ProgressViewModel
@@ -674,8 +674,8 @@ struct AchievementRowView: View {
 }
 
 // MARK: - Preview Provider
-#Preview("Home Screen") {
-    HomeScreenView()
+#Preview("Home") {
+    HomeView()
         .environmentObject(ProgressViewModel.sample)
         .environmentObject(LearningViewModel.sample)
         .environmentObject(AchievementViewModel.sample)

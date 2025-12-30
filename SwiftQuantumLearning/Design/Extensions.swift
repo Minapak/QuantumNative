@@ -26,6 +26,11 @@ extension Color {
     static let textPrimary = Color.white
     static let textSecondary = Color.white.opacity(0.7)
     static let textTertiary = Color.white.opacity(0.5)
+    
+    // Status Colors
+    static let completed = Color.quantumGreen
+    static let inProgress = Color.quantumYellow
+    static let locked = Color.gray
 }
 
 // MARK: - View Extensions
@@ -44,37 +49,13 @@ extension View {
     }
 }
 
-// MARK: - QuantumTheme
-struct QuantumTheme {
-    struct Haptics {
-        static func light() {
-            let impact = UIImpactFeedbackGenerator(style: .light)
-            impact.impactOccurred()
+// MARK: - String Extensions
+extension String {
+    func padLeft(toLength length: Int, withPad pad: String = "0") -> String {
+        let currentLength = self.count
+        if currentLength >= length {
+            return self
         }
-        
-        static func medium() {
-            let impact = UIImpactFeedbackGenerator(style: .medium)
-            impact.impactOccurred()
-        }
-        
-        static func heavy() {
-            let impact = UIImpactFeedbackGenerator(style: .heavy)
-            impact.impactOccurred()
-        }
-        
-        static func success() {
-            let notification = UINotificationFeedbackGenerator()
-            notification.notificationOccurred(.success)
-        }
-        
-        static func error() {
-            let notification = UINotificationFeedbackGenerator()
-            notification.notificationOccurred(.error)
-        }
-        
-        static func selection() {
-            let selection = UISelectionFeedbackGenerator()
-            selection.selectionChanged()
-        }
+        return String(repeating: pad, count: length - currentLength) + self
     }
 }

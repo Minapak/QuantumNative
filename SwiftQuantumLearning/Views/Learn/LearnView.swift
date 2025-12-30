@@ -1,5 +1,5 @@
 //
-//  LearnScreenView.swift
+//  LearnView.swift
 //  SwiftQuantum Learning App
 //
 //  Created by SwiftQuantum Team
@@ -14,7 +14,7 @@ import SwiftUI
 
 // MARK: - Learn Screen View
 /// Main learning hub with track selection and level progression
-struct LearnScreenView: View {
+struct LearnView: View {
     
     // MARK: - Environment
     @EnvironmentObject var progressViewModel: ProgressViewModel
@@ -465,8 +465,8 @@ struct TrackOptionRow: View {
 }
 
 // MARK: - Preview Provider
-#Preview("Learn Screen") {
-    LearnScreenView()
+#Preview("Learn") {
+    LearnView()
         .environmentObject(ProgressViewModel.sample)
         .environmentObject(LearningViewModel.sample)
         .preferredColorScheme(.dark)

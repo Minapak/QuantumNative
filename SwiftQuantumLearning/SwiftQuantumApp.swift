@@ -10,6 +10,7 @@ import SwiftUI
 
 @main
 struct SwiftQuantumLearningApp: App {
+    @StateObject private var authViewModel = AuthViewModel()
     @StateObject private var progressViewModel = ProgressViewModel()
     @StateObject private var achievementViewModel = AchievementViewModel()
     @StateObject private var homeViewModel = HomeViewModel()
@@ -20,24 +21,22 @@ struct SwiftQuantumLearningApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainTabView()
-                .environmentObject(progressViewModel)
-                .environmentObject(achievementViewModel)
-                .environmentObject(homeViewModel)
-                .environmentObject(learnViewModel)
-                .environmentObject(practiceViewModel)
-                .environmentObject(exploreViewModel)
-                .environmentObject(profileViewModel)
-                .preferredColorScheme(.dark)
-                .onAppear {
-                    setupApp()
-                }
+            if authViewModel.isLoggedIn {
+                MainTabView()
+                    .environmentObject(authViewModel)    
+                    .environmentObject(progressViewModel)
+                    .environmentObject(achievementViewModel)
+                    .environmentObject(homeViewModel)
+                    .environmentObject(learnViewModel)
+                    .environmentObject(practiceViewModel)
+                    .environmentObject(exploreViewModel)
+                    .environmentObject(profileViewModel)
+                    .preferredColorScheme(.dark)
+            } else {
+                AuthenticationView()
+                    .environmentObject(authViewModel)
+                    .preferredColorScheme(.dark)
+            }
         }
-    }
-    
-    private func setupApp() {
-        progressViewModel.loadProgress()
-        achievementViewModel.loadAchievements()
-        print("📱 SwiftQuantum Learning App launched successfully")
     }
 }

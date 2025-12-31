@@ -18,40 +18,92 @@ class AchievementViewModel: ObservableObject {
     @Published var completionPercentage: Int = 0
     @Published var totalAchievementXP: Int = 0
     @Published var recentUnlocks: [Achievement] = []
+    @Published var isLoading = false
+    @Published var errorMessage: String?
     
     private let achievementService = AchievementService.shared
+    private let apiClient = APIClient.shared
     
     init() {
-        loadAchievements()
+        print("✅ AchievementViewModel initialized")
+        //loadAchievements()
     }
     
     func loadAchievements() {
-        // Achievement.allAchievements 사용
-        achievements = Achievement.allAchievements
-        totalCount = achievements.count
-        updateStatistics()
+        isLoading = true
+        errorMessage = nil
+        
+        Task {
+            do {
+                let response: AchievementsListResponse = try await apiClient.get(
+                    endpoint: "/api/v1/achievements/"
+                )
+                
+                DispatchQueue.main.async {
+                    // Convert API response to Achievement model
+                    self.achievements = response.achievements.map { apiAchievement in
+                        var achievement = Achievement.allAchievements.first { $0.id == apiAchievement.id } ?? Achievement(
+                            id: apiAchievement.id,
+                            title: apiAchievement.title,
+                            description: apiAchievement.description,
+                            emoji: apiAchievement.icon,
+                            iconName: "star.fill",
+                            xpReward: apiAchievement.xp_reward,
+                            category: Category(rawValue: apiAchievement.category) ?? .progress,
+                            rarity: Rarity(rawValue: apiAchievement.rarity) ?? .common
+                        )
+                        
+                        if apiAchievement.is_unlocked {
+                            achievement.unlockedDate = Date()
+                        }
+                        
+                        return achievement
+                    }
+                    
+                    self.totalCount = response.total
+                    self.unlockedCount = response.unlocked
+                    self.completionPercentage = response.total > 0 ? (response.unlocked * 100) / response.total : 0
+                    self.totalAchievementXP = self.achievements
+                        .filter { $0.isUnlocked }
+                        .reduce(0) { $0 + $1.xpReward }
+                    
+                    self.updateRecentUnlocks()
+                    self.isLoading = false
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.errorMessage = error.localizedDescription
+                    self.isLoading = false
+                    // 실패시 로컬 데이터 사용
+                    self.loadLocalAchievements()
+                }
+                print("❌ Failed to load achievements: \(error)")
+            }
+        }
     }
     
     func achievements(for category: Category) -> [Achievement] {
         achievements.filter { $0.category == category }
     }
     
-    private func updateStatistics() {
+    private func updateRecentUnlocks() {
+        recentUnlocks = achievements
+            .filter { $0.isUnlocked }
+            .sorted { ($0.unlockedDate ?? Date()) > ($1.unlockedDate ?? Date()) }
+            .prefix(3)
+            .map { $0 }
+    }
+    
+    private func loadLocalAchievements() {
+        achievements = Achievement.allAchievements
+        totalCount = achievements.count
         let stats = achievementService.getStatistics()
         unlockedCount = stats.unlockedCount
         totalCount = stats.totalCount
         completionPercentage = stats.completionPercentage
         totalAchievementXP = stats.totalXPEarned
         
-        // Recent unlocks
-        recentUnlocks = achievements
-            .filter { achievementService.isUnlocked($0.id) }
-            .sorted {
-                (achievementService.getUnlockDate(for: $0.id) ?? Date()) >
-                (achievementService.getUnlockDate(for: $1.id) ?? Date())
-            }
-            .prefix(3)
-            .map { $0 }
+        updateRecentUnlocks()
     }
     
     static let sample: AchievementViewModel = {

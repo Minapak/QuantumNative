@@ -25,12 +25,17 @@ class ProgressViewModel: ObservableObject {
     @Published var levelProgress: Double = 0.0
     @Published var totalLevelsCount: Int = 10
     @Published var overallProgressPercentage: Int = 0
+    @Published var isLoading = false
+    @Published var errorMessage: String?
     
     private let progressService = ProgressService.shared
+    private let apiClient = APIClient.shared
+    private var cancellables = Set<AnyCancellable>()
     
     init() {
-        loadProgress()
-    }
+          // 🔧 init에서 API 호출 제거 - 로그인 후 수동 호출
+          print("✅ ProgressViewModel initialized")
+      }
     
     var studyTimeText: String {
         let hours = studyTimeMinutes / 60
@@ -41,10 +46,52 @@ class ProgressViewModel: ObservableObject {
         return "\(minutes) min"
     }
     
+    // MARK: - API Methods
+    
     func loadProgress() {
-        progressService.loadProgress()
-        userProgress = progressService.userProgress
-        updatePublishedProperties()
+        isLoading = true
+        errorMessage = nil
+        
+        Task {
+            do {
+                let stats: UserStatsResponse = try await apiClient.get(
+                    endpoint: "/api/v1/users/me/stats"
+                )
+                
+                DispatchQueue.main.async {
+                    self.totalXP = stats.total_xp
+                    self.currentLevel = stats.current_level
+                    self.userLevel = stats.current_level
+                    self.currentStreak = stats.current_streak
+                    self.longestStreak = stats.longest_streak
+                    self.completedLevelsCount = stats.levels_completed
+                    self.studyTimeMinutes = stats.total_study_time_minutes
+                    self.xpUntilNextLevel = stats.xp_until_next_level
+                    self.levelProgress = stats.level_progress
+                    
+                    // Update user progress
+                    self.userProgress.totalXP = stats.total_xp
+                    self.userProgress.currentLevel = stats.current_level
+                    self.userProgress.currentStreak = stats.current_streak
+                    self.userProgress.longestStreak = stats.longest_streak
+                    
+                    // ✅ 이 부분 수정
+                    if stats.levels_completed > 0 {
+                        self.userProgress.completedLevels = Set(1...stats.levels_completed)
+                    } else {
+                        self.userProgress.completedLevels = Set()
+                    }
+                    
+                    self.isLoading = false
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.errorMessage = error.localizedDescription
+                    self.isLoading = false
+                }
+                print("❌ Failed to load progress: \(error)")
+            }
+        }
     }
     
     @discardableResult
@@ -56,9 +103,26 @@ class ProgressViewModel: ObservableObject {
     
     func completeLevel(_ levelId: String, xp: Int) {
         if let id = Int(levelId) {
-            progressService.completeLevel(id)
-            addXP(xp, reason: "Level completed")
-            updatePublishedProperties()
+            Task {
+                do {
+                    let request = CompleteLevelRequest(quiz_score: nil)
+                    let response: CompleteLevelResponse = try await apiClient.post(
+                        endpoint: "/api/v1/learning/progress/complete/\(id)/explanation",
+                        body: request
+                    )
+                    
+                    DispatchQueue.main.async {
+                        self.progressService.completeLevel(id)
+                        self.addXP(response.xp_earned, reason: "Level completed")
+                        self.updatePublishedProperties()
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        self.errorMessage = error.localizedDescription
+                    }
+                    print("❌ Failed to complete level: \(error)")
+                }
+            }
         }
     }
     

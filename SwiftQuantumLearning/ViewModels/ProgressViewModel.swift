@@ -101,6 +101,7 @@ class ProgressViewModel: ObservableObject {
         return leveledUp
     }
     
+    /// Complete a level - fixed async/await
     func completeLevel(_ levelId: String, xp: Int) {
         if let id = Int(levelId) {
             Task {
@@ -111,11 +112,10 @@ class ProgressViewModel: ObservableObject {
                         body: request
                     )
                     
-                    DispatchQueue.main.async {
-                        self.progressService.completeLevel(id)
-                        self.addXP(response.xp_earned, reason: "Level completed")
-                        self.updatePublishedProperties()
-                    }
+                    // ✅ MainActor 컨텍스트에서 안전하게 업데이트
+                    self.progressService.completeLevel(id)
+                    self.addXP(response.xp_earned, reason: "Level completed")
+                    self.updatePublishedProperties()
                 } catch {
                     DispatchQueue.main.async {
                         self.errorMessage = error.localizedDescription

@@ -230,7 +230,7 @@ struct MemoryTriggerCard: View {
                 }
                 .padding(16)
                 .background(Color.bgCard)
-                .cornerRadius(12, corners: isExpanded ? [.topLeft, .topRight] : .allCorners)
+                .cornerRadius(12)
             }
             .buttonStyle(.plain)
             
@@ -262,7 +262,7 @@ struct MemoryTriggerCard: View {
                 }
                 .padding(16)
                 .background(Color.bgCard)
-                .cornerRadius(12, corners: [.bottomLeft, .bottomRight])
+                .cornerRadius(12)
             }
         }
     }
@@ -295,7 +295,7 @@ struct ConceptMapCard: View {
                 }
                 .padding(16)
                 .background(Color.bgCard)
-                .cornerRadius(12, corners: isExpanded ? [.topLeft, .topRight] : .allCorners)
+                .cornerRadius(12)
             }
             .buttonStyle(.plain)
             
@@ -329,7 +329,7 @@ struct ConceptMapCard: View {
                 }
                 .padding(16)
                 .background(Color.bgCard)
-                .cornerRadius(12, corners: [.bottomLeft, .bottomRight])
+                .cornerRadius(12)
             }
         }
     }
@@ -363,7 +363,7 @@ struct FeynmanExplanationCard: View {
                 }
                 .padding(16)
                 .background(Color.bgCard)
-                .cornerRadius(12, corners: isExpanded ? [.topLeft, .topRight] : .allCorners)
+                .cornerRadius(12)
             }
             .buttonStyle(.plain)
             
@@ -437,7 +437,7 @@ struct FeynmanExplanationCard: View {
                 }
                 .padding(16)
                 .background(Color.bgCard)
-                .cornerRadius(12, corners: [.bottomLeft, .bottomRight])
+                .cornerRadius(12)
             }
         }
     }
@@ -475,41 +475,22 @@ struct StrategyTipCard: View {
 }
 
 // MARK: - Flow Layout Helper
-struct FlowLayout: View {
+struct FlowLayout<Content: View>: View {
     let spacing: CGFloat
-    let content: [AnyView]
+    let content: Content
     
-    @State private var totalHeight = CGFloat.zero
-    
-    init<Data: Sequence>(
+    init(
         spacing: CGFloat = 8,
-        @ViewBuilder content: @escaping () -> ForEach<Data, Data.Element.ID, AnyView>
-    ) where Data.Element: Identifiable {
+        @ViewBuilder content: () -> Content
+    ) {
         self.spacing = spacing
-        let forEach = content()
-        self.content = forEach.data.map { AnyView(forEach.content($0)) }.toArray()
+        self.content = content()
     }
     
     var body: some View {
         VStack(alignment: .leading, spacing: spacing) {
-            ForEach(0..<content.count, id: \.self) { index in
-                content[index]
-            }
+            content
         }
-    }
-}
-
-// MARK: - Helper for RoundedRectangle corners
-extension RoundedRectangle {
-    init(cornerRadius: CGFloat, corners: UIRectCorner) {
-        self.init(cornerRadius: cornerRadius)
-    }
-}
-
-// MARK: - Array Extension
-extension Array {
-    func toArray() -> [Element] {
-        Array(self)
     }
 }
 

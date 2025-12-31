@@ -10,23 +10,29 @@ import SwiftUI
 
 // MARK: - Learn View
 struct LearnView: View {
-    @StateObject private var progressViewModel = ProgressViewModel()
     @StateObject private var learningViewModel = LearnViewModel()
     @State private var selectedTrack: LearningTrack?
     @State private var showTrackSelector = false
     @State private var animateLevels = false
+    @State private var isLoading = true
     
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.bgDark.ignoresSafeArea()
                 
-                VStack(spacing: 0) {
-                    if selectedTrack != nil {
-                        trackSelectorHeader
+                if isLoading {
+                    loadingView
+                } else if learningViewModel.tracks.isEmpty {
+                    emptyStateView
+                } else {
+                    VStack(spacing: 0) {
+                        if selectedTrack != nil {
+                            trackSelectorHeader
+                        }
+                        
+                        levelsScrollView
                     }
-                    
-                    levelsScrollView
                 }
             }
             .navigationTitle("Learn")
@@ -48,14 +54,83 @@ struct LearnView: View {
                 )
             }
             .onAppear {
-                if selectedTrack == nil && !learningViewModel.tracks.isEmpty {
-                    selectedTrack = learningViewModel.tracks.first
-                }
-                withAnimation(.easeOut(duration: 0.5).delay(0.2)) {
-                    animateLevels = true
+                Task {
+                    // ✅ 데이터 로드 (약 0.5초 시뮬레이션)
+                    if learningViewModel.tracks.isEmpty {
+                        learningViewModel.loadTracks()
+                    }
+                    
+                    try? await Task.sleep(nanoseconds: 500_000_000)
+                    
+                    // ✅ 첫 track 자동 선택
+                    if selectedTrack == nil && !learningViewModel.tracks.isEmpty {
+                        selectedTrack = learningViewModel.tracks.first
+                    }
+                    
+                    // ✅ 애니메이션 시작
+                    withAnimation(.easeOut(duration: 0.5).delay(0.2)) {
+                        animateLevels = true
+                    }
+                    
+                    // ✅ 로딩 완료
+                    isLoading = false
                 }
             }
         }
+    }
+    
+    private var loadingView: some View {
+        VStack(spacing: 20) {
+            ProgressView()
+                .tint(.quantumCyan)
+            
+            Text("Loading Learning Tracks...")
+                .font(.headline)
+                .foregroundColor(.textPrimary)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    private var emptyStateView: some View {
+        VStack(spacing: 20) {
+            Image(systemName: "book.circle.fill")
+                .font(.system(size: 60))
+                .foregroundColor(.quantumCyan.opacity(0.5))
+            
+            Text("No Learning Tracks Available")
+                .font(.headline)
+                .foregroundColor(.textPrimary)
+            
+            Text("Learning tracks will appear here once loaded.")
+                .font(.caption)
+                .foregroundColor(.textSecondary)
+                .multilineTextAlignment(.center)
+            
+            Button(action: {
+                isLoading = true
+                Task {
+                    learningViewModel.loadTracks()
+                    try? await Task.sleep(nanoseconds: 500_000_000)
+                    if !learningViewModel.tracks.isEmpty {
+                        selectedTrack = learningViewModel.tracks.first
+                    }
+                    isLoading = false
+                }
+            }) {
+                Text("Retry")
+                    .font(.headline)
+                    .foregroundColor(.bgDark)
+                    .frame(maxWidth: .infinity)
+                    .padding(12)
+                    .background(Color.quantumCyan)
+                    .cornerRadius(12)
+            }
+            .padding(.top, 10)
+            
+            Spacer()
+        }
+        .padding(40)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     private var trackSelectorHeader: some View {
@@ -100,18 +175,32 @@ struct LearnView: View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 16) {
                 if let track = selectedTrack {
-                    ForEach(track.levels) { level in
-                        LevelRowView(
-                            level: level,
-                            isCompleted: learningViewModel.completedLevels.contains(level.id),
-                            isUnlocked: learningViewModel.isLevelUnlocked(level.id)
-                        )
-                        .offset(y: animateLevels ? 0 : 30)
-                        .opacity(animateLevels ? 1 : 0)
-                        .animation(
-                            .easeOut(duration: 0.4),
-                            value: animateLevels
-                        )
+                    if track.levels.isEmpty {
+                        VStack(spacing: 16) {
+                            Image(systemName: "list.bullet.indent")
+                                .font(.system(size: 40))
+                                .foregroundColor(.textSecondary.opacity(0.5))
+                            
+                            Text("No Levels in This Track")
+                                .font(.subheadline)
+                                .foregroundColor(.textSecondary)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(40)
+                    } else {
+                        ForEach(track.levels) { level in
+                            LevelRowView(
+                                level: level,
+                                isCompleted: learningViewModel.completedLevels.contains(level.id),
+                                isUnlocked: learningViewModel.isLevelUnlocked(level.id)
+                            )
+                            .offset(y: animateLevels ? 0 : 30)
+                            .opacity(animateLevels ? 1 : 0)
+                            .animation(
+                                .easeOut(duration: 0.4),
+                                value: animateLevels
+                            )
+                        }
                     }
                 }
                 

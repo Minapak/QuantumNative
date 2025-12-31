@@ -9,6 +9,15 @@
 import Foundation
 import Combine
 
+// MARK: - Profile Update Request
+struct UpdateProfileRequest: Codable {
+    let username: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case username
+    }
+}
+
 // MARK: - Auth Service
 @MainActor
 class AuthService: ObservableObject {
@@ -40,7 +49,10 @@ class AuthService: ObservableObject {
             apiClient.accessToken = token
             apiClient.isLoggedIn = true
             isLoggedIn = true
-            loadUserProfile()
+            // ✅ Task로 비동기 함수 호출
+            Task {
+                await loadUserProfile()
+            }
         } else {
             isLoggedIn = false
         }
@@ -174,9 +186,10 @@ class AuthService: ObservableObject {
         errorMessage = nil
         
         do {
+            let requestBody: [String: String] = ["token": token]
             let _: AuthResponse = try await apiClient.post(
                 endpoint: "/api/v1/auth/verify-email",
-                body: ["token": token]
+                body: requestBody
             )
             
             DispatchQueue.main.async {
@@ -201,9 +214,10 @@ class AuthService: ObservableObject {
         errorMessage = nil
         
         do {
+            let requestBody: [String: String] = ["email": email]
             let _: ErrorResponse = try await apiClient.post(
                 endpoint: "/api/v1/auth/reset-password-request",
-                body: ["email": email]
+                body: requestBody
             )
             
             DispatchQueue.main.async {
@@ -228,9 +242,13 @@ class AuthService: ObservableObject {
         errorMessage = nil
         
         do {
+            let requestBody: [String: String] = [
+                "token": token,
+                "new_password": newPassword
+            ]
             let _: AuthResponse = try await apiClient.post(
                 endpoint: "/api/v1/auth/reset-password",
-                body: ["token": token, "new_password": newPassword]
+                body: requestBody
             )
             
             DispatchQueue.main.async {
@@ -255,12 +273,13 @@ class AuthService: ObservableObject {
         errorMessage = nil
         
         do {
+            let requestBody: [String: String] = [
+                "current_password": currentPassword,
+                "new_password": newPassword
+            ]
             let _: ErrorResponse = try await apiClient.post(
                 endpoint: "/api/v1/auth/change-password",
-                body: [
-                    "current_password": currentPassword,
-                    "new_password": newPassword
-                ]
+                body: requestBody
             )
             
             DispatchQueue.main.async {
@@ -284,15 +303,12 @@ class AuthService: ObservableObject {
         isLoading = true
         errorMessage = nil
         
-        var updateData: [String: Any] = [:]
-        if let username = username {
-            updateData["username"] = username
-        }
-        
         do {
+            let request = UpdateProfileRequest(username: username)
+            
             let _: UserResponse = try await apiClient.put(
                 endpoint: "/api/v1/users/me",
-                body: updateData
+                body: request
             )
             
             await loadUserProfile()

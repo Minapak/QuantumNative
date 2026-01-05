@@ -414,3 +414,75 @@
 "lesson.keywords9.4.description" = "Quantum Divide, Energy, Talent Shortage, etc.";
 "lesson.keywords9.4.content" = "**5 Key Challenges**:\n\n1. Quantum Divide: Rich vs poor access gap\n2. Energy: High power consumption for cooling\n3. Talent: Severe shortage of experts\n4. Security: Encryption vulnerability\n5. Ethics: Potential misuse concerns\n\nOpportunities: Each challenge = business opportunity";
 "lesson.keywords9.4.mnemonic" = "QETES = Quantum's challenges to solve";
+
+// MARK: - Subscription
+"subscription.tier.pro" = "Pro";
+"subscription.tier.premium" = "Premium";
+
+"subscription.pro.monthly.name" = "Pro Monthly";
+"subscription.pro.monthly.description" = "Essential features, billed monthly";
+"subscription.pro.yearly.name" = "Pro Yearly";
+"subscription.pro.yearly.description" = "Essential features, billed annually (save 40%)";
+"subscription.premium.monthly.name" = "Premium Monthly";
+"subscription.premium.monthly.description" = "All features, billed monthly";
+"subscription.premium.yearly.name" = "Premium Yearly";
+"subscription.premium.yearly.description" = "All features, billed annually (save 40%)";
+
+"subscription.status.free" = "Free";
+"subscription.status.premium" = "Premium";
+"subscription.status.expired" = "Expired";
+
+"subscription.feature.allContent" = "Access all content";
+"subscription.feature.noAds" = "Ad-free experience";
+"subscription.feature.offlineAccess" = "Offline access";
+"subscription.feature.prioritySupport" = "Priority support";
+"subscription.feature.earlyAccess" = "Early access to new content";
+"subscription.feature.advancedAnalytics" = "Advanced learning analytics";
+
+"subscription.period.day" = "day";
+"subscription.period.days %lld" = "%lld days";
+"subscription.period.week" = "week";
+"subscription.period.weeks %lld" = "%lld weeks";
+"subscription.period.month" = "month";
+"subscription.period.months %lld" = "%lld months";
+"subscription.period.year" = "year";
+"subscription.period.years %lld" = "%lld years";
+
+// MARK: - Paywall
+"paywall.title" = "Go Premium";
+"paywall.header.title" = "Unlock Your Full Potential";
+"paywall.header.subtitle" = "Get unlimited access to all quantum computing content";
+"paywall.subscribe" = "Subscribe Now";
+"paywall.restore" = "Restore Purchases";
+"paywall.terms" = "Terms of Service";
+"paywall.privacy" = "Privacy Policy";
+"paywall.autoRenewal" = "Subscription automatically renews unless cancelled at least 24 hours before the end of the current period.";
+"paywall.bestValue" = "Best Value";
+"paywall.perPeriod %@" = "per %@";
+"paywall.noProducts" = "Products are loading...";
+"paywall.pending" = "Purchase is pending approval";
+"paywall.success.title" = "Welcome to Premium!";
+"paywall.success.message" = "You now have unlimited access to all content. Enjoy your quantum learning journey!";
+
+"paywall.feature.allContent.title" = "All Content Unlocked";
+"paywall.feature.allContent.description" = "Access all 9 tracks and 36+ lessons";
+"paywall.feature.offline.title" = "Offline Learning";
+"paywall.feature.offline.description" = "Download content for offline study";
+"paywall.feature.noAds.title" = "No Advertisements";
+"paywall.feature.noAds.description" = "Focus on learning without distractions";
+"paywall.feature.support.title" = "Priority Support";
+"paywall.feature.support.description" = "Get help when you need it";
+
+// MARK: - StoreKit Errors
+"error.storekit.productNotFound" = "Product not found";
+"error.storekit.purchaseFailed" = "Purchase failed. Please try again.";
+"error.storekit.verificationFailed" = "Purchase verification failed";
+"error.storekit.networkError" = "Network error. Please check your connection.";
+"error.storekit.unknown" = "An unknown error occurred";
+
+// MARK: - Premium Content
+"premium.locked.title" = "Premium Content";
+"premium.locked.message" = "Subscribe to access this content";
+"premium.upgrade" = "Upgrade to Premium";
+"premium.freeRemaining %lld" = "%lld free views remaining today";
+"subscription.daysRemaining %lld" = "%lld days remaining";

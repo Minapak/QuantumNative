@@ -11,8 +11,10 @@ import SwiftUI
 // MARK: - Learn View
 struct LearnView: View {
     @StateObject private var learningViewModel = LearnViewModel()
+    @StateObject private var storeKitService = StoreKitService.shared
     @State private var selectedTrack: LearningTrack?
     @State private var showTrackSelector = false
+    @State private var showPaywall = false
     @State private var animateLevels = false
     @State private var isLoading = true
     
@@ -50,8 +52,18 @@ struct LearnView: View {
             .sheet(isPresented: $showTrackSelector) {
                 TrackSelectorSheet(
                     selectedTrack: $selectedTrack,
-                    tracks: learningViewModel.tracks
+                    tracks: learningViewModel.tracks,
+                    isPremium: storeKitService.isPremium,
+                    onPremiumRequired: {
+                        showTrackSelector = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            showPaywall = true
+                        }
+                    }
                 )
+            }
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
             }
             .onAppear {
                 Task {
@@ -218,9 +230,51 @@ struct LevelRowView: View {
     let level: LearningLevel
     let isCompleted: Bool
     let isUnlocked: Bool
-    
+    var isPremiumLocked: Bool = false
+    var onPremiumTap: (() -> Void)? = nil
+
     var body: some View {
-        NavigationLink(destination: LevelDetailView(level: level)) {
+        Group {
+            if isPremiumLocked {
+                Button(action: { onPremiumTap?() }) {
+                    levelContent
+                        .overlay(alignment: .topTrailing) {
+                            premiumBadge
+                        }
+                }
+                .buttonStyle(.plain)
+            } else {
+                NavigationLink(destination: LevelDetailView(level: level)) {
+                    levelContent
+                }
+                .buttonStyle(.plain)
+                .disabled(!isUnlocked)
+            }
+        }
+    }
+
+    private var premiumBadge: some View {
+        HStack(spacing: 4) {
+            Image(systemName: "crown.fill")
+                .font(.caption2)
+            Text("PRO")
+                .font(.caption2.bold())
+        }
+        .foregroundColor(.white)
+        .padding(.horizontal, 8)
+        .padding(.vertical, 4)
+        .background(
+            Capsule()
+                .fill(LinearGradient(
+                    colors: [.quantumOrange, .quantumPurple],
+                    startPoint: .leading,
+                    endPoint: .trailing
+                ))
+        )
+        .padding(8)
+    }
+
+    private var levelContent: some View {
             HStack(spacing: 16) {
                 // Level indicator
                 ZStack {
@@ -278,10 +332,7 @@ struct LevelRowView: View {
             .padding(16)
             .background(Color.bgCard)
             .cornerRadius(16)
-            .opacity(isUnlocked ? 1 : 0.6)
-        }
-        .buttonStyle(.plain)
-        .disabled(!isUnlocked)
+            .opacity(isUnlocked && !isPremiumLocked ? 1 : 0.6)
     }
 }
 
@@ -290,26 +341,42 @@ struct TrackSelectorSheet: View {
     @Environment(\.dismiss) var dismiss
     @Binding var selectedTrack: LearningTrack?
     let tracks: [LearningTrack]
-    
+    var isPremium: Bool = false
+    var onPremiumRequired: (() -> Void)? = nil
+
+    private let subscriptionManager = SubscriptionManager.shared
+
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.bgDark.ignoresSafeArea()
-                
+
                 ScrollView {
                     VStack(spacing: 16) {
                         Text("Choose your learning path")
                             .font(.subheadline)
                             .foregroundColor(.textSecondary)
                             .padding(.bottom, 8)
-                        
-                        ForEach(tracks) { track in
+
+                        // 프리미엄 배너 (무료 사용자만)
+                        if !isPremium {
+                            premiumBanner
+                        }
+
+                        ForEach(Array(tracks.enumerated()), id: \.element.id) { index, track in
+                            let isPremiumTrack = subscriptionManager.isPremiumContent(trackIndex: index)
+
                             TrackOptionRow(
                                 track: track,
-                                isSelected: selectedTrack?.id == track.id
+                                isSelected: selectedTrack?.id == track.id,
+                                isPremiumLocked: isPremiumTrack && !isPremium
                             ) {
-                                selectedTrack = track
-                                dismiss()
+                                if isPremiumTrack && !isPremium {
+                                    onPremiumRequired?()
+                                } else {
+                                    selectedTrack = track
+                                    dismiss()
+                                }
                             }
                         }
                     }
@@ -333,53 +400,135 @@ struct TrackSelectorSheet: View {
         .presentationDetents([.medium, .large])
         #endif
     }
+
+    private var premiumBanner: some View {
+        Button(action: { onPremiumRequired?() }) {
+            HStack(spacing: 12) {
+                Image(systemName: "crown.fill")
+                    .font(.title2)
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: [.quantumOrange, .quantumPurple],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(String(localized: "premium.upgrade"))
+                        .font(.headline)
+                        .foregroundColor(.textPrimary)
+
+                    Text(String(localized: "premium.locked.message"))
+                        .font(.caption)
+                        .foregroundColor(.textSecondary)
+                }
+
+                Spacer()
+
+                Image(systemName: "chevron.right")
+                    .foregroundColor(.quantumCyan)
+            }
+            .padding(16)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color.bgCard)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .stroke(
+                                LinearGradient(
+                                    colors: [.quantumCyan.opacity(0.5), .quantumPurple.opacity(0.5)],
+                                    startPoint: .leading,
+                                    endPoint: .trailing
+                                ),
+                                lineWidth: 1
+                            )
+                    )
+            )
+        }
+        .buttonStyle(.plain)
+    }
 }
 
 // MARK: - Track Option Row
 struct TrackOptionRow: View {
     let track: LearningTrack
     let isSelected: Bool
+    var isPremiumLocked: Bool = false
     let onSelect: () -> Void
-    
+
     var body: some View {
         Button(action: onSelect) {
             HStack(spacing: 16) {
-                Image(systemName: track.iconName)
-                    .font(.title2)
-                    .foregroundColor(isSelected ? .quantumCyan : .textSecondary)
-                    .frame(width: 50, height: 50)
-                    .background(
-                        isSelected
-                            ? Color.quantumCyan.opacity(0.1)
-                            : Color.white.opacity(0.05)
-                    )
-                    .cornerRadius(12)
-                
+                ZStack {
+                    Image(systemName: track.iconName)
+                        .font(.title2)
+                        .foregroundColor(isPremiumLocked ? .textTertiary : (isSelected ? .quantumCyan : .textSecondary))
+                        .frame(width: 50, height: 50)
+                        .background(
+                            isPremiumLocked
+                                ? Color.white.opacity(0.03)
+                                : (isSelected ? Color.quantumCyan.opacity(0.1) : Color.white.opacity(0.05))
+                        )
+                        .cornerRadius(12)
+
+                    // 프리미엄 잠금 아이콘
+                    if isPremiumLocked {
+                        Image(systemName: "lock.fill")
+                            .font(.caption)
+                            .foregroundColor(.quantumOrange)
+                            .padding(4)
+                            .background(Circle().fill(Color.bgDark))
+                            .offset(x: 18, y: 18)
+                    }
+                }
+
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(track.name)
-                        .font(.headline)
-                        .foregroundColor(.textPrimary)
-                    
+                    HStack {
+                        Text(track.name)
+                            .font(.headline)
+                            .foregroundColor(isPremiumLocked ? .textTertiary : .textPrimary)
+
+                        if isPremiumLocked {
+                            Text("PRO")
+                                .font(.caption2.bold())
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 2)
+                                .background(
+                                    Capsule()
+                                        .fill(LinearGradient(
+                                            colors: [.quantumOrange, .quantumPurple],
+                                            startPoint: .leading,
+                                            endPoint: .trailing
+                                        ))
+                                )
+                        }
+                    }
+
                     Text(track.description)
                         .font(.caption)
-                        .foregroundColor(.textSecondary)
+                        .foregroundColor(isPremiumLocked ? .textTertiary : .textSecondary)
                         .lineLimit(2)
-                    
+
                     // Track stats
                     HStack(spacing: 16) {
                         Label("\(track.levels.count) levels", systemImage: "square.stack.3d.up")
                             .font(.caption2)
                             .foregroundColor(.textTertiary)
-                        
+
                         Label("\(track.totalXP) XP", systemImage: "star")
                             .font(.caption2)
-                            .foregroundColor(.quantumYellow)
+                            .foregroundColor(isPremiumLocked ? .textTertiary : .quantumYellow)
                     }
                 }
-                
+
                 Spacer()
-                
-                if isSelected {
+
+                if isPremiumLocked {
+                    Image(systemName: "chevron.right")
+                        .foregroundColor(.quantumOrange)
+                } else if isSelected {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundColor(.quantumCyan)
                 }
@@ -391,11 +540,14 @@ struct TrackOptionRow: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 16)
                             .stroke(
-                                isSelected ? Color.quantumCyan : Color.clear,
-                                lineWidth: 2
+                                isPremiumLocked
+                                    ? Color.quantumOrange.opacity(0.3)
+                                    : (isSelected ? Color.quantumCyan : Color.clear),
+                                lineWidth: isPremiumLocked ? 1 : 2
                             )
                     )
             )
+            .opacity(isPremiumLocked ? 0.8 : 1)
         }
         .buttonStyle(.plain)
     }

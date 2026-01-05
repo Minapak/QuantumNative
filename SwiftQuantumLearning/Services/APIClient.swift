@@ -150,6 +150,59 @@ class APIClient: ObservableObject {
     func delete<T: Decodable>(endpoint: String) async throws -> T {
         try await request(endpoint: endpoint, method: .delete)
     }
+
+    // MARK: - Payment Verification
+
+    /// 결제 영수증 검증 (서버 사이드 검증)
+    func verifyReceipt(receiptData: [String: Any]) async throws {
+        guard let url = URL(string: baseURL + "/api/v1/payment/verify") else {
+            throw APIError.invalidURL
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        if let token = accessToken {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+
+        request.httpBody = try JSONSerialization.data(withJSONObject: receiptData)
+
+        print("🌐 API Request: POST /api/v1/payment/verify")
+
+        let (_, response) = try await session.data(for: request)
+
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw APIError.invalidResponse
+        }
+
+        print("📊 API Response: \(httpResponse.statusCode)")
+
+        guard (200...299).contains(httpResponse.statusCode) else {
+            throw APIError.custom("결제 검증 실패")
+        }
+    }
+
+    /// 구독 상태 동기화 (서버에서 구독 상태 가져오기)
+    func syncSubscriptionStatus() async throws -> SubscriptionSyncResponse {
+        try await get(endpoint: "/api/v1/payment/subscription/status")
+    }
+}
+
+// MARK: - Subscription Sync Response
+struct SubscriptionSyncResponse: Codable {
+    let isActive: Bool
+    let productId: String?
+    let expirationDate: String?
+    let tier: String?
+
+    enum CodingKeys: String, CodingKey {
+        case isActive = "is_active"
+        case productId = "product_id"
+        case expirationDate = "expiration_date"
+        case tier
+    }
 }
 
 // MARK: - HTTP Method

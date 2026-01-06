@@ -13,7 +13,8 @@ extension Color {
     // Background Colors
     static let bgDark = Color(red: 0.05, green: 0.05, blue: 0.08)
     static let bgCard = Color(red: 0.08, green: 0.08, blue: 0.12)
-    
+    static let deepSeaNight = Color(red: 0.04, green: 0.06, blue: 0.15)
+
     // Brand Colors
     static let quantumCyan = Color(red: 0.0, green: 0.8, blue: 1.0)
     static let quantumPurple = Color(red: 0.6, green: 0.4, blue: 1.0)
@@ -21,16 +22,48 @@ extension Color {
     static let quantumGreen = Color(red: 0.2, green: 0.9, blue: 0.6)
     static let quantumYellow = Color(red: 1.0, green: 0.9, blue: 0.2)
     static let quantumRed = Color(red: 1.0, green: 0.3, blue: 0.3)
-    
+
+    // Miami Sunrise Palette - Fire Energy (Complementing Water element)
+    static let miamiSunrise = Color(red: 1.0, green: 0.45, blue: 0.35) // Warm coral sunrise
+    static let miamiDawn = Color(red: 1.0, green: 0.6, blue: 0.5)      // Soft pink dawn
+    static let miamiGlow = Color(red: 1.0, green: 0.7, blue: 0.4)      // Golden glow
+    static let solarGold = Color(red: 1.0, green: 0.84, blue: 0.0)     // Pure solar gold
+    static let fireRed = Color(red: 0.9, green: 0.25, blue: 0.2)       // Fire energy red
+
     // Text Colors
     static let textPrimary = Color.white
     static let textSecondary = Color.white.opacity(0.7)
     static let textTertiary = Color.white.opacity(0.5)
-    
+
     // Status Colors
     static let completed = Color.quantumGreen
     static let inProgress = Color.quantumYellow
     static let locked = Color.gray
+
+    // Fire Energy Gradients (for Eunmin's astrological complement)
+    static var fireGradient: LinearGradient {
+        LinearGradient(
+            colors: [fireRed, solarGold],
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+    }
+
+    static var miamiSunriseGradient: LinearGradient {
+        LinearGradient(
+            colors: [deepSeaNight, miamiSunrise, solarGold],
+            startPoint: .top,
+            endPoint: .bottom
+        )
+    }
+
+    static var odysseyGradient: LinearGradient {
+        LinearGradient(
+            colors: [.deepSeaNight, Color(red: 0.1, green: 0.1, blue: 0.25), .miamiSunrise.opacity(0.3)],
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+    }
 }
 
 // MARK: - View Extensions

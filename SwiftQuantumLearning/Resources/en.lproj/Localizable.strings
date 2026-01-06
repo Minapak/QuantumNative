@@ -486,3 +486,159 @@
 "premium.upgrade" = "Upgrade to Premium";
 "premium.freeRemaining %lld" = "%lld free views remaining today";
 "subscription.daysRemaining %lld" = "%lld days remaining";
+
+// MARK: - The Quantum Odyssey - Navigation Tabs
+"tab.campus" = "Campus";
+"tab.laboratory" = "Lab";
+"tab.bridge" = "Bridge";
+"tab.portfolio" = "Portfolio";
+
+// MARK: - Campus Hub (Frame 1)
+"campus.title" = "Quantum Campus";
+"campus.welcome" = "Welcome, Explorer";
+"campus.adventurePath" = "Adventure Path";
+"campus.adventurePath.subtitle" = "Your journey from beginner to quantum master";
+"campus.level1.title" = "Introduction";
+"campus.level1.subtitle" = "What is Quantum?";
+"campus.level2.title" = "Superposition";
+"campus.level2.subtitle" = "Being in two states";
+"campus.level3.title" = "Entanglement";
+"campus.level3.subtitle" = "Spooky connection";
+"campus.level4.title" = "Quantum Gates";
+"campus.level4.subtitle" = "Building blocks";
+"campus.level5.title" = "Measurement";
+"campus.level5.subtitle" = "Observing quantum";
+"campus.level6.title" = "Circuits";
+"campus.level6.subtitle" = "Combining gates";
+"campus.level7.title" = "Error Correction";
+"campus.level7.subtitle" = "Fault tolerance";
+"campus.level8.title" = "Algorithms";
+"campus.level8.subtitle" = "Grover & Shor";
+"campus.level9.title" = "Hardware";
+"campus.level9.subtitle" = "Building qubits";
+"campus.level10.title" = "Applications";
+"campus.level10.subtitle" = "Real-world use";
+"campus.level11.title" = "VQE";
+"campus.level11.subtitle" = "Variational methods";
+"campus.level12.title" = "Noise";
+"campus.level12.subtitle" = "Managing errors";
+"campus.level13.title" = "IBM Integration";
+"campus.level13.subtitle" = "Real QPU access";
+
+// MARK: - Laboratory (Frame 2 - Interactive Odyssey)
+"odyssey.title" = "Quantum Laboratory";
+"odyssey.step1.title" = "Welcome to the Bloch Sphere";
+"odyssey.step1.desc" = "This 3D sphere represents all possible states of a single qubit. The north pole is |0⟩ and south is |1⟩.";
+"odyssey.step2.title" = "Apply Hadamard Gate";
+"odyssey.step2.desc" = "Tap the Hadamard gate to create superposition. Watch the state vector move to the equator!";
+"odyssey.step3.title" = "Pauli-X Gate";
+"odyssey.step3.desc" = "The X gate flips the qubit. It's like a NOT gate in classical computing.";
+"odyssey.step4.title" = "Measurement";
+"odyssey.step4.desc" = "Measure the qubit to collapse it into |0⟩ or |1⟩. The result is probabilistic!";
+"odyssey.currentState" = "Current State";
+"odyssey.measure" = "Measure";
+"odyssey.superposition.achieved" = "Superposition Achieved!";
+"odyssey.superposition.explanation" = "The qubit is now in an equal superposition of |0⟩ and |1⟩. When measured, it has 50% chance of being either state.";
+
+// MARK: - Bridge Console (Frame 3)
+"bridge.title" = "Bridge Terminal";
+"bridge.online" = "Systems Online";
+"bridge.circuitConfig" = "Circuit Configuration";
+"bridge.qubits" = "Qubits";
+"bridge.gates" = "Gates";
+"bridge.runLocal" = "Local Sim";
+"bridge.runIBM" = "IBM QPU";
+"bridge.processing" = "Processing...";
+"bridge.fidelity" = "Fidelity";
+"bridge.noResult" = "No result yet";
+"bridge.execTime" = "Time: %.2fs";
+"bridge.harvardMIT" = "Harvard-MIT 2026 Benchmark";
+"bridge.benchmark.fidelity" = "Target Fidelity";
+"bridge.benchmark.qubits" = "Logical Qubits";
+"bridge.benchmark.coherence" = "Coherence";
+"bridge.fidelityAnalysis" = "Fidelity Analysis";
+"bridge.comparisonFidelity" = "Comparison Fidelity";
+"bridge.harvardMITTarget" = "Harvard-MIT Target";
+"bridge.success.title" = "Deployment Successful!";
+"bridge.success.subtitle" = "Your circuit achieved excellent fidelity on the IBM QPU.";
+"bridge.feature1" = "Real IBM QPU Execution";
+"bridge.feature2" = "Harvard-MIT 2026 Benchmarks";
+"bridge.feature3" = "Advanced Fidelity Analysis";
+
+// MARK: - Portfolio Dashboard (Frame 4 - O1 Visa)
+"portfolio.title" = "Evidence Portfolio";
+"portfolio.expertiseIndex" = "Expertise Index";
+"portfolio.globalContribution" = "Global Contribution";
+"portfolio.fireEnergy" = "Fire Energy";
+"portfolio.o1Visa" = "O1 Visa Requirements";
+"portfolio.criteriaMet" = "met";
+"portfolio.skillTree" = "Quantum Skill Tree";
+"portfolio.evidenceSummary" = "Evidence Summary";
+"portfolio.code" = "Code";
+"portfolio.projects" = "Projects";
+"portfolio.certs" = "Certs";
+"portfolio.exportReport" = "Export Report";
+"portfolio.premiumRequired" = "Premium required for export";
+"portfolio.skillDetail" = "Skill Detail";
+"portfolio.connectedSkills" = "Connected Skills";
+"portfolio.export.title" = "Generate O1 Evidence Report";
+"portfolio.export.description" = "Create a comprehensive report documenting your quantum computing expertise for O1 visa petition.";
+"portfolio.export.item1" = "Skill proficiency documentation";
+"portfolio.export.item2" = "Code contribution history";
+"portfolio.export.item3" = "Project completion certificates";
+"portfolio.export.item4" = "Global contribution metrics";
+"portfolio.exporting" = "Generating...";
+"portfolio.generateReport" = "Generate Report";
+"portfolio.feature1" = "3D Quantum Skill Tree";
+"portfolio.feature2" = "O1 Visa Evidence Tracking";
+"portfolio.feature3" = "Professional Export Reports";
+
+// MARK: - Locked Content
+"locked.premium.description" = "Upgrade to Premium to unlock this feature and accelerate your quantum journey.";
+"locked.unlockPremium" = "Unlock Premium";
+
+// MARK: - Login
+"login.prompt.title" = "Sign In Required";
+"login.prompt.subtitle" = "Create an account to save your progress and access premium features.";
+"login.signIn" = "Sign In";
+"login.continueAsGuest" = "Continue as Guest";
+
+// MARK: - Settings - Expertise Level
+"settings.expertiseLevel" = "Expertise Level";
+"expertise.beginner" = "Beginner";
+"expertise.intermediate" = "Intermediate";
+"expertise.expert" = "Expert";
+
+// MARK: - Term Translations (Beginner vs Expert)
+"term.qubit.beginner" = "Quantum Coin";
+"term.qubit.expert" = "Qubit";
+"term.qubit.beginner.desc" = "A special coin that can be heads AND tails at the same time";
+"term.qubit.expert.desc" = "The fundamental unit of quantum information, existing in superposition of |0⟩ and |1⟩ states";
+"term.superposition.beginner" = "Being Both";
+"term.superposition.expert" = "Quantum Superposition";
+"term.superposition.beginner.desc" = "Being in multiple states at once, like a spinning coin";
+"term.superposition.expert.desc" = "Linear combination of basis states: α|0⟩ + β|1⟩ where |α|² + |β|² = 1";
+"term.entanglement.beginner" = "Twin Connection";
+"term.entanglement.expert" = "Quantum Entanglement";
+"term.entanglement.beginner.desc" = "Two particles that are magically connected regardless of distance";
+"term.entanglement.expert.desc" = "Non-local correlation between quantum systems described by non-separable state vectors";
+"term.gate.beginner" = "Quantum Instruction";
+"term.gate.expert" = "Unitary Gate";
+"term.gate.beginner.desc" = "A command that changes the quantum state";
+"term.gate.expert.desc" = "Unitary transformation U acting on qubit Hilbert space, where U†U = I";
+"term.measurement.beginner" = "Looking Inside";
+"term.measurement.expert" = "Quantum Measurement";
+"term.measurement.beginner.desc" = "Opening the box to see the result";
+"term.measurement.expert.desc" = "Projective measurement collapsing superposition to eigenstate with probability |⟨ψ|n⟩|²";
+"term.fidelity.beginner" = "Accuracy Score";
+"term.fidelity.expert" = "State Fidelity";
+"term.fidelity.beginner.desc" = "How close the result is to what we wanted";
+"term.fidelity.expert.desc" = "F(ρ,σ) = Tr(√(√ρ σ √ρ))² measuring similarity between quantum states";
+"term.coherence.beginner" = "Staying Quantum";
+"term.coherence.expert" = "Quantum Coherence";
+"term.coherence.beginner.desc" = "How long the quantum magic lasts before disappearing";
+"term.coherence.expert.desc" = "Time duration maintaining phase relationships in superposition, characterized by T₁ and T₂";
+"term.errorCorrection.beginner" = "Fixing Mistakes";
+"term.errorCorrection.expert" = "Quantum Error Correction";
+"term.errorCorrection.beginner.desc" = "Using extra qubits to detect and fix errors";
+"term.errorCorrection.expert.desc" = "Encoding logical qubits in physical qubits using codes like Surface Code to achieve fault tolerance";

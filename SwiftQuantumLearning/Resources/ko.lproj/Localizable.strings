@@ -486,3 +486,159 @@
 "premium.upgrade" = "프리미엄으로 업그레이드";
 "premium.freeRemaining %lld" = "오늘 남은 무료 이용: %lld회";
 "subscription.daysRemaining %lld" = "%lld일 남음";
+
+// MARK: - The Quantum Odyssey - 네비게이션 탭
+"tab.campus" = "캠퍼스";
+"tab.laboratory" = "실험실";
+"tab.bridge" = "브릿지";
+"tab.portfolio" = "포트폴리오";
+
+// MARK: - Campus Hub (프레임 1)
+"campus.title" = "양자 캠퍼스";
+"campus.welcome" = "탐험가님, 환영해요";
+"campus.adventurePath" = "모험의 길";
+"campus.adventurePath.subtitle" = "입문자에서 양자 마스터로 가는 여정";
+"campus.level1.title" = "입문";
+"campus.level1.subtitle" = "양자란 무엇인가?";
+"campus.level2.title" = "중첩";
+"campus.level2.subtitle" = "두 상태에 동시에";
+"campus.level3.title" = "얽힘";
+"campus.level3.subtitle" = "유령 같은 연결";
+"campus.level4.title" = "양자 게이트";
+"campus.level4.subtitle" = "기본 구성 요소";
+"campus.level5.title" = "측정";
+"campus.level5.subtitle" = "양자 관찰하기";
+"campus.level6.title" = "회로";
+"campus.level6.subtitle" = "게이트 조합하기";
+"campus.level7.title" = "오류 정정";
+"campus.level7.subtitle" = "결함 허용";
+"campus.level8.title" = "알고리즘";
+"campus.level8.subtitle" = "그로버 & 쇼어";
+"campus.level9.title" = "하드웨어";
+"campus.level9.subtitle" = "큐비트 구축";
+"campus.level10.title" = "응용";
+"campus.level10.subtitle" = "실제 활용";
+"campus.level11.title" = "VQE";
+"campus.level11.subtitle" = "변분 방법";
+"campus.level12.title" = "노이즈";
+"campus.level12.subtitle" = "오류 관리";
+"campus.level13.title" = "IBM 연동";
+"campus.level13.subtitle" = "실제 QPU 접근";
+
+// MARK: - Laboratory (프레임 2 - 인터랙티브 오디세이)
+"odyssey.title" = "양자 실험실";
+"odyssey.step1.title" = "블로흐 구에 오신 것을 환영합니다";
+"odyssey.step1.desc" = "이 3D 구는 단일 큐비트의 모든 가능한 상태를 나타냅니다. 북극은 |0⟩이고 남극은 |1⟩입니다.";
+"odyssey.step2.title" = "하다마드 게이트 적용";
+"odyssey.step2.desc" = "하다마드 게이트를 탭하여 중첩을 생성하세요. 상태 벡터가 적도로 이동하는 것을 확인하세요!";
+"odyssey.step3.title" = "파울리-X 게이트";
+"odyssey.step3.desc" = "X 게이트는 큐비트를 뒤집습니다. 고전 컴퓨팅의 NOT 게이트와 같습니다.";
+"odyssey.step4.title" = "측정";
+"odyssey.step4.desc" = "큐비트를 측정하여 |0⟩ 또는 |1⟩로 붕괴시키세요. 결과는 확률적입니다!";
+"odyssey.currentState" = "현재 상태";
+"odyssey.measure" = "측정";
+"odyssey.superposition.achieved" = "중첩 달성!";
+"odyssey.superposition.explanation" = "큐비트가 이제 |0⟩과 |1⟩의 동등한 중첩 상태입니다. 측정 시 50% 확률로 어느 상태든 될 수 있습니다.";
+
+// MARK: - Bridge Console (프레임 3)
+"bridge.title" = "브릿지 터미널";
+"bridge.online" = "시스템 온라인";
+"bridge.circuitConfig" = "회로 설정";
+"bridge.qubits" = "큐비트";
+"bridge.gates" = "게이트";
+"bridge.runLocal" = "로컬 시뮬";
+"bridge.runIBM" = "IBM QPU";
+"bridge.processing" = "처리 중...";
+"bridge.fidelity" = "충실도";
+"bridge.noResult" = "결과 없음";
+"bridge.execTime" = "시간: %.2f초";
+"bridge.harvardMIT" = "하버드-MIT 2026 벤치마크";
+"bridge.benchmark.fidelity" = "목표 충실도";
+"bridge.benchmark.qubits" = "논리 큐비트";
+"bridge.benchmark.coherence" = "결맞음 시간";
+"bridge.fidelityAnalysis" = "충실도 분석";
+"bridge.comparisonFidelity" = "비교 충실도";
+"bridge.harvardMITTarget" = "하버드-MIT 목표";
+"bridge.success.title" = "배포 성공!";
+"bridge.success.subtitle" = "회로가 IBM QPU에서 우수한 충실도를 달성했습니다.";
+"bridge.feature1" = "실제 IBM QPU 실행";
+"bridge.feature2" = "하버드-MIT 2026 벤치마크";
+"bridge.feature3" = "고급 충실도 분석";
+
+// MARK: - Portfolio Dashboard (프레임 4 - O1 비자)
+"portfolio.title" = "증거 포트폴리오";
+"portfolio.expertiseIndex" = "전문성 지수";
+"portfolio.globalContribution" = "글로벌 기여도";
+"portfolio.fireEnergy" = "화(火) 에너지";
+"portfolio.o1Visa" = "O1 비자 요건";
+"portfolio.criteriaMet" = "충족";
+"portfolio.skillTree" = "양자 스킬 트리";
+"portfolio.evidenceSummary" = "증거 요약";
+"portfolio.code" = "코드";
+"portfolio.projects" = "프로젝트";
+"portfolio.certs" = "자격증";
+"portfolio.exportReport" = "보고서 내보내기";
+"portfolio.premiumRequired" = "내보내기는 프리미엄 필요";
+"portfolio.skillDetail" = "스킬 상세";
+"portfolio.connectedSkills" = "연결된 스킬";
+"portfolio.export.title" = "O1 증거 보고서 생성";
+"portfolio.export.description" = "O1 비자 청원을 위한 양자 컴퓨팅 전문성을 문서화하는 종합 보고서를 생성합니다.";
+"portfolio.export.item1" = "스킬 숙련도 문서";
+"portfolio.export.item2" = "코드 기여 이력";
+"portfolio.export.item3" = "프로젝트 완료 인증서";
+"portfolio.export.item4" = "글로벌 기여 지표";
+"portfolio.exporting" = "생성 중...";
+"portfolio.generateReport" = "보고서 생성";
+"portfolio.feature1" = "3D 양자 스킬 트리";
+"portfolio.feature2" = "O1 비자 증거 추적";
+"portfolio.feature3" = "전문 보고서 내보내기";
+
+// MARK: - 잠금 콘텐츠
+"locked.premium.description" = "프리미엄으로 업그레이드하여 이 기능을 잠금 해제하고 양자 여정을 가속하세요.";
+"locked.unlockPremium" = "프리미엄 잠금 해제";
+
+// MARK: - 로그인
+"login.prompt.title" = "로그인 필요";
+"login.prompt.subtitle" = "계정을 만들어 진행 상황을 저장하고 프리미엄 기능에 접근하세요.";
+"login.signIn" = "로그인";
+"login.continueAsGuest" = "게스트로 계속";
+
+// MARK: - 설정 - 전문성 수준
+"settings.expertiseLevel" = "전문성 수준";
+"expertise.beginner" = "입문자";
+"expertise.intermediate" = "중급자";
+"expertise.expert" = "전문가";
+
+// MARK: - 용어 번역 (입문자 vs 전문가)
+"term.qubit.beginner" = "양자 동전";
+"term.qubit.expert" = "큐비트";
+"term.qubit.beginner.desc" = "앞면과 뒷면이 동시에 될 수 있는 특별한 동전";
+"term.qubit.expert.desc" = "|0⟩과 |1⟩ 상태의 중첩으로 존재하는 양자 정보의 기본 단위";
+"term.superposition.beginner" = "둘 다 되기";
+"term.superposition.expert" = "양자 중첩";
+"term.superposition.beginner.desc" = "돌아가는 동전처럼 한 번에 여러 상태에 있기";
+"term.superposition.expert.desc" = "기저 상태의 선형 결합: α|0⟩ + β|1⟩ (|α|² + |β|² = 1)";
+"term.entanglement.beginner" = "쌍둥이 연결";
+"term.entanglement.expert" = "양자 얽힘";
+"term.entanglement.beginner.desc" = "거리에 상관없이 마법처럼 연결된 두 입자";
+"term.entanglement.expert.desc" = "분리 불가능한 상태 벡터로 설명되는 양자 시스템 간의 비국소적 상관관계";
+"term.gate.beginner" = "양자 명령";
+"term.gate.expert" = "유니터리 게이트";
+"term.gate.beginner.desc" = "양자 상태를 바꾸는 명령";
+"term.gate.expert.desc" = "큐비트 힐베르트 공간에 작용하는 유니터리 변환 U, U†U = I";
+"term.measurement.beginner" = "안을 들여다보기";
+"term.measurement.expert" = "양자 측정";
+"term.measurement.beginner.desc" = "상자를 열어 결과를 보기";
+"term.measurement.expert.desc" = "중첩을 확률 |⟨ψ|n⟩|²로 고유 상태로 붕괴시키는 투영 측정";
+"term.fidelity.beginner" = "정확도 점수";
+"term.fidelity.expert" = "상태 충실도";
+"term.fidelity.beginner.desc" = "결과가 원하는 것과 얼마나 가까운지";
+"term.fidelity.expert.desc" = "양자 상태 간 유사성을 측정하는 F(ρ,σ) = Tr(√(√ρ σ √ρ))²";
+"term.coherence.beginner" = "양자 유지하기";
+"term.coherence.expert" = "양자 결맞음";
+"term.coherence.beginner.desc" = "양자 마법이 사라지기 전까지 얼마나 오래 지속되는지";
+"term.coherence.expert.desc" = "T₁과 T₂로 특성화되는, 중첩에서 위상 관계를 유지하는 시간";
+"term.errorCorrection.beginner" = "실수 고치기";
+"term.errorCorrection.expert" = "양자 오류 정정";
+"term.errorCorrection.beginner.desc" = "오류를 감지하고 수정하기 위해 추가 큐비트 사용";
+"term.errorCorrection.expert.desc" = "결함 허용을 달성하기 위해 Surface Code 같은 코드로 물리적 큐비트에 논리적 큐비트 인코딩";

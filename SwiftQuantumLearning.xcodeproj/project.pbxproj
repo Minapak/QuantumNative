@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2E02A6072F0B9C1000954BE3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E02A6062F0B9C1000954BE3 /* StoreKit.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		2E435B2C2F0483BF000A19C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E02A6062F0B9C1000954BE3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2E435B1E2F0483BE000A19C8 /* SwiftQuantumLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftQuantumLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E435B2B2F0483BF000A19C8 /* SwiftQuantumLearningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftQuantumLearningTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E435B352F0483BF000A19C8 /* SwiftQuantumLearningUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftQuantumLearningUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +44,7 @@
 				Models/LearningLevel.swift,
 				Models/LearningTrack.swift,
 				Models/QubitState.swift,
+				Models/Subscription.swift,
 				Models/UserProgress.swift,
 				Services/AchievementService.swift,
 				Services/APIClient.swift,
@@ -47,6 +53,7 @@
 				Services/LearningService.swift,
 				Services/ProgressService.swift,
 				Services/StorageService.swift,
+				Services/StoreKitService.swift,
 				SwiftQuantumApp.swift,
 				ViewModels/AchievementViewModel.swift,
 				ViewModels/ProgressViewModel.swift,
@@ -71,6 +78,7 @@
 				Views/Profile/AchievementsView.swift,
 				Views/Profile/SettingsView.swift,
 				Views/Profile/UserStatsView.swift,
+				Views/Subscription/PaywallView.swift,
 			);
 			target = 2E435B2A2F0483BF000A19C8 /* SwiftQuantumLearningTests */;
 		};
@@ -83,6 +91,7 @@
 				Models/LearningLevel.swift,
 				Models/LearningTrack.swift,
 				Models/QubitState.swift,
+				Models/Subscription.swift,
 				Models/UserProgress.swift,
 				Services/AchievementService.swift,
 				Services/APIClient.swift,
@@ -91,6 +100,7 @@
 				Services/LearningService.swift,
 				Services/ProgressService.swift,
 				Services/StorageService.swift,
+				Services/StoreKitService.swift,
 				SwiftQuantumApp.swift,
 				ViewModels/AchievementViewModel.swift,
 				ViewModels/ProgressViewModel.swift,
@@ -115,6 +125,7 @@
 				Views/Profile/AchievementsView.swift,
 				Views/Profile/SettingsView.swift,
 				Views/Profile/UserStatsView.swift,
+				Views/Subscription/PaywallView.swift,
 			);
 			target = 2E435B342F0483BF000A19C8 /* SwiftQuantumLearningUITests */;
 		};
@@ -147,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E02A6072F0B9C1000954BE3 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,12 +179,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E02A6052F0B9C1000954BE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E02A6062F0B9C1000954BE3 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2E435B152F0483BE000A19C8 = {
 			isa = PBXGroup;
 			children = (
 				2E435B202F0483BE000A19C8 /* SwiftQuantumLearning */,
 				2E435B2E2F0483BF000A19C8 /* SwiftQuantumLearningTests */,
 				2E435B382F0483BF000A19C8 /* SwiftQuantumLearningUITests */,
+				2E02A6052F0B9C1000954BE3 /* Frameworks */,
 				2E435B1F2F0483BE000A19C8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -287,6 +308,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 2E435B152F0483BE000A19C8;
 			minimizedProjectReferenceProxies = 1;
@@ -485,6 +507,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwiftQuantumLearning/SwiftQuantumLearning.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QXT586NGNR;
@@ -508,7 +531,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eunminpark.swiftquantum.SwiftQuantum.SwiftQuantumLearning;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eunminpark.swiftquantum.SwiftQuantumLearning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -529,6 +552,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwiftQuantumLearning/SwiftQuantumLearning.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QXT586NGNR;
@@ -552,7 +576,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eunminpark.swiftquantum.SwiftQuantum.SwiftQuantumLearning;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eunminpark.swiftquantum.SwiftQuantumLearning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;

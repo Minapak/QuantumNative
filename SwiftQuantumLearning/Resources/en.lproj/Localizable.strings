@@ -642,3 +642,7 @@
 "term.errorCorrection.expert" = "Quantum Error Correction";
 "term.errorCorrection.beginner.desc" = "Using extra qubits to detect and fix errors";
 "term.errorCorrection.expert.desc" = "Encoding logical qubits in physical qubits using codes like Surface Code to achieve fault tolerance";
+
+// MARK: - Gate Categories
+"gates.basic" = "Basic";
+"gates.advanced" = "Advanced";

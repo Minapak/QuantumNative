@@ -29,6 +29,19 @@ struct TutorialStep: Identifiable {
     }
 }
 
+// MARK: - Gate Category
+enum GateCategory: String, CaseIterable {
+    case basic = "Basic"
+    case advanced = "Advanced"
+
+    var localizedName: String {
+        switch self {
+        case .basic: return NSLocalizedString("gates.basic", comment: "Basic Gates")
+        case .advanced: return NSLocalizedString("gates.advanced", comment: "Advanced Gates")
+        }
+    }
+}
+
 // MARK: - Bloch Sphere 3D View
 struct BlochSphereView3D: UIViewRepresentable {
     @Binding var theta: Double // 0 to PI
@@ -201,6 +214,10 @@ struct InteractiveOdysseyView: View {
     @State private var showSuperpositionFeedback = false
     @State private var selectedGate: QuantumGateType?
 
+    // Gate Category Selection
+    @State private var selectedGateCategory: GateCategory = .basic
+    @State private var showAdvancedGates = false
+
     let tutorialSteps: [TutorialStep] = [
         TutorialStep(id: 0, titleKey: "odyssey.step1.title", descriptionKey: "odyssey.step1.desc", interactiveElement: .blochSphere, gateToApply: nil),
         TutorialStep(id: 1, titleKey: "odyssey.step2.title", descriptionKey: "odyssey.step2.desc", interactiveElement: .gateSelector, gateToApply: .hadamard),
@@ -208,34 +225,41 @@ struct InteractiveOdysseyView: View {
         TutorialStep(id: 3, titleKey: "odyssey.step4.title", descriptionKey: "odyssey.step4.desc", interactiveElement: .measurementButton, gateToApply: nil)
     ]
 
+    // Basic Gates
+    private let basicGates: [QuantumGateType] = [.hadamard, .pauliX, .pauliY, .pauliZ]
+
+    // Advanced Gates (using existing QuantumGateType enum values)
+    private let advancedGates: [QuantumGateType] = [.phase, .tGate, .cnot, .swap, .toffoli]
+
+    // Adaptive grid for responsive layout
+    private let gateGridColumns = [
+        GridItem(.adaptive(minimum: 65, maximum: 80), spacing: 12)
+    ]
+
     var body: some View {
         NavigationStack {
-            ZStack {
-                // Background
-                Color.odysseyGradient
-                    .ignoresSafeArea()
+            GeometryReader { geometry in
+                ZStack {
+                    // Background
+                    Color.odysseyGradient
+                        .ignoresSafeArea()
 
-                VStack(spacing: 0) {
-                    // Theory Scroll (Top)
-                    theorySection
+                    VStack(spacing: 0) {
+                        // Theory Section (expandable)
+                        theorySection
 
-                    // 3D Bloch Sphere (Middle)
-                    blochSphereSection
+                        // 3D Bloch Sphere
+                        blochSphereSection
+                            .frame(height: geometry.size.height * 0.32)
 
-                    // Interactive Controls (Bottom)
-                    controlsSection
-                }
+                        // Interactive Controls
+                        controlsSection
+                    }
 
-                // Superposition Feedback Overlay
-                if showSuperpositionFeedback {
-                    superpositionFeedback
-                }
-
-                // Solar Agent
-                VStack {
-                    Spacer()
-                    SolarAgentBubble()
-                        .padding()
+                    // Superposition Feedback Overlay
+                    if showSuperpositionFeedback {
+                        superpositionFeedback
+                    }
                 }
             }
             .navigationTitle(NSLocalizedString("odyssey.title", comment: ""))
@@ -245,7 +269,7 @@ struct InteractiveOdysseyView: View {
 
     // MARK: - Theory Section
     private var theorySection: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 8) {
             let step = tutorialSteps[currentStep]
 
             // Step indicator
@@ -263,29 +287,32 @@ struct InteractiveOdysseyView: View {
 
             // Title
             Text(NSLocalizedString(step.titleKey, comment: ""))
-                .font(.title3.bold())
+                .font(.headline)
                 .foregroundColor(.white)
 
-            // Description with interactive keywords
-            InteractiveTextView(
-                text: NSLocalizedString(step.descriptionKey, comment: ""),
-                onKeywordTap: handleKeywordTap
-            )
+            // Description - full text visible
+            Text(NSLocalizedString(step.descriptionKey, comment: ""))
+                .font(.subheadline)
+                .foregroundColor(.textSecondary)
+                .fixedSize(horizontal: false, vertical: true)
         }
-        .padding()
+        .padding(12)
         .background(
             RoundedRectangle(cornerRadius: 16)
-                .fill(Color.bgCard)
-                .glassMorphism()
+                .fill(.ultraThinMaterial)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(Color.white.opacity(0.1), lineWidth: 1)
+                )
         )
         .padding(.horizontal)
+        .padding(.top, 8)
     }
 
     // MARK: - Bloch Sphere Section
     private var blochSphereSection: some View {
         ZStack {
             BlochSphereView3D(theta: $theta, phi: $phi, isAnimating: $isAnimating)
-                .frame(height: 300)
 
             // State label
             VStack {
@@ -293,7 +320,7 @@ struct InteractiveOdysseyView: View {
                 HStack {
                     Spacer()
                     stateLabel
-                        .padding()
+                        .padding(8)
                 }
             }
         }
@@ -306,14 +333,17 @@ struct InteractiveOdysseyView: View {
                 .foregroundColor(.textSecondary)
 
             Text(stateDescription)
-                .font(.system(.caption, design: .monospaced))
+                .font(.system(size: 14, weight: .semibold, design: .monospaced))
                 .foregroundColor(.quantumCyan)
         }
         .padding(10)
         .background(
             RoundedRectangle(cornerRadius: 10)
-                .fill(Color.bgCard.opacity(0.9))
-                .glassMorphism()
+                .fill(.ultraThinMaterial)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.quantumCyan.opacity(0.3), lineWidth: 1)
+                )
         )
     }
 
@@ -331,82 +361,168 @@ struct InteractiveOdysseyView: View {
         }
     }
 
-    // MARK: - Controls Section
+    // MARK: - Controls Section (Redesigned)
     private var controlsSection: some View {
-        VStack(spacing: 16) {
-            // Gate Buttons
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 12) {
-                    ForEach([QuantumGateType.hadamard, .pauliX, .pauliY, .pauliZ], id: \.rawValue) { gate in
-                        OdysseyGateButton(
-                            gate: gate,
-                            isSelected: selectedGate == gate,
-                            onTap: { applyGate(gate) }
-                        )
-                    }
+        VStack(spacing: 8) {
+            // Gate Category Picker
+            gateCategoryPicker
+
+            // Gate Grid with Scroll
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 12) {
+                    // Gates Grid
+                    gatesGrid
 
                     // Measure Button
-                    Button {
-                        performMeasurement()
-                    } label: {
-                        VStack(spacing: 6) {
-                            Image(systemName: "scope")
-                                .font(.title2)
-                            Text(NSLocalizedString("odyssey.measure", comment: ""))
-                                .font(.caption2)
-                        }
-                        .foregroundColor(.white)
-                        .frame(width: 70, height: 70)
-                        .background(
-                            RoundedRectangle(cornerRadius: 16)
-                                .fill(Color.solarGold)
-                        )
-                    }
+                    measureButton
+
+                    // Navigation Buttons
+                    navigationButtons
                 }
                 .padding(.horizontal)
+                .padding(.bottom, 100) // Extra padding for tab bar
             }
-
-            // Navigation Buttons
-            HStack(spacing: 16) {
-                if currentStep > 0 {
-                    Button {
-                        withAnimation { currentStep -= 1 }
-                    } label: {
-                        Label(NSLocalizedString("common.back", comment: ""), systemImage: "chevron.left")
-                            .font(.subheadline)
-                            .foregroundColor(.textSecondary)
-                    }
-                }
-
-                Spacer()
-
-                if currentStep < tutorialSteps.count - 1 {
-                    Button {
-                        withAnimation { currentStep += 1 }
-                        translationManager.boostFireEnergy(by: 0.03)
-                    } label: {
-                        Label(NSLocalizedString("common.next", comment: ""), systemImage: "chevron.right")
-                            .font(.subheadline.bold())
-                            .foregroundColor(.quantumCyan)
-                    }
-                } else {
-                    Button {
-                        translationManager.onLessonCompleted()
-                    } label: {
-                        Label(NSLocalizedString("common.done", comment: ""), systemImage: "checkmark.circle.fill")
-                            .font(.subheadline.bold())
-                            .foregroundColor(.completed)
-                    }
-                }
-            }
-            .padding(.horizontal)
         }
-        .padding(.vertical)
+        .padding(.top, 8)
         .background(
-            Rectangle()
-                .fill(Color.bgCard)
+            RoundedRectangle(cornerRadius: 20)
+                .fill(.ultraThinMaterial)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.white.opacity(0.1), lineWidth: 1)
+                )
                 .ignoresSafeArea(edges: .bottom)
         )
+    }
+
+    // MARK: - Gate Category Picker
+    private var gateCategoryPicker: some View {
+        HStack(spacing: 0) {
+            ForEach(GateCategory.allCases, id: \.rawValue) { category in
+                Button {
+                    withAnimation(.spring(response: 0.3)) {
+                        selectedGateCategory = category
+                    }
+                } label: {
+                    Text(category.localizedName)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundColor(selectedGateCategory == category ? .white : .textSecondary)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 10)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(selectedGateCategory == category ? Color.miamiSunrise.opacity(0.8) : Color.clear)
+                        )
+                }
+            }
+        }
+        .padding(4)
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color.bgCard.opacity(0.5))
+        )
+        .padding(.horizontal)
+    }
+
+    // MARK: - Gates Grid
+    private var gatesGrid: some View {
+        LazyVGrid(columns: gateGridColumns, spacing: 12) {
+            let gates = selectedGateCategory == .basic ? basicGates : advancedGates
+
+            ForEach(gates, id: \.rawValue) { gate in
+                GlassmorphicGateButton(
+                    gate: gate,
+                    isSelected: selectedGate == gate,
+                    onTap: { applyGate(gate) }
+                )
+            }
+        }
+    }
+
+    // MARK: - Measure Button
+    private var measureButton: some View {
+        Button {
+            performMeasurement()
+        } label: {
+            HStack(spacing: 12) {
+                Image(systemName: "scope")
+                    .font(.title3)
+                Text(NSLocalizedString("odyssey.measure", comment: ""))
+                    .font(.system(size: 16, weight: .semibold, design: .monospaced))
+            }
+            .foregroundColor(.bgDark)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 14)
+            .background(
+                RoundedRectangle(cornerRadius: 14)
+                    .fill(
+                        LinearGradient(
+                            colors: [.solarGold, .miamiSunrise],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )
+                    )
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 14)
+                    .stroke(Color.white.opacity(0.3), lineWidth: 1)
+            )
+            .shadow(color: .solarGold.opacity(0.4), radius: 8, y: 4)
+        }
+    }
+
+    // MARK: - Navigation Buttons
+    private var navigationButtons: some View {
+        HStack(spacing: 16) {
+            if currentStep > 0 {
+                Button {
+                    withAnimation { currentStep -= 1 }
+                } label: {
+                    Label(NSLocalizedString("common.back", comment: ""), systemImage: "chevron.left")
+                        .font(.subheadline)
+                        .foregroundColor(.textSecondary)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
+                        .background(
+                            Capsule()
+                                .fill(.ultraThinMaterial)
+                        )
+                }
+            }
+
+            Spacer()
+
+            if currentStep < tutorialSteps.count - 1 {
+                Button {
+                    withAnimation { currentStep += 1 }
+                    translationManager.boostFireEnergy(by: 0.03)
+                } label: {
+                    Label(NSLocalizedString("common.next", comment: ""), systemImage: "chevron.right")
+                        .font(.subheadline.bold())
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
+                        .background(
+                            Capsule()
+                                .fill(Color.quantumCyan)
+                        )
+                }
+            } else {
+                Button {
+                    translationManager.onLessonCompleted()
+                } label: {
+                    Label(NSLocalizedString("common.done", comment: ""), systemImage: "checkmark.circle.fill")
+                        .font(.subheadline.bold())
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
+                        .background(
+                            Capsule()
+                                .fill(Color.completed)
+                        )
+                }
+            }
+        }
     }
 
     // MARK: - Superposition Feedback
@@ -427,13 +543,13 @@ struct InteractiveOdysseyView: View {
         .padding(32)
         .background(
             RoundedRectangle(cornerRadius: 24)
-                .fill(Color.bgCard)
+                .fill(.ultraThinMaterial)
                 .overlay(
                     RoundedRectangle(cornerRadius: 24)
                         .stroke(Color.quantumCyan.opacity(0.5), lineWidth: 2)
                 )
         )
-        .glassMorphism()
+        .shadow(color: .quantumCyan.opacity(0.3), radius: 20)
         .transition(.scale.combined(with: .opacity))
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
@@ -470,7 +586,17 @@ struct InteractiveOdysseyView: View {
             case .pauliZ:
                 // Z gate: phase flip
                 phi = phi + .pi
-            default:
+            case .phase:
+                // S gate: π/2 phase
+                phi = phi + .pi / 2
+            case .tGate:
+                // T gate: π/4 phase
+                phi = phi + .pi / 4
+            case .cnot, .swap, .toffoli:
+                // Multi-qubit gates - show info only (single qubit demo)
+                translationManager.showSolarMessage(type: .tip)
+            case .measure:
+                // Handled separately
                 break
             }
         }
@@ -506,33 +632,55 @@ struct InteractiveOdysseyView: View {
     }
 }
 
-// MARK: - Odyssey Gate Button
+// MARK: - Glassmorphic Gate Button
+struct GlassmorphicGateButton: View {
+    let gate: QuantumGateType
+    let isSelected: Bool
+    let onTap: () -> Void
+
+    // Miami Sunset Orange for neon accent
+    private let accentColor = Color(red: 1.0, green: 0.55, blue: 0.0) // #FF8C00
+
+    var body: some View {
+        Button(action: onTap) {
+            VStack(spacing: 4) {
+                Text(gate.rawValue)
+                    .font(.system(size: 20, weight: .bold, design: .monospaced))
+                Text(gate.displayName)
+                    .font(.system(size: 10, weight: .medium))
+                    .lineLimit(1)
+            }
+            .foregroundColor(isSelected ? accentColor : .white)
+            .frame(width: 65, height: 65)
+            .background(
+                RoundedRectangle(cornerRadius: 14)
+                    .fill(.ultraThinMaterial)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14)
+                            .stroke(
+                                isSelected ? accentColor : Color.white.opacity(0.15),
+                                lineWidth: isSelected ? 2 : 1
+                            )
+                    )
+            )
+            .shadow(
+                color: isSelected ? accentColor.opacity(0.5) : Color.clear,
+                radius: isSelected ? 10 : 0
+            )
+        }
+        .scaleEffect(isSelected ? 1.08 : 1.0)
+        .animation(.spring(response: 0.3, dampingFraction: 0.6), value: isSelected)
+    }
+}
+
+// MARK: - Legacy Odyssey Gate Button (for compatibility)
 struct OdysseyGateButton: View {
     let gate: QuantumGateType
     let isSelected: Bool
     let onTap: () -> Void
 
     var body: some View {
-        Button(action: onTap) {
-            VStack(spacing: 6) {
-                Text(gate.rawValue)
-                    .font(.system(.title2, design: .monospaced).bold())
-                Text(gate.displayName)
-                    .font(.caption2)
-            }
-            .foregroundColor(isSelected ? .black : .white)
-            .frame(width: 70, height: 70)
-            .background(
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(isSelected ? Color.quantumCyan : gate.color.opacity(0.8))
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(isSelected ? Color.quantumCyan : Color.clear, lineWidth: 2)
-            )
-        }
-        .scaleEffect(isSelected ? 1.1 : 1.0)
-        .animation(.spring(), value: isSelected)
+        GlassmorphicGateButton(gate: gate, isSelected: isSelected, onTap: onTap)
     }
 }
 

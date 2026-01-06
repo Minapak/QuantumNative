@@ -104,77 +104,89 @@ struct CampusHubView: View {
 
     // MARK: - Campus Header
     private var campusHeader: some View {
-        HStack(spacing: 16) {
-            // User Progress Circle
-            ZStack {
-                Circle()
-                    .stroke(Color.white.opacity(0.1), lineWidth: 6)
-                    .frame(width: 70, height: 70)
-
-                Circle()
-                    .trim(from: 0, to: Double(progressViewModel.completedLevelsCount) / 13.0)
-                    .stroke(
-                        LinearGradient(colors: [.miamiSunrise, .solarGold], startPoint: .topLeading, endPoint: .bottomTrailing),
-                        style: StrokeStyle(lineWidth: 6, lineCap: .round)
-                    )
-                    .frame(width: 70, height: 70)
-                    .rotationEffect(.degrees(-90))
-
-                VStack(spacing: 2) {
-                    Text("\(progressViewModel.completedLevelsCount)")
+        VStack(spacing: 12) {
+            // Top Row: Welcome + XP
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(NSLocalizedString("campus.welcome", comment: ""))
+                        .font(.subheadline)
+                        .foregroundColor(.textSecondary)
+                    Text(progressViewModel.userName)
                         .font(.title2.bold())
                         .foregroundColor(.white)
-                    Text("/13")
-                        .font(.caption2)
+                        .lineLimit(1)
+                }
+
+                Spacer()
+
+                // XP Display
+                HStack(spacing: 8) {
+                    ZStack {
+                        Circle()
+                            .fill(Color.solarGold.opacity(0.3))
+                            .frame(width: 50, height: 50)
+                            .scaleEffect(xpPulseScale)
+
+                        Circle()
+                            .fill(
+                                LinearGradient(
+                                    colors: [.miamiSunrise, .solarGold],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                            .frame(width: 42, height: 42)
+
+                        Text("\(progressViewModel.totalXP)")
+                            .font(.system(size: 12, weight: .bold, design: .rounded))
+                            .foregroundColor(.white)
+                    }
+
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("XP")
+                            .font(.caption.bold())
+                            .foregroundColor(.solarGold)
+                        FireEnergyIndicator()
+                    }
+                }
+            }
+
+            // Bottom Row: Progress Bar
+            HStack(spacing: 12) {
+                // Progress info
+                HStack(spacing: 8) {
+                    Text("\(progressViewModel.completedLevelsCount)")
+                        .font(.title.bold())
+                        .foregroundColor(.white)
+                    Text("/ 13 Levels")
+                        .font(.subheadline)
                         .foregroundColor(.textSecondary)
                 }
-            }
 
-            VStack(alignment: .leading, spacing: 6) {
-                Text(NSLocalizedString("campus.welcome", comment: ""))
-                    .font(.subheadline)
-                    .foregroundColor(.textSecondary)
+                Spacer()
 
-                Text(progressViewModel.userName)
-                    .font(.title3.bold())
-                    .foregroundColor(.white)
-            }
+                // Progress Bar
+                GeometryReader { geo in
+                    ZStack(alignment: .leading) {
+                        RoundedRectangle(cornerRadius: 4)
+                            .fill(Color.white.opacity(0.1))
+                            .frame(height: 8)
 
-            Spacer()
-
-            // XP Display with Pulsing Animation
-            VStack(spacing: 4) {
-                ZStack {
-                    // Pulsing glow effect
-                    Circle()
-                        .fill(Color.solarGold.opacity(0.3))
-                        .frame(width: 60, height: 60)
-                        .scaleEffect(xpPulseScale)
-
-                    Circle()
-                        .fill(
-                            LinearGradient(
-                                colors: [.miamiSunrise, .solarGold],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
+                        RoundedRectangle(cornerRadius: 4)
+                            .fill(
+                                LinearGradient(
+                                    colors: [.miamiSunrise, .solarGold],
+                                    startPoint: .leading,
+                                    endPoint: .trailing
+                                )
                             )
-                        )
-                        .frame(width: 50, height: 50)
-
-                    Text("\(progressViewModel.totalXP)")
-                        .font(.system(size: 14, weight: .bold, design: .rounded))
-                        .foregroundColor(.white)
+                            .frame(width: geo.size.width * (Double(progressViewModel.completedLevelsCount) / 13.0), height: 8)
+                    }
                 }
-
-                Text("XP")
-                    .font(.caption2.bold())
-                    .foregroundColor(.solarGold)
+                .frame(width: 120, height: 8)
             }
-
-            // Fire Energy Indicator
-            FireEnergyIndicator()
         }
-        .padding()
+        .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color.bgCard)

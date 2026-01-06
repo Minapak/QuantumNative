@@ -47,6 +47,63 @@ Transform learning into production-ready algorithms:
 | **Continuous** | 64 | Pro | Harvard-MIT architecture simulation |
 | **Fault-Tolerant** | 256 | Enterprise | 96+ logical qubits with error correction |
 
+### Agentic Upsell AI Engine
+
+Intelligent upgrade recommendation system:
+
+| Feature | Description |
+|---------|-------------|
+| **Error Analysis** | Real-time circuit error rate detection |
+| **Loss Aversion Messaging** | "Your Algorithm Needs Error Correction" prompts |
+| **Personalized Recommendations** | AI-based tier suggestions based on usage patterns |
+| **Push Notifications** | Smart timing for upgrade prompts |
+
+### Bridge Marketplace
+
+Real-time quantum hardware queue management:
+
+| Backend | Queue Time | Qubits | Tier Required |
+|---------|------------|--------|---------------|
+| **IBM Brisbane** | ~45 min | 127 | Pro |
+| **IBM Osaka** | ~30 min | 127 | Pro |
+| **IBM Kyoto** | ~60 min | 127 | Pro |
+| **QuantumBridge Priority** | ~5 min | 256 | Enterprise |
+
+**Miami Night Theme**: Animated particle visualization with cyan/yellow orbs representing queue positions.
+
+### Harvard-MIT Digital Twin
+
+3D visualization of the 2026 breakthrough architecture:
+
+| Feature | Description |
+|---------|-------------|
+| **8x8 Optical Lattice** | Real-time atom state visualization |
+| **Conveyor Belt Animation** | Atom replenishment process simulation |
+| **Live Metrics** | Coherence %, Fidelity %, Atom Loss/Replenish counts |
+| **Research Info** | Nature 2026 paper tooltips and references |
+
+### Global Contribution Index
+
+O1 visa evidence dashboard for international recognition:
+
+| Metric | Description |
+|--------|-------------|
+| **2,847+ Users** | Global platform adoption |
+| **47 Countries** | International reach |
+| **15,623+ Contributions** | Community engagement |
+| **Leaderboard** | Ranking system with monthly reports |
+
+### Quantum Bloomberg Terminal
+
+Research news aggregation for quantum professionals:
+
+| Feature | Description |
+|---------|-------------|
+| **Market Ticker** | Live stock prices (IONQ, RGTI, QBTS, QUBT) |
+| **Featured Articles** | Harvard-MIT 2026 Nature paper highlights |
+| **Category Filters** | Hardware, Algorithms, Error Correction, Applications, Theory, Software |
+| **DOI Integration** | Direct links to academic papers |
+
 ---
 
 ## Advanced Courses (Levels 9-13)
@@ -100,21 +157,90 @@ SwiftQuantumLearning/
 │   ├── QuantumCircuit.swift        # Core circuit simulation (Harvard-MIT 2026)
 │   ├── AdvancedLessons.swift       # Level 9-13 premium content
 │   ├── UserProgress.swift          # XP and achievement tracking
-│   └── Subscription.swift          # Tier management (Basic/Pro/Enterprise)
+│   ├── Subscription.swift          # Tier management (Basic/Pro/Enterprise)
+│   ├── Achievement.swift           # Achievement system
+│   ├── AuthModels.swift            # Authentication data models
+│   ├── LearningLevel.swift         # Learning level definitions
+│   ├── LearningTrack.swift         # Learning track configuration
+│   ├── PracticeItem.swift          # Practice exercises
+│   └── QubitState.swift            # Qubit state representation
 ├── Views/
-│   ├── MainTabView.swift           # Primary navigation
+│   ├── MainTabView.swift           # Primary navigation (Home/Learn/Factory/Explore/Profile)
+│   ├── Auth/
+│   │   └── AuthenticationView.swift
+│   ├── Home/
+│   │   └── HomeView.swift
 │   ├── Learn/
-│   │   └── AdvancedLessonView.swift
+│   │   ├── LearnView.swift
+│   │   ├── LevelDetailView.swift
+│   │   ├── AdvancedLessonView.swift
+│   │   ├── LearningStrategyView.swift
+│   │   └── QuantumCurriculumContent.swift
 │   ├── QuantumFactory/             # Circuit builder & deployment
 │   │   ├── QuantumFactoryView.swift
-│   │   └── NoiseVisualizationView.swift
-│   └── Premium/
-│       └── PremiumUpgradeView.swift # Monetization UI
+│   │   ├── NoiseVisualizationView.swift
+│   │   ├── BridgeMarketplaceView.swift    # Hardware queue with Miami night theme
+│   │   └── HarvardMITDigitalTwinView.swift # 3D atom replenishment
+│   ├── Practice/
+│   │   ├── PracticeView.swift
+│   │   ├── ChallengesView.swift
+│   │   ├── ExamplesGridView.swift
+│   │   ├── InteractiveDemoView.swift
+│   │   └── Examples/
+│   │       ├── QuantumGatesExample.swift
+│   │       ├── DeutschJozsaExample.swift
+│   │       ├── RandomNumberExample.swift
+│   │       └── ApplicationsExample.swift
+│   ├── Explore/
+│   │   ├── ExploreView.swift
+│   │   ├── ConceptDetailView.swift
+│   │   └── RelatedContentView.swift
+│   ├── Profile/
+│   │   ├── ProfileView.swift
+│   │   ├── SettingsView.swift
+│   │   ├── AchievementsView.swift
+│   │   ├── UserStatsView.swift
+│   │   └── GlobalContributionView.swift   # O1 visa evidence dashboard
+│   ├── Premium/
+│   │   └── PremiumUpgradeView.swift       # Monetization UI with Agentic AI
+│   ├── Subscription/
+│   │   └── PaywallView.swift
+│   ├── Research/
+│   │   └── QuantumResearchNewsView.swift  # Quantum Bloomberg Terminal
+│   └── Components/
+│       ├── ProgressRing.swift
+│       ├── StreakCounter.swift
+│       ├── XPDisplay.swift
+│       ├── TabBarView.swift
+│       ├── FilterChip.swift
+│       ├── LevelCard.swift
+│       └── CustomButton.swift
+├── ViewModels/
+│   ├── HomeViewModel.swift
+│   ├── LearnViewModel.swift
+│   ├── PracticeViewModel.swift
+│   ├── ExploreViewModel.swift
+│   ├── ProfileViewModel.swift
+│   ├── AuthViewModel.swift
+│   ├── AchievementViewModel.swift
+│   └── ProgressViewModel.swift
 ├── Services/
 │   ├── QuantumBridgeService.swift  # Cloud integration
-│   └── [Core services]
-└── Design/
-    └── QuantumTheme.swift          # Premium UI/UX system
+│   ├── AgenticUpsellEngine.swift   # AI-based upgrade recommendations
+│   ├── AuthService.swift           # Authentication
+│   ├── APIClient.swift             # Backend API
+│   ├── StoreKitService.swift       # In-app purchases
+│   ├── LearningService.swift       # Learning progress
+│   ├── ProgressService.swift       # User progress tracking
+│   ├── AchievementService.swift    # Achievement system
+│   ├── StorageService.swift        # Local storage
+│   └── KeychainService.swift       # Secure storage
+├── Persistence/
+│   └── SubscriptionManager.swift   # Subscription state management
+├── Design/
+│   ├── QuantumTheme.swift          # Premium UI/UX system
+│   └── Extensions.swift            # SwiftUI extensions
+└── SwiftQuantumApp.swift           # App entry point
 ```
 
 ### Quantum Simulation Engine

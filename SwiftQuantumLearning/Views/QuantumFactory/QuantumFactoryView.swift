@@ -10,6 +10,7 @@
 //
 
 import SwiftUI
+import Combine
 
 // MARK: - Factory Project
 struct FactoryProject: Identifiable, Codable {

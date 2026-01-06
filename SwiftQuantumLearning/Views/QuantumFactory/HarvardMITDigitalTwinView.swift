@@ -12,6 +12,7 @@
 
 import SwiftUI
 import SceneKit
+import Combine
 
 // MARK: - Atom State
 struct AtomState: Identifiable {
@@ -468,67 +469,69 @@ struct HarvardMITDigitalTwinView: View {
 
     // MARK: - Control Panel
     private var controlPanel: some View {
-        HStack(spacing: 16) {
-            Button {
-                if viewModel.isSimulationRunning {
-                    viewModel.stopSimulation()
-                } else {
-                    viewModel.startSimulation()
+        VStack(spacing: 0) {
+            HStack(spacing: 16) {
+                Button {
+                    if viewModel.isSimulationRunning {
+                        viewModel.stopSimulation()
+                    } else {
+                        viewModel.startSimulation()
+                    }
+                } label: {
+                    HStack {
+                        Image(systemName: viewModel.isSimulationRunning ? "pause.fill" : "play.fill")
+                        Text(viewModel.isSimulationRunning ? "Pause" : "Start")
+                    }
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 14)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(viewModel.isSimulationRunning ? Color.yellow : Color.green)
+                    )
                 }
-            } label: {
-                HStack {
-                    Image(systemName: viewModel.isSimulationRunning ? "pause.fill" : "play.fill")
-                    Text(viewModel.isSimulationRunning ? "Pause" : "Start")
+
+                Button {
+                    viewModel.resetSimulation()
+                } label: {
+                    HStack {
+                        Image(systemName: "arrow.counterclockwise")
+                        Text("Reset")
+                    }
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 14)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.bgCard)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color.white.opacity(0.2), lineWidth: 1)
+                            )
+                    )
                 }
-                .font(.headline)
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 14)
-                .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(viewModel.isSimulationRunning ? Color.yellow : Color.green)
-                )
             }
+            .padding(.horizontal)
 
-            Button {
-                viewModel.resetSimulation()
-            } label: {
-                HStack {
-                    Image(systemName: "arrow.counterclockwise")
-                    Text("Reset")
-                }
-                .font(.headline)
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 14)
-                .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.bgCard)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(Color.white.opacity(0.2), lineWidth: 1)
-                        )
-                )
+            // Speed slider
+            HStack {
+                Text("Speed")
+                    .font(.caption)
+                    .foregroundColor(.textSecondary)
+
+                Slider(value: $viewModel.simulationSpeed, in: 0.5...5.0, step: 0.5)
+                    .tint(.quantumCyan)
+
+                Text("\(viewModel.simulationSpeed, specifier: "%.1f")x")
+                    .font(.caption)
+                    .foregroundColor(.quantumCyan)
+                    .frame(width: 40)
             }
+            .padding(.horizontal)
+            .padding(.top, 8)
         }
-        .padding(.horizontal)
-
-        // Speed slider
-        HStack {
-            Text("Speed")
-                .font(.caption)
-                .foregroundColor(.textSecondary)
-
-            Slider(value: $viewModel.simulationSpeed, in: 0.5...5.0, step: 0.5)
-                .tint(.quantumCyan)
-
-            Text("\(viewModel.simulationSpeed, specifier: "%.1f")x")
-                .font(.caption)
-                .foregroundColor(.quantumCyan)
-                .frame(width: 40)
-        }
-        .padding(.horizontal)
-        .padding(.top, 8)
     }
 
     // MARK: - Event Log

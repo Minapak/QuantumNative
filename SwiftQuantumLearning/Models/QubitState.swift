@@ -11,7 +11,7 @@ import Combine
 import SwiftUI
 
 // MARK: - Complex Number
-struct Complex {
+struct Complex: Codable {
     var real: Double
     var imaginary: Double
     

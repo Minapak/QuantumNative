@@ -12,6 +12,7 @@
 
 import SwiftUI
 import Charts
+import Combine
 
 // MARK: - Contribution Data
 struct ContributionData: Identifiable, Codable {
@@ -372,7 +373,7 @@ struct GlobalContributionView: View {
     private var globalStatsCards: some View {
         VStack(spacing: 16) {
             HStack(spacing: 16) {
-                StatCard(
+                ContributionStatCard(
                     title: "Global Users",
                     value: "\(viewModel.globalStats.totalUsers)",
                     icon: "person.3.fill",
@@ -380,7 +381,7 @@ struct GlobalContributionView: View {
                     trend: "+18%"
                 )
 
-                StatCard(
+                ContributionStatCard(
                     title: "Countries",
                     value: "\(viewModel.globalStats.countriesActive)",
                     icon: "globe",
@@ -390,7 +391,7 @@ struct GlobalContributionView: View {
             }
 
             HStack(spacing: 16) {
-                StatCard(
+                ContributionStatCard(
                     title: "Contributions",
                     value: "\(viewModel.globalStats.totalContributions)",
                     icon: "arrow.triangle.merge",
@@ -398,7 +399,7 @@ struct GlobalContributionView: View {
                     trend: "+23%"
                 )
 
-                StatCard(
+                ContributionStatCard(
                     title: "Avg. Improvement",
                     value: "\(Int(viewModel.globalStats.averageFidelityImprovement * 100))%",
                     icon: "chart.line.uptrend.xyaxis",
@@ -599,8 +600,8 @@ struct GlobalContributionView: View {
     }
 }
 
-// MARK: - Stat Card
-struct StatCard: View {
+// MARK: - Contribution Stat Card
+struct ContributionStatCard: View {
     let title: String
     let value: String
     let icon: String

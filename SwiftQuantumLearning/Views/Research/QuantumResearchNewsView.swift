@@ -11,6 +11,7 @@
 //
 
 import SwiftUI
+import Combine
 
 // MARK: - Research Article
 struct ResearchArticle: Identifiable, Codable {
@@ -466,7 +467,11 @@ struct QuantumResearchNewsView: View {
                 HStack(spacing: 20) {
                     Label("Impact: \(String(format: "%.1f", article.impactScore))", systemImage: "chart.bar.fill")
                     Label("\(article.citations) citations", systemImage: "quote.bubble")
-                    Label(article.publishedDate, style: .date)
+                    Label {
+                        Text(article.publishedDate, style: .date)
+                    } icon: {
+                        Image(systemName: "calendar")
+                    }
                 }
                 .font(.caption)
                 .foregroundColor(.textSecondary)

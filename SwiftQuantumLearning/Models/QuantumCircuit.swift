@@ -436,8 +436,8 @@ class QuantumCircuit: ObservableObject, Codable {
     private func applyT(to qubit: Int) {
         let size = stateVector.count
         let mask = 1 << qubit
-        let cos45 = cos(.pi / 4)
-        let sin45 = sin(.pi / 4)
+        let cos45 = cos(Double.pi / 4)
+        let sin45 = sin(Double.pi / 4)
 
         for i in stride(from: 0, to: size, by: mask * 2) {
             for j in (i + mask)..<(i + mask * 2) {
@@ -726,13 +726,3 @@ struct QuantumCircuitData: Codable {
     }
 }
 
-// MARK: - String Extension
-extension String {
-    func padLeft(toLength length: Int, withPad pad: String) -> String {
-        let count = length - self.count
-        if count > 0 {
-            return String(repeating: pad, count: count) + self
-        }
-        return self
-    }
-}

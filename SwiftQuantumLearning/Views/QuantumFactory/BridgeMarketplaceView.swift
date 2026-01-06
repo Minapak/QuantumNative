@@ -12,6 +12,7 @@
 
 import SwiftUI
 import SceneKit
+import Combine
 
 // MARK: - Hardware Backend
 struct HardwareBackend: Identifiable {
@@ -726,13 +727,13 @@ struct MiamiQueueVisualization: View {
                             x: CGFloat.random(in: 0...geometry.size.width),
                             y: CGFloat.random(in: 0...geometry.size.height)
                         )
-                        .opacity(sin(animationPhase + Double(i) * 0.1) * 0.5 + 0.5)
+                        .opacity(Darwin.sin(animationPhase + Double(i) * 0.1) * 0.5 + 0.5)
                 }
 
                 // Queue items as glowing orbs
                 ForEach(Array(queuePositions.enumerated()), id: \.element.id) { index, position in
                     let xPos = CGFloat(index + 1) / CGFloat(queuePositions.count + 1) * geometry.size.width
-                    let yPos = geometry.size.height * 0.5 + sin(animationPhase + Double(index)) * 20
+                    let yPos = geometry.size.height * 0.5 + Darwin.sin(animationPhase + Double(index)) * 20
 
                     ZStack {
                         // Glow
@@ -779,7 +780,7 @@ struct MiamiQueueVisualization: View {
                     path.move(to: CGPoint(x: 0, y: geometry.size.height * 0.8))
                     for i in 0..<Int(geometry.size.width / 10) {
                         let x = CGFloat(i * 10)
-                        let y = geometry.size.height * 0.8 + sin(animationPhase + Double(i) * 0.2) * 10
+                        let y = geometry.size.height * 0.8 + Darwin.sin(animationPhase + Double(i) * 0.2) * 10
                         path.addLine(to: CGPoint(x: x, y: y))
                     }
                 }

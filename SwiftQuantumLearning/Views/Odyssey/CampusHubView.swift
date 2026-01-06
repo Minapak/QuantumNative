@@ -24,12 +24,15 @@ struct CampusLevel: Identifiable {
     let isLocked: Bool
     let progress: Double // 0.0 ~ 1.0
 
+    // Initial state: Only Level 1 is unlocked with 0 progress (fresh user experience)
     static let allLevels: [CampusLevel] = [
-        CampusLevel(id: 1, title: "campus.level1.title", subtitle: "campus.level1.subtitle", icon: "atom", color: .quantumCyan, xpReward: 100, isPremium: false, isLocked: false, progress: 1.0),
-        CampusLevel(id: 2, title: "campus.level2.title", subtitle: "campus.level2.subtitle", icon: "waveform", color: .quantumPurple, xpReward: 150, isPremium: false, isLocked: false, progress: 0.7),
-        CampusLevel(id: 3, title: "campus.level3.title", subtitle: "campus.level3.subtitle", icon: "link", color: .miamiSunrise, xpReward: 200, isPremium: false, isLocked: false, progress: 0.3),
+        // Free levels (1-5)
+        CampusLevel(id: 1, title: "campus.level1.title", subtitle: "campus.level1.subtitle", icon: "atom", color: .quantumCyan, xpReward: 100, isPremium: false, isLocked: false, progress: 0),
+        CampusLevel(id: 2, title: "campus.level2.title", subtitle: "campus.level2.subtitle", icon: "waveform", color: .quantumPurple, xpReward: 150, isPremium: false, isLocked: true, progress: 0),
+        CampusLevel(id: 3, title: "campus.level3.title", subtitle: "campus.level3.subtitle", icon: "link", color: .miamiSunrise, xpReward: 200, isPremium: false, isLocked: true, progress: 0),
         CampusLevel(id: 4, title: "campus.level4.title", subtitle: "campus.level4.subtitle", icon: "square.grid.3x3", color: .quantumOrange, xpReward: 250, isPremium: false, isLocked: true, progress: 0),
         CampusLevel(id: 5, title: "campus.level5.title", subtitle: "campus.level5.subtitle", icon: "chart.line.uptrend.xyaxis", color: .solarGold, xpReward: 300, isPremium: false, isLocked: true, progress: 0),
+        // Premium levels (6-13)
         CampusLevel(id: 6, title: "campus.level6.title", subtitle: "campus.level6.subtitle", icon: "cpu", color: .quantumGreen, xpReward: 350, isPremium: true, isLocked: true, progress: 0),
         CampusLevel(id: 7, title: "campus.level7.title", subtitle: "campus.level7.subtitle", icon: "shield.checkered", color: .fireRed, xpReward: 400, isPremium: true, isLocked: true, progress: 0),
         CampusLevel(id: 8, title: "campus.level8.title", subtitle: "campus.level8.subtitle", icon: "magnifyingglass", color: .quantumCyan, xpReward: 450, isPremium: true, isLocked: true, progress: 0),
@@ -94,6 +97,9 @@ struct CampusHubView: View {
             .navigationBarTitleDisplayMode(.large)
             .sheet(isPresented: $showPaywall) {
                 PaywallView()
+            }
+            .sheet(item: $selectedLevel) { level in
+                LevelDetailSheet(level: level, isPremium: storeKitService.isPremium)
             }
         }
         .onAppear {
@@ -369,6 +375,544 @@ struct CircularProgressView: View {
             Text("\(Int(progress * 100))")
                 .font(.system(size: 8, weight: .bold))
                 .foregroundColor(color)
+        }
+    }
+}
+
+// MARK: - Level Detail Sheet
+struct LevelDetailSheet: View {
+    @Environment(\.dismiss) var dismiss
+    @ObservedObject var translationManager = QuantumTranslationManager.shared
+    let level: CampusLevel
+    let isPremium: Bool
+
+    @State private var showingLesson = false
+
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                // Background
+                LinearGradient(
+                    colors: [.deepSeaNight, level.color.opacity(0.15)],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .ignoresSafeArea()
+
+                ScrollView {
+                    VStack(spacing: 24) {
+                        // Level Icon
+                        ZStack {
+                            Circle()
+                                .fill(level.color.opacity(0.2))
+                                .frame(width: 100, height: 100)
+
+                            Circle()
+                                .fill(
+                                    LinearGradient(
+                                        colors: [level.color, level.color.opacity(0.6)],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
+                                .frame(width: 80, height: 80)
+
+                            Image(systemName: level.icon)
+                                .font(.system(size: 40))
+                                .foregroundColor(.white)
+                        }
+                        .shadow(color: level.color.opacity(0.5), radius: 20)
+
+                        // Level Info
+                        VStack(spacing: 8) {
+                            Text(String(format: NSLocalizedString("level.title", comment: ""), level.id))
+                                .font(.subheadline)
+                                .foregroundColor(.textSecondary)
+
+                            Text(NSLocalizedString(level.title, comment: ""))
+                                .font(.title.bold())
+                                .foregroundColor(.white)
+                                .multilineTextAlignment(.center)
+
+                            Text(NSLocalizedString(level.subtitle, comment: ""))
+                                .font(.subheadline)
+                                .foregroundColor(.textSecondary)
+                        }
+
+                        // XP Reward Card
+                        HStack(spacing: 16) {
+                            VStack(spacing: 4) {
+                                Image(systemName: "star.fill")
+                                    .font(.title2)
+                                    .foregroundColor(.solarGold)
+                                Text("\(level.xpReward)")
+                                    .font(.title2.bold())
+                                    .foregroundColor(.white)
+                                Text("XP")
+                                    .font(.caption)
+                                    .foregroundColor(.textSecondary)
+                            }
+
+                            Divider()
+                                .frame(height: 50)
+                                .background(Color.white.opacity(0.2))
+
+                            VStack(spacing: 4) {
+                                Image(systemName: "clock.fill")
+                                    .font(.title2)
+                                    .foregroundColor(.quantumCyan)
+                                Text("\(5 + level.id * 2)")
+                                    .font(.title2.bold())
+                                    .foregroundColor(.white)
+                                Text("min")
+                                    .font(.caption)
+                                    .foregroundColor(.textSecondary)
+                            }
+
+                            Divider()
+                                .frame(height: 50)
+                                .background(Color.white.opacity(0.2))
+
+                            VStack(spacing: 4) {
+                                Image(systemName: difficultyIcon)
+                                    .font(.title2)
+                                    .foregroundColor(difficultyColor)
+                                Text(difficultyText)
+                                    .font(.caption.bold())
+                                    .foregroundColor(.white)
+                                Text(NSLocalizedString("level.difficulty", comment: ""))
+                                    .font(.caption)
+                                    .foregroundColor(.textSecondary)
+                            }
+                        }
+                        .padding(20)
+                        .frame(maxWidth: .infinity)
+                        .background(
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(Color.bgCard)
+                        )
+
+                        // Learning Content Preview
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text(NSLocalizedString("learn.title", comment: ""))
+                                .font(.headline)
+                                .foregroundColor(.white)
+
+                            VStack(spacing: 12) {
+                                LessonPreviewRow(
+                                    icon: "book.fill",
+                                    title: translationManager.getTerm(for: termKey),
+                                    subtitle: translationManager.getDescription(for: termKey),
+                                    color: level.color
+                                )
+
+                                LessonPreviewRow(
+                                    icon: "lightbulb.fill",
+                                    title: NSLocalizedString("strategy.memory", comment: ""),
+                                    subtitle: NSLocalizedString("memory.tip", comment: ""),
+                                    color: .solarGold
+                                )
+
+                                LessonPreviewRow(
+                                    icon: "questionmark.circle.fill",
+                                    title: NSLocalizedString("quiz.question", comment: ""),
+                                    subtitle: NSLocalizedString("quiz.selectAnswer", comment: ""),
+                                    color: .quantumPurple
+                                )
+                            }
+                        }
+                        .padding(20)
+                        .background(
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(Color.bgCard)
+                        )
+
+                        Spacer().frame(height: 80)
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 20)
+                }
+
+                // Start Button at bottom
+                VStack {
+                    Spacer()
+                    Button {
+                        showingLesson = true
+                        translationManager.boostFireEnergy(by: 0.05)
+                    } label: {
+                        HStack {
+                            Image(systemName: "play.fill")
+                            Text(NSLocalizedString("learn.startLearning", comment: ""))
+                        }
+                        .font(.headline)
+                        .foregroundColor(.black)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 14)
+                                .fill(
+                                    LinearGradient(
+                                        colors: [level.color, level.color.opacity(0.8)],
+                                        startPoint: .leading,
+                                        endPoint: .trailing
+                                    )
+                                )
+                        )
+                        .shadow(color: level.color.opacity(0.4), radius: 10, y: 5)
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 30)
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.title2)
+                            .foregroundColor(.textSecondary)
+                    }
+                }
+            }
+            .fullScreenCover(isPresented: $showingLesson) {
+                LevelLessonView(level: level, onComplete: {
+                    showingLesson = false
+                    dismiss()
+                })
+            }
+        }
+    }
+
+    // Difficulty based on level
+    private var difficultyText: String {
+        switch level.id {
+        case 1...3: return NSLocalizedString("lesson.basics1.1.difficulty", comment: "")
+        case 4...7: return NSLocalizedString("lesson.principles2.1.difficulty", comment: "")
+        case 8...10: return NSLocalizedString("lesson.operation3.1.difficulty", comment: "")
+        default: return NSLocalizedString("lesson.apps6.1.difficulty", comment: "")
+        }
+    }
+
+    private var difficultyColor: Color {
+        switch level.id {
+        case 1...3: return .quantumGreen
+        case 4...7: return .quantumOrange
+        case 8...10: return .miamiSunrise
+        default: return .fireRed
+        }
+    }
+
+    private var difficultyIcon: String {
+        switch level.id {
+        case 1...3: return "leaf.fill"
+        case 4...7: return "flame"
+        case 8...10: return "flame.fill"
+        default: return "bolt.fill"
+        }
+    }
+
+    private var termKey: String {
+        switch level.id {
+        case 1: return "qubit"
+        case 2: return "superposition"
+        case 3: return "entanglement"
+        case 4: return "gate"
+        case 5: return "measurement"
+        case 6: return "coherence"
+        case 7: return "errorCorrection"
+        default: return "fidelity"
+        }
+    }
+}
+
+// MARK: - Lesson Preview Row
+struct LessonPreviewRow: View {
+    let icon: String
+    let title: String
+    let subtitle: String
+    let color: Color
+
+    var body: some View {
+        HStack(spacing: 12) {
+            ZStack {
+                Circle()
+                    .fill(color.opacity(0.2))
+                    .frame(width: 40, height: 40)
+
+                Image(systemName: icon)
+                    .foregroundColor(color)
+            }
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(.subheadline.bold())
+                    .foregroundColor(.white)
+                    .lineLimit(1)
+
+                Text(subtitle)
+                    .font(.caption)
+                    .foregroundColor(.textSecondary)
+                    .lineLimit(2)
+            }
+
+            Spacer()
+
+            Image(systemName: "chevron.right")
+                .font(.caption)
+                .foregroundColor(.textTertiary)
+        }
+        .padding(12)
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color.bgDark)
+        )
+    }
+}
+
+// MARK: - Level Lesson View
+struct LevelLessonView: View {
+    @Environment(\.dismiss) var dismiss
+    @ObservedObject var translationManager = QuantumTranslationManager.shared
+    let level: CampusLevel
+    let onComplete: () -> Void
+
+    @State private var currentPage = 0
+    @State private var showQuiz = false
+    @State private var quizScore = 0
+
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                // Background
+                Color.bgDark.ignoresSafeArea()
+
+                VStack(spacing: 0) {
+                    // Progress bar
+                    GeometryReader { geo in
+                        ZStack(alignment: .leading) {
+                            RoundedRectangle(cornerRadius: 2)
+                                .fill(Color.white.opacity(0.1))
+                                .frame(height: 4)
+
+                            RoundedRectangle(cornerRadius: 2)
+                                .fill(level.color)
+                                .frame(width: geo.size.width * (Double(currentPage + 1) / 4.0), height: 4)
+                        }
+                    }
+                    .frame(height: 4)
+                    .padding(.horizontal)
+                    .padding(.top, 8)
+
+                    // Content
+                    TabView(selection: $currentPage) {
+                        // Page 1: Introduction
+                        LessonPageView(
+                            icon: level.icon,
+                            color: level.color,
+                            title: NSLocalizedString(level.title, comment: ""),
+                            content: lessonContent(for: 1),
+                            mnemonic: lessonMnemonic(for: 1)
+                        )
+                        .tag(0)
+
+                        // Page 2: Key Concepts
+                        LessonPageView(
+                            icon: "lightbulb.fill",
+                            color: .solarGold,
+                            title: translationManager.getTerm(for: termKey),
+                            content: translationManager.getDescription(for: termKey),
+                            mnemonic: nil
+                        )
+                        .tag(1)
+
+                        // Page 3: Deeper Understanding
+                        LessonPageView(
+                            icon: "brain.head.profile",
+                            color: .quantumPurple,
+                            title: NSLocalizedString("feynman.simpleExplanation", comment: ""),
+                            content: lessonContent(for: 3),
+                            mnemonic: lessonMnemonic(for: 3)
+                        )
+                        .tag(2)
+
+                        // Page 4: Quiz Introduction
+                        VStack(spacing: 24) {
+                            Spacer()
+
+                            ZStack {
+                                Circle()
+                                    .fill(Color.quantumCyan.opacity(0.2))
+                                    .frame(width: 120, height: 120)
+
+                                Image(systemName: "checkmark.circle.fill")
+                                    .font(.system(size: 60))
+                                    .foregroundColor(.quantumCyan)
+                            }
+
+                            Text(NSLocalizedString("common.done", comment: ""))
+                                .font(.title.bold())
+                                .foregroundColor(.white)
+
+                            Text(NSLocalizedString("quiz.explanation", comment: ""))
+                                .font(.subheadline)
+                                .foregroundColor(.textSecondary)
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 40)
+
+                            Spacer()
+
+                            Button {
+                                translationManager.onLessonCompleted()
+                                onComplete()
+                            } label: {
+                                HStack {
+                                    Image(systemName: "checkmark.circle.fill")
+                                    Text(NSLocalizedString("common.done", comment: ""))
+                                }
+                                .font(.headline)
+                                .foregroundColor(.black)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 16)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 14)
+                                        .fill(Color.quantumCyan)
+                                )
+                            }
+                            .padding(.horizontal, 20)
+                            .padding(.bottom, 40)
+                        }
+                        .tag(3)
+                    }
+                    .tabViewStyle(.page(indexDisplayMode: .never))
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.textSecondary)
+                    }
+                }
+
+                ToolbarItem(placement: .principal) {
+                    Text("\(currentPage + 1) / 4")
+                        .font(.subheadline)
+                        .foregroundColor(.textSecondary)
+                }
+            }
+        }
+    }
+
+    private var termKey: String {
+        switch level.id {
+        case 1: return "qubit"
+        case 2: return "superposition"
+        case 3: return "entanglement"
+        case 4: return "gate"
+        case 5: return "measurement"
+        case 6: return "coherence"
+        case 7: return "errorCorrection"
+        default: return "fidelity"
+        }
+    }
+
+    private func lessonContent(for page: Int) -> String {
+        switch level.id {
+        case 1: return NSLocalizedString("lesson.basics1.\(page).content", comment: "")
+        case 2: return NSLocalizedString("lesson.principles2.1.content", comment: "")
+        case 3: return NSLocalizedString("lesson.principles2.2.content", comment: "")
+        case 4: return NSLocalizedString("lesson.operation3.3.content", comment: "")
+        case 5: return NSLocalizedString("lesson.operation3.4.content", comment: "")
+        default: return NSLocalizedString("lesson.basics1.1.content", comment: "")
+        }
+    }
+
+    private func lessonMnemonic(for page: Int) -> String? {
+        switch level.id {
+        case 1: return NSLocalizedString("lesson.basics1.\(page).mnemonic", comment: "")
+        case 2: return NSLocalizedString("lesson.principles2.1.mnemonic", comment: "")
+        case 3: return NSLocalizedString("lesson.principles2.2.mnemonic", comment: "")
+        case 4: return NSLocalizedString("lesson.operation3.3.mnemonic", comment: "")
+        default: return nil
+        }
+    }
+}
+
+// MARK: - Lesson Page View
+struct LessonPageView: View {
+    let icon: String
+    let color: Color
+    let title: String
+    let content: String
+    let mnemonic: String?
+
+    var body: some View {
+        ScrollView {
+            VStack(spacing: 24) {
+                Spacer().frame(height: 20)
+
+                // Icon
+                ZStack {
+                    Circle()
+                        .fill(color.opacity(0.2))
+                        .frame(width: 80, height: 80)
+
+                    Image(systemName: icon)
+                        .font(.system(size: 36))
+                        .foregroundColor(color)
+                }
+
+                // Title
+                Text(title)
+                    .font(.title2.bold())
+                    .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+
+                // Content
+                Text(content)
+                    .font(.body)
+                    .foregroundColor(.textSecondary)
+                    .multilineTextAlignment(.leading)
+                    .lineSpacing(6)
+                    .padding(.horizontal, 24)
+
+                // Mnemonic Card
+                if let mnemonic = mnemonic, !mnemonic.isEmpty {
+                    VStack(spacing: 8) {
+                        HStack {
+                            Image(systemName: "brain.head.profile")
+                                .foregroundColor(.solarGold)
+                            Text(NSLocalizedString("memory.mnemonic", comment: ""))
+                                .font(.caption.bold())
+                                .foregroundColor(.solarGold)
+                        }
+
+                        Text(mnemonic)
+                            .font(.subheadline.italic())
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                    }
+                    .padding(16)
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.solarGold.opacity(0.1))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color.solarGold.opacity(0.3), lineWidth: 1)
+                            )
+                    )
+                    .padding(.horizontal, 24)
+                }
+
+                Spacer().frame(height: 100)
+            }
         }
     }
 }

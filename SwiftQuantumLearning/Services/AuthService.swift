@@ -12,32 +12,44 @@ import Combine
 // MARK: - Profile Update Request
 struct UpdateProfileRequest: Codable {
     let username: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case username
     }
 }
 
+// MARK: - Admin Credentials (Development/Testing Only)
+struct AdminCredentials {
+    static let email = "admin@swiftquantum.io"
+    static let password = "QuantumAdmin2026!"
+    static let username = "SwiftQuantum Admin"
+}
+
 // MARK: - Auth Service
 @MainActor
 class AuthService: ObservableObject {
-    
+
     // MARK: - Singleton
     static let shared = AuthService()
-    
+
     // MARK: - Published Properties
     @Published var isLoggedIn = false
     @Published var isLoading = false
     @Published var errorMessage: String?
     @Published var currentUser: UserResponse?
-    
+    @Published var isAdmin = false  // Admin flag for premium bypass
+
     // MARK: - Private Properties
     private let apiClient = APIClient.shared
     private let keychainService = KeychainService.shared
     private var cancellables = Set<AnyCancellable>()
-    
+
+    // MARK: - UserDefaults Keys
+    private let isAdminKey = "swiftquantum.isAdmin"
+
     // MARK: - Initialization
     private init() {
+        isAdmin = UserDefaults.standard.bool(forKey: isAdminKey)
         checkAuthStatus()
     }
     
@@ -106,31 +118,38 @@ class AuthService: ObservableObject {
         guard validateLogin(email: email, password: password) else {
             return false
         }
-        
+
         isLoading = true
         errorMessage = nil
-        
+
+        // Check for Admin login (offline mode)
+        if email == AdminCredentials.email && password == AdminCredentials.password {
+            return await loginAsAdmin()
+        }
+
         do {
             let request = LoginRequest(
                 email: email,
                 password: password
             )
-            
+
             let response: AuthResponse = try await apiClient.post(
                 endpoint: "/api/v1/auth/login",
                 body: request
             )
-            
+
             apiClient.accessToken = response.access_token
             apiClient.isLoggedIn = true
-            
+
             DispatchQueue.main.async {
                 self.isLoggedIn = true
                 self.isLoading = false
+                self.isAdmin = false
+                UserDefaults.standard.set(false, forKey: self.isAdminKey)
             }
-            
+
             await loadUserProfile()
-            
+
             print("✅ Login successful")
             return true
         } catch {
@@ -142,17 +161,45 @@ class AuthService: ObservableObject {
             return false
         }
     }
-    
+
+    /// Admin login (offline mode with full premium access)
+    private func loginAsAdmin() async -> Bool {
+        // Create mock admin user (id must be Int)
+        let adminUser = UserResponse(
+            id: 999999,
+            email: AdminCredentials.email,
+            username: AdminCredentials.username,
+            is_active: true,
+            is_premium: true,
+            created_at: "2026-01-01T00:00:00Z",
+            subscription_tier: "premium",
+            subscription_expires_at: "2099-12-31T23:59:59Z"
+        )
+
+        DispatchQueue.main.async {
+            self.currentUser = adminUser
+            self.isLoggedIn = true
+            self.isAdmin = true
+            self.isLoading = false
+            UserDefaults.standard.set(true, forKey: self.isAdminKey)
+        }
+
+        print("✅ Admin login successful - Full premium access enabled")
+        return true
+    }
+
     /// Logout
     func logout() {
         apiClient.accessToken = nil
         apiClient.isLoggedIn = false
         keychainService.deleteToken()
-        
+
         isLoggedIn = false
         currentUser = nil
         errorMessage = nil
-        
+        isAdmin = false
+        UserDefaults.standard.set(false, forKey: isAdminKey)
+
         print("✅ Logged out")
     }
     

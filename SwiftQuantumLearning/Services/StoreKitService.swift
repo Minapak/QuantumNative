@@ -171,9 +171,13 @@ class StoreKitService: ObservableObject {
         subscriptionManager.saveSubscriptionInfo(newSubscriptionInfo)
     }
 
-    /// 프리미엄 여부 확인
+    /// 프리미엄 여부 확인 (Admin bypass included)
     var isPremium: Bool {
-        subscriptionInfo.isActive
+        // Admin gets full premium access
+        if AuthService.shared.isAdmin {
+            return true
+        }
+        return subscriptionInfo.isActive
     }
 
     /// 특정 상품 가격 가져오기

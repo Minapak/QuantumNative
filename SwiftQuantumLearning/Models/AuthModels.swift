@@ -45,13 +45,44 @@ struct UserResponse: Codable {
     let id: Int
     let email: String
     let username: String
-    let subscription_type: String
-    let total_xp: Int
-    let current_level: Int
-    let current_streak: Int
-    let longest_streak: Int
-    let lessons_completed: Int
-    let created_at: String
+    let subscription_type: String?
+    let total_xp: Int?
+    let current_level: Int?
+    let current_streak: Int?
+    let longest_streak: Int?
+    let lessons_completed: Int?
+    let created_at: String?
+    let is_active: Bool?
+    let is_premium: Bool?
+    let subscription_tier: String?
+    let subscription_expires_at: String?
+
+    // Convenience initializer for Admin/Mock users
+    init(
+        id: Int,
+        email: String,
+        username: String,
+        is_active: Bool = true,
+        is_premium: Bool = false,
+        created_at: String? = nil,
+        subscription_tier: String? = nil,
+        subscription_expires_at: String? = nil
+    ) {
+        self.id = id
+        self.email = email
+        self.username = username
+        self.subscription_type = subscription_tier
+        self.total_xp = 0
+        self.current_level = 1
+        self.current_streak = 0
+        self.longest_streak = 0
+        self.lessons_completed = 0
+        self.created_at = created_at
+        self.is_active = is_active
+        self.is_premium = is_premium
+        self.subscription_tier = subscription_tier
+        self.subscription_expires_at = subscription_expires_at
+    }
 }
 
 // MARK: - User Stats Response

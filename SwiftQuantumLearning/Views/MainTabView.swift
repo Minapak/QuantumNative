@@ -115,6 +115,19 @@ struct MainTabView: View {
                 isPremium: storeKitService.isPremium,
                 isLoggedIn: authViewModel.isLoggedIn
             )
+
+            // DEV Mode Badge - Top Right Corner
+            if SwiftQuantumLearningApp.isDebugMode || AuthService.shared.isAdmin {
+                VStack {
+                    HStack {
+                        Spacer()
+                        DevModeBadge()
+                    }
+                    Spacer()
+                }
+                .padding(.top, 50)
+                .padding(.trailing, 16)
+            }
         }
         .ignoresSafeArea(.keyboard)
         .onAppear {
@@ -459,6 +472,48 @@ extension View {
         self
             .background(.ultraThinMaterial)
             .environment(\.colorScheme, .dark)
+    }
+}
+
+// MARK: - DEV Mode Badge
+struct DevModeBadge: View {
+    @State private var isExpanded = false
+
+    var body: some View {
+        Button {
+            withAnimation(.spring(response: 0.3)) {
+                isExpanded.toggle()
+            }
+        } label: {
+            HStack(spacing: 6) {
+                Image(systemName: "hammer.fill")
+                    .font(.system(size: 12, weight: .bold))
+
+                if isExpanded {
+                    Text("개발모드")
+                        .font(.system(size: 11, weight: .bold))
+                }
+            }
+            .foregroundColor(.white)
+            .padding(.horizontal, isExpanded ? 12 : 8)
+            .padding(.vertical, 6)
+            .background(
+                Capsule()
+                    .fill(
+                        LinearGradient(
+                            colors: [.fireRed, .miamiSunrise],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )
+                    )
+            )
+            .overlay(
+                Capsule()
+                    .stroke(Color.white.opacity(0.3), lineWidth: 1)
+            )
+            .shadow(color: .fireRed.opacity(0.5), radius: 8, y: 2)
+        }
+        .buttonStyle(PlainButtonStyle())
     }
 }
 

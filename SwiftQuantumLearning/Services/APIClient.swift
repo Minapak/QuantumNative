@@ -39,7 +39,8 @@ class APIClient: ObservableObject {
         // Mac IP: 172.30.1.68
         self.baseURL = "http://172.30.1.68:8000"
         #else
-        self.baseURL = ProcessInfo.processInfo.environment["API_URL"] ?? "http://localhost:8000"
+        // Production API URL (AWS)
+        self.baseURL = "https://api.swiftquantum.app"
         #endif
         
         print("🔧 APIClient baseURL: \(self.baseURL)")

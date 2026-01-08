@@ -646,3 +646,137 @@
 // MARK: - Gate Categories
 "gates.basic" = "기본";
 "gates.advanced" = "고급";
+
+// MARK: - Solar Agent Messages (솔라 에이전트 메시지)
+"solar.encouragement.1" = "오늘도 양자 세계를 탐험하는 당신, 정말 멋져요!";
+"solar.encouragement.2" = "한 걸음씩 나아가면 어느새 정상에 도착해 있을 거예요.";
+"solar.encouragement.3" = "복잡한 개념도 당신이라면 분명 이해할 수 있어요!";
+"solar.encouragement.4" = "실수는 배움의 일부예요. 계속 도전하세요!";
+"solar.encouragement.5" = "당신의 호기심이 양자 컴퓨팅의 미래를 밝히고 있어요.";
+
+"solar.tip.1" = "Hadamard 게이트는 중첩의 시작점이에요. 모든 양자 알고리즘의 기초죠!";
+"solar.tip.2" = "측정 결과가 확률적이라는 걸 기억하세요. 여러 번 실행해야 패턴이 보여요.";
+"solar.tip.3" = "CNOT 게이트로 두 큐비트를 얽히게 만들 수 있어요!";
+"solar.tip.4" = "블로흐 구는 큐비트의 모든 상태를 시각적으로 보여줘요.";
+"solar.tip.5" = "오류 수정은 실제 양자 컴퓨터의 핵심이에요.";
+
+"solar.celebration.1" = "축하해요! 새로운 레벨을 달성했어요! 🎊";
+"solar.celebration.2" = "대단해요! 당신의 양자 실력이 날로 성장하고 있어요!";
+"solar.celebration.3" = "완벽해요! 이 개념을 마스터했군요!";
+"solar.celebration.4" = "놀라워요! XP가 태양처럼 빛나고 있어요! ☀️";
+"solar.celebration.5" = "훌륭해요! 양자 마스터의 길을 걷고 있어요!";
+
+"solar.challenge.1" = "더 어려운 도전이 당신을 기다리고 있어요. 준비됐나요?";
+"solar.challenge.2" = "이 개념을 정복하면 새로운 세계가 열릴 거예요!";
+"solar.challenge.3" = "화(火)의 열정으로 이 도전을 불태워 보세요!";
+"solar.challenge.4" = "포기하지 마세요! 당신은 할 수 있어요!";
+"solar.challenge.5" = "이것만 넘으면 IBM QPU에 한 발 더 가까워져요!";
+
+"solar.fireBoost.1" = "태양의 에너지가 당신과 함께해요! 화(火)의 기운을 느껴보세요! ☀️";
+"solar.fireBoost.2" = "당신의 따뜻한 열정이 양자의 세계를 밝히고 있어요!";
+"solar.fireBoost.3" = "마이애미의 일출처럼 당신의 잠재력이 빛나고 있어요!";
+"solar.fireBoost.4" = "금빛 성공의 기운이 당신을 감싸고 있어요!";
+"solar.fireBoost.5" = "수(水)의 차분함과 화(火)의 열정이 완벽하게 조화를 이루고 있어요!";
+
+// MARK: - API Error Messages (API 오류 메시지)
+"error.payment.verification" = "결제 검증에 실패했습니다";
+
+// MARK: - Interactive Odyssey Keywords (인터랙티브 오디세이 키워드)
+"odyssey.keywords" = "Hadamard, 중첩, CNOT, 얽힘, 측정, 하다마드";
+
+// MARK: - User Type Selection (온보딩)
+"userType.title" = "SwiftQuantum에 오신 것을 환영합니다";
+"userType.subtitle" = "맞춤 경험을 위해 본인에 대해 알려주세요";
+"userType.student" = "학생 / 취준생";
+"userType.student.desc" = "빅테크 입사를 위한 압도적인 포트폴리오 준비";
+"userType.parent" = "학부모";
+"userType.parent.desc" = "AI 시대, 자녀를 지배 계급으로 키우고 싶은 부모";
+"userType.developer" = "개발자";
+"userType.developer.desc" = "대체 불가능한 Hard Skill 추가하기";
+"userType.sciFan" = "호기심 많은 사람";
+"userType.sciFan.desc" = "인터스텔라 속 양자 세계를 직접 만져보고 싶은";
+"userType.investor" = "투자자 / 테크 리더";
+"userType.investor.desc" = "진짜 Deep Tech를 구별하는 눈 기르기";
+
+// MARK: - Marketing - 앱스토어 & 글로벌
+"marketing.tagline" = "하버드-MIT 2026 연구 기반";
+"marketing.subtitle" = "실제 IBM QPU 연동, 세계 최초 모바일 양자 시뮬레이터";
+"marketing.headline.global" = "의대 그 너머: Post-Medical Era";
+"marketing.body.global" = "의사는 AI를 쓰고, AI는 양자 컴퓨터가 돌립니다. 당신의 자녀를 AI 시스템의 '사용자'가 아닌 '설계자'로 키우세요. 0과 1에 갇힌 아이는 미래의 '디지털 소작농'이 됩니다.";
+"marketing.cta.global" = "상위 0.1%의 선택, 지금 시작하세요";
+
+// MARK: - Marketing - 개발자용
+"marketing.dev.headline" = "왜 시니어 개발자들은 주말에 SwiftQuantum을 켜는가?";
+"marketing.dev.point1" = "웹/앱 개발 시장은 포화 상태입니다. AI는 Python을 짜지만, 당신은 Qiskit을 짭니다.";
+"marketing.dev.point2" = "양자 컴퓨팅은 1990년의 인터넷입니다. 얼리 어답터가 승리합니다.";
+"marketing.dev.point3" = "단순 학습 앱이 아닙니다. 실제 하드웨어와 연결되는 Bridge입니다 (API, QPU, Noise Model).";
+"marketing.dev.cta" = "당신의 커리어에 'Quantum Engineer' 타이틀을 추가하세요.";
+
+// MARK: - Marketing - 학생용
+"marketing.student.headline" = "면접관의 눈동자가 흔들렸다. 내 아이폰 속 '3,000 큐비트'를 보여줬을 때.";
+"marketing.student.point1" = "클론 코딩 프로젝트는 그만 만드세요. 누구나 가지고 있습니다.";
+"marketing.student.point2" = "당신이 만든 양자 회로는 하버드-MIT 논문 기반입니다.";
+"marketing.student.point3" = "월 ₩12,900으로 구글/애플 입사 확률을 극대화하세요.";
+"marketing.student.cta" = "남들과 다른 스펙, 지금 다운로드하세요.";
+
+// MARK: - Marketing - SF 팬용
+"marketing.scifi.headline" = "크리스토퍼 놀란도 놀랄 디테일. 내 손안의 다중 우주.";
+"marketing.scifi.point1" = "지루한 수식은 없습니다. 오직 손가락으로 만지는 아름다운 3D 블로흐 구면.";
+"marketing.scifi.point2" = "마블 영화의 양자 영역을 직접 조작해보세요.";
+"marketing.scifi.point3" = "지하철에서 이 앱을 켜는 순간, 당신은 가장 지적인 사람이 됩니다.";
+"marketing.scifi.cta" = "우주의 비밀을 ₩12,900에 구독하세요.";
+
+// MARK: - Marketing - 투자자용
+"marketing.investor.headline" = "모바일 퀀텀 시대가 도래했습니다.";
+"marketing.investor.point1" = "양자 컴퓨팅 대중화를 이끄는 선구적인 앱.";
+"marketing.investor.point2" = "하버드-MIT의 최신 결함 허용(FT) 아키텍처를 모바일에 최적화.";
+"marketing.investor.point3" = "전 세계 미래 양자 엔지니어를 양성하는 플랫폼.";
+"marketing.investor.cta" = "혁명에 동참하세요.";
+
+// MARK: - Marketing - 학부모용
+"marketing.parent.headline" = "디지털 소작농 vs 양자 설계자";
+"marketing.parent.subheadline" = "당신의 자녀에게 어떤 미래를 선택하시겠습니까?";
+"marketing.parent.point1" = "자녀가 배우는 파이썬 코딩? AI가 이미 대체했습니다.";
+"marketing.parent.point2" = "0과 1의 세계에 갇힌 아이는 내일의 '디지털 소작농'이 됩니다.";
+"marketing.parent.point3" = "뇌 가소성은 12세 이전에 가장 활발합니다. 지금 '양자적 직관'을 심어주세요.";
+"marketing.parent.point4" = "이것은 21세기의 라틴어입니다. 지배 계급의 언어입니다.";
+"marketing.parent.cta" = "상위 0.1%는 이미 선택했습니다.";
+
+// MARK: - Secret Document Campaign (비밀 문서 캠페인)
+"campaign.secret.headline" = "하버드-MIT 2026 비공개 세미나 유출: 왜 실리콘밸리 임원들은 자녀의 코딩 학원을 끊었는가?";
+"campaign.secret.cta" = "자녀가 '양자 문맹'이 되기 전, 7일 무료 트라이얼로 뇌 가소성을 테스트하세요.";
+"campaign.secret.visual" = "두 개의 미래: 어두운 독서실에서 문제집을 푸는 아이 vs 마이애미 해변 요트 위에서 아이패드로 3D 큐비트를 제어하는 아이.";
+
+// MARK: - Gamification Messages (게이미피케이션 메시지)
+"gamification.streak.warning" = "오늘 접속하지 않으면 큐비트의 결맞음(Coherence)이 붕괴됩니다!";
+"gamification.streak.lost" = "3일간 쌓은 결맞음이 깨졌습니다. 양자 상태를 재구축하세요.";
+"gamification.rank.global" = "당신의 공간 지각 능력은 전 세계 상위 %@%%입니다.";
+"gamification.rank.country" = "%@에서 %d위입니다!";
+"gamification.golden.ticket" = "골든 티켓 획득! 실제 IBM QPU 우선 접근권이 주어집니다.";
+
+// MARK: - Certificate & Achievement (인증서 & 성취)
+"certificate.title" = "Certified Quantum Architect";
+"certificate.subtitle" = "하버드-MIT 2026 아키텍처 수료";
+"certificate.share" = "LinkedIn에 공유하기";
+"certificate.download" = "인증서 다운로드";
+"certificate.id" = "인증서 ID: %@";
+
+// MARK: - Parent Report (학부모 리포트)
+"report.title" = "Brain Growth Report";
+"report.subtitle" = "자녀의 양자 학습 진척도";
+"report.metric.logic" = "논리적 추론력";
+"report.metric.spatial" = "공간 지각력";
+"report.metric.algorithm" = "알고리즘 설계력";
+"report.comparison" = "동일 연령대 평균 대비 +%d%% 빠름";
+"report.suggestion" = "이 재능을 살리려면 Enterprise 플랜으로 실제 하드웨어를 경험시켜주세요.";
+
+// MARK: - Premium Tiers Extended (프리미엄 등급 확장)
+"tier.observer" = "관찰자";
+"tier.observer.desc" = "양자 세계를 만지고 느끼세요";
+"tier.architect" = "설계자";
+"tier.architect.desc" = "실제 양자 회로를 구축하세요";
+"tier.visionary" = "선구자";
+"tier.visionary.desc" = "하버드-MIT 결함 허용 트랙";
+"tier.harvard" = "Harvard Track";
+"tier.harvard.price" = "월 ₩38,900";
+"tier.harvard.badge" = "Certified Quantum Architect 자격증 포함";

@@ -1,0 +1,859 @@
+/*
+ * Localizable.strings (Japanese)
+ * SwiftQuantum Learning App
+ *
+ * 使用方法:
+ * Text("learn.title")  // "学習"
+ * NSLocalizedString("learn.title", comment: "")
+ */
+
+// MARK: - Common
+"common.continue" = "続ける";
+"common.back" = "戻る";
+"common.next" = "次へ";
+"common.done" = "完了";
+"common.skip" = "スキップ";
+"common.cancel" = "キャンセル";
+"common.close" = "閉じる";
+"common.save" = "保存";
+"common.delete" = "削除";
+"common.edit" = "編集";
+"common.loading" = "読み込み中...";
+"common.error" = "エラー";
+"common.success" = "成功";
+"common.warning" = "警告";
+
+// MARK: - Learning
+"learn.title" = "学習";
+"learn.selectTrack" = "学習コースを選択";
+"learn.allLevels" = "全レベル";
+"learn.myProgress" = "進捗状況";
+"learn.startLearning" = "学習を始める";
+"learn.continueLevel" = "続きから";
+"learn.completedLevels" = "クリアしたレベル";
+"learn.nextLevel" = "次のレベル";
+
+// MARK: - Levels
+"level.title" = "レベル %d";
+"level.difficulty" = "難易度";
+"level.duration" = "所要時間: %d分";
+"level.xpReward" = "%d XP";
+"level.prerequisites" = "前提条件";
+"level.locked" = "前のレベルをクリアして解除";
+"level.completed" = "クリア済み";
+"level.inProgress" = "進行中";
+
+// MARK: - Learning Strategies
+"strategy.title" = "学習ストラテジー";
+"strategy.memory" = "記憶トリガー";
+"strategy.conceptMap" = "コンセプトマップ";
+"strategy.feynman" = "ファインマン・テクニック";
+"strategy.selectStrategy" = "自分に合った学習法を選ぼう";
+
+// MARK: - Memory Triggers
+"memory.title" = "記憶トリガー＆ニーモニック";
+"memory.mnemonic" = "ニーモニック";
+"memory.description" = "説明";
+"memory.difficulty" = "難易度";
+"memory.tip" = "これらのニーモニックで記憶のアンカーを作ろう。";
+
+// MARK: - Concept Maps
+"conceptMap.title" = "コンセプトマップ";
+"conceptMap.centralConcept" = "中心概念";
+"conceptMap.relatedConcepts" = "関連概念";
+"conceptMap.connections" = "つながり";
+"conceptMap.tip" = "概念同士がどう関係しているか理解しよう。";
+
+// MARK: - Feynman Explanation
+"feynman.title" = "ファインマン・テクニック解説";
+"feynman.simpleExplanation" = "シンプルな説明";
+"feynman.details" = "詳細";
+"feynman.analogies" = "分かりやすいたとえ";
+"feynman.misconceptions" = "よくある誤解";
+"feynman.tip" = "各概念をシンプルに説明しよう。シンプルに説明できれば、理解している証拠！";
+
+// MARK: - Quiz
+"quiz.question" = "問題 %d / %d";
+"quiz.selectAnswer" = "答えを選んでください";
+"quiz.correct" = "✅ 正解！";
+"quiz.incorrect" = "❌ 不正解";
+"quiz.explanation" = "解説";
+"quiz.yourAnswer" = "あなたの答え";
+"quiz.correctAnswer" = "正解";
+"quiz.nextQuestion" = "次の問題";
+"quiz.finish" = "クイズ終了";
+"quiz.score" = "スコア: %d%%";
+
+// MARK: - XP & Progress
+"progress.xp" = "%d XP";
+"progress.level" = "レベル %d";
+"progress.nextLevel" = "次のレベルまで %d XP";
+"progress.levelProgress" = "レベル進捗";
+"progress.totalXP" = "合計XP";
+"progress.currentStreak" = "連続学習";
+"progress.longestStreak" = "最長連続記録";
+
+// MARK: - Achievements
+"achievement.title" = "実績";
+"achievement.unlocked" = "解除済み";
+"achievement.locked" = "未解除";
+"achievement.earnedXP" = "%d XPを獲得！";
+"achievement.congratulations" = "おめでとう！ 🎉";
+"achievement.newBadge" = "新しいバッジを獲得！";
+
+// MARK: - Home
+"home.welcomeBack" = "おかえりなさい！";
+"home.yourProgress" = "あなたの進捗";
+"home.recentAchievements" = "最近の実績";
+"home.dailyChallenge" = "今日のチャレンジ";
+"home.continueYourJourney" = "量子学習の旅を続けよう";
+
+// MARK: - Practice
+"practice.title" = "練習";
+"practice.difficulty" = "難易度";
+"practice.exercises" = "演習問題";
+"practice.completed" = "完了";
+"practice.unlockPrevious" = "前のレベルをクリアして解除";
+
+// MARK: - Explore
+"explore.title" = "探索";
+"explore.concepts" = "概念";
+"explore.glossary" = "用語集";
+"explore.resources" = "リソース";
+"explore.featured" = "注目";
+
+// MARK: - Profile
+"profile.title" = "プロフィール";
+"profile.stats" = "統計";
+"profile.achievements" = "実績";
+"profile.settings" = "設定";
+"profile.logout" = "ログアウト";
+"profile.member" = "登録から %@";
+
+// MARK: - Auth
+"auth.login" = "ログイン";
+"auth.signup" = "新規登録";
+"auth.email" = "メールアドレス";
+"auth.password" = "パスワード";
+"auth.confirmPassword" = "パスワード確認";
+"auth.username" = "ユーザー名";
+"auth.forgotPassword" = "パスワードを忘れた？";
+"auth.dontHaveAccount" = "アカウントをお持ちでない方";
+"auth.alreadyHaveAccount" = "既にアカウントをお持ちの方";
+"auth.welcome" = "おかえりなさい";
+"auth.createAccount" = "アカウント作成";
+
+// MARK: - Quantum Concepts
+"concept.qubit" = "量子ビット";
+"concept.superposition" = "重ね合わせ";
+"concept.entanglement" = "量子もつれ";
+"concept.measurement" = "測定";
+"concept.gate" = "量子ゲート";
+"concept.blochSphere" = "ブロッホ球";
+"concept.amplitude" = "確率振幅";
+"concept.interference" = "量子干渉";
+
+// MARK: - Settings
+"settings.title" = "設定";
+"settings.learning" = "学習";
+"settings.appearance" = "外観";
+"settings.notifications" = "通知";
+"settings.about" = "アプリについて";
+"settings.darkMode" = "ダークモード";
+"settings.soundEffects" = "効果音";
+"settings.hapticFeedback" = "触覚フィードバック";
+"settings.dailyReminders" = "リマインダー";
+
+// MARK: - Errors
+"error.networkError" = "ネットワークエラーです。接続を確認してください。";
+"error.loadingFailed" = "コンテンツの読み込みに失敗しました。もう一度お試しください。";
+"error.invalidEmail" = "メールアドレスの形式が正しくありません";
+"error.weakPassword" = "パスワードは6文字以上で設定してください";
+"error.passwordMismatch" = "パスワードが一致しません";
+
+// MARK: - Quantum Master Curriculum - Track Names
+"curriculum.track1.title" = "量子コンピュータの基礎";
+"curriculum.track1.description" = "語源から始める完璧な基礎";
+"curriculum.track2.title" = "量子の不思議な性質";
+"curriculum.track2.description" = "重ね合わせ、量子もつれ、トンネル効果、量子ビット";
+"curriculum.track3.title" = "量子コンピュータの仕組み";
+"curriculum.track3.description" = "極低温から測定までの完全なプロセス";
+"curriculum.track4.title" = "量子コンピュータの種類";
+"curriculum.track4.description" = "超伝導、イオントラップ、光子、トポロジカル方式の比較";
+"curriculum.track5.title" = "開発の現状 (2025-2026)";
+"curriculum.track5.description" = "GoogleとIBMの最新成果とエラー訂正";
+"curriculum.track6.title" = "応用分野";
+"curriculum.track6.description" = "製薬、金融、気候、セキュリティの4大応用";
+"curriculum.track7.title" = "将来展望 (2025-2035)";
+"curriculum.track7.description" = "10年ロードマップとあなたの役割";
+"curriculum.track8.title" = "2026年の詳細展望";
+"curriculum.track8.description" = "ハードウェア、産業、インターネット、価格革命";
+"curriculum.track9.title" = "キーコンセプトとキーワード";
+"curriculum.track9.description" = "トレンド、用語集、国家間競争、課題";
+
+// MARK: - Track 1: Quantum Basics Lessons
+"lesson.basics1.1.title" = "Quantumとは？語源から理解する";
+"lesson.basics1.1.description" = "Quantumという言葉の意味を完全に理解する";
+"lesson.basics1.1.content" = "Quantumの意味を理解しよう！\n\n**QUANTUM（クォンタム）**\n- ラテン語: 'quantus' = 「どれくらい」\n- 物理学: 「最小単位」\n- 意味: これ以上分けられないエネルギーのかたまり\n- 例え: レゴの最小ブロック\n\n**ポイント**: 原子や光のような極めて小さなものの世界を扱う";
+"lesson.basics1.1.mnemonic" = "Q = Quanta = 量子化 = これ以上小さくできない";
+"lesson.basics1.1.difficulty" = "とても簡単";
+
+"lesson.basics1.2.title" = "コンピュータとは？計算機を理解する";
+"lesson.basics1.2.description" = "普通のコンピュータが何か正確に知る";
+"lesson.basics1.2.content" = "コンピュータの意味を理解しよう！\n\n**COMPUTER（コンピュータ）**\n- ラテン語: 'computare' = 「一緒に計算する」\n- com-（一緒に）+ putare（計算）\n- 意味: 計算する機械\n\n**普通のコンピュータの原理**:\n- 0と1（オン/オフ）だけで考える\n- 一度に一つのことだけ\n- とても速いが順番に処理";
+"lesson.basics1.2.mnemonic" = "Computer = Calculate + Together = 計算機";
+"lesson.basics1.2.difficulty" = "とても簡単";
+
+"lesson.basics1.3.title" = "量子コンピュータとは？";
+"lesson.basics1.3.description" = "定義: 原子の魔法を使うスーパーコンピュータ";
+"lesson.basics1.3.content" = "**量子コンピュータの定義**:\n量子の不思議な性質（重ね合わせ、量子もつれ）を使って、多数の計算を同時に行う未来のスーパーコンピュータ\n\n**主な違い**: 普通のコンピュータでは使えない重ね合わせや量子もつれなどの量子特性を使用";
+"lesson.basics1.3.mnemonic" = "量子 + コンピュータ = 原子の魔法スーパーコンピュータ";
+"lesson.basics1.3.difficulty" = "簡単";
+
+"lesson.basics1.4.title" = "何が違う？完全比較";
+"lesson.basics1.4.description" = "普通のコンピュータと量子コンピュータの5つの違い";
+"lesson.basics1.4.content" = "**5つの主な違い**:\n\n1. 基本単位: ビット（0か1）vs 量子ビット（0と1を同時に）\n2. 処理方式: 順次（一つずつ）vs 並列（同時に）\n3. 温度: 室温（20°C）vs 絶対零度（-273°C）\n4. サイズ: デスクトップ vs 部屋一つ分\n5. エラー率: ほぼゼロ vs まだ高い（改善中）";
+"lesson.basics1.4.mnemonic" = "BITS = Basic, Individual, Traditional, Sequential";
+"lesson.basics1.4.difficulty" = "簡単";
+
+// MARK: - Track 2: Quantum Principles
+"lesson.principles2.1.title" = "重ね合わせ - 同時に複数の状態！";
+"lesson.principles2.1.description" = "シュレディンガーの猫から量子コインまで";
+"lesson.principles2.1.content" = "**重ね合わせ: 同時に複数の状態で存在！**\n\n普通のコイン:\n- 表か裏（一つだけ）\n\n量子コイン:\n- 表でありながら同時に裏！\n- 観測するまで両方が存在\n- 観測した瞬間に一つに決まる\n\n**シュレディンガーの猫**: 箱の中の猫は生きていながら同時に死んでいる（観測するまで）";
+"lesson.principles2.1.mnemonic" = "SUPER = Simultaneous Unified Probability Exists Randomly";
+"lesson.principles2.1.difficulty" = "簡単";
+
+"lesson.principles2.2.title" = "量子もつれ - 双子のテレパシー";
+"lesson.principles2.2.description" = "距離に関係なく瞬時につながる不思議";
+"lesson.principles2.2.content" = "**量子もつれ: 切り離せないほど結びついた粒子**\n\n量子もつれした双子:\n- 東京にある粒子A\n- 大阪にある粒子B（500km離れている）\n- Aが右に回転 → Bは瞬時に左に回転！\n\n**驚くべき事実**:\n- 光より速い！（瞬時！）\n- 信号なしでつながる\n- アインシュタインが「不気味な遠隔作用」と呼んだ";
+"lesson.principles2.2.mnemonic" = "量子もつれ = アインシュタインの「不気味な」つながり";
+"lesson.principles2.2.difficulty" = "簡単";
+
+"lesson.principles2.3.title" = "量子トンネル効果 - 壁を通り抜ける！";
+"lesson.principles2.3.description" = "山を越えられなくても通り抜けられる魔法";
+"lesson.principles2.3.content" = "**トンネル効果: エネルギーが足りなくても障壁を通り抜ける**\n\n現実世界:\n- 壁を通り抜けられない = 跳ね返る\n\n量子の世界:\n- 越えるエネルギーがないのに...\n- 反対側に現れた！（確率的に）\n\n**応用**: 核融合（太陽が輝く理由）、フラッシュメモリ、放射性崩壊";
+"lesson.principles2.3.mnemonic" = "トンネル = T.T. = Totally Transcends barriers";
+"lesson.principles2.3.difficulty" = "普通";
+
+"lesson.principles2.4.title" = "量子ビット - 量子情報の単位";
+"lesson.principles2.4.description" = "ビットと量子ビットの完全比較";
+"lesson.principles2.4.content" = "**ビット vs 量子ビット**\n\n普通のビット:\n- 0か1（2つの状態）\n- 固定された表現\n\n量子ビット:\n- |0⟩と|1⟩を同時に（重ね合わせ）\n- α|0⟩ + β|1⟩\n\n**パワー**:\n- 1量子ビット = 2状態を同時に\n- 10量子ビット = 1024状態を同時に\n- 100量子ビット = 1.27 × 10³⁰状態を同時に！";
+"lesson.principles2.4.mnemonic" = "量子ビット = Quantum + Bit = 0と1の両方";
+"lesson.principles2.4.difficulty" = "普通";
+
+// MARK: - Track 3: Quantum Operation
+"lesson.operation3.1.title" = "極低温冷却 - 原子を静かにさせる";
+"lesson.operation3.1.description" = "-273°C、絶対零度近くが必要な理由";
+"lesson.operation3.1.content" = "**なぜこんなに冷やすの？**\n\n3つの理由:\n1. 原子の振動を止める: 温かい = 原子が揺れる、冷たい = 原子が止まる\n2. 量子状態を守る: 熱 = ノイズ = 量子状態を壊す\n3. ノイズ除去: 室温: ノイズ >> 信号（不可能）、極低温: 信号 >> ノイズ（可能！）\n\n**冷却方法**: 液体ヘリウム（4.2K）、希釈冷凍機（10mK）";
+"lesson.operation3.1.mnemonic" = "冷たい = 落ち着いた量子状態";
+"lesson.operation3.1.difficulty" = "普通";
+
+"lesson.operation3.2.title" = "量子ビット初期化 - 準備状態に";
+"lesson.operation3.2.description" = "計算前にすべての量子ビットを準備";
+"lesson.operation3.2.content" = "**初期化プロセス**:\n1. 量子ビットがランダム状態 → 乱雑\n2. 初期化パルスを適用\n3. すべての量子ビットが|0⟩状態に整列\n4. 計算開始の準備完了！\n\n**種類別の方法**:\n- 超伝導: マイクロ波パルスで|0⟩に強制\n- イオントラップ: レーザーで基底状態に冷却";
+"lesson.operation3.2.mnemonic" = "初期化 = すべての量子ビットが|0⟩からスタート";
+"lesson.operation3.2.difficulty" = "普通";
+
+"lesson.operation3.3.title" = "量子ゲート - 踊らせる";
+"lesson.operation3.3.description" = "パウリ、アダマール、CNOTゲートを理解";
+"lesson.operation3.3.content" = "**4つの基本ゲート**:\n\n1. Pauli-X（NOT）: |0⟩ → |1⟩、|1⟩ → |0⟩（反転）\n2. Hadamard（H）: |0⟩ → 重ね合わせ（重ね合わせを作る！）\n3. CNOT: 制御が|1⟩なら、ターゲットを反転（量子もつれを作る！）\n4. Phase: |1⟩の位相を変える\n\n**回路**: 初期 → [H] → [X] → [CNOT] → ... → [測定]";
+"lesson.operation3.3.mnemonic" = "H.X.C.P. = Hadamard, X-flip, Control-NOT, Phase";
+"lesson.operation3.3.difficulty" = "難しい";
+
+"lesson.operation3.4.title" = "測定と結果の解釈";
+"lesson.operation3.4.description" = "答えをどうやって確認する？確率ベースの読み取り";
+"lesson.operation3.4.content" = "**測定プロセス**:\n- 測定前: (|0⟩ + |1⟩)/√2（両方！）\n- 測定の瞬間: 状態が崩壊！\n- 測定後: |0⟩か|1⟩（一つに！）\n\n**確率的な読み取り**:\n- 1回実行: ランダムな結果\n- 1000回実行: 約500回|0⟩、約500回|1⟩\n- 10000回実行: より正確な確率分布";
+"lesson.operation3.4.mnemonic" = "測定 = 複数回実行で確率が分かる";
+"lesson.operation3.4.difficulty" = "普通";
+
+// MARK: - Track 4: Quantum Types
+"lesson.types4.1.title" = "超伝導方式 - IBM、Google";
+"lesson.types4.1.description" = "最も広く使われている方式の原理と長所短所";
+"lesson.types4.1.content" = "**超伝導量子ビット**\n\n原理: 極低温の超伝導リング\n- 時計回りの磁束 = |0⟩\n- 反時計回り = |1⟩\n\n長所: 非常に高速（ナノ秒）、成熟した技術、スケーラブル\n短所: 極低温が必要（-269°C）、高いエラー率、短いコヒーレンス時間\n\n企業: IBM、Google、Rigetti";
+"lesson.types4.1.mnemonic" = "超低温 = 超伝導 = 超高速";
+"lesson.types4.1.difficulty" = "普通";
+
+"lesson.types4.2.title" = "イオントラップ方式 - IonQ、Honeywell";
+"lesson.types4.2.description" = "高精度だが遅い方式";
+"lesson.types4.2.content" = "**イオントラップ量子ビット**\n\n原理: レーザーで制御されたトラップイオン\n- 基底状態 = |0⟩\n- 励起状態 = |1⟩\n\n長所: 非常に高精度（〜99.9%）、長いコヒーレンス時間（分単位）、完璧な均一性\n短所: 非常に遅い（マイクロ秒）、スケーリングが難しい、高価\n\n企業: IonQ、Honeywell/Quantinuum";
+"lesson.types4.2.mnemonic" = "イオン = 驚くほど正確だが遅い";
+"lesson.types4.2.difficulty" = "普通";
+
+"lesson.types4.3.title" = "光子方式 - Xanadu、PsiQuantum";
+"lesson.types4.3.description" = "光を使う革新的な方式";
+"lesson.types4.3.content" = "**光子量子ビット**\n\n原理: 光粒子の性質を使用\n- 水平偏光 = |0⟩\n- 垂直偏光 = |1⟩\n\n長所: 室温で動作！、低いデコヒーレンス、通信に最適\n短所: 測定が難しい（60-80%損失）、制御が難しい、まだ初期段階\n\n企業: Xanadu、PsiQuantum";
+"lesson.types4.3.mnemonic" = "光子 = 光 = 冷却不要";
+"lesson.types4.3.difficulty" = "難しい";
+
+"lesson.types4.4.title" = "トポロジカル方式 - Microsoft研究";
+"lesson.types4.4.description" = "トポロジカル保護による自動エラー訂正";
+"lesson.types4.4.content" = "**トポロジカル量子ビット**\n\n原理: マヨラナフェルミオンを使用\n- トポロジカルに保護された状態\n- 小さなエラーを自動的に無視！\n\n長所: 自動エラー訂正！、高い理論的精度、効率的なスケーリング\n短所: まだ実証されていない、極低温が必要、最も基礎的な段階\n\n企業: Microsoft（研究）、QuTech";
+"lesson.types4.4.mnemonic" = "トポロジー = ドーナツ形 = 保護された状態";
+"lesson.types4.4.difficulty" = "非常に難しい";
+
+// MARK: - Track 5: Current Status
+"lesson.status5.1.title" = "Google Willowチップ - 2024年の突破口";
+"lesson.status5.1.description" = "100量子ビット達成とエラー率半減";
+"lesson.status5.1.content" = "**Willowチップの成果（2024）**:\n\n1. 100以上の量子ビット: Sycamoreの53から2倍に\n2. エラー率半減: 〜1% → 〜0.5%（突破口！）\n3. 量子優位性を再証明: より現実的な問題で\n\n**意味**: 量子コンピュータが実用化するのは「もし」ではなく「いつ」に変わった";
+"lesson.status5.1.mnemonic" = "Willow = 低いエラーで勝利";
+"lesson.status5.1.difficulty" = "普通";
+
+"lesson.status5.2.title" = "IBMの野心的な計画";
+"lesson.status5.2.description" = "Flamingo（1,386量子ビット）、Kookaburra（4,158量子ビット）";
+"lesson.status5.2.content" = "**IBMロードマップ**:\n\nFlamingo（2024-2025）:\n- 1,386物理量子ビット\n- Hummingbirdから20倍の拡張\n\nKookaburra（2026）:\n- チップあたり4,158量子ビット\n- 3チップ接続 = 12,474量子ビット！\n- 初の量子ネットワーク試み";
+"lesson.status5.2.mnemonic" = "IBMの鳥 = 毎年より多くの量子ビット";
+"lesson.status5.2.difficulty" = "普通";
+
+"lesson.status5.3.title" = "エラー訂正 - 実用化の鍵";
+"lesson.status5.3.description" = "1% → 0.1%エラー率低減の意味";
+"lesson.status5.3.content" = "**エラー率の進展**:\n\n2019: 〜1%（100回の操作で1回エラー）\n2024: 〜0.5%（突破口！）\n2025目標: 〜0.1%（実用レベル？）\n\n**エラー訂正閾値**: 〜1%\n- これ以下なら: エラー訂正が可能に！\n- 現在: 閾値付近！\n- 目標: 確実に下回る";
+"lesson.status5.3.mnemonic" = "エラー減少 = アプリケーション増加";
+"lesson.status5.3.difficulty" = "難しい";
+
+"lesson.status5.4.title" = "なぜ資金が流入するのか - 投資状況";
+"lesson.status5.4.description" = "2024: 15億ドル、2025年予想: 20億ドル以上";
+"lesson.status5.4.content" = "**グローバル投資**:\n\n2023: 10億ドル\n2024: 15億ドル（50%増）\n2025年予想: 20億ドル以上（33%成長）\n\n**国別**:\n- アメリカ: 10億ドル以上（Google、IBM、IonQ）\n- 中国: 8億ドル以上（政府主導）\n- EU: 5億ドル（Quantum Flagship）\n- 日本: 7億ドル以上（METI プログラム）\n- 韓国: 3億ドル（K-Quantum）";
+"lesson.status5.4.mnemonic" = "投資急増 = 技術が実現可能に";
+"lesson.status5.4.difficulty" = "普通";
+
+// MARK: - Track 6: Applications
+"lesson.apps6.1.title" = "製薬革命 - 新薬開発を2倍速く";
+"lesson.apps6.1.description" = "タンパク質折りたたみシミュレーション: 10年→2年";
+"lesson.apps6.1.content" = "**製薬応用**:\n\n現在: 10年以上、1000億円のコスト\n- タンパク質3D構造？ほぼ計算不可能\n- 薬物相互作用？複雑すぎる\n\n量子コンピュータで:\n- すべての可能性を同時にシミュレーション\n- 開発: 10年 → 2年\n- コスト: 1000億円 → 100億円\n\nパートナー: Roche、Merck";
+"lesson.apps6.1.mnemonic" = "製薬 + 量子 = より速い治療";
+"lesson.apps6.1.difficulty" = "難しい";
+
+"lesson.apps6.2.title" = "金融の未来 - ポートフォリオ最適化";
+"lesson.apps6.2.description" = "リスク計算を1000倍高速に";
+"lesson.apps6.2.content" = "**金融応用**:\n\n現在: 近似値のみ可能\n- ポートフォリオ最適化？限定的\n- 不正検知？パターンベースのみ\n\n量子コンピュータで:\n- すべての変数を同時に考慮\n- リアルタイム最適化が可能\n- 不正検知: ほぼ100%の精度\n\nパートナー: JP Morgan";
+"lesson.apps6.2.mnemonic" = "金融 + 量子 = より良い予測";
+"lesson.apps6.2.difficulty" = "難しい";
+
+"lesson.apps6.3.title" = "気候予測 - 精度70%→95%";
+"lesson.apps6.3.description" = "予測期間: 1週間→1ヶ月";
+"lesson.apps6.3.content" = "**気候応用**:\n\n現在: 1週間の精度が限界\n- 気候変数が多すぎる\n- スーパーコンピュータでも1週間が限界\n\n量子コンピュータで:\n- 1ヶ月以上の正確な予測\n- 台風の進路: 99.9%の精度\n- PM2.5: 時間ごとの正確な予測";
+"lesson.apps6.3.mnemonic" = "気候 + 量子 = より長い予報";
+"lesson.apps6.3.difficulty" = "難しい";
+
+"lesson.apps6.4.title" = "セキュリティの脅威と解決策 - ポスト量子暗号";
+"lesson.apps6.4.description" = "現在の暗号が10年以内に無効化、新方式が必要";
+"lesson.apps6.4.content" = "**セキュリティへの影響**:\n\n脅威: RSA-2048が解読可能に\n- 現在の暗号が脆弱に\n- 銀行、政府、個人データが危険に\n\n解決策: ポスト量子暗号（PQC）\n- 量子攻撃に耐性のある新アルゴリズム\n- NISTの標準化が進行中\n- 量子コンピュータが成熟する前に移行が必要";
+"lesson.apps6.4.mnemonic" = "ポスト量子 = 将来への準備";
+"lesson.apps6.4.difficulty" = "非常に難しい";
+
+// MARK: - Track 7: Future Outlook
+"lesson.future7.1.title" = "10年ロードマップ: 2025-2035年予測";
+"lesson.future7.1.description" = "初期商用化 → 成長期 → 成熟期";
+"lesson.future7.1.content" = "**ロードマップ**:\n\nフェーズ1（2025-2027）: 初期商用化\n- エラー率の改善\n- 最初の商用アプリケーション\n\nフェーズ2（2028-2030）: 成長期\n- 100以上の論理量子ビット\n- 複数業界での応用\n\nフェーズ3（2031-2035）: 成熟期\n- 1000以上の論理量子ビット\n- 日常生活への応用";
+"lesson.future7.1.mnemonic" = "2025-2035: 研究室から日常へ";
+"lesson.future7.1.difficulty" = "難しい";
+
+"lesson.future7.2.title" = "人材不足のチャンス - 2030年に25万人必要";
+"lesson.future7.2.description" = "求人3件に対して専門家1人のみ";
+"lesson.future7.2.content" = "**人材ギャップ**:\n\n2030年の需要: 25万人の専門家\n現在の供給: 深刻な不足\n比率: 有資格者1人に対して求人3件\n\n**チャンス**:\n- 今学ぶ = 後で有利に\n- 早期の専門性 = キャリアチャンス\n- 学際的スキルの価値";
+"lesson.future7.2.mnemonic" = "今学ぶ = 後でリードする";
+"lesson.future7.2.difficulty" = "普通";
+
+"lesson.future7.3.title" = "2026年 - 実用化元年";
+"lesson.future7.3.description" = "研究室から実生活への転換";
+"lesson.future7.3.content" = "**2026年の期待**:\n\n- 100社以上が量子を使用\n- 量子で発見された最初の新薬が臨床試験へ？\n- 量子インターネットインフラの開始\n- ハードウェアサイズの縮小\n- 価格下落: 1000万ドル → 100万ドル";
+"lesson.future7.3.mnemonic" = "2026 = 量子が実用化";
+"lesson.future7.3.difficulty" = "難しい";
+
+"lesson.future7.4.title" = "あなたが量子革命の主役になれる理由";
+"lesson.future7.4.description" = "今学ぶ = 2026-2030年の最高のチャンス";
+"lesson.future7.4.content" = "**あなたのチャンス**:\n\nなぜ今？:\n- 技術が転換点に\n- 人材不足が迫っている\n- 先行者利益\n\n何をする？:\n- 基礎を学ぶ（このコース！）\n- 発展をフォロー\n- 段階的にスキルを積む\n\n結果: 量子が主流になった時に準備完了";
+"lesson.future7.4.mnemonic" = "今日始める = 明日リードする";
+"lesson.future7.4.difficulty" = "普通";
+
+// MARK: - Track 8: 2026 Detailed
+"lesson.detailed8.1.title" = "ハードウェア革命 - IBM、Googleの野望";
+"lesson.detailed8.1.description" = "Condor 5,000量子ビット、Willow 2.0 500論理量子ビット";
+"lesson.detailed8.1.content" = "**2026年ハードウェア目標**:\n\nIBM Condor:\n- 5,000物理量子ビット\n- 接続システム: 12,000以上\n\nGoogle Willow 2.0:\n- 500論理量子ビット\n- 改善されたエラー訂正\n\nサイズ縮小:\n- 部屋サイズ → キャビネットサイズ？\n- 冷却効率の改善";
+"lesson.detailed8.1.mnemonic" = "2026ハードウェア = より大きく、より小さく";
+"lesson.detailed8.1.difficulty" = "難しい";
+
+"lesson.detailed8.2.title" = "産業での実用化開始 - 初の量子新薬臨床試験";
+"lesson.detailed8.2.description" = "製薬、金融、自動車で実際の使用開始";
+"lesson.detailed8.2.content" = "**2026年の産業応用**:\n\n製薬:\n- 量子設計の最初の新薬が臨床試験へ\n\n金融:\n- リアルタイム取引最適化\n\n自動車:\n- バッテリー材料の発見\n\n化学:\n- 新しい触媒設計";
+"lesson.detailed8.2.mnemonic" = "2026 = 量子が働く";
+"lesson.detailed8.2.difficulty" = "難しい";
+
+"lesson.detailed8.3.title" = "量子インターネット時代の幕開け";
+"lesson.detailed8.3.description" = "絶対安全な通信網の構築開始";
+"lesson.detailed8.3.content" = "**2026年量子インターネット**:\n\n特徴:\n- ハッキング不可能な通信\n- 量子もつれを使用\n- あらゆる盗聴が検知可能\n\n進展:\n- 2000kmネットワークテスト（中国）\n- 5カ国以上でインフラ構築\n- 金融機関が最初の導入者";
+"lesson.detailed8.3.mnemonic" = "量子インターネット = 完全に安全";
+"lesson.detailed8.3.difficulty" = "難しい";
+
+"lesson.detailed8.4.title" = "価格革命 - 90%の価格下落";
+"lesson.detailed8.4.description" = "1000万ドル → 100万ドル";
+"lesson.detailed8.4.content" = "**価格の変化**:\n\n2024: システムあたり約1000万ドル\n2026: システムあたり約100万ドル（90%下落！）\n\nクラウドアクセス:\n- クラウド経由でさらに安く\n- 従量課金モデル\n- 民主化されたアクセス\n\n影響:\n- より多くの企業が利用可能に\n- より速い導入\n- より多くのイノベーション";
+"lesson.detailed8.4.mnemonic" = "90%安く = 10倍のユーザー";
+"lesson.detailed8.4.difficulty" = "普通";
+
+// MARK: - Track 9: Keywords
+"lesson.keywords9.1.title" = "8つのホットキーワード - 2025年必須";
+"lesson.keywords9.1.description" = "Quantum Advantage、NISQ、Error Correctionなど";
+"lesson.keywords9.1.content" = "**8つの必須キーワード**:\n\n1. Quantum Advantage: 量子が古典を上回る時\n2. NISQ: Noisy Intermediate-Scale Quantum\n3. Error Correction: 量子エラー訂正\n4. Logical Qubit: エラー訂正された量子ビット\n5. Coherence Time: 量子状態の持続時間\n6. Decoherence: 量子状態の損失\n7. Quantum Volume: 性能指標\n8. Fidelity: 操作精度";
+"lesson.keywords9.1.mnemonic" = "Q-NELCDFQ = 必須量子語彙";
+"lesson.keywords9.1.difficulty" = "普通";
+
+"lesson.keywords9.2.title" = "必須用語集 - CoherenceからAnnealingまで";
+"lesson.keywords9.2.description" = "量子概念の英語表現完全整理";
+"lesson.keywords9.2.content" = "**キーターム**:\n\nCoherence（コヒーレンス）: 量子状態の維持\nAnnealing（アニーリング）: トンネル効果による最適化\nSuperposition（重ね合わせ）: 同時に複数の状態\nEntanglement（量子もつれ）: 非局所的相関\nQubit（量子ビット）: 量子ビット\nGate（ゲート）: 量子操作\nMeasurement（測定）: 状態崩壊と読み取り";
+"lesson.keywords9.2.mnemonic" = "CASEQGM = 完全な量子語彙";
+"lesson.keywords9.2.difficulty" = "普通";
+
+"lesson.keywords9.3.title" = "グローバル量子競争 - 米国、中国、EU、日本、韓国";
+"lesson.keywords9.3.description" = "2026年量子強国ランキングと戦略";
+"lesson.keywords9.3.content" = "**国別戦略**:\n\n米国: 民間セクター主導、Google/IBM/IonQ\n中国: 政府主導の大規模投資\nEU: 研究重視、Quantum Flagship\n日本: 長期METIプログラム\n韓国: 成長するK-Quantumイニシアチブ\n\n2025年ランキング:\n1. 米国 2. 中国 3. EU 4. 日本 5. 韓国";
+"lesson.keywords9.3.mnemonic" = "米中競争、他国が追いかける";
+"lesson.keywords9.3.difficulty" = "難しい";
+
+"lesson.keywords9.4.title" = "2026年のリスクと課題 - 解決すべき5つ";
+"lesson.keywords9.4.description" = "Quantum Divide、エネルギー、人材不足など";
+"lesson.keywords9.4.content" = "**5つの主な課題**:\n\n1. Quantum Divide: 富裕層と貧困層のアクセス格差\n2. エネルギー: 冷却のための高消費電力\n3. 人材: 専門家の深刻な不足\n4. セキュリティ: 暗号の脆弱性\n5. 倫理: 悪用の懸念\n\nチャンス: 各課題 = ビジネスチャンス";
+"lesson.keywords9.4.mnemonic" = "QETES = 量子が解決すべき課題";
+
+// MARK: - Subscription
+"subscription.tier.pro" = "プロ";
+"subscription.tier.premium" = "プレミアム";
+
+"subscription.pro.monthly.name" = "プロ月額";
+"subscription.pro.monthly.description" = "基本機能、毎月請求";
+"subscription.pro.yearly.name" = "プロ年額";
+"subscription.pro.yearly.description" = "基本機能、年間請求（40%お得）";
+"subscription.premium.monthly.name" = "プレミアム月額";
+"subscription.premium.monthly.description" = "全機能、毎月請求";
+"subscription.premium.yearly.name" = "プレミアム年額";
+"subscription.premium.yearly.description" = "全機能、年間請求（40%お得）";
+
+"subscription.status.free" = "無料";
+"subscription.status.premium" = "プレミアム";
+"subscription.status.expired" = "期限切れ";
+
+"subscription.feature.allContent" = "全コンテンツにアクセス";
+"subscription.feature.noAds" = "広告なしの学習";
+"subscription.feature.offlineAccess" = "オフライン学習";
+"subscription.feature.prioritySupport" = "優先サポート";
+"subscription.feature.earlyAccess" = "新コンテンツへの早期アクセス";
+"subscription.feature.advancedAnalytics" = "高度な学習分析";
+
+"subscription.period.day" = "日";
+"subscription.period.days %lld" = "%lld日";
+"subscription.period.week" = "週";
+"subscription.period.weeks %lld" = "%lld週間";
+"subscription.period.month" = "ヶ月";
+"subscription.period.months %lld" = "%lldヶ月";
+"subscription.period.year" = "年";
+"subscription.period.years %lld" = "%lld年";
+
+// MARK: - Paywall
+"paywall.title" = "プレミアムにアップグレード";
+"paywall.header.title" = "可能性を解き放とう";
+"paywall.header.subtitle" = "量子コンピューティングの全コンテンツに無制限アクセス";
+"paywall.subscribe" = "今すぐ登録";
+"paywall.restore" = "購入を復元";
+"paywall.terms" = "利用規約";
+"paywall.privacy" = "プライバシーポリシー";
+"paywall.autoRenewal" = "サブスクリプションは、現在の期間終了の24時間前までにキャンセルしない限り自動更新されます。";
+"paywall.bestValue" = "お得";
+"paywall.perPeriod %@" = "%@ごと";
+"paywall.noProducts" = "商品を読み込み中...";
+"paywall.pending" = "購入承認待ち";
+"paywall.success.title" = "プレミアムへようこそ！";
+"paywall.success.message" = "全コンテンツに無制限アクセスできるようになりました。量子学習の旅をお楽しみください！";
+
+"paywall.feature.allContent.title" = "全コンテンツ解除";
+"paywall.feature.allContent.description" = "9トラック、36以上のレッスンにアクセス";
+"paywall.feature.offline.title" = "オフライン学習";
+"paywall.feature.offline.description" = "コンテンツをダウンロードしてオフラインで学習";
+"paywall.feature.noAds.title" = "広告なし";
+"paywall.feature.noAds.description" = "集中して学習に取り組める";
+"paywall.feature.support.title" = "優先サポート";
+"paywall.feature.support.description" = "必要な時に素早くサポート";
+
+// MARK: - StoreKit Errors
+"error.storekit.productNotFound" = "商品が見つかりません";
+"error.storekit.purchaseFailed" = "購入に失敗しました。もう一度お試しください。";
+"error.storekit.verificationFailed" = "購入の検証に失敗しました";
+"error.storekit.networkError" = "ネットワークエラーです。接続を確認してください。";
+"error.storekit.unknown" = "不明なエラーが発生しました";
+
+// MARK: - Premium Content
+"premium.locked.title" = "プレミアムコンテンツ";
+"premium.locked.message" = "このコンテンツにアクセスするには登録が必要です";
+"premium.upgrade" = "プレミアムにアップグレード";
+"premium.freeRemaining %lld" = "本日の無料閲覧残り: %lld回";
+"subscription.daysRemaining %lld" = "残り%lld日";
+
+// MARK: - The Quantum Odyssey - Navigation Tabs
+"tab.campus" = "キャンパス";
+"tab.laboratory" = "ラボ";
+"tab.bridge" = "ブリッジ";
+"tab.portfolio" = "ポートフォリオ";
+
+// MARK: - Campus Hub (Frame 1)
+"campus.title" = "量子キャンパス";
+"campus.welcome" = "ようこそ、探検家さん";
+"campus.adventurePath" = "アドベンチャーパス";
+"campus.adventurePath.subtitle" = "初心者から量子マスターへの旅";
+"campus.level1.title" = "入門";
+"campus.level1.subtitle" = "量子とは？";
+"campus.level2.title" = "重ね合わせ";
+"campus.level2.subtitle" = "2つの状態に同時に";
+"campus.level3.title" = "量子もつれ";
+"campus.level3.subtitle" = "不思議なつながり";
+"campus.level4.title" = "量子ゲート";
+"campus.level4.subtitle" = "基本要素";
+"campus.level5.title" = "測定";
+"campus.level5.subtitle" = "量子を観測";
+"campus.level6.title" = "回路";
+"campus.level6.subtitle" = "ゲートを組み合わせる";
+"campus.level7.title" = "エラー訂正";
+"campus.level7.subtitle" = "障害耐性";
+"campus.level8.title" = "アルゴリズム";
+"campus.level8.subtitle" = "グローバー＆ショア";
+"campus.level9.title" = "ハードウェア";
+"campus.level9.subtitle" = "量子ビットを作る";
+"campus.level10.title" = "応用";
+"campus.level10.subtitle" = "実世界での活用";
+"campus.level11.title" = "VQE";
+"campus.level11.subtitle" = "変分法";
+"campus.level12.title" = "ノイズ";
+"campus.level12.subtitle" = "エラー管理";
+"campus.level13.title" = "IBM連携";
+"campus.level13.subtitle" = "実機QPUアクセス";
+
+// MARK: - Laboratory (Frame 2 - Interactive Odyssey)
+"odyssey.title" = "量子ラボ";
+"odyssey.step1.title" = "ブロッホ球へようこそ";
+"odyssey.step1.desc" = "この3D球は単一量子ビットのすべての可能な状態を表します。北極は|0⟩、南極は|1⟩です。";
+"odyssey.step2.title" = "アダマールゲートを適用";
+"odyssey.step2.desc" = "アダマールゲートをタップして重ね合わせを作ろう。状態ベクトルが赤道に移動するのを見て！";
+"odyssey.step3.title" = "パウリXゲート";
+"odyssey.step3.desc" = "Xゲートは量子ビットを反転させます。古典コンピューティングのNOTゲートのようなものです。";
+"odyssey.step4.title" = "測定";
+"odyssey.step4.desc" = "量子ビットを測定して|0⟩か|1⟩に崩壊させよう。結果は確率的！";
+"odyssey.currentState" = "現在の状態";
+"odyssey.measure" = "測定";
+"odyssey.superposition.achieved" = "重ね合わせ達成！";
+"odyssey.superposition.explanation" = "量子ビットが|0⟩と|1⟩の等しい重ね合わせ状態になりました。測定すると50%の確率でどちらかの状態になります。";
+
+// MARK: - Bridge Console (Frame 3)
+"bridge.title" = "ブリッジターミナル";
+"bridge.online" = "システムオンライン";
+"bridge.circuitConfig" = "回路設定";
+"bridge.qubits" = "量子ビット";
+"bridge.gates" = "ゲート";
+"bridge.runLocal" = "ローカルシミュ";
+"bridge.runIBM" = "IBM QPU";
+"bridge.processing" = "処理中...";
+"bridge.fidelity" = "忠実度";
+"bridge.noResult" = "結果なし";
+"bridge.execTime" = "時間: %.2f秒";
+"bridge.harvardMIT" = "ハーバード-MIT 2026ベンチマーク";
+"bridge.benchmark.fidelity" = "目標忠実度";
+"bridge.benchmark.qubits" = "論理量子ビット";
+"bridge.benchmark.coherence" = "コヒーレンス";
+"bridge.fidelityAnalysis" = "忠実度分析";
+"bridge.comparisonFidelity" = "比較忠実度";
+"bridge.harvardMITTarget" = "ハーバード-MIT目標";
+"bridge.success.title" = "デプロイ成功！";
+"bridge.success.subtitle" = "回路がIBM QPUで優れた忠実度を達成しました。";
+"bridge.feature1" = "実機IBM QPU実行";
+"bridge.feature2" = "ハーバード-MIT 2026ベンチマーク";
+"bridge.feature3" = "高度な忠実度分析";
+
+// MARK: - Portfolio Dashboard (Frame 4 - O1 Visa)
+"portfolio.title" = "エビデンスポートフォリオ";
+"portfolio.expertiseIndex" = "専門性指数";
+"portfolio.globalContribution" = "グローバル貢献度";
+"portfolio.fireEnergy" = "火のエネルギー";
+"portfolio.o1Visa" = "O1ビザ要件";
+"portfolio.criteriaMet" = "達成";
+"portfolio.skillTree" = "量子スキルツリー";
+"portfolio.evidenceSummary" = "エビデンス概要";
+"portfolio.code" = "コード";
+"portfolio.projects" = "プロジェクト";
+"portfolio.certs" = "資格";
+"portfolio.exportReport" = "レポート出力";
+"portfolio.premiumRequired" = "出力にはプレミアムが必要";
+"portfolio.skillDetail" = "スキル詳細";
+"portfolio.connectedSkills" = "関連スキル";
+"portfolio.export.title" = "O1エビデンスレポート生成";
+"portfolio.export.description" = "O1ビザ申請のための量子コンピューティング専門性を文書化した総合レポートを生成します。";
+"portfolio.export.item1" = "スキル習熟度文書";
+"portfolio.export.item2" = "コード貢献履歴";
+"portfolio.export.item3" = "プロジェクト完了証明書";
+"portfolio.export.item4" = "グローバル貢献指標";
+"portfolio.exporting" = "生成中...";
+"portfolio.generateReport" = "レポート生成";
+"portfolio.feature1" = "3D量子スキルツリー";
+"portfolio.feature2" = "O1ビザエビデンス追跡";
+"portfolio.feature3" = "プロフェッショナルレポート出力";
+
+// MARK: - Locked Content
+"locked.premium.description" = "プレミアムにアップグレードしてこの機能を解除し、量子の旅を加速させよう。";
+"locked.unlockPremium" = "プレミアムを解除";
+
+// MARK: - Login
+"login.prompt.title" = "ログインが必要です";
+"login.prompt.subtitle" = "アカウントを作成して進捗を保存し、プレミアム機能にアクセスしよう。";
+"login.signIn" = "ログイン";
+"login.continueAsGuest" = "ゲストとして続ける";
+
+// MARK: - Settings - Expertise Level
+"settings.expertiseLevel" = "専門レベル";
+"expertise.beginner" = "初心者";
+"expertise.intermediate" = "中級者";
+"expertise.expert" = "上級者";
+
+// MARK: - Term Translations (Beginner vs Expert)
+"term.qubit.beginner" = "量子コイン";
+"term.qubit.expert" = "量子ビット";
+"term.qubit.beginner.desc" = "表と裏が同時になれる特別なコイン";
+"term.qubit.expert.desc" = "|0⟩と|1⟩状態の重ね合わせで存在する量子情報の基本単位";
+"term.superposition.beginner" = "両方になる";
+"term.superposition.expert" = "量子重ね合わせ";
+"term.superposition.beginner.desc" = "回転するコインのように同時に複数の状態にある";
+"term.superposition.expert.desc" = "基底状態の線形結合: α|0⟩ + β|1⟩ （|α|² + |β|² = 1）";
+"term.entanglement.beginner" = "双子のつながり";
+"term.entanglement.expert" = "量子もつれ";
+"term.entanglement.beginner.desc" = "距離に関係なく魔法のようにつながった2つの粒子";
+"term.entanglement.expert.desc" = "分離不可能な状態ベクトルで記述される量子系間の非局所的相関";
+"term.gate.beginner" = "量子の命令";
+"term.gate.expert" = "ユニタリゲート";
+"term.gate.beginner.desc" = "量子状態を変える命令";
+"term.gate.expert.desc" = "量子ビットヒルベルト空間に作用するユニタリ変換U、U†U = I";
+"term.measurement.beginner" = "中を見る";
+"term.measurement.expert" = "量子測定";
+"term.measurement.beginner.desc" = "箱を開けて結果を見る";
+"term.measurement.expert.desc" = "重ね合わせを確率|⟨ψ|n⟩|²で固有状態に崩壊させる射影測定";
+"term.fidelity.beginner" = "正確度スコア";
+"term.fidelity.expert" = "状態忠実度";
+"term.fidelity.beginner.desc" = "結果が望んだものとどれくらい近いか";
+"term.fidelity.expert.desc" = "量子状態間の類似性を測るF(ρ,σ) = Tr(√(√ρ σ √ρ))²";
+"term.coherence.beginner" = "量子を維持";
+"term.coherence.expert" = "量子コヒーレンス";
+"term.coherence.beginner.desc" = "量子の魔法が消える前にどれくらい続くか";
+"term.coherence.expert.desc" = "T₁とT₂で特徴づけられる、重ね合わせにおける位相関係を維持する時間";
+"term.errorCorrection.beginner" = "間違いを直す";
+"term.errorCorrection.expert" = "量子エラー訂正";
+"term.errorCorrection.beginner.desc" = "エラーを検出して修正するために追加の量子ビットを使用";
+"term.errorCorrection.expert.desc" = "障害耐性を達成するためにSurface Codeなどのコードで物理量子ビットに論理量子ビットをエンコード";
+
+// MARK: - Gate Categories
+"gates.basic" = "基本";
+"gates.advanced" = "応用";
+
+// MARK: - Solar Agent Messages
+"solar.encouragement.1" = "量子の世界を探検するあなた、素晴らしい！";
+"solar.encouragement.2" = "一歩一歩進めば、いつの間にか頂上に着いているよ。";
+"solar.encouragement.3" = "複雑な概念もあなたならきっと理解できる！";
+"solar.encouragement.4" = "失敗は学びの一部。挑戦し続けよう！";
+"solar.encouragement.5" = "あなたの好奇心が量子コンピューティングの未来を照らしている。";
+
+"solar.tip.1" = "アダマールゲートは重ね合わせの出発点！すべての量子アルゴリズムの基礎だよ。";
+"solar.tip.2" = "測定結果は確率的だということを忘れないで。何度も実行してパターンを見つけよう。";
+"solar.tip.3" = "CNOTゲートで2つの量子ビットをもつれさせられるよ！";
+"solar.tip.4" = "ブロッホ球は量子ビットのすべての状態を視覚的に見せてくれる。";
+"solar.tip.5" = "エラー訂正は実際の量子コンピュータの核心だよ。";
+
+"solar.celebration.1" = "おめでとう！新しいレベルを達成したよ！ 🎊";
+"solar.celebration.2" = "すごい！あなたの量子スキルは日々成長している！";
+"solar.celebration.3" = "完璧！この概念をマスターしたね！";
+"solar.celebration.4" = "驚きだ！XPが太陽のように輝いている！ ☀️";
+"solar.celebration.5" = "素晴らしい！量子マスターへの道を歩んでいる！";
+
+"solar.challenge.1" = "もっと難しい挑戦が待っているよ。準備はできた？";
+"solar.challenge.2" = "この概念を征服すれば新しい世界が開ける！";
+"solar.challenge.3" = "火のエネルギーでこの挑戦を燃やし尽くそう！";
+"solar.challenge.4" = "あきらめないで！あなたならできる！";
+"solar.challenge.5" = "これをクリアすればIBM QPUに一歩近づくよ！";
+
+"solar.fireBoost.1" = "太陽のエネルギーがあなたと共にある！火を感じて！ ☀️";
+"solar.fireBoost.2" = "あなたの温かい情熱が量子の世界を照らしている！";
+"solar.fireBoost.3" = "マイアミの日の出のように、あなたの可能性が輝いている！";
+"solar.fireBoost.4" = "黄金の成功エネルギーがあなたを包んでいる！";
+"solar.fireBoost.5" = "水の穏やかさと火の情熱が完璧な調和を成している！";
+
+// MARK: - API Error Messages
+"error.payment.verification" = "支払い検証に失敗しました";
+
+// MARK: - Interactive Odyssey Keywords
+"odyssey.keywords" = "アダマール、重ね合わせ、CNOT、量子もつれ、測定";
+
+// MARK: - User Type Selection (Onboarding)
+"userType.title" = "SwiftQuantumへようこそ";
+"userType.subtitle" = "最適な体験のためにあなたについて教えてください";
+"userType.student" = "学生";
+"userType.student.desc" = "GAFAMへの就職を目指す";
+"userType.parent" = "保護者";
+"userType.parent.desc" = "子供の将来のために準備する";
+"userType.developer" = "エンジニア";
+"userType.developer.desc" = "スキルアップして市場価値を高める";
+"userType.scifiFan" = "SF好き";
+"userType.scifiFan.desc" = "量子の世界を体験したい";
+"userType.investor" = "投資家";
+"userType.investor.desc" = "次の巨大市場を理解する";
+
+// MARK: - Marketing - Japan - General
+"marketing.japan.headline" = "「量子人材」—2030年、日本の存亡をかけた人材戦略";
+"marketing.japan.subheadline" = "東大・京大出身者が選ぶ、たった一つの未来スキル";
+"marketing.japan.point1" = "文部科学省が量子教育を必修化検討—今から準備すれば圧倒的に有利";
+"marketing.japan.point2" = "GAFAM日本法人の量子ポジション年収：2,500万円以上";
+"marketing.japan.point3" = "「量子わかります」—面接で99%の候補者と差別化できる一言";
+"marketing.japan.cta" = "日本の量子人材第一世代になる";
+
+// MARK: - Marketing - For Developers
+"marketing.dev.headline" = "あなたのコードは2030年に価値を持つか？";
+"marketing.dev.subheadline" = "量子アルゴリズムを理解するエンジニアの市場価値は10倍";
+"marketing.dev.point1" = "AI/MLエンジニアの次のキャリアステップ：量子ML";
+"marketing.dev.point2" = "IBM/Google/Amazonが量子エンジニアを年俸3,000万円で採用中";
+"marketing.dev.point3" = "Swift/Pythonの知識があれば量子プログラミングは最短3ヶ月で習得可能";
+"marketing.dev.cta" = "量子エンジニアへの進化を始める";
+
+// MARK: - Marketing - For Students
+"marketing.student.headline" = "東大生が密かに学んでいること";
+"marketing.student.subheadline" = "就活で「量子コンピューティング学んでいます」と言えるか？";
+"marketing.student.point1" = "量子インターンの倍率：100倍。今から準備しないと間に合わない";
+"marketing.student.point2" = "「AIやってます」は2025年ではもう差別化にならない";
+"marketing.student.point3" = "GAFAM内定者の37%が量子コンピューティングを学習中";
+"marketing.student.cta" = "ライバルに差をつける";
+
+// MARK: - Marketing - For SF Fans
+"marketing.sf.headline" = "『インターステラー』の科学を、あなたの手で動かす";
+"marketing.sf.subheadline" = "SFで見た量子の世界が、今あなたのスマホで現実に";
+"marketing.sf.point1" = "シュレーディンガーの猫を実際にシミュレーション";
+"marketing.sf.point2" = "量子もつれ—アインシュタインが「不気味な遠隔作用」と呼んだ現象を体験";
+"marketing.sf.point3" = "IBM実機で本物の量子コンピュータを動かす";
+"marketing.sf.cta" = "SF世界への扉を開く";
+
+// MARK: - Marketing - For Investors
+"marketing.investor.headline" = "量子コンピューティング市場：2030年に1,000億ドル";
+"marketing.investor.subheadline" = "投資先を見極める目、それは「理解」から生まれる";
+"marketing.investor.point1" = "IonQ、Rigetti、D-Wave—どれが本物か見分けられますか？";
+"marketing.investor.point2" = "「量子優位性」と「量子霸権」の違いを説明できますか？";
+"marketing.investor.point3" = "このアプリで30時間学べば、量子スタートアップのピッチを評価できるようになる";
+"marketing.investor.cta" = "賢い投資のための知識を得る";
+
+// MARK: - Marketing - For Parents (Japan)
+"marketing.parent.headline" = "デジタル小作人 vs 量子設計者";
+"marketing.parent.subheadline" = "あなたの子供にどちらの未来を選びますか？";
+"marketing.parent.point1" = "お子さんが学んでいるPythonコーディング？AIがすでに代替しています";
+"marketing.parent.point2" = "量子コンピューティング人材の不足：求人3件に対して資格者1人";
+"marketing.parent.point3" = "2035年の高収入職業TOP5のうち3つは量子関連と予測";
+"marketing.parent.point4" = "今月の学習習慣が、10年後の年収を決める";
+"marketing.parent.cta" = "子供の未来に投資する";
+
+// MARK: - Marketing - Fear Appeal (Japan)
+"marketing.fear.headline" = "「AIやってます」はもう古い";
+"marketing.fear.subheadline" = "2030年、あなたの職は存在していますか？";
+"marketing.fear.point1" = "従来のプログラマーの80%がAIに代替される—生き残る20%の共通点は？";
+"marketing.fear.point2" = "「量子わかりません」—面接で落ちる人の典型的な回答";
+"marketing.fear.point3" = "あなたの同期が密かに量子を学んでいるかもしれない";
+
+// MARK: - Marketing - Class Preservation (Japan)
+"marketing.class.headline" = "開成・灘の生徒が次に学ぶもの";
+"marketing.class.subheadline" = "エリート教育の次のフロンティア";
+"marketing.class.point1" = "医学部志望の生徒も量子コンピューティングを学ぶ時代";
+"marketing.class.point2" = "量子人材の出身校：東大33%、京大22%、海外名門校28%";
+"marketing.class.point3" = "「塾では教えてくれない」本当の競争力";
+
+// MARK: - Marketing - Loss Aversion (Japan)
+"marketing.loss.headline" = "この1年で差がつく";
+"marketing.loss.subheadline" = "量子学習の黄金期は2025-2027年";
+"marketing.loss.point1" = "2028年以降は「遅すぎた参入」—先行者利益は消滅";
+"marketing.loss.point2" = "今日学ばない選択が、将来の1,000万円を失う選択に";
+"marketing.loss.point3" = "量子人材の供給が需要に追いつくまで残り5年—その後は過当競争";
+
+// MARK: - Secret Document Campaign (Japan)
+"campaign.secret.title" = "【閲覧注意】Googleが隠したがる量子レポート";
+"campaign.secret.subtitle" = "社外秘として扱われていた2026年予測が流出";
+"campaign.secret.teaser" = "「この情報を知れば、あなたのキャリア選択が変わる」—元Google量子チーム";
+"campaign.secret.point1" = "2026年に実現する3つの量子ブレークスルー";
+"campaign.secret.point2" = "Googleが1,000億円を投じる本当の理由";
+"campaign.secret.point3" = "量子人材獲得のためにGoogleが用意している特別待遇";
+"campaign.secret.cta" = "秘密文書のロックを解除する";
+"campaign.secret.disclaimer" = "※本コンテンツは公開情報に基づく分析です";
+
+// MARK: - Gamification Messages
+"gamification.streak.warning" = "⚠️ 連続記録が途切れそうです！";
+"gamification.streak.broken" = "😢 %d日の連続記録がリセットされました";
+"gamification.streak.save" = "今すぐ学習して連続記録を守る";
+"gamification.streak.milestone" = "🔥 %d日連続達成！上位%d%%に入りました";
+"gamification.ranking.weekly" = "週間ランキング";
+"gamification.ranking.monthly" = "月間ランキング";
+"gamification.ranking.allTime" = "総合ランキング";
+"gamification.ranking.position" = "あなたの順位: %d位 / %d人";
+"gamification.ranking.topPercent" = "上位 %d%%";
+"gamification.ranking.promotion" = "📈 あと%dXPで%d位に昇格！";
+"gamification.goldenTicket.title" = "🎫 ゴールデンチケット獲得！";
+"gamification.goldenTicket.desc" = "7日連続で学習すると特別報酬が貰えます";
+"gamification.goldenTicket.prize" = "IBM QPU1時間無料アクセス権";
+"gamification.goldenTicket.progress" = "ゴールデンチケットまであと%d日";
+
+// MARK: - Certificate System
+"certificate.title" = "達成証明書";
+"certificate.quantum.fundamentals" = "量子コンピューティング基礎認定";
+"certificate.quantum.intermediate" = "量子アルゴリズム中級認定";
+"certificate.quantum.advanced" = "量子プログラミング上級認定";
+"certificate.quantum.master" = "SwiftQuantum マスター認定";
+"certificate.issued" = "発行日: %@";
+"certificate.credential" = "認証番号: %@";
+"certificate.verify" = "この証明書を確認: swiftquantum.app/verify/%@";
+"certificate.share" = "LinkedInで共有";
+"certificate.download" = "PDFダウンロード";
+"certificate.linkedin.text" = "SwiftQuantumで%@を取得しました！量子コンピューティングを学習中です。#QuantumComputing #SwiftQuantum";
+
+// MARK: - Parent Report System
+"report.title" = "学習レポート";
+"report.period" = "レポート期間: %@ 〜 %@";
+"report.summary" = "概要";
+"report.totalTime" = "総学習時間";
+"report.completedLessons" = "完了したレッスン";
+"report.earnedXP" = "獲得XP";
+"report.streak" = "現在の連続記録";
+"report.strengths" = "得意分野";
+"report.improvements" = "強化が必要な分野";
+"report.recommendation" = "おすすめの次のステップ";
+"report.comparison" = "同年齢との比較";
+"report.comparison.ahead" = "上位%d%%に位置しています";
+"report.comparison.onTrack" = "平均的なペースで学習しています";
+"report.comparison.needsAttention" = "もう少し頑張りましょう";
+"report.quote" = "「%@さんは今週特に%@分野で進歩しました。次は%@に挑戦するのがおすすめです。」";
+"report.share" = "レポートを共有";
+"report.export" = "PDFでエクスポート";
+
+// MARK: - Premium Tier Extensions
+"tier.free.name" = "探検家";
+"tier.free.desc" = "量子の世界への第一歩";
+"tier.free.limit" = "1日3レッスンまで";
+"tier.pro.name" = "研究者";
+"tier.pro.desc" = "本格的な量子学習者向け";
+"tier.pro.feature1" = "すべてのレッスンにアクセス";
+"tier.pro.feature2" = "詳細な学習分析";
+"tier.pro.feature3" = "認定証発行";
+"tier.premium.name" = "量子マスター";
+"tier.premium.desc" = "最高のプロフェッショナル体験";
+"tier.premium.feature1" = "IBM QPU実行（月10回）";
+"tier.premium.feature2" = "O1ビザエビデンスポートフォリオ";
+"tier.premium.feature3" = "1対1のメンタリングセッション";
+"tier.premium.feature4" = "優先サポート";
+"tier.enterprise.name" = "エンタープライズ";
+"tier.enterprise.desc" = "チームと企業向け";
+"tier.enterprise.feature1" = "無制限のIBM QPU実行";
+"tier.enterprise.feature2" = "チーム管理ダッシュボード";
+"tier.enterprise.feature3" = "カスタムカリキュラム";
+"tier.enterprise.feature4" = "専任アカウントマネージャー";
+"tier.enterprise.contact" = "お問い合わせ";
+
+// MARK: - Social Proof
+"social.users" = "%@人以上のユーザーが学習中";
+"social.reviews" = "App Storeで%@評価";
+"social.featured" = "Apple「今日のアプリ」選出";
+"social.testimonial1" = "「GAFAMの面接で量子の話ができて、他の候補者と明らかに差がついた」— 東大大学院生";
+"social.testimonial2" = "「子供が毎日自分から学習するようになった」— 保護者";
+"social.testimonial3" = "「量子投資の判断ができるようになった」— VC投資家";
+"social.company.logos" = "学習者の所属企業";

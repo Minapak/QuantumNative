@@ -2,7 +2,7 @@
  * Localizable.strings (English)
  * SwiftQuantum Learning App
  *
- * 사용 방법:
+ * Usage:
  * Text("learn.title")  // "Learn"
  * NSLocalizedString("learn.title", comment: "")
  */
@@ -646,3 +646,137 @@
 // MARK: - Gate Categories
 "gates.basic" = "Basic";
 "gates.advanced" = "Advanced";
+
+// MARK: - Solar Agent Messages
+"solar.encouragement.1" = "You're doing amazing exploring the quantum world!";
+"solar.encouragement.2" = "One step at a time, you'll reach the summit!";
+"solar.encouragement.3" = "Complex concepts are no match for your curiosity!";
+"solar.encouragement.4" = "Mistakes are part of learning. Keep pushing forward!";
+"solar.encouragement.5" = "Your curiosity is lighting up the future of quantum computing.";
+
+"solar.tip.1" = "The Hadamard gate is the starting point of superposition!";
+"solar.tip.2" = "Remember: measurements are probabilistic. Run multiple times to see patterns.";
+"solar.tip.3" = "CNOT gate can entangle two qubits together!";
+"solar.tip.4" = "The Bloch sphere visualizes all possible qubit states.";
+"solar.tip.5" = "Error correction is the key to real quantum computers.";
+
+"solar.celebration.1" = "Congratulations! You've reached a new level! 🎊";
+"solar.celebration.2" = "Amazing! Your quantum skills are growing every day!";
+"solar.celebration.3" = "Perfect! You've mastered this concept!";
+"solar.celebration.4" = "Incredible! Your XP is shining like the sun! ☀️";
+"solar.celebration.5" = "Excellent! You're on the path to becoming a quantum master!";
+
+"solar.challenge.1" = "A harder challenge awaits. Are you ready?";
+"solar.challenge.2" = "Conquer this concept and unlock new worlds!";
+"solar.challenge.3" = "Channel the fire energy to overcome this challenge!";
+"solar.challenge.4" = "Don't give up! You've got this!";
+"solar.challenge.5" = "Master this and you're one step closer to IBM QPU!";
+
+"solar.fireBoost.1" = "Solar energy is with you! Feel the fire! ☀️";
+"solar.fireBoost.2" = "Your warm passion is illuminating the quantum world!";
+"solar.fireBoost.3" = "Like a Miami sunrise, your potential is radiant!";
+"solar.fireBoost.4" = "Golden success energy surrounds you!";
+"solar.fireBoost.5" = "Water's calm and Fire's passion in perfect harmony!";
+
+// MARK: - API Error Messages
+"error.payment.verification" = "Payment verification failed";
+
+// MARK: - Interactive Odyssey Keywords
+"odyssey.keywords" = "Hadamard, Superposition, CNOT, Entanglement, Measurement";
+
+// MARK: - User Type Selection (Onboarding)
+"userType.title" = "Welcome to SwiftQuantum";
+"userType.subtitle" = "Tell us about yourself to personalize your experience";
+"userType.student" = "Student";
+"userType.student.desc" = "Building a standout portfolio for Big Tech";
+"userType.parent" = "Parent";
+"userType.parent.desc" = "Preparing my child for the AI-driven future";
+"userType.developer" = "Developer";
+"userType.developer.desc" = "Adding quantum skills to stay irreplaceable";
+"userType.sciFan" = "Curious Mind";
+"userType.sciFan.desc" = "Exploring the quantum realm like in Interstellar";
+"userType.investor" = "Tech Investor";
+"userType.investor.desc" = "Understanding deep tech for smarter investments";
+
+// MARK: - Marketing - App Store & Global
+"marketing.tagline" = "Based on Harvard-MIT 2026 Research";
+"marketing.subtitle" = "The world's first mobile quantum simulator with real IBM QPU access";
+"marketing.headline.global" = "The New Literacy: Beyond Coding";
+"marketing.body.global" = "Perfect SAT scores and basic app development no longer impress Ivy League admissions. SwiftQuantum lets you run the same algorithms Harvard researchers use — right from your iPhone. This is your proof of being a next-generation leader.";
+"marketing.cta.global" = "Build Your Resume-Ready Quantum Portfolio";
+
+// MARK: - Marketing - For Developers
+"marketing.dev.headline" = "Why Senior Developers Open SwiftQuantum on Weekends";
+"marketing.dev.point1" = "The web and app development market is saturated. AI writes Python. But YOU write Qiskit.";
+"marketing.dev.point2" = "Quantum computing is the 1990s internet. Early adopters win.";
+"marketing.dev.point3" = "This isn't just a learning app — it's a Bridge to real hardware (API, QPU, Noise Model).";
+"marketing.dev.cta" = "Add 'Quantum Engineer' to your career titles.";
+
+// MARK: - Marketing - For Students
+"marketing.student.headline" = "The interviewer's eyes widened when I showed them the 3,000 qubit simulation on my iPhone.";
+"marketing.student.point1" = "Stop making clone coding projects. Everyone has them.";
+"marketing.student.point2" = "Your quantum circuits are based on Harvard-MIT research papers.";
+"marketing.student.point3" = "For $9.99/month, maximize your chances at Google and Apple.";
+"marketing.student.cta" = "Stand out from the crowd. Download now.";
+
+// MARK: - Marketing - For Sci-Fi Fans
+"marketing.scifi.headline" = "Detail that would surprise Christopher Nolan. A multiverse in your pocket.";
+"marketing.scifi.point1" = "No boring equations. Just beautiful 3D Bloch spheres you can touch.";
+"marketing.scifi.point2" = "Manipulate the quantum realm like in Marvel movies.";
+"marketing.scifi.point3" = "The moment you open this app on the subway, you become the smartest person there.";
+"marketing.scifi.cta" = "Subscribe to the secrets of the universe for $9.99.";
+
+// MARK: - Marketing - For Investors
+"marketing.investor.headline" = "The Mobile Quantum Era Has Arrived.";
+"marketing.investor.point1" = "A pioneering app democratizing quantum computing.";
+"marketing.investor.point2" = "Harvard-MIT's latest fault-tolerant architecture, optimized for mobile.";
+"marketing.investor.point3" = "A platform nurturing future quantum engineers worldwide.";
+"marketing.investor.cta" = "Join the Revolution.";
+
+// MARK: - Marketing - For Parents
+"marketing.parent.headline" = "Digital Farmhand or Quantum Architect?";
+"marketing.parent.subheadline" = "Which future will you choose for your child?";
+"marketing.parent.point1" = "The Python coding your child is learning? AI has already replaced it.";
+"marketing.parent.point2" = "Children trapped in the 0s and 1s world become tomorrow's 'digital farmhands'.";
+"marketing.parent.point3" = "Brain neuroplasticity is most active before age 12. Plant 'Quantum Intuition' now.";
+"marketing.parent.point4" = "This is the Latin of the 21st century — the language of the ruling class.";
+"marketing.parent.cta" = "The top 0.1% have already made their choice.";
+
+// MARK: - Secret Document Campaign
+"campaign.secret.headline" = "Harvard-MIT 2026 Leaked Seminar: Why Silicon Valley Executives Pulled Their Kids from Coding Bootcamps";
+"campaign.secret.cta" = "Before your child becomes 'quantum illiterate', test their brain plasticity with a 7-day free trial.";
+"campaign.secret.visual" = "Two futures: A child solving problems in a dark study room vs. A child controlling 3D qubits on an iPad aboard a Miami yacht.";
+
+// MARK: - Gamification Messages
+"gamification.streak.warning" = "Don't log in today and your qubit coherence will collapse!";
+"gamification.streak.lost" = "3 days of coherence — lost. Rebuild your quantum state.";
+"gamification.rank.global" = "Your spatial reasoning ability ranks in the top %@%% worldwide.";
+"gamification.rank.country" = "You rank #%d in %@!";
+"gamification.golden.ticket" = "Golden Ticket Unlocked! Priority access to real IBM QPU.";
+
+// MARK: - Certificate & Achievement
+"certificate.title" = "Certified Quantum Architect";
+"certificate.subtitle" = "Harvard-MIT 2026 Architecture Completion";
+"certificate.share" = "Share on LinkedIn";
+"certificate.download" = "Download Certificate";
+"certificate.id" = "Certificate ID: %@";
+
+// MARK: - Parent Report
+"report.title" = "Brain Growth Report";
+"report.subtitle" = "Your child's quantum learning progress";
+"report.metric.logic" = "Logical Reasoning";
+"report.metric.spatial" = "Spatial Perception";
+"report.metric.algorithm" = "Algorithm Design";
+"report.comparison" = "+%d%% faster than same-age average";
+"report.suggestion" = "To nurture this talent, upgrade to Enterprise for real hardware experience.";
+
+// MARK: - Premium Tiers Extended
+"tier.observer" = "Observer";
+"tier.observer.desc" = "Touch and feel the quantum world";
+"tier.architect" = "Architect";
+"tier.architect.desc" = "Build real quantum circuits";
+"tier.visionary" = "Visionary";
+"tier.visionary.desc" = "Harvard-MIT Fault-Tolerant Track";
+"tier.harvard" = "Harvard Track";
+"tier.harvard.price" = "$29.99/month";
+"tier.harvard.badge" = "Includes Certified Quantum Architect credential";

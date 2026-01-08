@@ -1,0 +1,859 @@
+/*
+ * Localizable.strings (Simplified Chinese)
+ * SwiftQuantum Learning App
+ *
+ * 使用方法:
+ * Text("learn.title")  // "学习"
+ * NSLocalizedString("learn.title", comment: "")
+ */
+
+// MARK: - Common
+"common.continue" = "继续";
+"common.back" = "返回";
+"common.next" = "下一步";
+"common.done" = "完成";
+"common.skip" = "跳过";
+"common.cancel" = "取消";
+"common.close" = "关闭";
+"common.save" = "保存";
+"common.delete" = "删除";
+"common.edit" = "编辑";
+"common.loading" = "加载中...";
+"common.error" = "错误";
+"common.success" = "成功";
+"common.warning" = "警告";
+
+// MARK: - Learning
+"learn.title" = "学习";
+"learn.selectTrack" = "选择学习路径";
+"learn.allLevels" = "全部级别";
+"learn.myProgress" = "我的进度";
+"learn.startLearning" = "开始学习";
+"learn.continueLevel" = "继续课程";
+"learn.completedLevels" = "已完成级别";
+"learn.nextLevel" = "下一级";
+
+// MARK: - Levels
+"level.title" = "级别 %d";
+"level.difficulty" = "难度";
+"level.duration" = "时长: %d分钟";
+"level.xpReward" = "%d XP";
+"level.prerequisites" = "前置条件";
+"level.locked" = "完成前置级别解锁";
+"level.completed" = "已完成";
+"level.inProgress" = "进行中";
+
+// MARK: - Learning Strategies
+"strategy.title" = "学习策略";
+"strategy.memory" = "记忆触发器";
+"strategy.conceptMap" = "概念图";
+"strategy.feynman" = "费曼学习法";
+"strategy.selectStrategy" = "选择最适合你的学习方法";
+
+// MARK: - Memory Triggers
+"memory.title" = "记忆触发器与助记术";
+"memory.mnemonic" = "助记术";
+"memory.description" = "说明";
+"memory.difficulty" = "难度";
+"memory.tip" = "使用这些助记术建立记忆锚点。";
+
+// MARK: - Concept Maps
+"conceptMap.title" = "概念图";
+"conceptMap.centralConcept" = "核心概念";
+"conceptMap.relatedConcepts" = "相关概念";
+"conceptMap.connections" = "关联";
+"conceptMap.tip" = "理解各概念之间的关系。";
+
+// MARK: - Feynman Explanation
+"feynman.title" = "费曼学习法讲解";
+"feynman.simpleExplanation" = "简单解释";
+"feynman.details" = "详细说明";
+"feynman.analogies" = "类比";
+"feynman.misconceptions" = "常见误区";
+"feynman.tip" = "用简单的语言解释每个概念。如果能简单说清楚，就说明你真正理解了！";
+
+// MARK: - Quiz
+"quiz.question" = "第 %d 题 / 共 %d 题";
+"quiz.selectAnswer" = "请选择答案";
+"quiz.correct" = "✅ 正确！";
+"quiz.incorrect" = "❌ 错误";
+"quiz.explanation" = "解析";
+"quiz.yourAnswer" = "你的答案";
+"quiz.correctAnswer" = "正确答案";
+"quiz.nextQuestion" = "下一题";
+"quiz.finish" = "完成测验";
+"quiz.score" = "得分: %d%%";
+
+// MARK: - XP & Progress
+"progress.xp" = "%d XP";
+"progress.level" = "级别 %d";
+"progress.nextLevel" = "距下一级还差 %d XP";
+"progress.levelProgress" = "级别进度";
+"progress.totalXP" = "总 XP";
+"progress.currentStreak" = "连续学习";
+"progress.longestStreak" = "最长连续记录";
+
+// MARK: - Achievements
+"achievement.title" = "成就";
+"achievement.unlocked" = "已解锁";
+"achievement.locked" = "未解锁";
+"achievement.earnedXP" = "获得 %d XP！";
+"achievement.congratulations" = "恭喜！ 🎉";
+"achievement.newBadge" = "解锁新徽章！";
+
+// MARK: - Home
+"home.welcomeBack" = "欢迎回来！";
+"home.yourProgress" = "你的进度";
+"home.recentAchievements" = "最近成就";
+"home.dailyChallenge" = "每日挑战";
+"home.continueYourJourney" = "继续你的量子学习之旅";
+
+// MARK: - Practice
+"practice.title" = "练习";
+"practice.difficulty" = "难度";
+"practice.exercises" = "习题";
+"practice.completed" = "已完成";
+"practice.unlockPrevious" = "完成前置级别解锁";
+
+// MARK: - Explore
+"explore.title" = "探索";
+"explore.concepts" = "概念";
+"explore.glossary" = "术语表";
+"explore.resources" = "资源";
+"explore.featured" = "精选";
+
+// MARK: - Profile
+"profile.title" = "个人资料";
+"profile.stats" = "统计";
+"profile.achievements" = "成就";
+"profile.settings" = "设置";
+"profile.logout" = "退出登录";
+"profile.member" = "已加入 %@";
+
+// MARK: - Auth
+"auth.login" = "登录";
+"auth.signup" = "注册";
+"auth.email" = "邮箱";
+"auth.password" = "密码";
+"auth.confirmPassword" = "确认密码";
+"auth.username" = "用户名";
+"auth.forgotPassword" = "忘记密码？";
+"auth.dontHaveAccount" = "还没有账户？";
+"auth.alreadyHaveAccount" = "已有账户？";
+"auth.welcome" = "欢迎回来";
+"auth.createAccount" = "创建账户";
+
+// MARK: - Quantum Concepts
+"concept.qubit" = "量子比特";
+"concept.superposition" = "叠加态";
+"concept.entanglement" = "量子纠缠";
+"concept.measurement" = "测量";
+"concept.gate" = "量子门";
+"concept.blochSphere" = "布洛赫球";
+"concept.amplitude" = "概率幅";
+"concept.interference" = "量子干涉";
+
+// MARK: - Settings
+"settings.title" = "设置";
+"settings.learning" = "学习";
+"settings.appearance" = "外观";
+"settings.notifications" = "通知";
+"settings.about" = "关于";
+"settings.darkMode" = "深色模式";
+"settings.soundEffects" = "音效";
+"settings.hapticFeedback" = "触觉反馈";
+"settings.dailyReminders" = "每日提醒";
+
+// MARK: - Errors
+"error.networkError" = "网络错误，请检查网络连接。";
+"error.loadingFailed" = "内容加载失败，请重试。";
+"error.invalidEmail" = "邮箱格式不正确";
+"error.weakPassword" = "密码需要至少6个字符";
+"error.passwordMismatch" = "两次密码输入不一致";
+
+// MARK: - Quantum Master Curriculum - Track Names
+"curriculum.track1.title" = "量子计算机基础";
+"curriculum.track1.description" = "从词源开始的完美基础";
+"curriculum.track2.title" = "量子的神奇特性";
+"curriculum.track2.description" = "叠加态、量子纠缠、隧穿效应、量子比特";
+"curriculum.track3.title" = "量子计算机的工作原理";
+"curriculum.track3.description" = "从超低温到测量的完整流程";
+"curriculum.track4.title" = "量子计算机的类型";
+"curriculum.track4.description" = "超导、离子阱、光子、拓扑方式对比";
+"curriculum.track5.title" = "当前发展状况 (2025-2026)";
+"curriculum.track5.description" = "谷歌、IBM的最新成果与纠错";
+"curriculum.track6.title" = "应用领域";
+"curriculum.track6.description" = "制药、金融、气候、安全四大应用";
+"curriculum.track7.title" = "未来展望 (2025-2035)";
+"curriculum.track7.description" = "十年路线图与你的角色";
+"curriculum.track8.title" = "2026年详细展望";
+"curriculum.track8.description" = "硬件、产业、互联网、价格革命";
+"curriculum.track9.title" = "核心概念与关键词";
+"curriculum.track9.description" = "趋势、术语表、国家竞争、挑战";
+
+// MARK: - Track 1: Quantum Basics Lessons
+"lesson.basics1.1.title" = "什么是量子？从词源说起";
+"lesson.basics1.1.description" = "彻底理解Quantum这个词的含义";
+"lesson.basics1.1.content" = "理解Quantum的含义！\n\n**QUANTUM（量子）**\n- 拉丁语: 'quantus' = '多少'\n- 物理学: '最小单位'\n- 含义: 不可再分的能量包\n- 类比: 乐高的最小积木块\n\n**要点**: 研究原子和光等微小事物的世界";
+"lesson.basics1.1.mnemonic" = "Q = Quanta = 量子化 = 不能再分";
+"lesson.basics1.1.difficulty" = "非常简单";
+
+"lesson.basics1.2.title" = "什么是计算机？理解计算机器";
+"lesson.basics1.2.description" = "准确了解普通计算机是什么";
+"lesson.basics1.2.content" = "理解计算机的含义！\n\n**COMPUTER（计算机）**\n- 拉丁语: 'computare' = '一起计算'\n- com-（一起）+ putare（计算）\n- 含义: 计算的机器\n\n**普通计算机的原理**:\n- 只用0和1（开/关）思考\n- 一次只做一件事\n- 非常快但是顺序处理";
+"lesson.basics1.2.mnemonic" = "Computer = Calculate + Together = 计算机";
+"lesson.basics1.2.difficulty" = "非常简单";
+
+"lesson.basics1.3.title" = "什么是量子计算机？";
+"lesson.basics1.3.description" = "定义: 利用原子魔法的超级计算机";
+"lesson.basics1.3.content" = "**量子计算机定义**:\n利用量子的神奇特性（叠加态、量子纠缠）同时进行大量计算的未来超级计算机\n\n**核心区别**: 使用普通计算机无法利用的叠加态和量子纠缠等量子特性";
+"lesson.basics1.3.mnemonic" = "量子 + 计算机 = 原子魔法超级计算机";
+"lesson.basics1.3.difficulty" = "简单";
+
+"lesson.basics1.4.title" = "有什么不同？完整对比";
+"lesson.basics1.4.description" = "普通计算机与量子计算机的5大区别";
+"lesson.basics1.4.content" = "**5大核心区别**:\n\n1. 基本单位: 比特（0或1）vs 量子比特（0和1同时）\n2. 处理方式: 顺序（一个一个）vs 并行（同时）\n3. 温度: 室温（20°C）vs 绝对零度（-273°C）\n4. 大小: 桌面 vs 一个房间大小\n5. 错误率: 几乎为零 vs 仍然较高（正在改进）";
+"lesson.basics1.4.mnemonic" = "BITS = Basic, Individual, Traditional, Sequential";
+"lesson.basics1.4.difficulty" = "简单";
+
+// MARK: - Track 2: Quantum Principles
+"lesson.principles2.1.title" = "叠加态 - 同时处于多种状态！";
+"lesson.principles2.1.description" = "从薛定谔的猫到量子硬币";
+"lesson.principles2.1.content" = "**叠加态: 同时处于多种状态！**\n\n普通硬币:\n- 正面或反面（只能一个）\n\n量子硬币:\n- 同时是正面又是反面！\n- 观测前两者都存在\n- 观测的瞬间才确定为一个\n\n**薛定谔的猫**: 盒子里的猫同时是活的又是死的（观测前）";
+"lesson.principles2.1.mnemonic" = "SUPER = Simultaneous Unified Probability Exists Randomly";
+"lesson.principles2.1.difficulty" = "简单";
+
+"lesson.principles2.2.title" = "量子纠缠 - 双胞胎心灵感应";
+"lesson.principles2.2.description" = "不论距离瞬间连接的奥秘";
+"lesson.principles2.2.content" = "**量子纠缠: 无法分离的粒子连接**\n\n量子纠缠的双胞胎:\n- 北京的粒子A\n- 上海的粒子B（1000公里远）\n- A向右旋转 → B瞬间向左旋转！\n\n**惊人之处**:\n- 比光还快！（瞬间！）\n- 没有信号却能连接\n- 爱因斯坦称之为"幽灵般的超距作用"";
+"lesson.principles2.2.mnemonic" = "量子纠缠 = 爱因斯坦的"幽灵"连接";
+"lesson.principles2.2.difficulty" = "简单";
+
+"lesson.principles2.3.title" = "量子隧穿 - 穿墙术！";
+"lesson.principles2.3.description" = "翻不过山也能穿过的魔法";
+"lesson.principles2.3.content" = "**隧穿效应: 能量不够也能穿过障碍**\n\n现实世界:\n- 穿不过墙 = 被弹回\n\n量子世界:\n- 能量不够翻越...\n- 却出现在另一边！（按概率）\n\n**应用**: 核聚变（太阳发光的原因）、闪存、放射性衰变";
+"lesson.principles2.3.mnemonic" = "隧穿 = T.T. = Totally Transcends barriers";
+"lesson.principles2.3.difficulty" = "中等";
+
+"lesson.principles2.4.title" = "量子比特 - 量子信息的单位";
+"lesson.principles2.4.description" = "比特与量子比特的完整对比";
+"lesson.principles2.4.content" = "**比特 vs 量子比特**\n\n普通比特:\n- 0或1（两种状态）\n- 固定表示\n\n量子比特:\n- |0⟩和|1⟩同时存在（叠加态）\n- α|0⟩ + β|1⟩\n\n**强大之处**:\n- 1个量子比特 = 2种状态同时\n- 10个量子比特 = 1024种状态同时\n- 100个量子比特 = 1.27 × 10³⁰种状态同时！";
+"lesson.principles2.4.mnemonic" = "量子比特 = Quantum + Bit = 同时0和1";
+"lesson.principles2.4.difficulty" = "中等";
+
+// MARK: - Track 3: Quantum Operation
+"lesson.operation3.1.title" = "超低温冷却 - 让原子安静下来";
+"lesson.operation3.1.description" = "-273°C，为什么需要接近绝对零度";
+"lesson.operation3.1.content" = "**为什么要这么冷？**\n\n三个原因:\n1. 停止原子振动: 温暖 = 原子抖动, 寒冷 = 原子停止\n2. 保护量子状态: 热量 = 噪音 = 破坏量子状态\n3. 消除噪音: 室温: 噪音 >> 信号（不可能）。超低温: 信号 >> 噪音（可行！）\n\n**冷却方法**: 液氦（4.2K）、稀释制冷机（10mK）";
+"lesson.operation3.1.mnemonic" = "低温 = 平静的量子状态";
+"lesson.operation3.1.difficulty" = "中等";
+
+"lesson.operation3.2.title" = "量子比特初始化 - 准备就绪";
+"lesson.operation3.2.description" = "计算前准备好所有量子比特";
+"lesson.operation3.2.content" = "**初始化过程**:\n1. 量子比特处于随机状态 → 混乱\n2. 施加初始化脉冲\n3. 所有量子比特对齐到|0⟩状态\n4. 准备好开始计算！\n\n**不同类型的方法**:\n- 超导: 微波脉冲强制到|0⟩\n- 离子阱: 激光冷却到基态";
+"lesson.operation3.2.mnemonic" = "初始化 = 所有量子比特从|0⟩开始";
+"lesson.operation3.2.difficulty" = "中等";
+
+"lesson.operation3.3.title" = "量子门 - 让它们跳舞";
+"lesson.operation3.3.description" = "理解泡利门、哈达玛门、CNOT门";
+"lesson.operation3.3.content" = "**4种基本门**:\n\n1. Pauli-X（NOT）: |0⟩ → |1⟩, |1⟩ → |0⟩（翻转）\n2. Hadamard（H）: |0⟩ → 叠加态（创建叠加！）\n3. CNOT: 如果控制是|1⟩，翻转目标（创建纠缠！）\n4. Phase: 改变|1⟩的相位\n\n**电路**: 初始 → [H] → [X] → [CNOT] → ... → [测量]";
+"lesson.operation3.3.mnemonic" = "H.X.C.P. = Hadamard, X-flip, Control-NOT, Phase";
+"lesson.operation3.3.difficulty" = "困难";
+
+"lesson.operation3.4.title" = "测量与结果解读";
+"lesson.operation3.4.description" = "如何检查答案？基于概率的读取";
+"lesson.operation3.4.content" = "**测量过程**:\n- 测量前: (|0⟩ + |1⟩)/√2（两者都有！）\n- 测量瞬间: 状态坍缩！\n- 测量后: |0⟩或|1⟩（只有一个！）\n\n**概率性读取**:\n- 1次运行: 随机结果\n- 1000次运行: 约500次|0⟩，500次|1⟩\n- 10000次运行: 更准确的概率分布";
+"lesson.operation3.4.mnemonic" = "测量 = 多次运行揭示概率";
+"lesson.operation3.4.difficulty" = "中等";
+
+// MARK: - Track 4: Quantum Types
+"lesson.types4.1.title" = "超导方式 - IBM、谷歌";
+"lesson.types4.1.description" = "最广泛使用方式的原理和优缺点";
+"lesson.types4.1.content" = "**超导量子比特**\n\n原理: 超低温的超导环\n- 顺时针磁通 = |0⟩\n- 逆时针 = |1⟩\n\n优点: 非常快（纳秒级）、技术成熟、可扩展\n缺点: 需要超低温（-269°C）、错误率高、相干时间短\n\n公司: IBM、谷歌、Rigetti";
+"lesson.types4.1.mnemonic" = "超低温 = 超导 = 超快速";
+"lesson.types4.1.difficulty" = "中等";
+
+"lesson.types4.2.title" = "离子阱方式 - IonQ、霍尼韦尔";
+"lesson.types4.2.description" = "高精度但较慢的方式";
+"lesson.types4.2.content" = "**离子阱量子比特**\n\n原理: 用激光控制被捕获的离子\n- 基态 = |0⟩\n- 激发态 = |1⟩\n\n优点: 非常高的精度（~99.9%）、长相干时间（分钟级）、完美均匀性\n缺点: 非常慢（微秒级）、难以扩展、昂贵\n\n公司: IonQ、霍尼韦尔/Quantinuum";
+"lesson.types4.2.mnemonic" = "离子 = 极其精确但较慢";
+"lesson.types4.2.difficulty" = "中等";
+
+"lesson.types4.3.title" = "光子方式 - Xanadu、PsiQuantum";
+"lesson.types4.3.description" = "利用光的创新方式";
+"lesson.types4.3.content" = "**光子量子比特**\n\n原理: 利用光粒子的性质\n- 水平偏振 = |0⟩\n- 垂直偏振 = |1⟩\n\n优点: 室温运行！、低退相干、适合通信\n缺点: 测量困难（60-80%损耗）、控制困难、仍处于早期阶段\n\n公司: Xanadu、PsiQuantum";
+"lesson.types4.3.mnemonic" = "光子 = 光 = 无需冷却";
+"lesson.types4.3.difficulty" = "困难";
+
+"lesson.types4.4.title" = "拓扑方式 - 微软研究";
+"lesson.types4.4.description" = "通过拓扑保护实现自动纠错";
+"lesson.types4.4.content" = "**拓扑量子比特**\n\n原理: 使用马约拉纳费米子\n- 拓扑保护的状态\n- 自动忽略小错误！\n\n优点: 自动纠错！、理论精度高、扩展高效\n缺点: 尚未证实、仍需超低温、最基础阶段\n\n公司: 微软（研究）、QuTech";
+"lesson.types4.4.mnemonic" = "拓扑学 = 甜甜圈形状 = 受保护的状态";
+"lesson.types4.4.difficulty" = "非常困难";
+
+// MARK: - Track 5: Current Status
+"lesson.status5.1.title" = "谷歌Willow芯片 - 2024年突破";
+"lesson.status5.1.description" = "达到100量子比特，错误率减半";
+"lesson.status5.1.content" = "**Willow芯片成果（2024）**:\n\n1. 100+量子比特: 是Sycamore的53的两倍\n2. 错误率减半: ~1% → ~0.5%（突破！）\n3. 再次证明量子优势: 更现实的问题\n\n**意义**: 量子计算机实用化不是"是否"而是"何时"的问题";
+"lesson.status5.1.mnemonic" = "Willow = 以低错误率获胜";
+"lesson.status5.1.difficulty" = "中等";
+
+"lesson.status5.2.title" = "IBM的雄心计划";
+"lesson.status5.2.description" = "Flamingo（1,386量子比特）、Kookaburra（4,158量子比特）";
+"lesson.status5.2.content" = "**IBM路线图**:\n\nFlamingo（2024-2025）:\n- 1,386个物理量子比特\n- 比Hummingbird扩展20倍\n\nKookaburra（2026）:\n- 每芯片4,158量子比特\n- 3芯片连接 = 12,474量子比特！\n- 首次量子网络尝试";
+"lesson.status5.2.mnemonic" = "IBM鸟类 = 每年更多量子比特";
+"lesson.status5.2.difficulty" = "中等";
+
+"lesson.status5.3.title" = "纠错 - 实用化的关键";
+"lesson.status5.3.description" = "1% → 0.1%错误率降低的意义";
+"lesson.status5.3.content" = "**错误率进展**:\n\n2019: ~1%（每100次操作1次错误）\n2024: ~0.5%（突破！）\n2025目标: ~0.1%（实用级别？）\n\n**纠错阈值**: ~1%\n- 低于此: 纠错成为可能！\n- 当前: 接近阈值！\n- 目标: 明确低于";
+"lesson.status5.3.mnemonic" = "错误减少 = 应用增加";
+"lesson.status5.3.difficulty" = "困难";
+
+"lesson.status5.4.title" = "为什么资金涌入 - 投资现状";
+"lesson.status5.4.description" = "2024: 15亿美元，预计2025: 20亿美元+";
+"lesson.status5.4.content" = "**全球投资**:\n\n2023: 10亿美元\n2024: 15亿美元（增长50%）\n2025预计: 20亿美元+（增长33%）\n\n**按国家**:\n- 美国: 10亿美元+（谷歌、IBM、IonQ）\n- 中国: 8亿美元+（政府主导）\n- 欧盟: 5亿美元（Quantum Flagship）\n- 日本: 7亿美元+（METI项目）\n- 韩国: 3亿美元（K-Quantum）";
+"lesson.status5.4.mnemonic" = "投资激增 = 技术可行";
+"lesson.status5.4.difficulty" = "中等";
+
+// MARK: - Track 6: Applications
+"lesson.apps6.1.title" = "制药革命 - 新药开发提速2倍";
+"lesson.apps6.1.description" = "蛋白质折叠模拟: 10年→2年";
+"lesson.apps6.1.content" = "**制药应用**:\n\n现状: 10年以上，10亿美元成本\n- 蛋白质3D结构？几乎无法计算\n- 药物相互作用？太复杂\n\n用量子计算机:\n- 同时模拟所有可能性\n- 开发: 10年 → 2年\n- 成本: 10亿美元 → 1亿美元\n\n合作伙伴: 罗氏、默克";
+"lesson.apps6.1.mnemonic" = "制药 + 量子 = 更快治愈";
+"lesson.apps6.1.difficulty" = "困难";
+
+"lesson.apps6.2.title" = "金融的未来 - 投资组合优化";
+"lesson.apps6.2.description" = "风险计算快1000倍";
+"lesson.apps6.2.content" = "**金融应用**:\n\n现状: 只能做近似\n- 投资组合优化？有限\n- 欺诈检测？仅基于模式\n\n用量子计算机:\n- 同时考虑所有变量\n- 实时优化成为可能\n- 欺诈检测: 接近100%准确\n\n合作伙伴: 摩根大通";
+"lesson.apps6.2.mnemonic" = "金融 + 量子 = 更好预测";
+"lesson.apps6.2.difficulty" = "困难";
+
+"lesson.apps6.3.title" = "气候预测 - 精度70%→95%";
+"lesson.apps6.3.description" = "预测期: 1周→1个月";
+"lesson.apps6.3.content" = "**气候应用**:\n\n现状: 1周精度极限\n- 气候变量太多\n- 超级计算机也只能预测1周\n\n用量子计算机:\n- 1个月以上准确预测\n- 台风路径: 99.9%准确\n- PM2.5: 每小时准确预测";
+"lesson.apps6.3.mnemonic" = "气候 + 量子 = 更长预报";
+"lesson.apps6.3.difficulty" = "困难";
+
+"lesson.apps6.4.title" = "安全威胁与解决方案 - 后量子密码";
+"lesson.apps6.4.description" = "现有加密10年内将失效，需要新方法";
+"lesson.apps6.4.content" = "**安全影响**:\n\n威胁: RSA-2048可被破解\n- 现有加密变得脆弱\n- 银行、政府、个人数据面临风险\n\n解决方案: 后量子密码（PQC）\n- 抵抗量子攻击的新算法\n- NIST标准化进行中\n- 需要在量子计算机成熟前迁移";
+"lesson.apps6.4.mnemonic" = "后量子 = 为未来做准备";
+"lesson.apps6.4.difficulty" = "非常困难";
+
+// MARK: - Track 7: Future Outlook
+"lesson.future7.1.title" = "十年路线图: 2025-2035年预测";
+"lesson.future7.1.description" = "早期商业化 → 成长期 → 成熟期";
+"lesson.future7.1.content" = "**路线图**:\n\n阶段1（2025-2027）: 早期商业化\n- 错误率改进\n- 首批商业应用\n\n阶段2（2028-2030）: 成长期\n- 100+逻辑量子比特\n- 多行业应用\n\n阶段3（2031-2035）: 成熟期\n- 1000+逻辑量子比特\n- 日常生活应用";
+"lesson.future7.1.mnemonic" = "2025-2035: 从实验室到生活";
+"lesson.future7.1.difficulty" = "困难";
+
+"lesson.future7.2.title" = "人才短缺的机会 - 2030年需要25万人";
+"lesson.future7.2.description" = "每3个职位只有1个专家";
+"lesson.future7.2.content" = "**人才缺口**:\n\n2030年需求: 25万专业人才\n当前供给: 严重短缺\n比例: 每1个合格候选人对应3个职位\n\n**机会**:\n- 现在学习 = 以后领先\n- 早期专业知识 = 职业机会\n- 跨学科技能受重视";
+"lesson.future7.2.mnemonic" = "现在学习 = 将来领先";
+"lesson.future7.2.difficulty" = "中等";
+
+"lesson.future7.3.title" = "2026年 - 实用化元年";
+"lesson.future7.3.description" = "从实验室到现实生活的转变";
+"lesson.future7.3.content" = "**2026年期望**:\n\n- 100多家公司使用量子\n- 首个量子发现的新药进入临床试验？\n- 量子互联网基础设施启动\n- 硬件尺寸缩小\n- 价格下降: 1000万美元 → 100万美元";
+"lesson.future7.3.mnemonic" = "2026 = 量子实用化";
+"lesson.future7.3.difficulty" = "困难";
+
+"lesson.future7.4.title" = "你能成为量子革命主角的原因";
+"lesson.future7.4.description" = "现在学习 = 2026-2030年最佳机会";
+"lesson.future7.4.content" = "**你的机会**:\n\n为什么是现在？:\n- 技术处于转折点\n- 人才短缺即将来临\n- 先行者优势\n\n该做什么：\n- 学习基础（这门课！）\n- 跟踪发展\n- 逐步积累技能\n\n结果: 当量子成为主流时准备就绪";
+"lesson.future7.4.mnemonic" = "今天开始 = 明天领先";
+"lesson.future7.4.difficulty" = "中等";
+
+// MARK: - Track 8: 2026 Detailed
+"lesson.detailed8.1.title" = "硬件革命 - IBM、谷歌的野心";
+"lesson.detailed8.1.description" = "Condor 5,000量子比特，Willow 2.0 500逻辑量子比特";
+"lesson.detailed8.1.content" = "**2026年硬件目标**:\n\nIBM Condor:\n- 5,000物理量子比特\n- 连接系统: 12,000+\n\nGoogle Willow 2.0:\n- 500逻辑量子比特\n- 改进的纠错\n\n尺寸缩小:\n- 房间大小 → 机柜大小？\n- 冷却效率提高";
+"lesson.detailed8.1.mnemonic" = "2026硬件 = 更大又更小";
+"lesson.detailed8.1.difficulty" = "困难";
+
+"lesson.detailed8.2.title" = "行业实用化开始 - 首个量子新药临床试验";
+"lesson.detailed8.2.description" = "制药、金融、汽车等开始实际应用";
+"lesson.detailed8.2.content" = "**2026年行业应用**:\n\n制药:\n- 首个量子设计的新药进入临床试验\n\n金融:\n- 实时交易优化\n\n汽车:\n- 电池材料发现\n\n化学:\n- 新催化剂设计";
+"lesson.detailed8.2.mnemonic" = "2026 = 量子开始工作";
+"lesson.detailed8.2.difficulty" = "困难";
+
+"lesson.detailed8.3.title" = "量子互联网时代开启";
+"lesson.detailed8.3.description" = "开始构建绝对安全的通信网络";
+"lesson.detailed8.3.content" = "**2026年量子互联网**:\n\n特点:\n- 不可破解的通信\n- 使用量子纠缠\n- 任何窃听都可检测\n\n进展:\n- 2000公里网络测试（中国）\n- 5+国家建设基础设施\n- 金融机构首先采用";
+"lesson.detailed8.3.mnemonic" = "量子互联网 = 绝对安全";
+"lesson.detailed8.3.difficulty" = "困难";
+
+"lesson.detailed8.4.title" = "价格革命 - 90%价格下降";
+"lesson.detailed8.4.description" = "1000万美元 → 100万美元";
+"lesson.detailed8.4.content" = "**价格变化**:\n\n2024: 每系统约1000万美元\n2026: 每系统约100万美元（下降90%！）\n\n云访问:\n- 通过云端更便宜\n- 按使用量付费模式\n- 民主化的访问\n\n影响:\n- 更多公司能够负担\n- 更快采用\n- 更多创新";
+"lesson.detailed8.4.mnemonic" = "便宜90% = 10倍用户";
+"lesson.detailed8.4.difficulty" = "中等";
+
+// MARK: - Track 9: Keywords
+"lesson.keywords9.1.title" = "8个热门关键词 - 2025年必知";
+"lesson.keywords9.1.description" = "量子优势、NISQ、纠错等";
+"lesson.keywords9.1.content" = "**8个必知关键词**:\n\n1. Quantum Advantage: 量子超越经典时\n2. NISQ: 嘈杂中等规模量子\n3. Error Correction: 量子纠错\n4. Logical Qubit: 纠错后的量子比特\n5. Coherence Time: 量子状态持续时间\n6. Decoherence: 量子状态丧失\n7. Quantum Volume: 性能指标\n8. Fidelity: 操作精度";
+"lesson.keywords9.1.mnemonic" = "Q-NELCDFQ = 必备量子词汇";
+"lesson.keywords9.1.difficulty" = "中等";
+
+"lesson.keywords9.2.title" = "必备术语表 - 从相干性到退火";
+"lesson.keywords9.2.description" = "量子概念的完整英文整理";
+"lesson.keywords9.2.content" = "**关键术语**:\n\nCoherence（相干性）: 保持量子状态\nAnnealing（退火）: 通过隧穿优化\nSuperposition（叠加态）: 同时处于多种状态\nEntanglement（量子纠缠）: 非局域关联\nQubit（量子比特）: 量子比特\nGate（量子门）: 量子操作\nMeasurement（测量）: 状态坍缩和读取";
+"lesson.keywords9.2.mnemonic" = "CASEQGM = 完整量子词汇";
+"lesson.keywords9.2.difficulty" = "中等";
+
+"lesson.keywords9.3.title" = "全球量子竞争 - 美国、中国、欧盟、日本、韩国";
+"lesson.keywords9.3.description" = "2026年量子强国排名与战略";
+"lesson.keywords9.3.content" = "**各国战略**:\n\n美国: 私营部门主导，谷歌/IBM/IonQ\n中国: 政府主导大规模投资\n欧盟: 研究为重，Quantum Flagship\n日本: 长期METI项目\n韩国: 成长中的K-Quantum计划\n\n2025年排名:\n1. 美国 2. 中国 3. 欧盟 4. 日本 5. 韩国";
+"lesson.keywords9.3.mnemonic" = "中美竞争，其他追赶";
+"lesson.keywords9.3.difficulty" = "困难";
+
+"lesson.keywords9.4.title" = "2026年风险与挑战 - 需解决的5件事";
+"lesson.keywords9.4.description" = "量子鸿沟、能源、人才短缺等";
+"lesson.keywords9.4.content" = "**5大挑战**:\n\n1. 量子鸿沟: 贫富之间的访问差距\n2. 能源: 冷却所需的高能耗\n3. 人才: 专家严重短缺\n4. 安全: 加密脆弱性\n5. 伦理: 潜在滥用担忧\n\n机会: 每个挑战 = 商业机会";
+"lesson.keywords9.4.mnemonic" = "QETES = 量子需要解决的挑战";
+
+// MARK: - Subscription
+"subscription.tier.pro" = "专业版";
+"subscription.tier.premium" = "高级版";
+
+"subscription.pro.monthly.name" = "专业版月付";
+"subscription.pro.monthly.description" = "基础功能，按月付费";
+"subscription.pro.yearly.name" = "专业版年付";
+"subscription.pro.yearly.description" = "基础功能，按年付费（省40%）";
+"subscription.premium.monthly.name" = "高级版月付";
+"subscription.premium.monthly.description" = "全部功能，按月付费";
+"subscription.premium.yearly.name" = "高级版年付";
+"subscription.premium.yearly.description" = "全部功能，按年付费（省40%）";
+
+"subscription.status.free" = "免费";
+"subscription.status.premium" = "高级版";
+"subscription.status.expired" = "已过期";
+
+"subscription.feature.allContent" = "访问全部内容";
+"subscription.feature.noAds" = "无广告学习";
+"subscription.feature.offlineAccess" = "离线学习";
+"subscription.feature.prioritySupport" = "优先客服";
+"subscription.feature.earlyAccess" = "新内容抢先体验";
+"subscription.feature.advancedAnalytics" = "高级学习分析";
+
+"subscription.period.day" = "天";
+"subscription.period.days %lld" = "%lld天";
+"subscription.period.week" = "周";
+"subscription.period.weeks %lld" = "%lld周";
+"subscription.period.month" = "月";
+"subscription.period.months %lld" = "%lld个月";
+"subscription.period.year" = "年";
+"subscription.period.years %lld" = "%lld年";
+
+// MARK: - Paywall
+"paywall.title" = "升级高级版";
+"paywall.header.title" = "释放你的全部潜能";
+"paywall.header.subtitle" = "无限制访问所有量子计算内容";
+"paywall.subscribe" = "立即订阅";
+"paywall.restore" = "恢复购买";
+"paywall.terms" = "服务条款";
+"paywall.privacy" = "隐私政策";
+"paywall.autoRenewal" = "订阅将自动续期，除非在当前周期结束前至少24小时取消。";
+"paywall.bestValue" = "最划算";
+"paywall.perPeriod %@" = "每%@";
+"paywall.noProducts" = "正在加载商品...";
+"paywall.pending" = "购买等待批准中";
+"paywall.success.title" = "欢迎加入高级版！";
+"paywall.success.message" = "现在可以无限制访问所有内容了。享受你的量子学习之旅！";
+
+"paywall.feature.allContent.title" = "解锁全部内容";
+"paywall.feature.allContent.description" = "访问9个课程，36+节课";
+"paywall.feature.offline.title" = "离线学习";
+"paywall.feature.offline.description" = "下载内容供离线学习";
+"paywall.feature.noAds.title" = "无广告";
+"paywall.feature.noAds.description" = "专注学习，无干扰";
+"paywall.feature.support.title" = "优先客服";
+"paywall.feature.support.description" = "需要时快速获得帮助";
+
+// MARK: - StoreKit Errors
+"error.storekit.productNotFound" = "未找到商品";
+"error.storekit.purchaseFailed" = "购买失败，请重试。";
+"error.storekit.verificationFailed" = "购买验证失败";
+"error.storekit.networkError" = "网络错误，请检查连接。";
+"error.storekit.unknown" = "发生未知错误";
+
+// MARK: - Premium Content
+"premium.locked.title" = "高级内容";
+"premium.locked.message" = "订阅以访问此内容";
+"premium.upgrade" = "升级到高级版";
+"premium.freeRemaining %lld" = "今日免费次数剩余: %lld次";
+"subscription.daysRemaining %lld" = "剩余%lld天";
+
+// MARK: - The Quantum Odyssey - Navigation Tabs
+"tab.campus" = "校园";
+"tab.laboratory" = "实验室";
+"tab.bridge" = "指挥台";
+"tab.portfolio" = "作品集";
+
+// MARK: - Campus Hub (Frame 1)
+"campus.title" = "量子校园";
+"campus.welcome" = "欢迎，探索者";
+"campus.adventurePath" = "冒险之路";
+"campus.adventurePath.subtitle" = "从入门到量子大师的旅程";
+"campus.level1.title" = "入门";
+"campus.level1.subtitle" = "什么是量子？";
+"campus.level2.title" = "叠加态";
+"campus.level2.subtitle" = "同时处于两种状态";
+"campus.level3.title" = "量子纠缠";
+"campus.level3.subtitle" = "神秘的连接";
+"campus.level4.title" = "量子门";
+"campus.level4.subtitle" = "基本构件";
+"campus.level5.title" = "测量";
+"campus.level5.subtitle" = "观测量子";
+"campus.level6.title" = "电路";
+"campus.level6.subtitle" = "组合门";
+"campus.level7.title" = "纠错";
+"campus.level7.subtitle" = "容错";
+"campus.level8.title" = "算法";
+"campus.level8.subtitle" = "Grover & Shor";
+"campus.level9.title" = "硬件";
+"campus.level9.subtitle" = "构建量子比特";
+"campus.level10.title" = "应用";
+"campus.level10.subtitle" = "实际应用";
+"campus.level11.title" = "VQE";
+"campus.level11.subtitle" = "变分方法";
+"campus.level12.title" = "噪声";
+"campus.level12.subtitle" = "管理错误";
+"campus.level13.title" = "IBM集成";
+"campus.level13.subtitle" = "真实QPU访问";
+
+// MARK: - Laboratory (Frame 2 - Interactive Odyssey)
+"odyssey.title" = "量子实验室";
+"odyssey.step1.title" = "欢迎来到布洛赫球";
+"odyssey.step1.desc" = "这个3D球面表示单个量子比特的所有可能状态。北极是|0⟩，南极是|1⟩。";
+"odyssey.step2.title" = "应用哈达玛门";
+"odyssey.step2.desc" = "点击哈达玛门创建叠加态。观察状态向量移动到赤道！";
+"odyssey.step3.title" = "泡利X门";
+"odyssey.step3.desc" = "X门翻转量子比特。就像经典计算中的NOT门。";
+"odyssey.step4.title" = "测量";
+"odyssey.step4.desc" = "测量量子比特使其坍缩到|0⟩或|1⟩。结果是概率性的！";
+"odyssey.currentState" = "当前状态";
+"odyssey.measure" = "测量";
+"odyssey.superposition.achieved" = "达成叠加态！";
+"odyssey.superposition.explanation" = "量子比特现在处于|0⟩和|1⟩的等概率叠加态。测量时，有50%的概率成为任一状态。";
+
+// MARK: - Bridge Console (Frame 3)
+"bridge.title" = "指挥台终端";
+"bridge.online" = "系统在线";
+"bridge.circuitConfig" = "电路配置";
+"bridge.qubits" = "量子比特";
+"bridge.gates" = "量子门";
+"bridge.runLocal" = "本地模拟";
+"bridge.runIBM" = "IBM QPU";
+"bridge.processing" = "处理中...";
+"bridge.fidelity" = "保真度";
+"bridge.noResult" = "暂无结果";
+"bridge.execTime" = "用时: %.2f秒";
+"bridge.harvardMIT" = "哈佛-MIT 2026基准";
+"bridge.benchmark.fidelity" = "目标保真度";
+"bridge.benchmark.qubits" = "逻辑量子比特";
+"bridge.benchmark.coherence" = "相干时间";
+"bridge.fidelityAnalysis" = "保真度分析";
+"bridge.comparisonFidelity" = "比较保真度";
+"bridge.harvardMITTarget" = "哈佛-MIT目标";
+"bridge.success.title" = "部署成功！";
+"bridge.success.subtitle" = "你的电路在IBM QPU上达到了出色的保真度。";
+"bridge.feature1" = "真实IBM QPU执行";
+"bridge.feature2" = "哈佛-MIT 2026基准";
+"bridge.feature3" = "高级保真度分析";
+
+// MARK: - Portfolio Dashboard (Frame 4 - O1 Visa)
+"portfolio.title" = "证据作品集";
+"portfolio.expertiseIndex" = "专业指数";
+"portfolio.globalContribution" = "全球贡献度";
+"portfolio.fireEnergy" = "火能量";
+"portfolio.o1Visa" = "O1签证要求";
+"portfolio.criteriaMet" = "已满足";
+"portfolio.skillTree" = "量子技能树";
+"portfolio.evidenceSummary" = "证据摘要";
+"portfolio.code" = "代码";
+"portfolio.projects" = "项目";
+"portfolio.certs" = "证书";
+"portfolio.exportReport" = "导出报告";
+"portfolio.premiumRequired" = "导出需要高级版";
+"portfolio.skillDetail" = "技能详情";
+"portfolio.connectedSkills" = "关联技能";
+"portfolio.export.title" = "生成O1证据报告";
+"portfolio.export.description" = "生成一份全面的报告，记录你的量子计算专业知识，用于O1签证申请。";
+"portfolio.export.item1" = "技能熟练度文档";
+"portfolio.export.item2" = "代码贡献历史";
+"portfolio.export.item3" = "项目完成证书";
+"portfolio.export.item4" = "全球贡献指标";
+"portfolio.exporting" = "生成中...";
+"portfolio.generateReport" = "生成报告";
+"portfolio.feature1" = "3D量子技能树";
+"portfolio.feature2" = "O1签证证据追踪";
+"portfolio.feature3" = "专业报告导出";
+
+// MARK: - Locked Content
+"locked.premium.description" = "升级到高级版解锁此功能，加速你的量子之旅。";
+"locked.unlockPremium" = "解锁高级版";
+
+// MARK: - Login
+"login.prompt.title" = "需要登录";
+"login.prompt.subtitle" = "创建账户以保存进度并访问高级功能。";
+"login.signIn" = "登录";
+"login.continueAsGuest" = "以访客身份继续";
+
+// MARK: - Settings - Expertise Level
+"settings.expertiseLevel" = "专业级别";
+"expertise.beginner" = "入门";
+"expertise.intermediate" = "进阶";
+"expertise.expert" = "专家";
+
+// MARK: - Term Translations (Beginner vs Expert)
+"term.qubit.beginner" = "量子硬币";
+"term.qubit.expert" = "量子比特";
+"term.qubit.beginner.desc" = "可以同时是正面和反面的特殊硬币";
+"term.qubit.expert.desc" = "处于|0⟩和|1⟩态叠加的量子信息基本单位";
+"term.superposition.beginner" = "同时存在";
+"term.superposition.expert" = "量子叠加态";
+"term.superposition.beginner.desc" = "像旋转的硬币一样同时处于多种状态";
+"term.superposition.expert.desc" = "基态的线性组合: α|0⟩ + β|1⟩（|α|² + |β|² = 1）";
+"term.entanglement.beginner" = "双胞胎连接";
+"term.entanglement.expert" = "量子纠缠";
+"term.entanglement.beginner.desc" = "两个粒子神奇地连接，不受距离影响";
+"term.entanglement.expert.desc" = "由不可分离的状态向量描述的量子系统间的非局域关联";
+"term.gate.beginner" = "量子指令";
+"term.gate.expert" = "酉门";
+"term.gate.beginner.desc" = "改变量子状态的指令";
+"term.gate.expert.desc" = "作用于量子比特希尔伯特空间的酉变换U，U†U = I";
+"term.measurement.beginner" = "看里面";
+"term.measurement.expert" = "量子测量";
+"term.measurement.beginner.desc" = "打开盒子查看结果";
+"term.measurement.expert.desc" = "将叠加态以概率|⟨ψ|n⟩|²坍缩到本征态的投影测量";
+"term.fidelity.beginner" = "准确度得分";
+"term.fidelity.expert" = "状态保真度";
+"term.fidelity.beginner.desc" = "结果与期望的接近程度";
+"term.fidelity.expert.desc" = "衡量量子态相似性的F(ρ,σ) = Tr(√(√ρ σ √ρ))²";
+"term.coherence.beginner" = "保持量子态";
+"term.coherence.expert" = "量子相干性";
+"term.coherence.beginner.desc" = "量子魔法能持续多久才会消失";
+"term.coherence.expert.desc" = "由T₁和T₂表征的，保持叠加态中相位关系的时间";
+"term.errorCorrection.beginner" = "纠正错误";
+"term.errorCorrection.expert" = "量子纠错";
+"term.errorCorrection.beginner.desc" = "使用额外的量子比特来检测和修复错误";
+"term.errorCorrection.expert.desc" = "使用Surface Code等编码在物理量子比特中编码逻辑量子比特以实现容错";
+
+// MARK: - Gate Categories
+"gates.basic" = "基础";
+"gates.advanced" = "进阶";
+
+// MARK: - Solar Agent Messages
+"solar.encouragement.1" = "探索量子世界的你真棒！";
+"solar.encouragement.2" = "一步一步来，你终将登顶！";
+"solar.encouragement.3" = "复杂的概念对你的好奇心不在话下！";
+"solar.encouragement.4" = "犯错是学习的一部分。继续前进！";
+"solar.encouragement.5" = "你的好奇心正在照亮量子计算的未来。";
+
+"solar.tip.1" = "哈达玛门是叠加态的起点！所有量子算法的基础。";
+"solar.tip.2" = "记住：测量是概率性的。多运行几次才能看到规律。";
+"solar.tip.3" = "CNOT门可以让两个量子比特纠缠在一起！";
+"solar.tip.4" = "布洛赫球可视化展示量子比特的所有可能状态。";
+"solar.tip.5" = "纠错是真正量子计算机的关键。";
+
+"solar.celebration.1" = "恭喜！你达到了新级别！ 🎊";
+"solar.celebration.2" = "太棒了！你的量子技能每天都在增长！";
+"solar.celebration.3" = "完美！你已经掌握了这个概念！";
+"solar.celebration.4" = "难以置信！你的XP像太阳一样闪耀！ ☀️";
+"solar.celebration.5" = "优秀！你正在成为量子大师的路上！";
+
+"solar.challenge.1" = "更难的挑战在等着你。准备好了吗？";
+"solar.challenge.2" = "征服这个概念，解锁新世界！";
+"solar.challenge.3" = "调动火元素的能量来克服这个挑战！";
+"solar.challenge.4" = "不要放弃！你可以的！";
+"solar.challenge.5" = "掌握这个，你就离IBM QPU更近一步了！";
+
+"solar.fireBoost.1" = "太阳能与你同在！感受火焰！ ☀️";
+"solar.fireBoost.2" = "你温暖的热情正在照亮量子世界！";
+"solar.fireBoost.3" = "像迈阿密的日出一样，你的潜力闪闪发光！";
+"solar.fireBoost.4" = "金色的成功能量环绕着你！";
+"solar.fireBoost.5" = "水的平静与火的热情完美和谐！";
+
+// MARK: - API Error Messages
+"error.payment.verification" = "支付验证失败";
+
+// MARK: - Interactive Odyssey Keywords
+"odyssey.keywords" = "哈达玛、叠加态、CNOT、量子纠缠、测量";
+
+// MARK: - User Type Selection (Onboarding)
+"userType.title" = "欢迎来到SwiftQuantum";
+"userType.subtitle" = "告诉我们关于你的信息，以获得个性化体验";
+"userType.student" = "学生";
+"userType.student.desc" = "为进入大厂做准备";
+"userType.parent" = "家长";
+"userType.parent.desc" = "为孩子的未来做准备";
+"userType.developer" = "工程师";
+"userType.developer.desc" = "提升技能增加市场竞争力";
+"userType.scifiFan" = "科幻迷";
+"userType.scifiFan.desc" = "想体验量子世界";
+"userType.investor" = "投资人";
+"userType.investor.desc" = "了解下一个万亿市场";
+
+// MARK: - Marketing - China - General
+"marketing.china.headline" = ""量子人才"——2030年大国博弈的核心资源";
+"marketing.china.subheadline" = "清北学子正在学习的技能，你还在等什么？";
+"marketing.china.point1" = "国家"十四五"规划重点：量子科技——现在入场抢占先机";
+"marketing.china.point2" = "量子领域人才年薪：一线城市起步100万+";
+"marketing.china.point3" = ""我懂量子计算"——面试中秒杀99%候选人的一句话";
+"marketing.china.cta" = "成为中国量子人才第一代";
+
+// MARK: - Marketing - For Developers
+"marketing.dev.headline" = "你的代码在2030年还值钱吗？";
+"marketing.dev.subheadline" = "懂量子算法的工程师，市场价值是普通开发者的10倍";
+"marketing.dev.point1" = "AI/ML工程师的下一站：量子机器学习";
+"marketing.dev.point2" = "IBM/谷歌/亚马逊正在以300万年薪招聘量子工程师";
+"marketing.dev.point3" = "有Swift/Python基础，量子编程最快3个月入门";
+"marketing.dev.cta" = "开启量子工程师进化之路";
+
+// MARK: - Marketing - For Students
+"marketing.student.headline" = "清华北大学生在偷偷学什么";
+"marketing.student.subheadline" = "秋招时你能说"我在学量子计算"吗？";
+"marketing.student.point1" = "量子实习岗位竞争比：100:1，现在不准备就来不及了";
+"marketing.student.point2" = ""我会AI"在2025年已经不是差异化优势了";
+"marketing.student.point3" = "BAT/字节offer候选人中，37%正在学习量子计算";
+"marketing.student.cta" = "甩开竞争对手";
+
+// MARK: - Marketing - For SF Fans
+"marketing.sf.headline" = "《三体》里的科学，现在你可以亲手操作";
+"marketing.sf.subheadline" = "科幻里看到的量子世界，现在在你的手机上变为现实";
+"marketing.sf.point1" = "亲手模拟薛定谔的猫实验";
+"marketing.sf.point2" = "量子纠缠——爱因斯坦称之为"鬼魅般的超距作用"";
+"marketing.sf.point3" = "在IBM真机上运行真正的量子计算";
+"marketing.sf.cta" = "打开通往科幻世界的大门";
+
+// MARK: - Marketing - For Investors
+"marketing.investor.headline" = "量子计算市场：2030年达到1000亿美元";
+"marketing.investor.subheadline" = "识别投资标的的眼光，来自于"理解"";
+"marketing.investor.point1" = "IonQ、Rigetti、D-Wave——你能分辨哪个是真材实料吗？";
+"marketing.investor.point2" = "你能解释"量子优势"和"量子霸权"的区别吗？";
+"marketing.investor.point3" = "用这个App学习30小时，你就能评估量子创业公司的路演";
+"marketing.investor.cta" = "获取聪明投资的知识";
+
+// MARK: - Marketing - For Parents (China)
+"marketing.parent.headline" = "数字打工人 vs 量子架构师";
+"marketing.parent.subheadline" = "你要为孩子选择哪个未来？";
+"marketing.parent.point1" = "孩子正在学的Python编程？AI已经在替代了";
+"marketing.parent.point2" = "量子计算人才缺口：每3个岗位只有1个合格候选人";
+"marketing.parent.point3" = "2035年高薪职业TOP5中，有3个是量子相关";
+"marketing.parent.point4" = "这个月的学习习惯，决定10年后的年薪";
+"marketing.parent.cta" = "投资孩子的未来";
+
+// MARK: - Marketing - Fear Appeal (China)
+"marketing.fear.headline" = ""我会AI"已经过时了";
+"marketing.fear.subheadline" = "2030年，你的工作还存在吗？";
+"marketing.fear.point1" = "传统程序员的80%将被AI取代——存活下来的20%有什么共同点？";
+"marketing.fear.point2" = ""量子我不懂"——面试被刷的人的典型回答";
+"marketing.fear.point3" = "你的同事可能正在偷偷学量子";
+
+// MARK: - Marketing - Class Preservation (China)
+"marketing.class.headline" = "人大附中、上海中学的学生下一步学什么";
+"marketing.class.subheadline" = "精英教育的下一个前沿";
+"marketing.class.point1" = "准备考医学院的学生也在学量子计算的时代";
+"marketing.class.point2" = "量子人才出身：清华33%、北大22%、海外名校28%";
+"marketing.class.point3" = ""补习班不会教的"真正的竞争力";
+
+// MARK: - Marketing - Loss Aversion (China)
+"marketing.loss.headline" = "这一年决定差距";
+"marketing.loss.subheadline" = "量子学习的黄金期：2025-2027";
+"marketing.loss.point1" = "2028年后就是"入场太晚"——先发优势消失";
+"marketing.loss.point2" = "今天不学的选择，就是放弃未来100万年薪的选择";
+"marketing.loss.point3" = "量子人才供给追上需求还有5年——之后就是内卷";
+
+// MARK: - Secret Document Campaign (China)
+"campaign.secret.title" = "【慎入】谷歌不想让你看到的量子报告";
+"campaign.secret.subtitle" = "原本作为内部机密的2026年预测被泄露";
+"campaign.secret.teaser" = ""知道这些信息，你的职业选择会改变"——前谷歌量子团队成员";
+"campaign.secret.point1" = "2026年将实现的3个量子突破";
+"campaign.secret.point2" = "谷歌投入1000亿的真正原因";
+"campaign.secret.point3" = "谷歌为争夺量子人才准备的特殊待遇";
+"campaign.secret.cta" = "解锁机密文档";
+"campaign.secret.disclaimer" = "※本内容基于公开信息的分析";
+
+// MARK: - Gamification Messages
+"gamification.streak.warning" = "⚠️ 连续记录即将中断！";
+"gamification.streak.broken" = "😢 %d天的连续记录已重置";
+"gamification.streak.save" = "现在学习，保住连续记录";
+"gamification.streak.milestone" = "🔥 达成%d天连续！进入前%d%%";
+"gamification.ranking.weekly" = "周榜";
+"gamification.ranking.monthly" = "月榜";
+"gamification.ranking.allTime" = "总榜";
+"gamification.ranking.position" = "你的排名: 第%d名 / 共%d人";
+"gamification.ranking.topPercent" = "前 %d%%";
+"gamification.ranking.promotion" = "📈 再获得%dXP即可升至第%d名！";
+"gamification.goldenTicket.title" = "🎫 获得黄金票！";
+"gamification.goldenTicket.desc" = "连续学习7天即可获得特别奖励";
+"gamification.goldenTicket.prize" = "IBM QPU 1小时免费使用权";
+"gamification.goldenTicket.progress" = "距离黄金票还差%d天";
+
+// MARK: - Certificate System
+"certificate.title" = "成就证书";
+"certificate.quantum.fundamentals" = "量子计算基础认证";
+"certificate.quantum.intermediate" = "量子算法中级认证";
+"certificate.quantum.advanced" = "量子编程高级认证";
+"certificate.quantum.master" = "SwiftQuantum 大师认证";
+"certificate.issued" = "颁发日期: %@";
+"certificate.credential" = "证书编号: %@";
+"certificate.verify" = "验证此证书: swiftquantum.app/verify/%@";
+"certificate.share" = "分享到领英";
+"certificate.download" = "下载PDF";
+"certificate.linkedin.text" = "我在SwiftQuantum获得了%@！正在学习量子计算。#QuantumComputing #SwiftQuantum";
+
+// MARK: - Parent Report System
+"report.title" = "学习报告";
+"report.period" = "报告周期: %@ 至 %@";
+"report.summary" = "概要";
+"report.totalTime" = "总学习时长";
+"report.completedLessons" = "完成的课程";
+"report.earnedXP" = "获得的XP";
+"report.streak" = "当前连续记录";
+"report.strengths" = "擅长领域";
+"report.improvements" = "需要加强的领域";
+"report.recommendation" = "推荐的下一步";
+"report.comparison" = "与同龄人对比";
+"report.comparison.ahead" = "处于前%d%%";
+"report.comparison.onTrack" = "以平均进度学习中";
+"report.comparison.needsAttention" = "需要更多努力";
+"report.quote" = "「%@这周在%@领域取得了显著进步。建议下一步挑战%@。」";
+"report.share" = "分享报告";
+"report.export" = "导出为PDF";
+
+// MARK: - Premium Tier Extensions
+"tier.free.name" = "探索者";
+"tier.free.desc" = "量子世界的第一步";
+"tier.free.limit" = "每天最多3节课";
+"tier.pro.name" = "研究员";
+"tier.pro.desc" = "为认真的量子学习者准备";
+"tier.pro.feature1" = "访问所有课程";
+"tier.pro.feature2" = "详细学习分析";
+"tier.pro.feature3" = "获得认证证书";
+"tier.premium.name" = "量子大师";
+"tier.premium.desc" = "顶级专业体验";
+"tier.premium.feature1" = "IBM QPU执行（每月10次）";
+"tier.premium.feature2" = "O1签证证据组合";
+"tier.premium.feature3" = "1对1导师指导";
+"tier.premium.feature4" = "优先支持";
+"tier.enterprise.name" = "企业版";
+"tier.enterprise.desc" = "为团队和企业准备";
+"tier.enterprise.feature1" = "无限IBM QPU执行";
+"tier.enterprise.feature2" = "团队管理仪表板";
+"tier.enterprise.feature3" = "定制课程";
+"tier.enterprise.feature4" = "专属客户经理";
+"tier.enterprise.contact" = "联系我们";
+
+// MARK: - Social Proof
+"social.users" = "超过%@用户正在学习";
+"social.reviews" = "App Store评分%@";
+"social.featured" = "Apple「今日App」推荐";
+"social.testimonial1" = "「在BAT面试中能聊量子，明显和其他候选人拉开了差距」— 清华研究生";
+"social.testimonial2" = "「孩子现在每天主动学习」— 家长";
+"social.testimonial3" = "「能够对量子投资做出判断了」— VC投资人";
+"social.company.logos" = "学习者所在企业";

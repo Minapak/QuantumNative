@@ -1,0 +1,859 @@
+/*
+ * Localizable.strings (German)
+ * SwiftQuantum Learning App
+ *
+ * Verwendung:
+ * Text("learn.title")  // "Lernen"
+ * NSLocalizedString("learn.title", comment: "")
+ */
+
+// MARK: - Common
+"common.continue" = "Weiter";
+"common.back" = "Zurück";
+"common.next" = "Nächste";
+"common.done" = "Fertig";
+"common.skip" = "Überspringen";
+"common.cancel" = "Abbrechen";
+"common.close" = "Schließen";
+"common.save" = "Speichern";
+"common.delete" = "Löschen";
+"common.edit" = "Bearbeiten";
+"common.loading" = "Laden...";
+"common.error" = "Fehler";
+"common.success" = "Erfolg";
+"common.warning" = "Warnung";
+
+// MARK: - Learning
+"learn.title" = "Lernen";
+"learn.selectTrack" = "Wähle deinen Lernpfad";
+"learn.allLevels" = "Alle Stufen";
+"learn.myProgress" = "Mein Fortschritt";
+"learn.startLearning" = "Lernen beginnen";
+"learn.continueLevel" = "Stufe fortsetzen";
+"learn.completedLevels" = "Abgeschlossene Stufen";
+"learn.nextLevel" = "Nächste Stufe";
+
+// MARK: - Levels
+"level.title" = "Stufe %d";
+"level.difficulty" = "Schwierigkeit";
+"level.duration" = "Dauer: %d Min.";
+"level.xpReward" = "%d XP";
+"level.prerequisites" = "Voraussetzungen";
+"level.locked" = "Schließe vorherige Stufen ab zum Freischalten";
+"level.completed" = "Abgeschlossen";
+"level.inProgress" = "In Bearbeitung";
+
+// MARK: - Learning Strategies
+"strategy.title" = "Lernstrategien";
+"strategy.memory" = "Gedächtnisanker";
+"strategy.conceptMap" = "Konzeptkarten";
+"strategy.feynman" = "Feynman-Technik";
+"strategy.selectStrategy" = "Wähle die Lernstrategie, die am besten zu dir passt";
+
+// MARK: - Memory Triggers
+"memory.title" = "Gedächtnisanker & Eselsbrücken";
+"memory.mnemonic" = "Eselsbrücke";
+"memory.description" = "Beschreibung";
+"memory.difficulty" = "Schwierigkeit";
+"memory.tip" = "Nutze diese Eselsbrücken, um mentale Anker zu setzen.";
+
+// MARK: - Concept Maps
+"conceptMap.title" = "Konzeptkarten";
+"conceptMap.centralConcept" = "Zentrales Konzept";
+"conceptMap.relatedConcepts" = "Verwandte Konzepte";
+"conceptMap.connections" = "Verbindungen";
+"conceptMap.tip" = "Verstehe, wie Konzepte miteinander zusammenhängen.";
+
+// MARK: - Feynman Explanation
+"feynman.title" = "Feynman-Technik Erklärungen";
+"feynman.simpleExplanation" = "Einfache Erklärung";
+"feynman.details" = "Details";
+"feynman.analogies" = "Hilfreiche Analogien";
+"feynman.misconceptions" = "Häufige Missverständnisse";
+"feynman.tip" = "Erkläre jedes Konzept einfach. Wenn du es einfach erklären kannst, verstehst du es!";
+
+// MARK: - Quiz
+"quiz.question" = "Frage %d von %d";
+"quiz.selectAnswer" = "Wähle eine Antwort";
+"quiz.correct" = "✅ Richtig!";
+"quiz.incorrect" = "❌ Falsch";
+"quiz.explanation" = "Erklärung";
+"quiz.yourAnswer" = "Deine Antwort";
+"quiz.correctAnswer" = "Richtige Antwort";
+"quiz.nextQuestion" = "Nächste Frage";
+"quiz.finish" = "Quiz beenden";
+"quiz.score" = "Ergebnis: %d%%";
+
+// MARK: - XP & Progress
+"progress.xp" = "%d XP";
+"progress.level" = "Stufe %d";
+"progress.nextLevel" = "%d XP bis zur nächsten Stufe";
+"progress.levelProgress" = "Stufenfortschritt";
+"progress.totalXP" = "Gesamt-XP";
+"progress.currentStreak" = "Aktuelle Serie";
+"progress.longestStreak" = "Längste Serie";
+
+// MARK: - Achievements
+"achievement.title" = "Erfolge";
+"achievement.unlocked" = "Freigeschaltet";
+"achievement.locked" = "Gesperrt";
+"achievement.earnedXP" = "Du hast %d XP verdient!";
+"achievement.congratulations" = "Herzlichen Glückwunsch! 🎉";
+"achievement.newBadge" = "Neues Abzeichen freigeschaltet!";
+
+// MARK: - Home
+"home.welcomeBack" = "Willkommen zurück!";
+"home.yourProgress" = "Dein Fortschritt";
+"home.recentAchievements" = "Letzte Erfolge";
+"home.dailyChallenge" = "Tägliche Herausforderung";
+"home.continueYourJourney" = "Setze deine Quanten-Lernreise fort";
+
+// MARK: - Practice
+"practice.title" = "Übungen";
+"practice.difficulty" = "Schwierigkeit";
+"practice.exercises" = "Aufgaben";
+"practice.completed" = "Abgeschlossen";
+"practice.unlockPrevious" = "Schließe vorherige Stufen ab zum Freischalten";
+
+// MARK: - Explore
+"explore.title" = "Entdecken";
+"explore.concepts" = "Konzepte";
+"explore.glossary" = "Glossar";
+"explore.resources" = "Ressourcen";
+"explore.featured" = "Empfohlen";
+
+// MARK: - Profile
+"profile.title" = "Profil";
+"profile.stats" = "Statistiken";
+"profile.achievements" = "Erfolge";
+"profile.settings" = "Einstellungen";
+"profile.logout" = "Abmelden";
+"profile.member" = "Mitglied seit %@";
+
+// MARK: - Auth
+"auth.login" = "Anmelden";
+"auth.signup" = "Registrieren";
+"auth.email" = "E-Mail";
+"auth.password" = "Passwort";
+"auth.confirmPassword" = "Passwort bestätigen";
+"auth.username" = "Benutzername";
+"auth.forgotPassword" = "Passwort vergessen?";
+"auth.dontHaveAccount" = "Noch kein Konto?";
+"auth.alreadyHaveAccount" = "Bereits ein Konto?";
+"auth.welcome" = "Willkommen zurück";
+"auth.createAccount" = "Konto erstellen";
+
+// MARK: - Quantum Concepts
+"concept.qubit" = "Qubit";
+"concept.superposition" = "Superposition";
+"concept.entanglement" = "Verschränkung";
+"concept.measurement" = "Messung";
+"concept.gate" = "Quantengatter";
+"concept.blochSphere" = "Bloch-Kugel";
+"concept.amplitude" = "Wahrscheinlichkeitsamplitude";
+"concept.interference" = "Quanteninterferenz";
+
+// MARK: - Settings
+"settings.title" = "Einstellungen";
+"settings.learning" = "Lernen";
+"settings.appearance" = "Darstellung";
+"settings.notifications" = "Benachrichtigungen";
+"settings.about" = "Über";
+"settings.darkMode" = "Dunkelmodus";
+"settings.soundEffects" = "Soundeffekte";
+"settings.hapticFeedback" = "Haptisches Feedback";
+"settings.dailyReminders" = "Tägliche Erinnerungen";
+
+// MARK: - Errors
+"error.networkError" = "Netzwerkfehler. Bitte prüfe deine Verbindung.";
+"error.loadingFailed" = "Laden fehlgeschlagen. Bitte versuche es erneut.";
+"error.invalidEmail" = "Ungültiges E-Mail-Format";
+"error.weakPassword" = "Passwort muss mindestens 6 Zeichen haben";
+"error.passwordMismatch" = "Passwörter stimmen nicht überein";
+
+// MARK: - Quantum Master Curriculum - Track Names
+"curriculum.track1.title" = "Quantencomputer-Grundlagen";
+"curriculum.track1.description" = "Perfekte Grundlage ab der Wortherkunft";
+"curriculum.track2.title" = "Mysteriöse Eigenschaften der Quanten";
+"curriculum.track2.description" = "Superposition, Verschränkung, Tunneln, Qubit";
+"curriculum.track3.title" = "Wie Quantencomputer funktionieren";
+"curriculum.track3.description" = "Der komplette Prozess von der Kühlung bis zur Messung";
+"curriculum.track4.title" = "Arten von Quantencomputern";
+"curriculum.track4.description" = "Vergleich: Supraleitung, Ionenfallen, Photonen, Topologie";
+"curriculum.track5.title" = "Aktueller Entwicklungsstand (2025-2026)";
+"curriculum.track5.description" = "Googles und IBMs neueste Errungenschaften und Fehlerkorrektur";
+"curriculum.track6.title" = "Anwendungsgebiete";
+"curriculum.track6.description" = "Die vier Hauptanwendungen: Pharma, Finanzen, Klima, Sicherheit";
+"curriculum.track7.title" = "Zukunftsausblick (2025-2035)";
+"curriculum.track7.description" = "10-Jahres-Roadmap und deine Rolle";
+"curriculum.track8.title" = "Detaillierter Ausblick 2026";
+"curriculum.track8.description" = "Hardware-, Industrie-, Internet- und Preisrevolution";
+"curriculum.track9.title" = "Schlüsselkonzepte und Begriffe";
+"curriculum.track9.description" = "Trends, Glossar, geopolitischer Wettbewerb, Herausforderungen";
+
+// MARK: - Track 1: Quantum Basics Lessons
+"lesson.basics1.1.title" = "Was ist Quantum? Die Wortherkunft";
+"lesson.basics1.1.description" = "Das Wort Quantum vollständig verstehen";
+"lesson.basics1.1.content" = "Das Wort Quantum verstehen!\n\n**QUANTUM**\n- Latein: 'quantus' = 'wie viel'\n- Physik: 'kleinste Einheit'\n- Bedeutung: Ein unteilbares Energiepaket\n- Analogie: Der kleinste LEGO-Baustein\n\n**Kernpunkt**: Behandelt die Welt sehr kleiner Dinge wie Atome und Licht";
+"lesson.basics1.1.mnemonic" = "Q = Quanta = Quantisiert = Nicht weiter teilbar";
+"lesson.basics1.1.difficulty" = "Sehr einfach";
+
+"lesson.basics1.2.title" = "Was ist ein Computer? Rechenmaschinen verstehen";
+"lesson.basics1.2.description" = "Genau wissen, was ein normaler Computer ist";
+"lesson.basics1.2.content" = "Was Computer bedeutet verstehen!\n\n**COMPUTER**\n- Latein: 'computare' = 'zusammen rechnen'\n- com- (zusammen) + putare (rechnen)\n- Bedeutung: Eine Rechenmaschine\n\n**Prinzipien normaler Computer**:\n- Denkt nur in 0 und 1 (An/Aus)\n- Macht eins nach dem anderen\n- Sehr schnell aber sequentiell";
+"lesson.basics1.2.mnemonic" = "Computer = Berechnen + Zusammen = Rechenmaschine";
+"lesson.basics1.2.difficulty" = "Sehr einfach";
+
+"lesson.basics1.3.title" = "Was ist ein Quantencomputer?";
+"lesson.basics1.3.description" = "Definition: Ein Supercomputer mit atomarer Magie";
+"lesson.basics1.3.content" = "**Definition Quantencomputer**:\nEin futuristischer Supercomputer, der mit den mysteriösen Eigenschaften der Quanten (Superposition, Verschränkung) gleichzeitig zahlreiche Berechnungen durchführt\n\n**Hauptunterschied**: Nutzt Quanteneigenschaften wie Superposition und Verschränkung, die normale Computer nicht nutzen können";
+"lesson.basics1.3.mnemonic" = "Quantum + Computer = Magischer Atomsupercomputer";
+"lesson.basics1.3.difficulty" = "Einfach";
+
+"lesson.basics1.4.title" = "Was ist anders? Vollständiger Vergleich";
+"lesson.basics1.4.description" = "5 Hauptunterschiede zwischen normalen und Quantencomputern";
+"lesson.basics1.4.content" = "**5 Hauptunterschiede**:\n\n1. Grundeinheit: Bit (0 oder 1) vs Qubit (0 und 1 gleichzeitig)\n2. Verarbeitung: Sequentiell (eins nach dem anderen) vs Parallel (gleichzeitig)\n3. Temperatur: Raumtemp. (20°C) vs absoluter Nullpunkt (-273°C)\n4. Größe: Schreibtisch vs Zimmergröße\n5. Fehlerrate: Fast keine vs Noch hoch (wird verbessert)";
+"lesson.basics1.4.mnemonic" = "BITS = Basic, Individual, Traditional, Sequential";
+"lesson.basics1.4.difficulty" = "Einfach";
+
+// MARK: - Track 2: Quantum Principles
+"lesson.principles2.1.title" = "Superposition - Mehrere Zustände gleichzeitig!";
+"lesson.principles2.1.description" = "Von Schrödingers Katze zur Quantenmünze";
+"lesson.principles2.1.content" = "**Superposition: In mehreren Zuständen gleichzeitig!**\n\nNormale Münze:\n- Kopf ODER Zahl (nur eins)\n\nQuantenmünze:\n- Kopf UND Zahl gleichzeitig!\n- Beide existieren bis zur Beobachtung\n- Wird beim Beobachten zu einem bestimmt\n\n**Schrödingers Katze**: Die Katze in der Box ist lebendig UND tot gleichzeitig (bis zur Beobachtung)";
+"lesson.principles2.1.mnemonic" = "SUPER = Simultaneous Unified Probability Exists Randomly";
+"lesson.principles2.1.difficulty" = "Einfach";
+
+"lesson.principles2.2.title" = "Verschränkung - Zwillings-Telepathie";
+"lesson.principles2.2.description" = "Das Mysterium sofortiger Verbindung über jede Entfernung";
+"lesson.principles2.2.content" = "**Verschränkung: Untrennbar verbundene Teilchen**\n\nQuantenverschränkte Zwillinge:\n- Teilchen A in Berlin\n- Teilchen B in München (500km entfernt)\n- Wenn A nach rechts dreht → B dreht sofort nach links!\n\n**Erstaunliche Fakten**:\n- Schneller als Licht! (Sofort!)\n- Verbunden ohne Signale\n- Einstein nannte es 'spukhafte Fernwirkung'";
+"lesson.principles2.2.mnemonic" = "Verschränkt = Einsteins 'spukhafte' Verbindung";
+"lesson.principles2.2.difficulty" = "Einfach";
+
+"lesson.principles2.3.title" = "Quantentunneln - Durch Wände gehen!";
+"lesson.principles2.3.description" = "Die Magie des Durchquerens ohne genug Energie";
+"lesson.principles2.3.content" = "**Tunneln: Barrieren ohne genug Energie durchqueren**\n\nReale Welt:\n- Kann nicht durch eine Wand = prallt ab\n\nQuantenwelt:\n- Nicht genug Energie zum Überwinden... aber\n- Erscheint auf der anderen Seite! (Mit Wahrscheinlichkeit)\n\n**Anwendungen**: Kernfusion (warum die Sonne leuchtet), Flash-Speicher, Radioaktiver Zerfall";
+"lesson.principles2.3.mnemonic" = "Tunnel Through = T.T. = Totally Transcends barriers";
+"lesson.principles2.3.difficulty" = "Mittel";
+
+"lesson.principles2.4.title" = "Qubit - Die Einheit der Quanteninformation";
+"lesson.principles2.4.description" = "Vollständiger Vergleich von Bit und Qubit";
+"lesson.principles2.4.content" = "**Bit vs Qubit**\n\nNormales Bit:\n- 0 ODER 1 (zwei Zustände)\n- Fester Ausdruck\n\nQubit:\n- |0⟩ UND |1⟩ gleichzeitig (Superposition)\n- α|0⟩ + β|1⟩\n\n**Leistung**:\n- 1 Qubit = 2 Zustände gleichzeitig\n- 10 Qubits = 1024 Zustände gleichzeitig\n- 100 Qubits = 1,27 × 10³⁰ Zustände gleichzeitig!";
+"lesson.principles2.4.mnemonic" = "Qubit = Quantum + Bit = Sowohl 0 ALS AUCH 1";
+"lesson.principles2.4.difficulty" = "Mittel";
+
+// MARK: - Track 3: Quantum Operation
+"lesson.operation3.1.title" = "Kryogene Kühlung - Atome beruhigen";
+"lesson.operation3.1.description" = "-273°C, Warum nahe dem absoluten Nullpunkt";
+"lesson.operation3.1.content" = "**Warum so kalt?**\n\n3 Gründe:\n1. Atomschwingung stoppen: Warm = Atome wackeln, Kalt = Atome ruhen\n2. Quantenzustände schützen: Wärme = Rauschen = zerstört Quantenzustände\n3. Rauschen entfernen: Raumtemp: Rauschen >> Signal (unmöglich). Kryogen: Signal >> Rauschen (möglich!)\n\n**Kühlmethoden**: Flüssiges Helium (4,2K), Verdünnungskühlschrank (10mK)";
+"lesson.operation3.1.mnemonic" = "Kalt = Ruhige Quantenzustände";
+"lesson.operation3.1.difficulty" = "Mittel";
+
+"lesson.operation3.2.title" = "Qubit-Initialisierung - Bereit machen";
+"lesson.operation3.2.description" = "Alle Qubits vor der Berechnung vorbereiten";
+"lesson.operation3.2.content" = "**Initialisierungsprozess**:\n1. Qubits in zufälligen Zuständen → chaotisch\n2. Initialisierungspuls anwenden\n3. Alle Qubits auf |0⟩ ausrichten\n4. Bereit für die Berechnung!\n\n**Methoden nach Typ**:\n- Supraleitung: Mikrowellenpuls erzwingt |0⟩\n- Ionenfalle: Laser kühlt auf Grundzustand";
+"lesson.operation3.2.mnemonic" = "Initialisieren = Alle Qubits starten bei |0⟩";
+"lesson.operation3.2.difficulty" = "Mittel";
+
+"lesson.operation3.3.title" = "Quantengatter - Sie zum Tanzen bringen";
+"lesson.operation3.3.description" = "Pauli-, Hadamard-, CNOT-Gatter verstehen";
+"lesson.operation3.3.content" = "**4 Grundgatter**:\n\n1. Pauli-X (NOT): |0⟩ → |1⟩, |1⟩ → |0⟩ (umkehren)\n2. Hadamard (H): |0⟩ → Superposition (erzeugt Superposition!)\n3. CNOT: Wenn Kontrolle |1⟩, Ziel umkehren (erzeugt Verschränkung!)\n4. Phase: Ändert die Phase von |1⟩\n\n**Schaltung**: Initial → [H] → [X] → [CNOT] → ... → [Messung]";
+"lesson.operation3.3.mnemonic" = "H.X.C.P. = Hadamard, X-flip, Control-NOT, Phase";
+"lesson.operation3.3.difficulty" = "Schwer";
+
+"lesson.operation3.4.title" = "Messung & Ergebnisinterpretation";
+"lesson.operation3.4.description" = "Wie prüfen wir die Antwort? Wahrscheinlichkeitsbasiertes Lesen";
+"lesson.operation3.4.content" = "**Messprozess**:\n- Vorher: (|0⟩ + |1⟩)/√2 (beide!)\n- Moment der Messung: Zustandskollaps!\n- Nachher: |0⟩ ODER |1⟩ (eines!)\n\n**Probabilistisches Lesen**:\n- 1 Durchlauf: zufälliges Ergebnis\n- 1000 Durchläufe: ~500 |0⟩, ~500 |1⟩\n- 10000 Durchläufe: genauere Wahrscheinlichkeitsverteilung";
+"lesson.operation3.4.mnemonic" = "Messung = Mehrere Durchläufe zeigen Wahrscheinlichkeiten";
+"lesson.operation3.4.difficulty" = "Mittel";
+
+// MARK: - Track 4: Quantum Types
+"lesson.types4.1.title" = "Supraleitung - IBM, Google";
+"lesson.types4.1.description" = "Prinzipien, Vor- und Nachteile der meistgenutzten Methode";
+"lesson.types4.1.content" = "**Supraleitende Qubits**\n\nPrinzip: Supraleitender Ring bei extremer Kälte\n- Magnetfluss im Uhrzeigersinn = |0⟩\n- Gegen den Uhrzeigersinn = |1⟩\n\nVorteile: Sehr schnell (Nanosekunden), Ausgereifte Technik, Skalierbar\nNachteile: Extreme Kälte nötig (-269°C), Hohe Fehlerrate, Kurze Kohärenzzeit\n\nUnternehmen: IBM, Google, Rigetti";
+"lesson.types4.1.mnemonic" = "Super-kalt = Super-leitend = Super-schnell";
+"lesson.types4.1.difficulty" = "Mittel";
+
+"lesson.types4.2.title" = "Ionenfallen - IonQ, Honeywell";
+"lesson.types4.2.description" = "Hohe Genauigkeit aber langsamere Methode";
+"lesson.types4.2.content" = "**Ionenfallen-Qubits**\n\nPrinzip: Lasergesteuerte gefangene Ionen\n- Grundzustand = |0⟩\n- Angeregter Zustand = |1⟩\n\nVorteile: Sehr hohe Genauigkeit (~99,9%), Lange Kohärenzzeit (Minuten), Perfekte Uniformität\nNachteile: Sehr langsam (Mikrosekunden), Schwer skalierbar, Teuer\n\nUnternehmen: IonQ, Honeywell/Quantinuum";
+"lesson.types4.2.mnemonic" = "Ionen = Unglaublich genau aber langsam";
+"lesson.types4.2.difficulty" = "Mittel";
+
+"lesson.types4.3.title" = "Photonisch - Xanadu, PsiQuantum";
+"lesson.types4.3.description" = "Innovative Methode mit Licht";
+"lesson.types4.3.content" = "**Photonische Qubits**\n\nPrinzip: Eigenschaften von Lichtteilchen nutzen\n- Horizontale Polarisation = |0⟩\n- Vertikale Polarisation = |1⟩\n\nVorteile: Raumtemperaturbetrieb!, Geringe Dekohärenz, Gut für Kommunikation\nNachteile: Messung schwierig (60-80% Verlust), Kontrolle schwierig, Noch früh in der Entwicklung\n\nUnternehmen: Xanadu, PsiQuantum";
+"lesson.types4.3.mnemonic" = "Photon = Licht = Keine Kühlung nötig";
+"lesson.types4.3.difficulty" = "Schwer";
+
+"lesson.types4.4.title" = "Topologisch - Microsoft Forschung";
+"lesson.types4.4.description" = "Auto-Fehlerkorrektur durch topologischen Schutz";
+"lesson.types4.4.content" = "**Topologische Qubits**\n\nPrinzip: Majorana-Fermionen nutzen\n- Topologisch geschützte Zustände\n- Ignoriert kleine Fehler automatisch!\n\nVorteile: Auto-Fehlerkorrektur!, Hohe theoretische Genauigkeit, Effizientes Skalieren\nNachteile: Noch nicht bewiesen, Braucht noch extreme Kälte, Grundlegendste Stufe\n\nUnternehmen: Microsoft (Forschung), QuTech";
+"lesson.types4.4.mnemonic" = "Topologie = Donut-Form = Geschützter Zustand";
+"lesson.types4.4.difficulty" = "Sehr schwer";
+
+// MARK: - Track 5: Current Status
+"lesson.status5.1.title" = "Google Willow Chip - 2024 Durchbruch";
+"lesson.status5.1.description" = "100 Qubits erreicht und Fehlerrate halbiert";
+"lesson.status5.1.content" = "**Willow Chip Erfolge (2024)**:\n\n1. 100+ Qubits: Doppelt so viele wie Sycamores 53\n2. Fehlerrate halbiert: ~1% → ~0,5% (Durchbruch!)\n3. Quantenüberlegenheit erneut bewiesen: Realistischere Probleme\n\n**Bedeutung**: 'Wann' nicht 'Ob' Quantencomputer praktisch werden";
+"lesson.status5.1.mnemonic" = "Willow = Gewinnt mit weniger Fehlern";
+"lesson.status5.1.difficulty" = "Mittel";
+
+"lesson.status5.2.title" = "IBMs ehrgeizige Pläne";
+"lesson.status5.2.description" = "Flamingo (1.386 Qubits), Kookaburra (4.158 Qubits)";
+"lesson.status5.2.content" = "**IBM Roadmap**:\n\nFlamingo (2024-2025):\n- 1.386 physische Qubits\n- 20-fache Erweiterung von Hummingbird\n\nKookaburra (2026):\n- 4.158 Qubits pro Chip\n- 3 Chips verbunden = 12.474 Qubits!\n- Erster Quantennetzwerk-Versuch";
+"lesson.status5.2.mnemonic" = "IBM Vögel = Jedes Jahr mehr Qubits";
+"lesson.status5.2.difficulty" = "Mittel";
+
+"lesson.status5.3.title" = "Fehlerkorrektur - Der Schlüssel zur Praxis";
+"lesson.status5.3.description" = "Was die Fehlerreduktion von 1% → 0,1% bedeutet";
+"lesson.status5.3.content" = "**Fehlerrate-Fortschritt**:\n\n2019: ~1% (1 Fehler pro 100 Operationen)\n2024: ~0,5% (Durchbruch!)\n2025 Ziel: ~0,1% (praktisches Niveau?)\n\n**Fehlerkorrektur-Schwelle**: ~1%\n- Darunter: Fehlerkorrektur wird möglich!\n- Aktuell: Nahe der Schwelle!\n- Ziel: Deutlich darunter";
+"lesson.status5.3.mnemonic" = "Fehler runter = Anwendungen rauf";
+"lesson.status5.3.difficulty" = "Schwer";
+
+"lesson.status5.4.title" = "Warum Geld hineinfließt - Investitionsstatus";
+"lesson.status5.4.description" = "2024: 1,5 Mrd. $, 2025 erwartet: 2+ Mrd. $";
+"lesson.status5.4.content" = "**Globale Investitionen**:\n\n2023: 1 Mrd. $\n2024: 1,5 Mrd. $ (50% Anstieg)\n2025 erwartet: 2+ Mrd. $ (33% Wachstum)\n\n**Nach Ländern**:\n- USA: 1 Mrd. $+ (Google, IBM, IonQ)\n- China: 800 Mio. $+ (staatlich geführt)\n- EU: 500 Mio. $ (Quantum Flagship)\n- Japan: 700 Mio. $+ (METI-Programm)\n- Korea: 300 Mio. $ (K-Quantum)";
+"lesson.status5.4.mnemonic" = "Investitionsanstieg = Technologie ist machbar";
+"lesson.status5.4.difficulty" = "Mittel";
+
+// MARK: - Track 6: Applications
+"lesson.apps6.1.title" = "Pharma-Revolution - Medikamentenentwicklung 2x schneller";
+"lesson.apps6.1.description" = "Proteinfaltungs-Simulation: 10 Jahre → 2 Jahre";
+"lesson.apps6.1.content" = "**Pharma-Anwendungen**:\n\nAktuell: 10+ Jahre, 1 Mrd. $ Kosten\n- Protein-3D-Struktur? Fast unmöglich zu berechnen\n- Arzneimittelwechselwirkungen? Zu komplex\n\nMit Quantencomputer:\n- Alle Möglichkeiten gleichzeitig simulieren\n- Entwicklung: 10 Jahre → 2 Jahre\n- Kosten: 1 Mrd. $ → 100 Mio. $\n\nPartner: Roche, Merck";
+"lesson.apps6.1.mnemonic" = "Pharma + Quantum = Schnellere Heilungen";
+"lesson.apps6.1.difficulty" = "Schwer";
+
+"lesson.apps6.2.title" = "Zukunft der Finanzen - Portfolio-Optimierung";
+"lesson.apps6.2.description" = "Risikoberechnung 1000x schneller";
+"lesson.apps6.2.content" = "**Finanz-Anwendungen**:\n\nAktuell: Nur Näherungen möglich\n- Portfolio-Optimierung? Begrenzt\n- Betrugserkennung? Nur musterbasiert\n\nMit Quantencomputer:\n- Alle Variablen gleichzeitig berücksichtigen\n- Echtzeit-Optimierung möglich\n- Betrugserkennung: Fast 100% Genauigkeit\n\nPartner: JP Morgan";
+"lesson.apps6.2.mnemonic" = "Finanzen + Quantum = Bessere Vorhersagen";
+"lesson.apps6.2.difficulty" = "Schwer";
+
+"lesson.apps6.3.title" = "Klimavorhersage - Genauigkeit 70% → 95%";
+"lesson.apps6.3.description" = "Vorhersagezeitraum: 1 Woche → 1 Monat";
+"lesson.apps6.3.content" = "**Klima-Anwendungen**:\n\nAktuell: 1 Woche Genauigkeitsgrenze\n- Zu viele Klimavariablen\n- Supercomputer auf 1 Woche begrenzt\n\nMit Quantencomputer:\n- 1 Monat+ genaue Vorhersage\n- Taifun-Pfad: 99,9% Genauigkeit\n- Feinstaub: Stündlich genaue Vorhersage";
+"lesson.apps6.3.mnemonic" = "Klima + Quantum = Längere Vorhersagen";
+"lesson.apps6.3.difficulty" = "Schwer";
+
+"lesson.apps6.4.title" = "Sicherheitsbedrohung & Lösung - Post-Quanten-Kryptographie";
+"lesson.apps6.4.description" = "Aktuelle Verschlüsselung in 10 Jahren geknackt, neue Methoden nötig";
+"lesson.apps6.4.content" = "**Sicherheitsauswirkungen**:\n\nBedrohung: RSA-2048 knackbar\n- Aktuelle Verschlüsselung verwundbar\n- Banken, Regierungen, persönliche Daten in Gefahr\n\nLösung: Post-Quanten-Kryptographie\n- Neue quantensichere Algorithmen\n- NIST-Standardisierung läuft\n- Migration nötig bevor Quantencomputer ausgereift sind";
+"lesson.apps6.4.mnemonic" = "Post-Quantum = Für die Zukunft gewappnet";
+"lesson.apps6.4.difficulty" = "Sehr schwer";
+
+// MARK: - Track 7: Future Outlook
+"lesson.future7.1.title" = "10-Jahres-Roadmap: 2025-2035 Prognose";
+"lesson.future7.1.description" = "Frühe Kommerzialisierung → Wachstum → Reife";
+"lesson.future7.1.content" = "**Roadmap**:\n\nPhase 1 (2025-2027): Frühe Kommerzialisierung\n- Verbesserung der Fehlerrate\n- Erste kommerzielle Anwendungen\n\nPhase 2 (2028-2030): Wachstum\n- 100+ logische Qubits\n- Mehrere Industrieanwendungen\n\nPhase 3 (2031-2035): Reife\n- 1000+ logische Qubits\n- Alltagsanwendungen";
+"lesson.future7.1.mnemonic" = "2025-2035: Vom Labor ins Leben";
+"lesson.future7.1.difficulty" = "Schwer";
+
+"lesson.future7.2.title" = "Fachkräftemangel als Chance - 250.000 bis 2030 gebraucht";
+"lesson.future7.2.description" = "Nur 1 Experte für jede 3 offenen Stellen";
+"lesson.future7.2.content" = "**Talentlücke**:\n\nBedarf 2030: 250.000 Fachkräfte\nAktuelles Angebot: Starker Mangel\nVerhältnis: 3 Jobs pro 1 qualifizierten Kandidaten\n\n**Chance**:\n- Jetzt lernen = später Vorteil\n- Frühe Expertise = Karrierechancen\n- Interdisziplinäre Fähigkeiten gefragt";
+"lesson.future7.2.mnemonic" = "Jetzt lernen = Später führen";
+"lesson.future7.2.difficulty" = "Mittel";
+
+"lesson.future7.3.title" = "2026 - Jahr der Praxistauglichkeit";
+"lesson.future7.3.description" = "Der Übergang vom Labor ins echte Leben";
+"lesson.future7.3.content" = "**2026 Erwartungen**:\n\n- 100+ Unternehmen nutzen Quantum\n- Erstes quantenentdecktes Medikament in klinischen Studien?\n- Beginn der Quanten-Internet-Infrastruktur\n- Hardwareschrumpfung\n- Preissturz: 10 Mio. $ → 1 Mio. $";
+"lesson.future7.3.mnemonic" = "2026 = Quantum wird praktisch";
+"lesson.future7.3.difficulty" = "Schwer";
+
+"lesson.future7.4.title" = "Warum du Teil der Quantenrevolution sein kannst";
+"lesson.future7.4.description" = "Jetzt lernen = Beste Chance 2026-2030";
+"lesson.future7.4.content" = "**Deine Chance**:\n\nWarum jetzt?:\n- Technologie am Wendepunkt\n- Fachkräftemangel kommt\n- Vorteil für Vorreiter\n\nWas tun:\n- Grundlagen lernen (dieser Kurs!)\n- Entwicklungen verfolgen\n- Fähigkeiten schrittweise aufbauen\n\nErgebnis: Bereit sein, wenn Quantum Mainstream wird";
+"lesson.future7.4.mnemonic" = "Heute starten = Morgen führen";
+"lesson.future7.4.difficulty" = "Mittel";
+
+// MARK: - Track 8: 2026 Detailed
+"lesson.detailed8.1.title" = "Hardware-Revolution - IBMs und Googles Ambitionen";
+"lesson.detailed8.1.description" = "Condor 5.000 Qubits, Willow 2.0 500 logische Qubits";
+"lesson.detailed8.1.content" = "**Hardware-Ziele 2026**:\n\nIBM Condor:\n- 5.000 physische Qubits\n- Verbundene Systeme: 12.000+\n\nGoogle Willow 2.0:\n- 500 logische Qubits\n- Verbesserte Fehlerkorrektur\n\nGrößenreduktion:\n- Raumgröße → Schrankgröße?\n- Verbesserte Kühleffizienz";
+"lesson.detailed8.1.mnemonic" = "2026 Hardware = Größer UND kleiner";
+"lesson.detailed8.1.difficulty" = "Schwer";
+
+"lesson.detailed8.2.title" = "Industrielle Praxis beginnt - Erste Quanten-Medikamenten-Studie";
+"lesson.detailed8.2.description" = "Pharma, Finanzen, Automobil - echter Einsatz beginnt";
+"lesson.detailed8.2.content" = "**Industrie-Anwendungen 2026**:\n\nPharma:\n- Erstes quantenentworfenes Medikament in klinischen Studien\n\nFinanzen:\n- Echtzeit-Handelsoptimierung\n\nAutomobil:\n- Entdeckung von Batteriematerialien\n\nChemie:\n- Neues Katalysator-Design";
+"lesson.detailed8.2.mnemonic" = "2026 = Quantum arbeitet";
+"lesson.detailed8.2.difficulty" = "Schwer";
+
+"lesson.detailed8.3.title" = "Beginn der Quanten-Internet-Ära";
+"lesson.detailed8.3.description" = "Aufbau eines absolut sicheren Kommunikationsnetzes";
+"lesson.detailed8.3.content" = "**Quanten-Internet 2026**:\n\nEigenschaften:\n- Unhackbare Kommunikation\n- Nutzt Quantenverschränkung\n- Jedes Abhören erkennbar\n\nFortschritt:\n- 2000km-Netze getestet (China)\n- 5+ Länder bauen Infrastruktur\n- Finanzinstitutionen als Erste";
+"lesson.detailed8.3.mnemonic" = "Quanten-Internet = Total sicher";
+"lesson.detailed8.3.difficulty" = "Schwer";
+
+"lesson.detailed8.4.title" = "Preisrevolution - 90% Preissturz";
+"lesson.detailed8.4.description" = "10 Mio. $ → 1 Mio. $";
+"lesson.detailed8.4.content" = "**Preisentwicklung**:\n\n2024: ~10 Mio. $ pro System\n2026: ~1 Mio. $ pro System (90% Rückgang!)\n\nCloud-Zugang:\n- Via Cloud noch günstiger\n- Pay-per-Use-Modelle\n- Demokratisierter Zugang\n\nAuswirkung:\n- Mehr Unternehmen können es sich leisten\n- Schnellere Einführung\n- Mehr Innovation";
+"lesson.detailed8.4.mnemonic" = "90% günstiger = 10x mehr Nutzer";
+"lesson.detailed8.4.difficulty" = "Mittel";
+
+// MARK: - Track 9: Keywords
+"lesson.keywords9.1.title" = "8 Schlüsselbegriffe - Must-Know für 2025";
+"lesson.keywords9.1.description" = "Quantum Advantage, NISQ, Fehlerkorrektur usw.";
+"lesson.keywords9.1.content" = "**8 wichtige Begriffe**:\n\n1. Quantum Advantage: Wenn Quantum klassisch schlägt\n2. NISQ: Noisy Intermediate-Scale Quantum\n3. Fehlerkorrektur: Quantenfehler beheben\n4. Logisches Qubit: Fehlerkorrigiertes Qubit\n5. Kohärenzzeit: Wie lange der Quantenzustand hält\n6. Dekohärenz: Verlust des Quantenzustands\n7. Quantum Volume: Leistungsmetrik\n8. Fidelität: Operationsgenauigkeit";
+"lesson.keywords9.1.mnemonic" = "Q-NELCDFQ = Essenzielles Quantum-Vokabular";
+"lesson.keywords9.1.difficulty" = "Mittel";
+
+"lesson.keywords9.2.title" = "Glossar - Von Kohärenz bis Annealing";
+"lesson.keywords9.2.description" = "Vollständige Organisation der Quantenkonzepte";
+"lesson.keywords9.2.content" = "**Schlüsselbegriffe**:\n\nKohärenz: Quantenzustand aufrechterhalten\nAnnealing: Optimierung durch Tunneln\nSuperposition: Mehrere Zustände gleichzeitig\nVerschränkung: Nichtlokale Korrelation\nQubit: Quantenbit\nGatter: Quantenoperation\nMessung: Zustandskollaps und Auslesen";
+"lesson.keywords9.2.mnemonic" = "CASEQGM = Vollständiges Quantum-Vokabular";
+"lesson.keywords9.2.difficulty" = "Mittel";
+
+"lesson.keywords9.3.title" = "Globaler Quantenwettbewerb - USA, China, EU, Japan, Korea";
+"lesson.keywords9.3.description" = "2026 Quantum-Mächte-Ranking und Strategien";
+"lesson.keywords9.3.content" = "**Länderstrategien**:\n\nUSA: Privatsektor-Führung, Google/IBM/IonQ\nChina: Staatlich geführte Großinvestition\nEU: Forschungsfokus, Quantum Flagship\nJapan: Langfristiges METI-Programm\nKorea: Wachsende K-Quantum-Initiative\n\nRanking 2025:\n1. USA 2. China 3. EU 4. Japan 5. Korea";
+"lesson.keywords9.3.mnemonic" = "US-China-Rennen, andere holen auf";
+"lesson.keywords9.3.difficulty" = "Schwer";
+
+"lesson.keywords9.4.title" = "2026 Risiken und Herausforderungen - 5 zu lösende Probleme";
+"lesson.keywords9.4.description" = "Quantum Divide, Energie, Fachkräftemangel usw.";
+"lesson.keywords9.4.content" = "**5 Hauptherausforderungen**:\n\n1. Quantum Divide: Zugangsschere arm vs reich\n2. Energie: Hoher Stromverbrauch für Kühlung\n3. Talente: Starker Expertenmangel\n4. Sicherheit: Verschlüsselungsverletzlichkeit\n5. Ethik: Bedenken wegen Missbrauch\n\nChancen: Jede Herausforderung = Geschäftschance";
+"lesson.keywords9.4.mnemonic" = "QETES = Quantums zu lösende Herausforderungen";
+
+// MARK: - Subscription
+"subscription.tier.pro" = "Pro";
+"subscription.tier.premium" = "Premium";
+
+"subscription.pro.monthly.name" = "Pro Monatlich";
+"subscription.pro.monthly.description" = "Grundfunktionen, monatliche Abrechnung";
+"subscription.pro.yearly.name" = "Pro Jährlich";
+"subscription.pro.yearly.description" = "Grundfunktionen, jährliche Abrechnung (40% sparen)";
+"subscription.premium.monthly.name" = "Premium Monatlich";
+"subscription.premium.monthly.description" = "Alle Funktionen, monatliche Abrechnung";
+"subscription.premium.yearly.name" = "Premium Jährlich";
+"subscription.premium.yearly.description" = "Alle Funktionen, jährliche Abrechnung (40% sparen)";
+
+"subscription.status.free" = "Kostenlos";
+"subscription.status.premium" = "Premium";
+"subscription.status.expired" = "Abgelaufen";
+
+"subscription.feature.allContent" = "Zugang zu allen Inhalten";
+"subscription.feature.noAds" = "Werbefreies Lernen";
+"subscription.feature.offlineAccess" = "Offline-Zugang";
+"subscription.feature.prioritySupport" = "Prioritäts-Support";
+"subscription.feature.earlyAccess" = "Früher Zugang zu neuen Inhalten";
+"subscription.feature.advancedAnalytics" = "Erweiterte Lernanalysen";
+
+"subscription.period.day" = "Tag";
+"subscription.period.days %lld" = "%lld Tage";
+"subscription.period.week" = "Woche";
+"subscription.period.weeks %lld" = "%lld Wochen";
+"subscription.period.month" = "Monat";
+"subscription.period.months %lld" = "%lld Monate";
+"subscription.period.year" = "Jahr";
+"subscription.period.years %lld" = "%lld Jahre";
+
+// MARK: - Paywall
+"paywall.title" = "Premium werden";
+"paywall.header.title" = "Entfalte dein volles Potenzial";
+"paywall.header.subtitle" = "Unbegrenzter Zugang zu allen Quantencomputing-Inhalten";
+"paywall.subscribe" = "Jetzt abonnieren";
+"paywall.restore" = "Käufe wiederherstellen";
+"paywall.terms" = "Nutzungsbedingungen";
+"paywall.privacy" = "Datenschutzrichtlinie";
+"paywall.autoRenewal" = "Das Abonnement verlängert sich automatisch, wenn es nicht mindestens 24 Stunden vor Ende des aktuellen Zeitraums gekündigt wird.";
+"paywall.bestValue" = "Bester Wert";
+"paywall.perPeriod %@" = "pro %@";
+"paywall.noProducts" = "Produkte werden geladen...";
+"paywall.pending" = "Kauf wartet auf Genehmigung";
+"paywall.success.title" = "Willkommen bei Premium!";
+"paywall.success.message" = "Du hast jetzt unbegrenzten Zugang zu allen Inhalten. Genieße deine Quantenlern-Reise!";
+
+"paywall.feature.allContent.title" = "Alle Inhalte freigeschaltet";
+"paywall.feature.allContent.description" = "Zugang zu allen 9 Kursen und 36+ Lektionen";
+"paywall.feature.offline.title" = "Offline-Lernen";
+"paywall.feature.offline.description" = "Inhalte für Offline-Studium herunterladen";
+"paywall.feature.noAds.title" = "Keine Werbung";
+"paywall.feature.noAds.description" = "Fokussiert lernen ohne Ablenkungen";
+"paywall.feature.support.title" = "Prioritäts-Support";
+"paywall.feature.support.description" = "Hilfe bekommen, wenn du sie brauchst";
+
+// MARK: - StoreKit Errors
+"error.storekit.productNotFound" = "Produkt nicht gefunden";
+"error.storekit.purchaseFailed" = "Kauf fehlgeschlagen. Bitte erneut versuchen.";
+"error.storekit.verificationFailed" = "Kaufverifizierung fehlgeschlagen";
+"error.storekit.networkError" = "Netzwerkfehler. Bitte Verbindung prüfen.";
+"error.storekit.unknown" = "Ein unbekannter Fehler ist aufgetreten";
+
+// MARK: - Premium Content
+"premium.locked.title" = "Premium-Inhalt";
+"premium.locked.message" = "Abonniere, um auf diesen Inhalt zuzugreifen";
+"premium.upgrade" = "Auf Premium upgraden";
+"premium.freeRemaining %lld" = "Heute noch %lld kostenlose Ansichten";
+"subscription.daysRemaining %lld" = "Noch %lld Tage";
+
+// MARK: - The Quantum Odyssey - Navigation Tabs
+"tab.campus" = "Campus";
+"tab.laboratory" = "Labor";
+"tab.bridge" = "Brücke";
+"tab.portfolio" = "Portfolio";
+
+// MARK: - Campus Hub (Frame 1)
+"campus.title" = "Quanten-Campus";
+"campus.welcome" = "Willkommen, Entdecker";
+"campus.adventurePath" = "Abenteuerpfad";
+"campus.adventurePath.subtitle" = "Deine Reise vom Anfänger zum Quantenmeister";
+"campus.level1.title" = "Einführung";
+"campus.level1.subtitle" = "Was ist Quantum?";
+"campus.level2.title" = "Superposition";
+"campus.level2.subtitle" = "In zwei Zuständen sein";
+"campus.level3.title" = "Verschränkung";
+"campus.level3.subtitle" = "Spukhafte Verbindung";
+"campus.level4.title" = "Quantengatter";
+"campus.level4.subtitle" = "Bausteine";
+"campus.level5.title" = "Messung";
+"campus.level5.subtitle" = "Quantum beobachten";
+"campus.level6.title" = "Schaltkreise";
+"campus.level6.subtitle" = "Gatter kombinieren";
+"campus.level7.title" = "Fehlerkorrektur";
+"campus.level7.subtitle" = "Fehlertoleranz";
+"campus.level8.title" = "Algorithmen";
+"campus.level8.subtitle" = "Grover & Shor";
+"campus.level9.title" = "Hardware";
+"campus.level9.subtitle" = "Qubits bauen";
+"campus.level10.title" = "Anwendungen";
+"campus.level10.subtitle" = "Praxiseinsatz";
+"campus.level11.title" = "VQE";
+"campus.level11.subtitle" = "Variationsmethoden";
+"campus.level12.title" = "Rauschen";
+"campus.level12.subtitle" = "Fehler managen";
+"campus.level13.title" = "IBM-Integration";
+"campus.level13.subtitle" = "Echter QPU-Zugang";
+
+// MARK: - Laboratory (Frame 2 - Interactive Odyssey)
+"odyssey.title" = "Quantenlabor";
+"odyssey.step1.title" = "Willkommen zur Bloch-Kugel";
+"odyssey.step1.desc" = "Diese 3D-Kugel repräsentiert alle möglichen Zustände eines einzelnen Qubits. Der Nordpol ist |0⟩ und der Süden ist |1⟩.";
+"odyssey.step2.title" = "Hadamard-Gatter anwenden";
+"odyssey.step2.desc" = "Tippe auf das Hadamard-Gatter, um Superposition zu erzeugen. Sieh wie der Zustandsvektor zum Äquator wandert!";
+"odyssey.step3.title" = "Pauli-X-Gatter";
+"odyssey.step3.desc" = "Das X-Gatter kippt das Qubit. Es ist wie ein NOT-Gatter im klassischen Computing.";
+"odyssey.step4.title" = "Messung";
+"odyssey.step4.desc" = "Miss das Qubit, um es zu |0⟩ oder |1⟩ kollabieren zu lassen. Das Ergebnis ist probabilistisch!";
+"odyssey.currentState" = "Aktueller Zustand";
+"odyssey.measure" = "Messen";
+"odyssey.superposition.achieved" = "Superposition erreicht!";
+"odyssey.superposition.explanation" = "Das Qubit ist jetzt in einer gleichen Superposition von |0⟩ und |1⟩. Bei der Messung besteht eine 50% Chance für jeden Zustand.";
+
+// MARK: - Bridge Console (Frame 3)
+"bridge.title" = "Brücken-Terminal";
+"bridge.online" = "Systeme online";
+"bridge.circuitConfig" = "Schaltkreis-Konfiguration";
+"bridge.qubits" = "Qubits";
+"bridge.gates" = "Gatter";
+"bridge.runLocal" = "Lokale Sim";
+"bridge.runIBM" = "IBM QPU";
+"bridge.processing" = "Verarbeite...";
+"bridge.fidelity" = "Fidelität";
+"bridge.noResult" = "Noch kein Ergebnis";
+"bridge.execTime" = "Zeit: %.2fs";
+"bridge.harvardMIT" = "Harvard-MIT 2026 Benchmark";
+"bridge.benchmark.fidelity" = "Ziel-Fidelität";
+"bridge.benchmark.qubits" = "Logische Qubits";
+"bridge.benchmark.coherence" = "Kohärenz";
+"bridge.fidelityAnalysis" = "Fidelitätsanalyse";
+"bridge.comparisonFidelity" = "Vergleichs-Fidelität";
+"bridge.harvardMITTarget" = "Harvard-MIT-Ziel";
+"bridge.success.title" = "Deployment erfolgreich!";
+"bridge.success.subtitle" = "Dein Schaltkreis hat ausgezeichnete Fidelität auf der IBM QPU erreicht.";
+"bridge.feature1" = "Echte IBM QPU-Ausführung";
+"bridge.feature2" = "Harvard-MIT 2026 Benchmarks";
+"bridge.feature3" = "Erweiterte Fidelitätsanalyse";
+
+// MARK: - Portfolio Dashboard (Frame 4 - O1 Visa)
+"portfolio.title" = "Nachweisportfolio";
+"portfolio.expertiseIndex" = "Expertise-Index";
+"portfolio.globalContribution" = "Globaler Beitrag";
+"portfolio.fireEnergy" = "Feuer-Energie";
+"portfolio.o1Visa" = "O1-Visum-Anforderungen";
+"portfolio.criteriaMet" = "erfüllt";
+"portfolio.skillTree" = "Quanten-Skill-Baum";
+"portfolio.evidenceSummary" = "Nachweisübersicht";
+"portfolio.code" = "Code";
+"portfolio.projects" = "Projekte";
+"portfolio.certs" = "Zertifikate";
+"portfolio.exportReport" = "Bericht exportieren";
+"portfolio.premiumRequired" = "Premium für Export erforderlich";
+"portfolio.skillDetail" = "Skill-Detail";
+"portfolio.connectedSkills" = "Verbundene Skills";
+"portfolio.export.title" = "O1-Nachweisbericht erstellen";
+"portfolio.export.description" = "Erstelle einen umfassenden Bericht, der deine Quantencomputing-Expertise für das O1-Visum dokumentiert.";
+"portfolio.export.item1" = "Skill-Kompetenz-Dokumentation";
+"portfolio.export.item2" = "Code-Beitragshistorie";
+"portfolio.export.item3" = "Projektabschluss-Zertifikate";
+"portfolio.export.item4" = "Globale Beitragsmetriken";
+"portfolio.exporting" = "Erstelle...";
+"portfolio.generateReport" = "Bericht erstellen";
+"portfolio.feature1" = "3D Quanten-Skill-Baum";
+"portfolio.feature2" = "O1-Visum-Nachweisverfolgung";
+"portfolio.feature3" = "Professionelle Berichtsexporte";
+
+// MARK: - Locked Content
+"locked.premium.description" = "Upgrade auf Premium, um diese Funktion freizuschalten und deine Quantenreise zu beschleunigen.";
+"locked.unlockPremium" = "Premium freischalten";
+
+// MARK: - Login
+"login.prompt.title" = "Anmeldung erforderlich";
+"login.prompt.subtitle" = "Erstelle ein Konto, um deinen Fortschritt zu speichern und Premium-Funktionen zu nutzen.";
+"login.signIn" = "Anmelden";
+"login.continueAsGuest" = "Als Gast fortfahren";
+
+// MARK: - Settings - Expertise Level
+"settings.expertiseLevel" = "Expertise-Stufe";
+"expertise.beginner" = "Anfänger";
+"expertise.intermediate" = "Fortgeschritten";
+"expertise.expert" = "Experte";
+
+// MARK: - Term Translations (Beginner vs Expert)
+"term.qubit.beginner" = "Quantenmünze";
+"term.qubit.expert" = "Qubit";
+"term.qubit.beginner.desc" = "Eine besondere Münze, die gleichzeitig Kopf UND Zahl sein kann";
+"term.qubit.expert.desc" = "Die fundamentale Einheit der Quanteninformation, existiert in Superposition von |0⟩ und |1⟩ Zuständen";
+"term.superposition.beginner" = "Beides gleichzeitig";
+"term.superposition.expert" = "Quantensuperposition";
+"term.superposition.beginner.desc" = "Gleichzeitig in mehreren Zuständen sein, wie eine rotierende Münze";
+"term.superposition.expert.desc" = "Linearkombination von Basiszuständen: α|0⟩ + β|1⟩ wobei |α|² + |β|² = 1";
+"term.entanglement.beginner" = "Zwillings-Verbindung";
+"term.entanglement.expert" = "Quantenverschränkung";
+"term.entanglement.beginner.desc" = "Zwei Teilchen, die magisch verbunden sind, egal wie weit entfernt";
+"term.entanglement.expert.desc" = "Nichtlokale Korrelation zwischen Quantensystemen, beschrieben durch nicht-separierbare Zustandsvektoren";
+"term.gate.beginner" = "Quantenanweisung";
+"term.gate.expert" = "Unitäres Gatter";
+"term.gate.beginner.desc" = "Ein Befehl, der den Quantenzustand ändert";
+"term.gate.expert.desc" = "Unitäre Transformation U, die auf Qubit-Hilbertraum wirkt, wobei U†U = I";
+"term.measurement.beginner" = "Hineinschauen";
+"term.measurement.expert" = "Quantenmessung";
+"term.measurement.beginner.desc" = "Die Box öffnen, um das Ergebnis zu sehen";
+"term.measurement.expert.desc" = "Projektive Messung, die Superposition mit Wahrscheinlichkeit |⟨ψ|n⟩|² zum Eigenzustand kollabiert";
+"term.fidelity.beginner" = "Genauigkeitswert";
+"term.fidelity.expert" = "Zustandsfidelität";
+"term.fidelity.beginner.desc" = "Wie nah das Ergebnis an dem ist, was wir wollten";
+"term.fidelity.expert.desc" = "F(ρ,σ) = Tr(√(√ρ σ √ρ))² misst Ähnlichkeit zwischen Quantenzuständen";
+"term.coherence.beginner" = "Quantum bleiben";
+"term.coherence.expert" = "Quantenkohärenz";
+"term.coherence.beginner.desc" = "Wie lange die Quantenmagie anhält bevor sie verschwindet";
+"term.coherence.expert.desc" = "Zeitdauer der Aufrechterhaltung von Phasenbeziehungen in Superposition, charakterisiert durch T₁ und T₂";
+"term.errorCorrection.beginner" = "Fehler beheben";
+"term.errorCorrection.expert" = "Quantenfehlerkorrektur";
+"term.errorCorrection.beginner.desc" = "Extra Qubits nutzen, um Fehler zu erkennen und zu beheben";
+"term.errorCorrection.expert.desc" = "Kodierung logischer Qubits in physischen Qubits mit Codes wie Surface Code zur Erreichung von Fehlertoleranz";
+
+// MARK: - Gate Categories
+"gates.basic" = "Grundlagen";
+"gates.advanced" = "Fortgeschritten";
+
+// MARK: - Solar Agent Messages
+"solar.encouragement.1" = "Du machst das großartig beim Erkunden der Quantenwelt!";
+"solar.encouragement.2" = "Schritt für Schritt erreichst du den Gipfel!";
+"solar.encouragement.3" = "Komplexe Konzepte sind kein Problem für deine Neugier!";
+"solar.encouragement.4" = "Fehler gehören zum Lernen. Mach weiter!";
+"solar.encouragement.5" = "Deine Neugier erhellt die Zukunft des Quantencomputing.";
+
+"solar.tip.1" = "Das Hadamard-Gatter ist der Ausgangspunkt der Superposition!";
+"solar.tip.2" = "Denk dran: Messungen sind probabilistisch. Führe sie mehrmals aus, um Muster zu sehen.";
+"solar.tip.3" = "Das CNOT-Gatter kann zwei Qubits miteinander verschränken!";
+"solar.tip.4" = "Die Bloch-Kugel visualisiert alle möglichen Qubit-Zustände.";
+"solar.tip.5" = "Fehlerkorrektur ist der Schlüssel zu echten Quantencomputern.";
+
+"solar.celebration.1" = "Herzlichen Glückwunsch! Du hast ein neues Level erreicht! 🎊";
+"solar.celebration.2" = "Toll! Deine Quanten-Skills wachsen jeden Tag!";
+"solar.celebration.3" = "Perfekt! Du hast dieses Konzept gemeistert!";
+"solar.celebration.4" = "Unglaublich! Dein XP strahlt wie die Sonne! ☀️";
+"solar.celebration.5" = "Exzellent! Du bist auf dem Weg zum Quantenmeister!";
+
+"solar.challenge.1" = "Eine härtere Herausforderung wartet. Bist du bereit?";
+"solar.challenge.2" = "Erobere dieses Konzept und schalte neue Welten frei!";
+"solar.challenge.3" = "Nutze die Feuerenergie, um diese Herausforderung zu meistern!";
+"solar.challenge.4" = "Gib nicht auf! Du schaffst das!";
+"solar.challenge.5" = "Meistere das und du bist einen Schritt näher an der IBM QPU!";
+
+"solar.fireBoost.1" = "Solarenergie ist mit dir! Spür das Feuer! ☀️";
+"solar.fireBoost.2" = "Deine warme Leidenschaft erhellt die Quantenwelt!";
+"solar.fireBoost.3" = "Wie ein Miami-Sonnenaufgang strahlt dein Potenzial!";
+"solar.fireBoost.4" = "Goldene Erfolgsenergie umgibt dich!";
+"solar.fireBoost.5" = "Die Ruhe des Wassers und die Leidenschaft des Feuers in perfekter Harmonie!";
+
+// MARK: - API Error Messages
+"error.payment.verification" = "Zahlungsverifizierung fehlgeschlagen";
+
+// MARK: - Interactive Odyssey Keywords
+"odyssey.keywords" = "Hadamard, Superposition, CNOT, Verschränkung, Messung";
+
+// MARK: - User Type Selection (Onboarding)
+"userType.title" = "Willkommen bei SwiftQuantum";
+"userType.subtitle" = "Erzählen Sie uns etwas über sich für ein personalisiertes Erlebnis";
+"userType.student" = "Student";
+"userType.student.desc" = "Karrierevorbereitung für Tech-Unternehmen";
+"userType.parent" = "Elternteil";
+"userType.parent.desc" = "Die Zukunft meines Kindes vorbereiten";
+"userType.developer" = "Entwickler";
+"userType.developer.desc" = "Skills erweitern für höheren Marktwert";
+"userType.scifiFan" = "Sci-Fi-Fan";
+"userType.scifiFan.desc" = "Die Quantenwelt erleben wollen";
+"userType.investor" = "Investor";
+"userType.investor.desc" = "Den nächsten Billionen-Markt verstehen";
+
+// MARK: - Marketing - Germany - General
+"marketing.germany.headline" = "„Quantentalent" — Deutschlands Schlüsselkompetenz für 2030";
+"marketing.germany.subheadline" = "Was TU München und ETH Zürich Absolventen als Zukunftsskill wählen";
+"marketing.germany.point1" = "BMBF-Quantenstrategie: 2 Milliarden € Förderung — Jetzt einsteigen und Vorsprung sichern";
+"marketing.germany.point2" = "Quantenpositionen bei SAP, Bosch, BMW: 150.000€+ Jahresgehalt";
+"marketing.germany.point3" = "„Ich verstehe Quantencomputing" — Ein Satz, der Sie von 99% der Bewerber abhebt";
+"marketing.germany.cta" = "Werden Sie Deutschlands erste Quantengeneration";
+
+// MARK: - Marketing - For Developers
+"marketing.dev.headline" = "Ist Ihr Code in 2030 noch wertvoll?";
+"marketing.dev.subheadline" = "Entwickler mit Quantenalgorithmus-Kenntnissen: 10x höherer Marktwert";
+"marketing.dev.point1" = "AI/ML-Entwickler Nächster Karriereschritt: Quanten-ML";
+"marketing.dev.point2" = "IBM/Google/Amazon stellen Quanteningenieure mit 200.000€+ Jahresgehalt ein";
+"marketing.dev.point3" = "Mit Swift/Python-Kenntnissen: Quantenprogrammierung in 3 Monaten erlernbar";
+"marketing.dev.cta" = "Starten Sie Ihre Evolution zum Quanteningenieur";
+
+// MARK: - Marketing - For Students
+"marketing.student.headline" = "Was TU München Studenten heimlich lernen";
+"marketing.student.subheadline" = "Können Sie im Vorstellungsgespräch sagen: „Ich lerne Quantencomputing"?";
+"marketing.student.point1" = "Quantum-Praktikum Konkurrenz: 100:1 — Ohne Vorbereitung wird es zu spät";
+"marketing.student.point2" = "„Ich kann AI" ist 2025 kein Differenzierungsmerkmal mehr";
+"marketing.student.point3" = "37% der FAANG-Kandidaten lernen bereits Quantencomputing";
+"marketing.student.cta" = "Heben Sie sich von der Konkurrenz ab";
+
+// MARK: - Marketing - For SF Fans
+"marketing.sf.headline" = "Die Wissenschaft von „Interstellar" — in Ihren Händen";
+"marketing.sf.subheadline" = "Die Quantenwelt aus der Science-Fiction wird auf Ihrem Smartphone Realität";
+"marketing.sf.point1" = "Schrödingers Katze tatsächlich simulieren";
+"marketing.sf.point2" = "Quantenverschränkung — was Einstein „spukhafte Fernwirkung" nannte";
+"marketing.sf.point3" = "Auf echter IBM-Hardware echte Quantenberechnung durchführen";
+"marketing.sf.cta" = "Öffnen Sie das Tor zur Sci-Fi-Welt";
+
+// MARK: - Marketing - For Investors
+"marketing.investor.headline" = "Quantencomputing-Markt: 100 Milliarden Dollar bis 2030";
+"marketing.investor.subheadline" = "Investitionsentscheidungen basieren auf Verständnis";
+"marketing.investor.point1" = "IonQ, Rigetti, D-Wave — Können Sie erkennen, wer solide Technologie hat?";
+"marketing.investor.point2" = "Können Sie den Unterschied zwischen „Quantum Advantage" und „Quantum Supremacy" erklären?";
+"marketing.investor.point3" = "30 Stunden mit dieser App und Sie können Quanten-Startup-Pitches bewerten";
+"marketing.investor.cta" = "Wissen für kluge Investments erwerben";
+
+// MARK: - Marketing - For Parents (Germany)
+"marketing.parent.headline" = "Digitaler Arbeiter vs. Quantenarchitekt";
+"marketing.parent.subheadline" = "Welche Zukunft wählen Sie für Ihr Kind?";
+"marketing.parent.point1" = "Das Python-Programmieren, das Ihr Kind lernt? KI ersetzt es bereits";
+"marketing.parent.point2" = "Quantenfachkräftemangel: 3 Stellen für jeden qualifizierten Kandidaten";
+"marketing.parent.point3" = "TOP 5 Hochverdiener-Berufe 2035: 3 davon quantenbezogen";
+"marketing.parent.point4" = "Die Lerngewohnheiten dieses Monats bestimmen das Gehalt in 10 Jahren";
+"marketing.parent.cta" = "In die Zukunft Ihres Kindes investieren";
+
+// MARK: - Marketing - Fear Appeal (Germany)
+"marketing.fear.headline" = "„Ich kann KI" ist schon veraltet";
+"marketing.fear.subheadline" = "Existiert Ihr Job noch in 2030?";
+"marketing.fear.point1" = "80% der traditionellen Programmierer werden durch KI ersetzt — Was haben die überlebenden 20% gemeinsam?";
+"marketing.fear.point2" = "„Quantum verstehe ich nicht" — Die typische Antwort von Abgelehnten";
+"marketing.fear.point3" = "Ihr Kollege lernt vielleicht heimlich Quantencomputing";
+
+// MARK: - Marketing - Class Preservation (Germany)
+"marketing.class.headline" = "Was Schüler am Gymnasium nächstes lernen";
+"marketing.class.subheadline" = "Die nächste Grenze der Elite-Bildung";
+"marketing.class.point1" = "Auch Medizinstudenten lernen jetzt Quantencomputing";
+"marketing.class.point2" = "Quantentalent-Herkunft: TU München 25%, ETH Zürich 20%, andere Elite-Unis 30%";
+"marketing.class.point3" = "„Was die Nachhilfe nicht lehrt" — Echte Wettbewerbsfähigkeit";
+
+// MARK: - Marketing - Loss Aversion (Germany)
+"marketing.loss.headline" = "Dieses Jahr entscheidet den Unterschied";
+"marketing.loss.subheadline" = "Die goldene Ära des Quantenlernens: 2025-2027";
+"marketing.loss.point1" = "Nach 2028 ist es „zu spät eingestiegen" — First-Mover-Vorteil verschwindet";
+"marketing.loss.point2" = "Heute nicht zu lernen bedeutet, auf 100.000€ zukünftiges Gehalt zu verzichten";
+"marketing.loss.point3" = "Noch 5 Jahre bis Quantentalent-Angebot die Nachfrage trifft — dann Überangebot";
+
+// MARK: - Secret Document Campaign (Germany)
+"campaign.secret.title" = "【Achtung】Googles geheimer Quantenbericht";
+"campaign.secret.subtitle" = "Vertrauliche 2026-Prognosen durchgesickert";
+"campaign.secret.teaser" = "„Diese Informationen werden Ihre Karriereentscheidung ändern" — Ex-Google Quantum Team";
+"campaign.secret.point1" = "3 Quantendurchbrüche, die 2026 realisiert werden";
+"campaign.secret.point2" = "Der wahre Grund, warum Google 100 Milliarden investiert";
+"campaign.secret.point3" = "Sonderkonditionen, die Google für Quantentalente vorbereitet hat";
+"campaign.secret.cta" = "Geheimes Dokument entsperren";
+"campaign.secret.disclaimer" = "※Dieser Inhalt basiert auf öffentlich zugänglichen Informationen";
+
+// MARK: - Gamification Messages
+"gamification.streak.warning" = "⚠️ Ihre Serie droht zu enden!";
+"gamification.streak.broken" = "😢 Ihre %d-Tage-Serie wurde zurückgesetzt";
+"gamification.streak.save" = "Jetzt lernen und Serie retten";
+"gamification.streak.milestone" = "🔥 %d Tage in Folge geschafft! In den Top %d%%";
+"gamification.ranking.weekly" = "Wochenranking";
+"gamification.ranking.monthly" = "Monatsranking";
+"gamification.ranking.allTime" = "Gesamtranking";
+"gamification.ranking.position" = "Ihr Rang: %d von %d";
+"gamification.ranking.topPercent" = "Top %d%%";
+"gamification.ranking.promotion" = "📈 Noch %d XP bis Platz %d!";
+"gamification.goldenTicket.title" = "🎫 Goldenes Ticket erhalten!";
+"gamification.goldenTicket.desc" = "7 Tage in Folge lernen für Sonderbelohnung";
+"gamification.goldenTicket.prize" = "1 Stunde kostenloser IBM QPU-Zugang";
+"gamification.goldenTicket.progress" = "Noch %d Tage bis zum Goldenen Ticket";
+
+// MARK: - Certificate System
+"certificate.title" = "Leistungszertifikat";
+"certificate.quantum.fundamentals" = "Quantencomputing Grundlagen Zertifizierung";
+"certificate.quantum.intermediate" = "Quantenalgorithmen Mittelstufe Zertifizierung";
+"certificate.quantum.advanced" = "Quantenprogrammierung Fortgeschritten Zertifizierung";
+"certificate.quantum.master" = "SwiftQuantum Meister Zertifizierung";
+"certificate.issued" = "Ausgestellt am: %@";
+"certificate.credential" = "Zertifikatsnummer: %@";
+"certificate.verify" = "Zertifikat verifizieren: swiftquantum.app/verify/%@";
+"certificate.share" = "Auf LinkedIn teilen";
+"certificate.download" = "PDF herunterladen";
+"certificate.linkedin.text" = "Ich habe %@ bei SwiftQuantum erworben! Ich lerne Quantencomputing. #QuantumComputing #SwiftQuantum";
+
+// MARK: - Parent Report System
+"report.title" = "Lernbericht";
+"report.period" = "Berichtszeitraum: %@ bis %@";
+"report.summary" = "Zusammenfassung";
+"report.totalTime" = "Gesamte Lernzeit";
+"report.completedLessons" = "Abgeschlossene Lektionen";
+"report.earnedXP" = "Verdiente XP";
+"report.streak" = "Aktuelle Serie";
+"report.strengths" = "Stärken";
+"report.improvements" = "Verbesserungsbereiche";
+"report.recommendation" = "Empfohlene nächste Schritte";
+"report.comparison" = "Vergleich mit Gleichaltrigen";
+"report.comparison.ahead" = "In den Top %d%%";
+"report.comparison.onTrack" = "Lernt im Durchschnittstempo";
+"report.comparison.needsAttention" = "Benötigt mehr Aufmerksamkeit";
+"report.quote" = "„%@ hat diese Woche besonders im Bereich %@ Fortschritte gemacht. Als Nächstes empfehlen wir %@."";
+"report.share" = "Bericht teilen";
+"report.export" = "Als PDF exportieren";
+
+// MARK: - Premium Tier Extensions
+"tier.free.name" = "Entdecker";
+"tier.free.desc" = "Erster Schritt in die Quantenwelt";
+"tier.free.limit" = "3 Lektionen pro Tag";
+"tier.pro.name" = "Forscher";
+"tier.pro.desc" = "Für ernsthafte Quantenlerner";
+"tier.pro.feature1" = "Zugang zu allen Lektionen";
+"tier.pro.feature2" = "Detaillierte Lernanalysen";
+"tier.pro.feature3" = "Zertifikate erhalten";
+"tier.premium.name" = "Quantenmeister";
+"tier.premium.desc" = "Das ultimative professionelle Erlebnis";
+"tier.premium.feature1" = "IBM QPU-Ausführung (10x/Monat)";
+"tier.premium.feature2" = "O1-Visum Nachweisportfolio";
+"tier.premium.feature3" = "1-zu-1 Mentoring-Sessions";
+"tier.premium.feature4" = "Prioritäts-Support";
+"tier.enterprise.name" = "Enterprise";
+"tier.enterprise.desc" = "Für Teams und Unternehmen";
+"tier.enterprise.feature1" = "Unbegrenzte IBM QPU-Ausführung";
+"tier.enterprise.feature2" = "Team-Management-Dashboard";
+"tier.enterprise.feature3" = "Individuelles Curriculum";
+"tier.enterprise.feature4" = "Dedizierter Account Manager";
+"tier.enterprise.contact" = "Kontaktieren Sie uns";
+
+// MARK: - Social Proof
+"social.users" = "Über %@ Nutzer lernen bereits";
+"social.reviews" = "%@ Bewertung im App Store";
+"social.featured" = "Apple „App des Tages" Auswahl";
+"social.testimonial1" = "„Beim FAANG-Interview über Quantum sprechen zu können hat mich klar von anderen Kandidaten abgehoben" — TU München Doktorand";
+"social.testimonial2" = "„Mein Kind lernt jetzt jeden Tag von selbst" — Elternteil";
+"social.testimonial3" = "„Ich kann jetzt Quanten-Investments beurteilen" — VC-Investor";
+"social.company.logos" = "Unternehmen unserer Lernenden";

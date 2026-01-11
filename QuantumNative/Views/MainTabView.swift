@@ -102,7 +102,7 @@ struct MainTabView: View {
                     }
                 case .portfolio:
                     if canAccessPremiumTab {
-                        ExpertiseEvidenceDashboardView()
+                        QuantumCareerPassportView()
                     } else {
                         LockedTabView(tab: .portfolio, onUnlock: handleUnlockTap)
                     }

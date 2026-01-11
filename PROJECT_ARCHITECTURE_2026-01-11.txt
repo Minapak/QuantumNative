@@ -1,7 +1,7 @@
 ================================================================================
-          SwiftQuantum Learning - Complete Project Architecture
+              QuantumNative - Complete Project Architecture
                      The Quantum Odyssey Platform
-                        Date: 2026-01-08
+                        Date: 2026-01-11
 ================================================================================
 
 TABLE OF CONTENTS
@@ -19,8 +19,8 @@ TABLE OF CONTENTS
 1. PROJECT OVERVIEW
 ================================================================================
 
-Project Name: SwiftQuantum Learning (The Quantum Odyssey)
-Version: 2.0.1
+Project Name: QuantumNative (The Quantum Odyssey)
+Version: 2.1.0
 Platform: iOS 16+, macOS 13+
 Framework: SwiftUI
 Architecture: MVVM (Model-View-ViewModel)
@@ -37,9 +37,9 @@ Total Swift Files: 77
 2. FILE STRUCTURE
 ================================================================================
 
-SwiftQuantumLearning/
+QuantumNative/
 |
-+-- SwiftQuantumApp.swift                 [Entry Point]
++-- QuantumNativeApp.swift                [Entry Point]
 |
 +-- Design/
 |   +-- Extensions.swift                  [Color, View, String extensions]
@@ -198,7 +198,7 @@ Services (Business Logic):
 
 4.1 Core App Entry
 --------------------------------------------------------------------------------
-SwiftQuantumApp.swift
+QuantumNativeApp.swift
   |-- Creates: AuthViewModel, ProgressViewModel, AchievementViewModel,
   |            HomeViewModel, LearnViewModel, PracticeViewModel,
   |            ExploreViewModel, ProfileViewModel
@@ -211,8 +211,7 @@ SwiftQuantumApp.swift
 MainTabView.swift
   |-- Uses: StoreKitService.shared.isPremium (checks premium status)
   |-- Uses: AuthService.shared.isAdmin (checks admin status)
-  |-- Uses: SwiftQuantumLearningApp.isDebugMode (checks debug mode)
-  |-- Contains: DevModeBadge (top-right corner)
+  |-- Uses: QuantumNativeApp.isDebugMode (checks debug mode)
   |-- Displays:
   |   +-- Tab 1: CampusHubView (Free)
   |   +-- Tab 2: InteractiveOdysseyView (Free)
@@ -409,18 +408,7 @@ LearningLevel.swift
 5. FEATURE IMPLEMENTATION DETAILS
 ================================================================================
 
-5.1 DEV Mode Badge
---------------------------------------------------------------------------------
-Location: MainTabView.swift (lines 119-130)
-Component: DevModeBadge (lines 467-505)
-Activation: SwiftQuantumLearningApp.isDebugMode || AuthService.shared.isAdmin
-Features:
-  - Top-right corner positioning
-  - Expandable on tap (shows "개발모드" text)
-  - Miami Sunrise gradient (fireRed to miamiSunrise)
-  - PlainButtonStyle for interaction
-
-5.2 Premium Feature Bypass (DEV Mode)
+5.1 Premium Feature Bypass (DEV Mode)
 --------------------------------------------------------------------------------
 Location: StoreKitService.swift (lines 174-204)
 Implementation:
@@ -441,7 +429,7 @@ Implementation:
   }
   ```
 
-5.3 4-Frame Navigation
+5.2 4-Frame Navigation
 --------------------------------------------------------------------------------
 Tab 1 - Campus Hub:
   - 13 level bento grid layout
@@ -467,7 +455,7 @@ Tab 4 - Portfolio (Premium):
   - 3D Skill Tree (5 categories)
   - Export report functionality
 
-5.4 Learning Levels (13 Total)
+5.3 Learning Levels (13 Total)
 --------------------------------------------------------------------------------
 Free Tier (Levels 1-5):
   1. Quantum Basics - Qubits & Superposition (100 XP)
@@ -486,7 +474,7 @@ Premium Tier (Levels 6-13):
   12. QEC Advanced - Surface/Steane/Shor/BOSS (650 XP)
   13. IBM Integration - Real QPU (1000 XP)
 
-5.5 Quantum Factory
+5.4 Quantum Factory
 --------------------------------------------------------------------------------
 Location: Views/QuantumFactory/QuantumFactoryView.swift
 Features:
@@ -511,7 +499,7 @@ Templates:
 User Action Flow:
 --------------------------------------------------------------------------------
 1. App Launch
-   SwiftQuantumApp.init()
+   QuantumNativeApp.init()
    |-- Creates all ViewModels
    |-- Checks OnboardingKeys.hasCompletedOnboarding
    |-- If first run: Shows OnboardingView
@@ -630,6 +618,6 @@ QuantumTranslationManager Features:
 
 ================================================================================
                         END OF PROJECT ARCHITECTURE
-                      SwiftQuantum Learning v2.0.1
-                           Build 2026.01.08
+                            QuantumNative v2.1.0
+                             Build 2026.01.11
 ================================================================================

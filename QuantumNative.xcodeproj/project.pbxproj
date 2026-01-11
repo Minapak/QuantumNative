@@ -16,26 +16,26 @@
 			containerPortal = 2E435B162F0483BE000A19C8 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2E435B1D2F0483BE000A19C8;
-			remoteInfo = QuantumAcademy;
+			remoteInfo = QuantumNative;
 		};
 		2E435B362F0483BF000A19C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2E435B162F0483BE000A19C8 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2E435B1D2F0483BE000A19C8;
-			remoteInfo = QuantumAcademy;
+			remoteInfo = QuantumNative;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2E02A6062F0B9C1000954BE3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		2E435B1E2F0483BE000A19C8 /* QuantumAcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantumAcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E435B2B2F0483BF000A19C8 /* QuantumAcademyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantumAcademyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E435B352F0483BF000A19C8 /* QuantumAcademyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantumAcademyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E435B1E2F0483BE000A19C8 /* QuantumNative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantumNative.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E435B2B2F0483BF000A19C8 /* QuantumNativeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantumNativeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E435B352F0483BF000A19C8 /* QuantumNativeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantumNativeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		2E435BEA2F048412000A19C8 /* Exceptions for "QuantumAcademy" folder in "QuantumAcademyTests" target */ = {
+		2E435BEA2F048412000A19C8 /* Exceptions for "QuantumNative" folder in "QuantumNativeTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Design/QuantumTheme.swift,
@@ -54,7 +54,7 @@
 				Services/ProgressService.swift,
 				Services/StorageService.swift,
 				Services/StoreKitService.swift,
-				QuantumAcademyApp.swift,
+				QuantumNativeApp.swift,
 				ViewModels/AchievementViewModel.swift,
 				ViewModels/ProgressViewModel.swift,
 				Views/Components/CustomButton.swift,
@@ -80,9 +80,9 @@
 				Views/Profile/UserStatsView.swift,
 				Views/Subscription/PaywallView.swift,
 			);
-			target = 2E435B2A2F0483BF000A19C8 /* QuantumAcademyTests */;
+			target = 2E435B2A2F0483BF000A19C8 /* QuantumNativeTests */;
 		};
-		2E435BEB2F048412000A19C8 /* Exceptions for "QuantumAcademy" folder in "QuantumAcademyUITests" target */ = {
+		2E435BEB2F048412000A19C8 /* Exceptions for "QuantumNative" folder in "QuantumNativeUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Design/QuantumTheme.swift,
@@ -101,7 +101,7 @@
 				Services/ProgressService.swift,
 				Services/StorageService.swift,
 				Services/StoreKitService.swift,
-				QuantumAcademyApp.swift,
+				QuantumNativeApp.swift,
 				ViewModels/AchievementViewModel.swift,
 				ViewModels/ProgressViewModel.swift,
 				Views/Components/CustomButton.swift,
@@ -127,28 +127,28 @@
 				Views/Profile/UserStatsView.swift,
 				Views/Subscription/PaywallView.swift,
 			);
-			target = 2E435B342F0483BF000A19C8 /* QuantumAcademyUITests */;
+			target = 2E435B342F0483BF000A19C8 /* QuantumNativeUITests */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2E435B202F0483BE000A19C8 /* QuantumAcademy */ = {
+		2E435B202F0483BE000A19C8 /* QuantumNative */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				2E435BEA2F048412000A19C8 /* Exceptions for "QuantumAcademy" folder in "QuantumAcademyTests" target */,
-				2E435BEB2F048412000A19C8 /* Exceptions for "QuantumAcademy" folder in "QuantumAcademyUITests" target */,
+				2E435BEA2F048412000A19C8 /* Exceptions for "QuantumNative" folder in "QuantumNativeTests" target */,
+				2E435BEB2F048412000A19C8 /* Exceptions for "QuantumNative" folder in "QuantumNativeUITests" target */,
 			);
-			path = QuantumAcademy;
+			path = QuantumNative;
 			sourceTree = "<group>";
 		};
-		2E435B2E2F0483BF000A19C8 /* QuantumAcademyTests */ = {
+		2E435B2E2F0483BF000A19C8 /* QuantumNativeTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = QuantumAcademyTests;
+			path = QuantumNativeTests;
 			sourceTree = "<group>";
 		};
-		2E435B382F0483BF000A19C8 /* QuantumAcademyUITests */ = {
+		2E435B382F0483BF000A19C8 /* QuantumNativeUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = QuantumAcademyUITests;
+			path = QuantumNativeUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -190,9 +190,9 @@
 		2E435B152F0483BE000A19C8 = {
 			isa = PBXGroup;
 			children = (
-				2E435B202F0483BE000A19C8 /* QuantumAcademy */,
-				2E435B2E2F0483BF000A19C8 /* QuantumAcademyTests */,
-				2E435B382F0483BF000A19C8 /* QuantumAcademyUITests */,
+				2E435B202F0483BE000A19C8 /* QuantumNative */,
+				2E435B2E2F0483BF000A19C8 /* QuantumNativeTests */,
+				2E435B382F0483BF000A19C8 /* QuantumNativeUITests */,
 				2E02A6052F0B9C1000954BE3 /* Frameworks */,
 				2E435B1F2F0483BE000A19C8 /* Products */,
 			);
@@ -201,9 +201,9 @@
 		2E435B1F2F0483BE000A19C8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2E435B1E2F0483BE000A19C8 /* QuantumAcademy.app */,
-				2E435B2B2F0483BF000A19C8 /* QuantumAcademyTests.xctest */,
-				2E435B352F0483BF000A19C8 /* QuantumAcademyUITests.xctest */,
+				2E435B1E2F0483BE000A19C8 /* QuantumNative.app */,
+				2E435B2B2F0483BF000A19C8 /* QuantumNativeTests.xctest */,
+				2E435B352F0483BF000A19C8 /* QuantumNativeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,9 +211,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2E435B1D2F0483BE000A19C8 /* QuantumAcademy */ = {
+		2E435B1D2F0483BE000A19C8 /* QuantumNative */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2E435B3F2F0483BF000A19C8 /* Build configuration list for PBXNativeTarget "QuantumAcademy" */;
+			buildConfigurationList = 2E435B3F2F0483BF000A19C8 /* Build configuration list for PBXNativeTarget "QuantumNative" */;
 			buildPhases = (
 				2E435B1A2F0483BE000A19C8 /* Sources */,
 				2E435B1B2F0483BE000A19C8 /* Frameworks */,
@@ -224,18 +224,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				2E435B202F0483BE000A19C8 /* QuantumAcademy */,
+				2E435B202F0483BE000A19C8 /* QuantumNative */,
 			);
-			name = QuantumAcademy;
+			name = QuantumNative;
 			packageProductDependencies = (
 			);
-			productName = QuantumAcademy;
-			productReference = 2E435B1E2F0483BE000A19C8 /* QuantumAcademy.app */;
+			productName = QuantumNative;
+			productReference = 2E435B1E2F0483BE000A19C8 /* QuantumNative.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2E435B2A2F0483BF000A19C8 /* QuantumAcademyTests */ = {
+		2E435B2A2F0483BF000A19C8 /* QuantumNativeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2E435B422F0483BF000A19C8 /* Build configuration list for PBXNativeTarget "QuantumAcademyTests" */;
+			buildConfigurationList = 2E435B422F0483BF000A19C8 /* Build configuration list for PBXNativeTarget "QuantumNativeTests" */;
 			buildPhases = (
 				2E435B272F0483BF000A19C8 /* Sources */,
 				2E435B282F0483BF000A19C8 /* Frameworks */,
@@ -247,18 +247,18 @@
 				2E435B2D2F0483BF000A19C8 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				2E435B2E2F0483BF000A19C8 /* QuantumAcademyTests */,
+				2E435B2E2F0483BF000A19C8 /* QuantumNativeTests */,
 			);
-			name = QuantumAcademyTests;
+			name = QuantumNativeTests;
 			packageProductDependencies = (
 			);
-			productName = QuantumAcademyTests;
-			productReference = 2E435B2B2F0483BF000A19C8 /* QuantumAcademyTests.xctest */;
+			productName = QuantumNativeTests;
+			productReference = 2E435B2B2F0483BF000A19C8 /* QuantumNativeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2E435B342F0483BF000A19C8 /* QuantumAcademyUITests */ = {
+		2E435B342F0483BF000A19C8 /* QuantumNativeUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2E435B452F0483BF000A19C8 /* Build configuration list for PBXNativeTarget "QuantumAcademyUITests" */;
+			buildConfigurationList = 2E435B452F0483BF000A19C8 /* Build configuration list for PBXNativeTarget "QuantumNativeUITests" */;
 			buildPhases = (
 				2E435B312F0483BF000A19C8 /* Sources */,
 				2E435B322F0483BF000A19C8 /* Frameworks */,
@@ -270,13 +270,13 @@
 				2E435B372F0483BF000A19C8 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				2E435B382F0483BF000A19C8 /* QuantumAcademyUITests */,
+				2E435B382F0483BF000A19C8 /* QuantumNativeUITests */,
 			);
-			name = QuantumAcademyUITests;
+			name = QuantumNativeUITests;
 			packageProductDependencies = (
 			);
-			productName = QuantumAcademyUITests;
-			productReference = 2E435B352F0483BF000A19C8 /* QuantumAcademyUITests.xctest */;
+			productName = QuantumNativeUITests;
+			productReference = 2E435B352F0483BF000A19C8 /* QuantumNativeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -302,7 +302,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2E435B192F0483BE000A19C8 /* Build configuration list for PBXProject "QuantumAcademy" */;
+			buildConfigurationList = 2E435B192F0483BE000A19C8 /* Build configuration list for PBXProject "QuantumNative" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -320,9 +320,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2E435B1D2F0483BE000A19C8 /* QuantumAcademy */,
-				2E435B2A2F0483BF000A19C8 /* QuantumAcademyTests */,
-				2E435B342F0483BF000A19C8 /* QuantumAcademyUITests */,
+				2E435B1D2F0483BE000A19C8 /* QuantumNative */,
+				2E435B2A2F0483BF000A19C8 /* QuantumNativeTests */,
+				2E435B342F0483BF000A19C8 /* QuantumNativeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -378,12 +378,12 @@
 /* Begin PBXTargetDependency section */
 		2E435B2D2F0483BF000A19C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2E435B1D2F0483BE000A19C8 /* QuantumAcademy */;
+			target = 2E435B1D2F0483BE000A19C8 /* QuantumNative */;
 			targetProxy = 2E435B2C2F0483BF000A19C8 /* PBXContainerItemProxy */;
 		};
 		2E435B372F0483BF000A19C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2E435B1D2F0483BE000A19C8 /* QuantumAcademy */;
+			target = 2E435B1D2F0483BE000A19C8 /* QuantumNative */;
 			targetProxy = 2E435B362F0483BF000A19C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -510,7 +510,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = QuantumAcademy/QuantumAcademy.entitlements;
+				CODE_SIGN_ENTITLEMENTS = QuantumNative/QuantumNative.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QXT586NGNR;
@@ -519,7 +519,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = QuantumAcademy;
+				INFOPLIST_KEY_CFBundleDisplayName = QuantumNative;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -539,7 +539,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.quantumacademy.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eunminpark.quantumnative;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -560,7 +560,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = QuantumAcademy/QuantumAcademy.entitlements;
+				CODE_SIGN_ENTITLEMENTS = QuantumNative/QuantumNative.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QXT586NGNR;
@@ -569,7 +569,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = QuantumAcademy;
+				INFOPLIST_KEY_CFBundleDisplayName = QuantumNative;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -589,7 +589,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.quantumacademy.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eunminpark.quantumnative;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -616,7 +616,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				MACOSX_DEPLOYMENT_TARGET = 26.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eunminpark.swiftquantum.SwiftQuantum.QuantumAcademyTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eunminpark.quantumnative.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
@@ -626,7 +626,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuantumAcademy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QuantumAcademy";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuantumNative.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QuantumNative";
 				XROS_DEPLOYMENT_TARGET = 26.2;
 			};
 			name = Debug;
@@ -642,7 +642,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				MACOSX_DEPLOYMENT_TARGET = 26.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eunminpark.swiftquantum.SwiftQuantum.QuantumAcademyTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eunminpark.quantumnative.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
@@ -652,7 +652,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuantumAcademy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QuantumAcademy";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuantumNative.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QuantumNative";
 				XROS_DEPLOYMENT_TARGET = 26.2;
 			};
 			name = Release;
@@ -667,7 +667,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				MACOSX_DEPLOYMENT_TARGET = 26.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eunminpark.swiftquantum.SwiftQuantum.QuantumAcademyUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eunminpark.quantumnative.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
@@ -677,7 +677,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = QuantumAcademy;
+				TEST_TARGET_NAME = QuantumNative;
 				XROS_DEPLOYMENT_TARGET = 26.2;
 			};
 			name = Debug;
@@ -692,7 +692,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				MACOSX_DEPLOYMENT_TARGET = 26.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eunminpark.swiftquantum.SwiftQuantum.QuantumAcademyUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eunminpark.quantumnative.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
@@ -702,7 +702,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = QuantumAcademy;
+				TEST_TARGET_NAME = QuantumNative;
 				XROS_DEPLOYMENT_TARGET = 26.2;
 			};
 			name = Release;
@@ -710,7 +710,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2E435B192F0483BE000A19C8 /* Build configuration list for PBXProject "QuantumAcademy" */ = {
+		2E435B192F0483BE000A19C8 /* Build configuration list for PBXProject "QuantumNative" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2E435B3D2F0483BF000A19C8 /* Debug */,
@@ -719,7 +719,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2E435B3F2F0483BF000A19C8 /* Build configuration list for PBXNativeTarget "QuantumAcademy" */ = {
+		2E435B3F2F0483BF000A19C8 /* Build configuration list for PBXNativeTarget "QuantumNative" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2E435B402F0483BF000A19C8 /* Debug */,
@@ -728,7 +728,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2E435B422F0483BF000A19C8 /* Build configuration list for PBXNativeTarget "QuantumAcademyTests" */ = {
+		2E435B422F0483BF000A19C8 /* Build configuration list for PBXNativeTarget "QuantumNativeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2E435B432F0483BF000A19C8 /* Debug */,
@@ -737,7 +737,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2E435B452F0483BF000A19C8 /* Build configuration list for PBXNativeTarget "QuantumAcademyUITests" */ = {
+		2E435B452F0483BF000A19C8 /* Build configuration list for PBXNativeTarget "QuantumNativeUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2E435B462F0483BF000A19C8 /* Debug */,

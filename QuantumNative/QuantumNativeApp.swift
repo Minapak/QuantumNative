@@ -1,19 +1,19 @@
 //
-//  QuantumAcademyApp.swift
-//  QuantumAcademy
+//  QuantumNativeApp.swift
+//  QuantumNative
 //
 //  The Quantum Odyssey - 2026 Premium Platform
 //  Optional login flow: Basic content accessible without login
 //  Premium features require login + subscription
 //
-//  Created by QuantumAcademy Team
-//  Copyright © 2026 QuantumAcademy. All rights reserved.
+//  Created by QuantumNative Team
+//  Copyright © 2026 QuantumNative. All rights reserved.
 //
 
 import SwiftUI
 
 @main
-struct QuantumAcademyApp: App {
+struct QuantumNativeApp: App {
     @StateObject private var authViewModel = AuthViewModel()
     @StateObject private var progressViewModel = ProgressViewModel()
     @StateObject private var achievementViewModel = AchievementViewModel()
@@ -97,7 +97,7 @@ struct QuantumAcademyApp: App {
 }
 
 // MARK: - App Configuration
-extension QuantumAcademyApp {
+extension QuantumNativeApp {
     static let appVersion = "2.0.0"
     static let buildNumber = "2026.01"
     static let platformName = "The Quantum Odyssey"

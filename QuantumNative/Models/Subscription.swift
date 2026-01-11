@@ -1,11 +1,11 @@
 //
 //  Subscription.swift
-//  SwiftQuantum Learning App
+//  QuantumNative
 //
 //  StoreKit 2 구독 상품 모델
 //
-//  Created by SwiftQuantum Team
-//  Copyright © 2025 SwiftQuantum. All rights reserved.
+//  Created by QuantumNative Team
+//  Copyright © 2026 QuantumNative. All rights reserved.
 //
 
 import Foundation
@@ -28,10 +28,10 @@ enum SubscriptionTier: String, CaseIterable {
 
 // MARK: - Subscription Product ID
 enum SubscriptionProductID: String, CaseIterable {
-    case proMonthly = "com.swiftquantumlearning.pro.monthly"
-    case proYearly = "com.swiftquantumlearning.pro.yearly"
-    case premiumMonthly = "com.swiftquantumlearning.premium.monthly"
-    case premiumYearly = "com.swiftquantumlearning.premium.yearly"
+    case proMonthly = "com.quantumnative.pro.monthly"
+    case proYearly = "com.quantumnative.pro.yearly"
+    case premiumMonthly = "com.quantumnative.premium.monthly"
+    case premiumYearly = "com.quantumnative.premium.yearly"
 
     var displayName: String {
         switch self {

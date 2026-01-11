@@ -1,11 +1,11 @@
 //
 //  StoreKitService.swift
-//  SwiftQuantum Learning App
+//  QuantumNative
 //
 //  StoreKit 2 결제 서비스 - App Store 통신 및 구독 관리
 //
-//  Created by SwiftQuantum Team
-//  Copyright © 2025 SwiftQuantum. All rights reserved.
+//  Created by QuantumNative Team
+//  Copyright © 2026 QuantumNative. All rights reserved.
 //
 
 import Foundation

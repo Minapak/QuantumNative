@@ -139,7 +139,7 @@ The app supports **5 languages**, each using **natural, localized expressions** 
 
 ```bash
 # Clone repository
-git clone https://github.com/your-org/QuantumNative.git
+git clone https://github.com/Minapak/QuantumNative.git
 
 # Open in Xcode
 cd QuantumNative
@@ -540,7 +540,17 @@ enum QuantumGate {
 
 ---
 
-## QA/QC Status (2026-01-08)
+## Related Projects
+
+| Project | Description | Link |
+|---------|-------------|------|
+| **SwiftQuantum** | iOS/macOS Quantum Computing Framework | [GitHub](https://github.com/Minapak/SwiftQuantum) |
+| **QuantumBridge** | Python Bridge to IBM Quantum | [GitHub](https://github.com/Minapak/QuantumBridge) |
+| **SwiftQuantumBackend** | FastAPI Backend Server | [GitHub](https://github.com/Minapak/SwiftQuantumBackend) |
+
+---
+
+## QA/QC Status (2026-01-11)
 
 ### Build Status
 
@@ -589,8 +599,8 @@ Email: admin@quantumnative.io
 Password: QuantumAdmin2026!
 ```
 
-> Full QA/QC report available at `QA_QC_REPORT_2026-01-08.txt`
-> Complete architecture documentation at `PROJECT_ARCHITECTURE_2026-01-08.txt`
+> Full QA/QC report available at `QA_QC_REPORT_2026-01-11.txt`
+> Complete architecture documentation at `PROJECT_ARCHITECTURE_2026-01-11.txt`
 
 ### DEV Mode Premium Bypass
 
@@ -641,6 +651,7 @@ QuantumNativeApp.swift
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.1.0 | 2026.01.11 | Rename to QuantumNative, update all references |
 | 2.0.2 | 2026.01.08 | DEV mode premium bypass, full architecture documentation |
 | 2.0.1 | 2026.01.08 | DEV mode badge (top-right), QA/QC verification pass |
 | 2.0.0 | 2026.01 | The Quantum Odyssey 4-frame platform, 5 languages |

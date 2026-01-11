@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2E435B1D2F0483BE000A19C8"
-               BuildableName = "SwiftQuantumLearning.app"
-               BlueprintName = "SwiftQuantumLearning"
-               ReferencedContainer = "container:SwiftQuantumLearning.xcodeproj">
+               BuildableName = "QuantumNative.app"
+               BlueprintName = "QuantumNative"
+               ReferencedContainer = "container:QuantumNative.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,9 +36,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2E435B2A2F0483BF000A19C8"
-               BuildableName = "SwiftQuantumLearningTests.xctest"
-               BlueprintName = "SwiftQuantumLearningTests"
-               ReferencedContainer = "container:SwiftQuantumLearning.xcodeproj">
+               BuildableName = "QuantumNativeTests.xctest"
+               BlueprintName = "QuantumNativeTests"
+               ReferencedContainer = "container:QuantumNative.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2E435B342F0483BF000A19C8"
-               BuildableName = "SwiftQuantumLearningUITests.xctest"
-               BlueprintName = "SwiftQuantumLearningUITests"
-               ReferencedContainer = "container:SwiftQuantumLearning.xcodeproj">
+               BuildableName = "QuantumNativeUITests.xctest"
+               BlueprintName = "QuantumNativeUITests"
+               ReferencedContainer = "container:QuantumNative.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -69,9 +69,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2E435B1D2F0483BE000A19C8"
-            BuildableName = "SwiftQuantumLearning.app"
-            BlueprintName = "SwiftQuantumLearning"
-            ReferencedContainer = "container:SwiftQuantumLearning.xcodeproj">
+            BuildableName = "QuantumNative.app"
+            BlueprintName = "QuantumNative"
+            ReferencedContainer = "container:QuantumNative.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -86,9 +86,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2E435B1D2F0483BE000A19C8"
-            BuildableName = "SwiftQuantumLearning.app"
-            BlueprintName = "SwiftQuantumLearning"
-            ReferencedContainer = "container:SwiftQuantumLearning.xcodeproj">
+            BuildableName = "QuantumNative.app"
+            BlueprintName = "QuantumNative"
+            ReferencedContainer = "container:QuantumNative.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

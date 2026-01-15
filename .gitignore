@@ -1,0 +1,58 @@
+# Xcode
+build/
+DerivedData/
+*.xcarchive
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Xcode User Data
+*.xcuserstate
+*.xcuserdatad/
+xcuserdata/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment and secrets
+.env
+.env.*
+*.pem
+*.p12
+*.key
+*.cer
+
+# Claude/AI
+.claude/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Archives and builds
+*.zip
+*.tar.gz
+*.rar

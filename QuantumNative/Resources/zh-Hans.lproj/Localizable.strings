@@ -22,6 +22,14 @@
 "common.error" = "错误";
 "common.success" = "成功";
 "common.warning" = "警告";
+"common.confirm" = "确认";
+"common.ok" = "确定";
+
+// MARK: - Settings
+"settings.language" = "语言";
+"settings.language.current" = "当前语言";
+"settings.language.select" = "选择语言";
+"settings.language.instant" = "语言更改即时应用于整个应用";
 
 // MARK: - Learning
 "learn.title" = "学习";
@@ -684,17 +692,51 @@
 // MARK: - Interactive Odyssey Keywords
 "odyssey.keywords" = "哈达玛、叠加态、CNOT、量子纠缠、测量";
 
+// MARK: - 新手引导
+"onboarding.welcome.subtitle" = "通过互动模拟和真实IBM QPU访问，掌握量子计算";
+"onboarding.welcome.button" = "开始";
+
+"onboarding.userType.title" = "介绍一下您自己";
+"onboarding.userType.subtitle" = "我们将为您定制量子学习之旅";
+
+"onboarding.tutorial.campus.title" = "校园中心";
+"onboarding.tutorial.campus.subtitle" = "您的学习之旅";
+"onboarding.tutorial.campus.description" = "通过13个级别的量子精通进阶。每个级别解锁新概念。";
+"onboarding.tutorial.campus.tip" = "点击任意级别卡片开始！";
+
+"onboarding.tutorial.lab.title" = "实验室";
+"onboarding.tutorial.lab.subtitle" = "实践学习";
+"onboarding.tutorial.lab.description" = "构建量子电路，实时观察布洛赫球的响应。";
+"onboarding.tutorial.lab.tip" = "先试试Hadamard门！";
+
+"onboarding.tutorial.bridge.title" = "桥接终端";
+"onboarding.tutorial.bridge.subtitle" = "真实量子硬件";
+"onboarding.tutorial.bridge.description" = "连接IBM真实量子计算机并部署您的电路。";
+"onboarding.tutorial.bridge.tip" = "高级功能 - 升级解锁！";
+
+"onboarding.tutorial.portfolio.title" = "作品集";
+"onboarding.tutorial.portfolio.subtitle" = "跟踪进度";
+"onboarding.tutorial.portfolio.description" = "用证书构建作品集。非常适合职业发展。";
+"onboarding.tutorial.portfolio.tip" = "在领英分享成就！";
+
+"onboarding.tutorial.letsgo" = "开始吧！";
+
+"onboarding.ready.title" = "一切就绪！";
+"onboarding.ready.personalized" = "已为%@定制";
+"onboarding.ready.subtitle" = "您的量子之旅现在开始";
+"onboarding.ready.button" = "开始学习";
+
 // MARK: - User Type Selection (Onboarding)
-"userType.title" = "欢迎来到SwiftQuantum";
-"userType.subtitle" = "告诉我们关于你的信息，以获得个性化体验";
+"userType.title" = "介绍一下您自己";
+"userType.subtitle" = "我们将为您定制量子学习之旅";
 "userType.student" = "学生";
 "userType.student.desc" = "为进入大厂做准备";
 "userType.parent" = "家长";
 "userType.parent.desc" = "为孩子的未来做准备";
 "userType.developer" = "工程师";
 "userType.developer.desc" = "提升技能增加市场竞争力";
-"userType.scifiFan" = "科幻迷";
-"userType.scifiFan.desc" = "想体验量子世界";
+"userType.sciFan" = "科幻迷";
+"userType.sciFan.desc" = "想体验量子世界";
 "userType.investor" = "投资人";
 "userType.investor.desc" = "了解下一个万亿市场";
 

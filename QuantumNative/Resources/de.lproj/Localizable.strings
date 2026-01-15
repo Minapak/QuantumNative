@@ -22,6 +22,14 @@
 "common.error" = "Fehler";
 "common.success" = "Erfolg";
 "common.warning" = "Warnung";
+"common.confirm" = "Bestätigen";
+"common.ok" = "OK";
+
+// MARK: - Settings
+"settings.language" = "Sprache";
+"settings.language.current" = "Aktuelle Sprache";
+"settings.language.select" = "Sprache wählen";
+"settings.language.instant" = "Sprachänderungen werden sofort in der gesamten App angewendet";
 
 // MARK: - Learning
 "learn.title" = "Lernen";
@@ -684,17 +692,51 @@
 // MARK: - Interactive Odyssey Keywords
 "odyssey.keywords" = "Hadamard, Superposition, CNOT, Verschränkung, Messung";
 
+// MARK: - Onboarding
+"onboarding.welcome.subtitle" = "Meistern Sie Quantencomputing durch interaktive Simulationen und echten IBM QPU-Zugang";
+"onboarding.welcome.button" = "Loslegen";
+
+"onboarding.userType.title" = "Erzählen Sie uns von sich";
+"onboarding.userType.subtitle" = "Wir personalisieren Ihre Quanten-Reise";
+
+"onboarding.tutorial.campus.title" = "Campus Hub";
+"onboarding.tutorial.campus.subtitle" = "Ihre Lernreise";
+"onboarding.tutorial.campus.description" = "Durchlaufen Sie 13 Stufen der Quantenmeisterschaft. Jede Stufe erschließt neue Konzepte.";
+"onboarding.tutorial.campus.tip" = "Tippen Sie auf eine Stufenkarte zum Starten!";
+
+"onboarding.tutorial.lab.title" = "Labor";
+"onboarding.tutorial.lab.subtitle" = "Praktisches Lernen";
+"onboarding.tutorial.lab.description" = "Bauen Sie Quantenschaltkreise und beobachten Sie die Bloch-Kugel in Echtzeit.";
+"onboarding.tutorial.lab.tip" = "Probieren Sie zuerst das Hadamard-Gate!";
+
+"onboarding.tutorial.bridge.title" = "Bridge Terminal";
+"onboarding.tutorial.bridge.subtitle" = "Echte Quanten-Hardware";
+"onboarding.tutorial.bridge.description" = "Verbinden Sie sich mit IBMs echten Quantencomputern und deployen Sie Ihre Schaltkreise.";
+"onboarding.tutorial.bridge.tip" = "Premium-Funktion - Upgrade für Zugang!";
+
+"onboarding.tutorial.portfolio.title" = "Portfolio";
+"onboarding.tutorial.portfolio.subtitle" = "Fortschritt verfolgen";
+"onboarding.tutorial.portfolio.description" = "Bauen Sie Ihr Portfolio mit Zertifikaten auf. Perfekt für die Karriere.";
+"onboarding.tutorial.portfolio.tip" = "Teilen Sie Erfolge auf LinkedIn!";
+
+"onboarding.tutorial.letsgo" = "Los geht's!";
+
+"onboarding.ready.title" = "Alles bereit!";
+"onboarding.ready.personalized" = "Personalisiert für %@";
+"onboarding.ready.subtitle" = "Ihre Quanten-Reise beginnt jetzt";
+"onboarding.ready.button" = "Lernen starten";
+
 // MARK: - User Type Selection (Onboarding)
-"userType.title" = "Willkommen bei SwiftQuantum";
-"userType.subtitle" = "Erzählen Sie uns etwas über sich für ein personalisiertes Erlebnis";
+"userType.title" = "Erzählen Sie uns von sich";
+"userType.subtitle" = "Wir personalisieren Ihre Quanten-Reise";
 "userType.student" = "Student";
 "userType.student.desc" = "Karrierevorbereitung für Tech-Unternehmen";
 "userType.parent" = "Elternteil";
 "userType.parent.desc" = "Die Zukunft meines Kindes vorbereiten";
 "userType.developer" = "Entwickler";
 "userType.developer.desc" = "Skills erweitern für höheren Marktwert";
-"userType.scifiFan" = "Sci-Fi-Fan";
-"userType.scifiFan.desc" = "Die Quantenwelt erleben wollen";
+"userType.sciFan" = "Sci-Fi-Fan";
+"userType.sciFan.desc" = "Die Quantenwelt erleben wollen";
 "userType.investor" = "Investor";
 "userType.investor.desc" = "Den nächsten Billionen-Markt verstehen";
 

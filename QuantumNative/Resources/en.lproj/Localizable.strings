@@ -31,6 +31,7 @@
 "settings.language.select" = "Select Language";
 "settings.language.restart.title" = "Restart Required";
 "settings.language.restart.message" = "Please restart the app for the language change to take effect.";
+"settings.language.instant" = "Language changes apply instantly throughout the app";
 "settings.restartTutorial" = "Restart Tutorial";
 "settings.restartTutorial.title" = "Restart Tutorial?";
 "settings.restartTutorial.message" = "This will show the onboarding tutorial again.";
@@ -696,9 +697,43 @@
 // MARK: - Interactive Odyssey Keywords
 "odyssey.keywords" = "Hadamard, Superposition, CNOT, Entanglement, Measurement";
 
+// MARK: - Onboarding
+"onboarding.welcome.subtitle" = "Master quantum computing through interactive simulations and real IBM QPU access";
+"onboarding.welcome.button" = "Get Started";
+
+"onboarding.userType.title" = "Tell Us About Yourself";
+"onboarding.userType.subtitle" = "We'll personalize your quantum journey";
+
+"onboarding.tutorial.campus.title" = "Campus Hub";
+"onboarding.tutorial.campus.subtitle" = "Your Learning Journey";
+"onboarding.tutorial.campus.description" = "Progress through 13 levels of quantum mastery. Each level unlocks new concepts.";
+"onboarding.tutorial.campus.tip" = "Tap any level card to begin!";
+
+"onboarding.tutorial.lab.title" = "Laboratory";
+"onboarding.tutorial.lab.subtitle" = "Hands-On Practice";
+"onboarding.tutorial.lab.description" = "Build quantum circuits and watch the Bloch sphere respond in real-time.";
+"onboarding.tutorial.lab.tip" = "Try the Hadamard gate first!";
+
+"onboarding.tutorial.bridge.title" = "Bridge Terminal";
+"onboarding.tutorial.bridge.subtitle" = "Real Quantum Hardware";
+"onboarding.tutorial.bridge.description" = "Connect to IBM's real quantum computers and deploy your circuits.";
+"onboarding.tutorial.bridge.tip" = "Premium feature - upgrade to access!";
+
+"onboarding.tutorial.portfolio.title" = "Portfolio";
+"onboarding.tutorial.portfolio.subtitle" = "Track Your Progress";
+"onboarding.tutorial.portfolio.description" = "Build your portfolio with certificates. Perfect for career advancement.";
+"onboarding.tutorial.portfolio.tip" = "Share achievements on LinkedIn!";
+
+"onboarding.tutorial.letsgo" = "Let's Go!";
+
+"onboarding.ready.title" = "You're All Set!";
+"onboarding.ready.personalized" = "Personalized for %@";
+"onboarding.ready.subtitle" = "Your quantum journey begins now";
+"onboarding.ready.button" = "Start Learning";
+
 // MARK: - User Type Selection (Onboarding)
-"userType.title" = "Welcome to SwiftQuantum";
-"userType.subtitle" = "Tell us about yourself to personalize your experience";
+"userType.title" = "Tell Us About Yourself";
+"userType.subtitle" = "We'll personalize your quantum journey";
 "userType.student" = "Student";
 "userType.student.desc" = "Building a standout portfolio for Big Tech";
 "userType.parent" = "Parent";

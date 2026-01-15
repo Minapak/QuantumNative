@@ -22,6 +22,14 @@
 "common.error" = "エラー";
 "common.success" = "成功";
 "common.warning" = "警告";
+"common.confirm" = "確認";
+"common.ok" = "OK";
+
+// MARK: - Settings
+"settings.language" = "言語";
+"settings.language.current" = "現在の言語";
+"settings.language.select" = "言語を選択";
+"settings.language.instant" = "言語変更はアプリ全体に即座に適用されます";
 
 // MARK: - Learning
 "learn.title" = "学習";
@@ -684,17 +692,51 @@
 // MARK: - Interactive Odyssey Keywords
 "odyssey.keywords" = "アダマール、重ね合わせ、CNOT、量子もつれ、測定";
 
+// MARK: - オンボーディング
+"onboarding.welcome.subtitle" = "インタラクティブなシミュレーションと実際のIBM QPUアクセスで量子コンピューティングをマスター";
+"onboarding.welcome.button" = "始める";
+
+"onboarding.userType.title" = "あなたについて教えてください";
+"onboarding.userType.subtitle" = "最適な量子学習体験をご用意します";
+
+"onboarding.tutorial.campus.title" = "キャンパスハブ";
+"onboarding.tutorial.campus.subtitle" = "学習の旅";
+"onboarding.tutorial.campus.description" = "13レベルの量子マスタリーを通じて成長。各レベルで新しい概念が解放されます。";
+"onboarding.tutorial.campus.tip" = "レベルカードをタップして始めましょう！";
+
+"onboarding.tutorial.lab.title" = "実験室";
+"onboarding.tutorial.lab.subtitle" = "ハンズオン学習";
+"onboarding.tutorial.lab.description" = "量子回路を構築し、ブロッホ球がリアルタイムで反応するのを確認。";
+"onboarding.tutorial.lab.tip" = "まずHadamardゲートを試してみて！";
+
+"onboarding.tutorial.bridge.title" = "ブリッジターミナル";
+"onboarding.tutorial.bridge.subtitle" = "実際の量子ハードウェア";
+"onboarding.tutorial.bridge.description" = "IBMの実際の量子コンピューターに接続し、回路をデプロイ。";
+"onboarding.tutorial.bridge.tip" = "プレミアム機能 - アップグレードしてアクセス！";
+
+"onboarding.tutorial.portfolio.title" = "ポートフォリオ";
+"onboarding.tutorial.portfolio.subtitle" = "進捗管理";
+"onboarding.tutorial.portfolio.description" = "証明書でポートフォリオを構築。キャリアアップに最適です。";
+"onboarding.tutorial.portfolio.tip" = "LinkedInで成果を共有！";
+
+"onboarding.tutorial.letsgo" = "始めましょう！";
+
+"onboarding.ready.title" = "準備完了！";
+"onboarding.ready.personalized" = "%@向けにカスタマイズ済み";
+"onboarding.ready.subtitle" = "量子の旅が今始まります";
+"onboarding.ready.button" = "学習を開始";
+
 // MARK: - User Type Selection (Onboarding)
-"userType.title" = "SwiftQuantumへようこそ";
-"userType.subtitle" = "最適な体験のためにあなたについて教えてください";
+"userType.title" = "あなたについて教えてください";
+"userType.subtitle" = "最適な量子学習体験をご用意します";
 "userType.student" = "学生";
 "userType.student.desc" = "GAFAMへの就職を目指す";
 "userType.parent" = "保護者";
 "userType.parent.desc" = "子供の将来のために準備する";
 "userType.developer" = "エンジニア";
 "userType.developer.desc" = "スキルアップして市場価値を高める";
-"userType.scifiFan" = "SF好き";
-"userType.scifiFan.desc" = "量子の世界を体験したい";
+"userType.sciFan" = "SF好き";
+"userType.sciFan.desc" = "量子の世界を体験したい";
 "userType.investor" = "投資家";
 "userType.investor.desc" = "次の巨大市場を理解する";
 

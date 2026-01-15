@@ -31,6 +31,7 @@
 "settings.language.select" = "언어 선택";
 "settings.language.restart.title" = "재시작 필요";
 "settings.language.restart.message" = "언어 변경을 적용하려면 앱을 다시 시작해주세요.";
+"settings.language.instant" = "언어 변경이 앱 전체에 즉시 적용됩니다";
 "settings.restartTutorial" = "튜토리얼 다시 보기";
 "settings.restartTutorial.title" = "튜토리얼을 다시 보시겠습니까?";
 "settings.restartTutorial.message" = "온보딩 튜토리얼이 다시 표시됩니다.";
@@ -696,9 +697,43 @@
 // MARK: - Interactive Odyssey Keywords (인터랙티브 오디세이 키워드)
 "odyssey.keywords" = "Hadamard, 중첩, CNOT, 얽힘, 측정, 하다마드";
 
+// MARK: - 온보딩
+"onboarding.welcome.subtitle" = "인터랙티브 시뮬레이션과 실제 IBM QPU 연동으로 양자 컴퓨팅을 마스터하세요";
+"onboarding.welcome.button" = "시작하기";
+
+"onboarding.userType.title" = "어떤 분이신가요?";
+"onboarding.userType.subtitle" = "맞춤형 양자 여정을 준비해 드릴게요";
+
+"onboarding.tutorial.campus.title" = "캠퍼스 허브";
+"onboarding.tutorial.campus.subtitle" = "당신의 학습 여정";
+"onboarding.tutorial.campus.description" = "13단계의 양자 마스터리를 통해 성장하세요. 각 레벨은 새로운 개념을 열어줍니다.";
+"onboarding.tutorial.campus.tip" = "아무 레벨 카드나 탭하여 시작하세요!";
+
+"onboarding.tutorial.lab.title" = "연구실";
+"onboarding.tutorial.lab.subtitle" = "실습 학습";
+"onboarding.tutorial.lab.description" = "양자 회로를 구축하고 블로흐 구면이 실시간으로 반응하는 것을 확인하세요.";
+"onboarding.tutorial.lab.tip" = "먼저 Hadamard 게이트를 시도해보세요!";
+
+"onboarding.tutorial.bridge.title" = "브릿지 터미널";
+"onboarding.tutorial.bridge.subtitle" = "실제 양자 하드웨어";
+"onboarding.tutorial.bridge.description" = "IBM의 실제 양자 컴퓨터에 연결하여 회로를 배포하세요.";
+"onboarding.tutorial.bridge.tip" = "프리미엄 기능 - 업그레이드하여 접근하세요!";
+
+"onboarding.tutorial.portfolio.title" = "포트폴리오";
+"onboarding.tutorial.portfolio.subtitle" = "진행 상황 추적";
+"onboarding.tutorial.portfolio.description" = "인증서로 포트폴리오를 구축하세요. 커리어 발전에 완벽합니다.";
+"onboarding.tutorial.portfolio.tip" = "LinkedIn에서 성취를 공유하세요!";
+
+"onboarding.tutorial.letsgo" = "시작합시다!";
+
+"onboarding.ready.title" = "모든 준비가 완료되었습니다!";
+"onboarding.ready.personalized" = "%@ 맞춤 설정 완료";
+"onboarding.ready.subtitle" = "당신의 양자 여정이 지금 시작됩니다";
+"onboarding.ready.button" = "학습 시작";
+
 // MARK: - User Type Selection (온보딩)
-"userType.title" = "SwiftQuantum에 오신 것을 환영합니다";
-"userType.subtitle" = "맞춤 경험을 위해 본인에 대해 알려주세요";
+"userType.title" = "어떤 분이신가요?";
+"userType.subtitle" = "맞춤형 양자 여정을 준비해 드릴게요";
 "userType.student" = "학생 / 취준생";
 "userType.student.desc" = "빅테크 입사를 위한 압도적인 포트폴리오 준비";
 "userType.parent" = "학부모";

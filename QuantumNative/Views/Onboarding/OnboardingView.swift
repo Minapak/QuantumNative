@@ -59,23 +59,33 @@ struct UserType: Identifiable, Equatable {
 // MARK: - Onboarding View
 struct OnboardingView: View {
     @Binding var hasCompletedOnboarding: Bool
-    @State private var currentStep: OnboardingStep = .welcome
+    @State private var currentStep: OnboardingStep = .language
     @State private var selectedLanguage: AppLanguage? = nil
     @State private var selectedUserType: UserType? = nil
+    @State private var languageRefreshKey = UUID()
 
     enum OnboardingStep: Int, CaseIterable {
-        case welcome = 0
-        case language = 1
+        case language = 0
+        case welcome = 1
         case userType = 2
         case tutorial = 3
         case ready = 4
     }
 
+    // Computed locale for real-time language change
+    private var currentLocale: Locale {
+        Locale(identifier: selectedLanguage?.code ?? "en")
+    }
+
     var body: some View {
         ZStack {
-            // Background - ignore safe area for full coverage
+            // Background - Deep space with quantum energy colors
             LinearGradient(
-                colors: [Color(hex: "0A0E27"), Color(hex: "16213E")],
+                colors: [
+                    Color(red: 0.03, green: 0.03, blue: 0.08),
+                    Color(red: 0.08, green: 0.04, blue: 0.15),
+                    Color(red: 0.05, green: 0.02, blue: 0.12)
+                ],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
@@ -88,7 +98,7 @@ struct OnboardingView: View {
             // Main content respects safe area
             VStack(spacing: 0) {
                 // Progress indicator (visible on steps 1-2 only, not tutorial/ready)
-                if currentStep == .language || currentStep == .userType {
+                if currentStep == .welcome || currentStep == .userType {
                     OnboardingProgressView(currentStep: currentStep)
                         .padding(.top, 16)
                         .padding(.horizontal, 40)
@@ -96,34 +106,42 @@ struct OnboardingView: View {
 
                 // Content
                 TabView(selection: $currentStep) {
-                    WelcomeStepView(onNext: { currentStep = .language })
-                        .tag(OnboardingStep.welcome)
-
                     LanguageSelectionStepView(
                         selectedLanguage: $selectedLanguage,
-                        onNext: { currentStep = .userType }
+                        onNext: {
+                            languageRefreshKey = UUID()
+                            currentStep = .welcome
+                        }
                     )
                     .tag(OnboardingStep.language)
+
+                    WelcomeStepView(onNext: { currentStep = .userType })
+                        .tag(OnboardingStep.welcome)
+                        .id(languageRefreshKey)
 
                     UserTypeSelectionStepView(
                         selectedUserType: $selectedUserType,
                         onNext: { currentStep = .tutorial }
                     )
                     .tag(OnboardingStep.userType)
+                    .id(languageRefreshKey)
 
                     TutorialStepView(onNext: { currentStep = .ready })
                         .tag(OnboardingStep.tutorial)
+                        .id(languageRefreshKey)
 
                     ReadyStepView(
                         selectedUserType: selectedUserType,
                         onStart: { completeOnboarding() }
                     )
                     .tag(OnboardingStep.ready)
+                    .id(languageRefreshKey)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .animation(.easeInOut(duration: 0.3), value: currentStep)
             }
         }
+        .environment(\.locale, currentLocale)
         .preferredColorScheme(.dark)
     }
 
@@ -147,7 +165,7 @@ struct OnboardingProgressView: View {
         HStack(spacing: 8) {
             ForEach(1..<4) { step in
                 Capsule()
-                    .fill(step <= currentStep.rawValue ? Color.quantumCyan : Color.white.opacity(0.2))
+                    .fill(step < currentStep.rawValue ? Color.quantumCyan : Color.white.opacity(0.2))
                     .frame(height: 4)
             }
         }
@@ -185,10 +203,11 @@ struct FloatingParticlesView: View {
     }
 }
 
-// MARK: - Step 1: Welcome
+// MARK: - Step 2: Welcome (after language selection)
 struct WelcomeStepView: View {
     let onNext: () -> Void
     @State private var showContent = false
+    @State private var rotationAngle: Double = 0
 
     var body: some View {
         VStack(spacing: 0) {
@@ -196,47 +215,81 @@ struct WelcomeStepView: View {
 
             // Logo section - centered
             VStack(spacing: 28) {
-                // Logo with rings
+                // App Logo with orbital rings
                 ZStack {
+                    // Outer glow effect
+                    Circle()
+                        .fill(
+                            RadialGradient(
+                                colors: [
+                                    Color.quantumPurple.opacity(0.3),
+                                    Color.quantumOrange.opacity(0.1),
+                                    Color.clear
+                                ],
+                                center: .center,
+                                startRadius: 60,
+                                endRadius: 120
+                            )
+                        )
+                        .frame(width: 240, height: 240)
+                        .blur(radius: 20)
+                        .scaleEffect(showContent ? 1 : 0.5)
+                        .opacity(showContent ? 1 : 0)
+
+                    // Orbital rings
                     ForEach(0..<3, id: \.self) { i in
                         Circle()
                             .stroke(
-                                Color.quantumCyan.opacity(0.25 - Double(i) * 0.08),
+                                LinearGradient(
+                                    colors: [
+                                        Color.quantumPurple.opacity(0.4 - Double(i) * 0.1),
+                                        Color.quantumOrange.opacity(0.3 - Double(i) * 0.08),
+                                        Color.quantumCyan.opacity(0.2 - Double(i) * 0.05)
+                                    ],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                ),
                                 lineWidth: 1.5
                             )
-                            .frame(width: 120 + CGFloat(i) * 28, height: 120 + CGFloat(i) * 28)
+                            .frame(width: 140 + CGFloat(i) * 30, height: 140 + CGFloat(i) * 30)
+                            .rotationEffect(.degrees(rotationAngle + Double(i) * 30))
                             .scaleEffect(showContent ? 1 : 0.6)
                             .opacity(showContent ? 1 : 0)
                             .animation(.easeOut(duration: 0.7).delay(Double(i) * 0.1), value: showContent)
                     }
 
-                    Image(systemName: "atom")
-                        .font(.system(size: 64, weight: .thin))
-                        .foregroundStyle(
-                            LinearGradient(colors: [.quantumCyan, .quantumPurple], startPoint: .topLeading, endPoint: .bottomTrailing)
-                        )
+                    // App Logo Image
+                    Image("AppLogo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 120, height: 120)
+                        .clipShape(RoundedRectangle(cornerRadius: 28))
+                        .shadow(color: Color.quantumPurple.opacity(0.5), radius: 20, x: 0, y: 0)
+                        .shadow(color: Color.quantumOrange.opacity(0.3), radius: 30, x: 0, y: 10)
                         .scaleEffect(showContent ? 1 : 0.5)
                         .opacity(showContent ? 1 : 0)
                         .animation(.spring(response: 0.5, dampingFraction: 0.7), value: showContent)
                 }
-                .frame(height: 180)
+                .frame(height: 200)
 
                 // App name and tagline
                 VStack(spacing: 12) {
-                    Text("QuantumAcademy")
-                        .font(.system(size: 32, weight: .bold))
-                        .foregroundColor(.white)
-
-                    Text("The Quantum Odyssey")
-                        .font(.system(size: 17, weight: .medium))
+                    Text("QuantumNative")
+                        .font(.system(size: 34, weight: .bold))
                         .foregroundStyle(
-                            LinearGradient(colors: [.quantumCyan, .quantumPurple], startPoint: .leading, endPoint: .trailing)
+                            LinearGradient(
+                                colors: [.white, .white.opacity(0.9)],
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
                         )
 
-                    Text("Harvard-MIT 2026 Research")
-                        .font(.system(size: 13))
+                    Text(NSLocalizedString("onboarding.welcome.subtitle", comment: ""))
+                        .font(.system(size: 14))
                         .foregroundColor(.textSecondary)
-                        .padding(.top, 4)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 40)
+                        .padding(.top, 8)
                 }
                 .opacity(showContent ? 1 : 0)
                 .offset(y: showContent ? 0 : 16)
@@ -248,7 +301,7 @@ struct WelcomeStepView: View {
             // Start button
             Button(action: onNext) {
                 HStack(spacing: 10) {
-                    Text("Get Started")
+                    Text(NSLocalizedString("onboarding.welcome.button", comment: ""))
                         .font(.system(size: 17, weight: .semibold))
                     Image(systemName: "arrow.right")
                         .font(.system(size: 15, weight: .semibold))
@@ -257,9 +310,14 @@ struct WelcomeStepView: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 54)
                 .background(
-                    LinearGradient(colors: [.quantumCyan, .quantumPurple], startPoint: .leading, endPoint: .trailing)
+                    LinearGradient(
+                        colors: [.quantumOrange, .quantumPurple],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
                 )
                 .cornerRadius(14)
+                .shadow(color: Color.quantumOrange.opacity(0.4), radius: 12, x: 0, y: 6)
             }
             .padding(.horizontal, 24)
             .padding(.bottom, 40)
@@ -271,11 +329,15 @@ struct WelcomeStepView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 showContent = true
             }
+            // Start subtle rotation animation
+            withAnimation(.linear(duration: 30).repeatForever(autoreverses: false)) {
+                rotationAngle = 360
+            }
         }
     }
 }
 
-// MARK: - Step 2: Language Selection
+// MARK: - Step 1: Language Selection (First screen)
 struct LanguageSelectionStepView: View {
     @Binding var selectedLanguage: AppLanguage?
     let onNext: () -> Void
@@ -283,26 +345,47 @@ struct LanguageSelectionStepView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            Spacer()
+                .frame(height: 40)
+
+            // App Logo at top
+            VStack(spacing: 16) {
+                Image("AppLogo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 80, height: 80)
+                    .clipShape(RoundedRectangle(cornerRadius: 18))
+                    .shadow(color: Color.quantumPurple.opacity(0.4), radius: 12, x: 0, y: 4)
+
+                Text("QuantumNative")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundColor(.white)
+            }
+            .opacity(showContent ? 1 : 0)
+            .scaleEffect(showContent ? 1 : 0.9)
+            .animation(.easeOut(duration: 0.4), value: showContent)
+
             // Header
-            VStack(spacing: 14) {
+            VStack(spacing: 10) {
                 Image(systemName: "globe")
-                    .font(.system(size: 44))
+                    .font(.system(size: 40))
                     .foregroundStyle(
-                        LinearGradient(colors: [.quantumCyan, .quantumPurple], startPoint: .topLeading, endPoint: .bottomTrailing)
+                        LinearGradient(colors: [.quantumOrange, .quantumPurple], startPoint: .topLeading, endPoint: .bottomTrailing)
                     )
 
                 Text("Choose Your Language")
-                    .font(.system(size: 26, weight: .bold))
+                    .font(.system(size: 24, weight: .bold))
                     .foregroundColor(.white)
 
-                Text("Select your preferred language")
-                    .font(.system(size: 15))
+                Text("Select your preferred language\nto personalize your experience")
+                    .font(.system(size: 14))
                     .foregroundColor(.textSecondary)
+                    .multilineTextAlignment(.center)
             }
             .padding(.top, 24)
             .opacity(showContent ? 1 : 0)
             .offset(y: showContent ? 0 : 16)
-            .animation(.easeOut(duration: 0.4), value: showContent)
+            .animation(.easeOut(duration: 0.4).delay(0.1), value: showContent)
 
             // Language grid
             ScrollView(.vertical, showsIndicators: false) {
@@ -316,17 +399,17 @@ struct LanguageSelectionStepView: View {
                     }
                 }
                 .padding(.horizontal, 20)
-                .padding(.top, 24)
+                .padding(.top, 20)
                 .padding(.bottom, 16)
             }
             .opacity(showContent ? 1 : 0)
             .offset(y: showContent ? 0 : 24)
-            .animation(.easeOut(duration: 0.4).delay(0.15), value: showContent)
+            .animation(.easeOut(duration: 0.4).delay(0.2), value: showContent)
 
             // Continue button
             Button(action: onNext) {
                 HStack(spacing: 10) {
-                    Text("Continue")
+                    Text(NSLocalizedString("common.continue", comment: ""))
                         .font(.system(size: 17, weight: .semibold))
                     Image(systemName: "arrow.right")
                         .font(.system(size: 15, weight: .semibold))
@@ -336,12 +419,13 @@ struct LanguageSelectionStepView: View {
                 .frame(height: 54)
                 .background(
                     LinearGradient(
-                        colors: selectedLanguage != nil ? [.quantumCyan, .quantumPurple] : [.gray.opacity(0.4), .gray.opacity(0.4)],
+                        colors: selectedLanguage != nil ? [.quantumOrange, .quantumPurple] : [.gray.opacity(0.4), .gray.opacity(0.4)],
                         startPoint: .leading,
                         endPoint: .trailing
                     )
                 )
                 .cornerRadius(14)
+                .shadow(color: selectedLanguage != nil ? Color.quantumOrange.opacity(0.3) : Color.clear, radius: 10, x: 0, y: 5)
             }
             .disabled(selectedLanguage == nil)
             .padding(.horizontal, 24)
@@ -353,6 +437,11 @@ struct LanguageSelectionStepView: View {
             if selectedLanguage == nil {
                 let systemLang = Locale.current.language.languageCode?.identifier ?? "en"
                 selectedLanguage = AppLanguage.supported.first { $0.code.hasPrefix(systemLang) } ?? AppLanguage.supported.first
+                // Apply the default language immediately
+                if let lang = selectedLanguage {
+                    UserDefaults.standard.set([lang.code], forKey: "AppleLanguages")
+                    UserDefaults.standard.set(lang.code, forKey: OnboardingKeys.selectedLanguage)
+                }
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 showContent = true
@@ -419,11 +508,11 @@ struct UserTypeSelectionStepView: View {
                         LinearGradient(colors: [.quantumPurple, .quantumOrange], startPoint: .topLeading, endPoint: .bottomTrailing)
                     )
 
-                Text(NSLocalizedString("userType.title", comment: ""))
+                Text(NSLocalizedString("onboarding.userType.title", comment: ""))
                     .font(.system(size: 24, weight: .bold))
                     .foregroundColor(.white)
 
-                Text(NSLocalizedString("userType.subtitle", comment: ""))
+                Text(NSLocalizedString("onboarding.userType.subtitle", comment: ""))
                     .font(.system(size: 14))
                     .foregroundColor(.textSecondary)
                     .multilineTextAlignment(.center)
@@ -455,7 +544,7 @@ struct UserTypeSelectionStepView: View {
             // Continue button
             Button(action: onNext) {
                 HStack(spacing: 10) {
-                    Text("Continue")
+                    Text(NSLocalizedString("common.continue", comment: ""))
                         .font(.system(size: 17, weight: .semibold))
                     Image(systemName: "arrow.right")
                         .font(.system(size: 15, weight: .semibold))
@@ -465,12 +554,13 @@ struct UserTypeSelectionStepView: View {
                 .frame(height: 54)
                 .background(
                     LinearGradient(
-                        colors: selectedUserType != nil ? [.quantumCyan, .quantumPurple] : [.gray.opacity(0.4), .gray.opacity(0.4)],
+                        colors: selectedUserType != nil ? [.quantumOrange, .quantumPurple] : [.gray.opacity(0.4), .gray.opacity(0.4)],
                         startPoint: .leading,
                         endPoint: .trailing
                     )
                 )
                 .cornerRadius(14)
+                .shadow(color: selectedUserType != nil ? Color.quantumOrange.opacity(0.3) : Color.clear, radius: 10, x: 0, y: 5)
             }
             .disabled(selectedUserType == nil)
             .padding(.horizontal, 24)
@@ -549,40 +639,42 @@ struct TutorialStepView: View {
     @State private var currentPage = 0
     @State private var showContent = false
 
-    let tutorials: [TutorialPage] = [
-        TutorialPage(
-            icon: "building.columns.fill",
-            iconColors: [.quantumCyan, .blue],
-            title: "Campus Hub",
-            subtitle: "Your Learning Journey",
-            description: "Progress through 13 levels of quantum mastery. Each level unlocks new concepts.",
-            tip: "Tap any level card to begin!"
-        ),
-        TutorialPage(
-            icon: "flask.fill",
-            iconColors: [.quantumPurple, .purple],
-            title: "Laboratory",
-            subtitle: "Hands-On Practice",
-            description: "Build quantum circuits and watch the Bloch sphere respond in real-time.",
-            tip: "Try the Hadamard gate first!"
-        ),
-        TutorialPage(
-            icon: "network",
-            iconColors: [.quantumOrange, .orange],
-            title: "Bridge Terminal",
-            subtitle: "Real Quantum Hardware",
-            description: "Connect to IBM's real quantum computers and deploy your circuits.",
-            tip: "Premium feature - upgrade to access!"
-        ),
-        TutorialPage(
-            icon: "chart.bar.doc.horizontal.fill",
-            iconColors: [.quantumGreen, .green],
-            title: "Portfolio",
-            subtitle: "Track Your Progress",
-            description: "Build your portfolio with certificates. Perfect for career advancement.",
-            tip: "Share achievements on LinkedIn!"
-        )
-    ]
+    var tutorials: [TutorialPage] {
+        [
+            TutorialPage(
+                icon: "building.columns.fill",
+                iconColors: [.quantumCyan, .blue],
+                titleKey: "onboarding.tutorial.campus.title",
+                subtitleKey: "onboarding.tutorial.campus.subtitle",
+                descriptionKey: "onboarding.tutorial.campus.description",
+                tipKey: "onboarding.tutorial.campus.tip"
+            ),
+            TutorialPage(
+                icon: "flask.fill",
+                iconColors: [.quantumPurple, .purple],
+                titleKey: "onboarding.tutorial.lab.title",
+                subtitleKey: "onboarding.tutorial.lab.subtitle",
+                descriptionKey: "onboarding.tutorial.lab.description",
+                tipKey: "onboarding.tutorial.lab.tip"
+            ),
+            TutorialPage(
+                icon: "network",
+                iconColors: [.quantumOrange, .orange],
+                titleKey: "onboarding.tutorial.bridge.title",
+                subtitleKey: "onboarding.tutorial.bridge.subtitle",
+                descriptionKey: "onboarding.tutorial.bridge.description",
+                tipKey: "onboarding.tutorial.bridge.tip"
+            ),
+            TutorialPage(
+                icon: "chart.bar.doc.horizontal.fill",
+                iconColors: [.quantumGreen, .green],
+                titleKey: "onboarding.tutorial.portfolio.title",
+                subtitleKey: "onboarding.tutorial.portfolio.subtitle",
+                descriptionKey: "onboarding.tutorial.portfolio.description",
+                tipKey: "onboarding.tutorial.portfolio.tip"
+            )
+        ]
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -599,7 +691,7 @@ struct TutorialStepView: View {
             HStack(spacing: 8) {
                 ForEach(0..<tutorials.count, id: \.self) { index in
                     Circle()
-                        .fill(index == currentPage ? Color.quantumCyan : Color.white.opacity(0.3))
+                        .fill(index == currentPage ? Color.quantumOrange : Color.white.opacity(0.3))
                         .frame(width: 8, height: 8)
                         .scaleEffect(index == currentPage ? 1.2 : 1.0)
                 }
@@ -616,7 +708,7 @@ struct TutorialStepView: View {
                         HStack(spacing: 6) {
                             Image(systemName: "arrow.left")
                                 .font(.system(size: 14))
-                            Text("Back")
+                            Text(NSLocalizedString("common.back", comment: ""))
                                 .font(.system(size: 15, weight: .medium))
                         }
                         .foregroundColor(.textSecondary)
@@ -635,7 +727,7 @@ struct TutorialStepView: View {
                     }
                 }) {
                     HStack(spacing: 8) {
-                        Text(currentPage < tutorials.count - 1 ? "Next" : "Let's Go!")
+                        Text(currentPage < tutorials.count - 1 ? NSLocalizedString("common.next", comment: "") : NSLocalizedString("onboarding.tutorial.letsgo", comment: ""))
                             .font(.system(size: 17, weight: .semibold))
                         Image(systemName: currentPage < tutorials.count - 1 ? "arrow.right" : "sparkles")
                             .font(.system(size: 14, weight: .semibold))
@@ -644,9 +736,10 @@ struct TutorialStepView: View {
                     .padding(.horizontal, 28)
                     .frame(height: 50)
                     .background(
-                        LinearGradient(colors: [.quantumCyan, .quantumPurple], startPoint: .leading, endPoint: .trailing)
+                        LinearGradient(colors: [.quantumOrange, .quantumPurple], startPoint: .leading, endPoint: .trailing)
                     )
                     .cornerRadius(12)
+                    .shadow(color: Color.quantumOrange.opacity(0.3), radius: 10, x: 0, y: 5)
                 }
             }
             .padding(.horizontal, 24)
@@ -665,10 +758,15 @@ struct TutorialPage: Identifiable {
     let id = UUID()
     let icon: String
     let iconColors: [Color]
-    let title: String
-    let subtitle: String
-    let description: String
-    let tip: String
+    let titleKey: String
+    let subtitleKey: String
+    let descriptionKey: String
+    let tipKey: String
+
+    var title: String { NSLocalizedString(titleKey, comment: "") }
+    var subtitle: String { NSLocalizedString(subtitleKey, comment: "") }
+    var description: String { NSLocalizedString(descriptionKey, comment: "") }
+    var tip: String { NSLocalizedString(tipKey, comment: "") }
 }
 
 struct TutorialPageView: View {
@@ -754,10 +852,20 @@ struct ReadyStepView: View {
 
             // Success animation
             ZStack {
-                // Pulse rings
+                // Pulse rings with gradient colors
                 ForEach(0..<3, id: \.self) { i in
                     Circle()
-                        .stroke(Color.quantumGreen.opacity(0.25 - Double(i) * 0.08), lineWidth: 2)
+                        .stroke(
+                            LinearGradient(
+                                colors: [
+                                    Color.quantumGreen.opacity(0.3 - Double(i) * 0.08),
+                                    Color.quantumCyan.opacity(0.2 - Double(i) * 0.05)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ),
+                            lineWidth: 2
+                        )
                         .frame(width: 100 + CGFloat(i) * 36, height: 100 + CGFloat(i) * 36)
                         .scaleEffect(pulseAnimation ? 1.08 : 1.0)
                         .opacity(pulseAnimation ? 0.5 : 1.0)
@@ -773,9 +881,10 @@ struct ReadyStepView: View {
                 ZStack {
                     Circle()
                         .fill(
-                            LinearGradient(colors: [.quantumGreen, .green], startPoint: .topLeading, endPoint: .bottomTrailing)
+                            LinearGradient(colors: [.quantumGreen, .quantumCyan], startPoint: .topLeading, endPoint: .bottomTrailing)
                         )
                         .frame(width: 88, height: 88)
+                        .shadow(color: Color.quantumGreen.opacity(0.4), radius: 16, x: 0, y: 0)
 
                     Image(systemName: "checkmark")
                         .font(.system(size: 44, weight: .bold))
@@ -788,20 +897,20 @@ struct ReadyStepView: View {
 
             // Message
             VStack(spacing: 14) {
-                Text("You're All Set!")
+                Text(NSLocalizedString("onboarding.ready.title", comment: ""))
                     .font(.system(size: 30, weight: .bold))
                     .foregroundColor(.white)
 
                 if let userType = selectedUserType {
-                    Text("Personalized for \(NSLocalizedString(userType.titleKey, comment: ""))")
+                    Text(String(format: NSLocalizedString("onboarding.ready.personalized", comment: ""), NSLocalizedString(userType.titleKey, comment: "")))
                         .font(.system(size: 15))
                         .foregroundColor(.textSecondary)
                 }
 
-                Text("Your quantum journey begins now")
+                Text(NSLocalizedString("onboarding.ready.subtitle", comment: ""))
                     .font(.system(size: 17, weight: .medium))
                     .foregroundStyle(
-                        LinearGradient(colors: [.quantumCyan, .quantumPurple], startPoint: .leading, endPoint: .trailing)
+                        LinearGradient(colors: [.quantumOrange, .quantumPurple], startPoint: .leading, endPoint: .trailing)
                     )
                     .padding(.top, 6)
             }
@@ -817,7 +926,7 @@ struct ReadyStepView: View {
                 onStart()
             }) {
                 HStack(spacing: 10) {
-                    Text("Start Learning")
+                    Text(NSLocalizedString("onboarding.ready.button", comment: ""))
                         .font(.system(size: 18, weight: .bold))
                     Image(systemName: "arrow.right.circle.fill")
                         .font(.system(size: 20))
@@ -826,10 +935,10 @@ struct ReadyStepView: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 56)
                 .background(
-                    LinearGradient(colors: [.quantumCyan, .quantumPurple], startPoint: .leading, endPoint: .trailing)
+                    LinearGradient(colors: [.quantumOrange, .quantumPurple], startPoint: .leading, endPoint: .trailing)
                 )
                 .cornerRadius(16)
-                .shadow(color: .quantumCyan.opacity(0.35), radius: 16, y: 8)
+                .shadow(color: .quantumOrange.opacity(0.4), radius: 16, y: 8)
             }
             .padding(.horizontal, 24)
             .padding(.bottom, 40)

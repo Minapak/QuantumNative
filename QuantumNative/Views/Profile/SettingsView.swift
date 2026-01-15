@@ -282,7 +282,6 @@ struct LinkRow: View {
 struct LanguagePickerSheet: View {
     @Binding var selectedLanguageCode: String
     @Environment(\.dismiss) var dismiss
-    @State private var showRestartAlert = false
 
     var body: some View {
         NavigationStack {
@@ -291,15 +290,34 @@ struct LanguagePickerSheet: View {
 
                 ScrollView {
                     VStack(spacing: 12) {
+                        // Info banner
+                        HStack(spacing: 12) {
+                            Image(systemName: "info.circle.fill")
+                                .font(.system(size: 20))
+                                .foregroundColor(.quantumCyan)
+
+                            Text(NSLocalizedString("settings.language.instant", comment: ""))
+                                .font(.system(size: 14))
+                                .foregroundColor(.textSecondary)
+                                .multilineTextAlignment(.leading)
+
+                            Spacer()
+                        }
+                        .padding(16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.quantumCyan.opacity(0.1))
+                        )
+                        .padding(.bottom, 8)
+
                         ForEach(AppLanguage.supported) { language in
                             Button(action: {
-                                if selectedLanguageCode != language.code {
-                                    selectedLanguageCode = language.code
-                                    UserDefaults.standard.set([language.code], forKey: "AppleLanguages")
-                                    showRestartAlert = true
-                                } else {
-                                    dismiss()
-                                }
+                                QuantumTheme.Haptics.selection()
+                                selectedLanguageCode = language.code
+                                UserDefaults.standard.set([language.code], forKey: "AppleLanguages")
+                                UserDefaults.standard.set(language.code, forKey: OnboardingKeys.selectedLanguage)
+                                UserDefaults.standard.synchronize()
+                                dismiss()
                             }) {
                                 HStack(spacing: 16) {
                                     Text(language.flag)
@@ -333,6 +351,8 @@ struct LanguagePickerSheet: View {
                                         )
                                 )
                             }
+                            .scaleEffect(selectedLanguageCode == language.code ? 1.02 : 1.0)
+                            .animation(.spring(response: 0.3, dampingFraction: 0.7), value: selectedLanguageCode)
                         }
                     }
                     .padding()
@@ -349,13 +369,6 @@ struct LanguagePickerSheet: View {
                     }
                     .foregroundColor(.quantumCyan)
                 }
-            }
-            .alert(NSLocalizedString("settings.language.restart.title", comment: ""), isPresented: $showRestartAlert) {
-                Button(NSLocalizedString("common.ok", comment: "")) {
-                    dismiss()
-                }
-            } message: {
-                Text(NSLocalizedString("settings.language.restart.message", comment: ""))
             }
         }
     }

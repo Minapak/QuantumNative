@@ -1,6 +1,6 @@
 //
 //  QuantumBridgeService.swift
-//  SwiftQuantumLearning
+//  QuantumNative
 //
 //  QuantumBridge 클라우드 연동 서비스
 //  실제 양자 하드웨어 연산 및 에러 피드백 루프
@@ -15,8 +15,16 @@ import UIKit
 
 // MARK: - QuantumBridge Configuration
 struct QuantumBridgeConfig {
-    static let baseURL = "https://api.quantumbridge.io/v1"
-    static let wsURL = "wss://ws.quantumbridge.io/v1"
+    #if DEBUG
+    // Local development
+    static let baseURL = "http://localhost:8001"
+    static let wsURL = "ws://localhost:8001"
+    #else
+    // Production (AWS with HTTPS)
+    static let baseURL = "https://bridge.swiftquantum.tech"
+    static let wsURL = "wss://bridge.swiftquantum.tech"
+    #endif
+
     static let timeout: TimeInterval = 30
     static let pollingInterval: TimeInterval = 3.0
 

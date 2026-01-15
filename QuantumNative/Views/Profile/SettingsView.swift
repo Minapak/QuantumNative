@@ -101,13 +101,13 @@ struct SettingsView: View {
                             LinkRow(
                                 title: "Privacy Policy",
                                 icon: "lock.fill",
-                                url: URL(string: "https://example.com/privacy")!
+                                url: URL(string: "https://swiftquantum.tech/legal/privacy-policy.html")!
                             )
-                            
+
                             LinkRow(
                                 title: "Terms of Service",
                                 icon: "doc.text.fill",
-                                url: URL(string: "https://example.com/terms")!
+                                url: URL(string: "https://swiftquantum.tech/legal/terms-of-service.html")!
                             )
                         }
                         

@@ -1,9 +1,9 @@
 //
 //  APIClient.swift
-//  SwiftQuantum Learning App
+//  QuantumNative
 //
 //  Created by SwiftQuantum Team
-//  Copyright © 2025 SwiftQuantum. All rights reserved.
+//  Copyright © 2026 SwiftQuantum. All rights reserved.
 //
 
 import Foundation
@@ -11,10 +11,10 @@ import Combine
 
 // MARK: - API Configuration
 class APIClient: ObservableObject {
-    
+
     // MARK: - Singleton
     static let shared = APIClient()
-    
+
     // MARK: - Properties
     @Published var accessToken: String? {
         didSet {
@@ -23,27 +23,30 @@ class APIClient: ObservableObject {
             }
         }
     }
-    
+
     @Published var isLoggedIn = false
     @Published var isLoading = false
     @Published var errorMessage: String?
-    
-    // API Base URL
+
+    // API Base URLs
     private let baseURL: String
+    private let bridgeURL: String
     private let session: URLSession
-    
+
     // MARK: - Initialization
     private init() {
         #if DEBUG
-        // iOS 시뮬레이터에서 Mac 서버에 접속
-        // Mac IP: 172.30.1.68
-        self.baseURL = "http://172.30.1.68:8000"
+        // Local development
+        self.baseURL = "http://localhost:8000"
+        self.bridgeURL = "http://localhost:8001"
         #else
-        // Production API URL (AWS)
-        self.baseURL = "https://api.swiftquantum.app"
+        // Production API URLs (AWS with HTTPS)
+        self.baseURL = "https://api.swiftquantum.tech"
+        self.bridgeURL = "https://bridge.swiftquantum.tech"
         #endif
-        
+
         print("🔧 APIClient baseURL: \(self.baseURL)")
+        print("🔧 APIClient bridgeURL: \(self.bridgeURL)")
         
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = 30
@@ -189,6 +192,136 @@ class APIClient: ObservableObject {
     func syncSubscriptionStatus() async throws -> SubscriptionSyncResponse {
         try await get(endpoint: "/api/v1/payment/subscription/status")
     }
+
+    // MARK: - QuantumBridge API Methods
+
+    /// QuantumBridge 상태 확인
+    func bridgeHealthCheck() async throws -> BridgeHealthResponse {
+        guard let url = URL(string: bridgeURL + "/health") else {
+            throw APIError.invalidURL
+        }
+
+        let (data, response) = try await session.data(from: url)
+
+        guard let httpResponse = response as? HTTPURLResponse,
+              (200...299).contains(httpResponse.statusCode) else {
+            throw APIError.invalidResponse
+        }
+
+        return try JSONDecoder().decode(BridgeHealthResponse.self, from: data)
+    }
+
+    /// Bell State 생성
+    func runBellState(stateType: String = "phi_plus", shots: Int = 1024) async throws -> BellStateResponse {
+        guard let url = URL(string: bridgeURL + "/bell-state") else {
+            throw APIError.invalidURL
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let body: [String: Any] = ["state_type": stateType, "shots": shots]
+        request.httpBody = try JSONSerialization.data(withJSONObject: body)
+
+        print("🌐 Bridge Request: POST /bell-state")
+
+        let (data, response) = try await session.data(for: request)
+
+        guard let httpResponse = response as? HTTPURLResponse,
+              (200...299).contains(httpResponse.statusCode) else {
+            throw APIError.invalidResponse
+        }
+
+        print("📊 Bridge Response: \(httpResponse.statusCode)")
+        return try JSONDecoder().decode(BellStateResponse.self, from: data)
+    }
+
+    /// 커스텀 양자 회로 실행
+    func runQuantumCircuit(qasm: String, shots: Int = 1024) async throws -> CircuitResponse {
+        guard let url = URL(string: bridgeURL + "/run-circuit") else {
+            throw APIError.invalidURL
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let body: [String: Any] = ["qasm": qasm, "shots": shots]
+        request.httpBody = try JSONSerialization.data(withJSONObject: body)
+
+        print("🌐 Bridge Request: POST /run-circuit")
+
+        let (data, response) = try await session.data(for: request)
+
+        guard let httpResponse = response as? HTTPURLResponse,
+              (200...299).contains(httpResponse.statusCode) else {
+            throw APIError.invalidResponse
+        }
+
+        print("📊 Bridge Response: \(httpResponse.statusCode)")
+        return try JSONDecoder().decode(CircuitResponse.self, from: data)
+    }
+
+    /// Grover 알고리즘 실행
+    func runGrover(numQubits: Int = 3, markedStates: [Int] = [5], shots: Int = 1024) async throws -> GroverResponse {
+        guard let url = URL(string: bridgeURL + "/grover") else {
+            throw APIError.invalidURL
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let body: [String: Any] = [
+            "num_qubits": numQubits,
+            "marked_states": markedStates,
+            "shots": shots
+        ]
+        request.httpBody = try JSONSerialization.data(withJSONObject: body)
+
+        print("🌐 Bridge Request: POST /grover")
+
+        let (data, response) = try await session.data(for: request)
+
+        guard let httpResponse = response as? HTTPURLResponse,
+              (200...299).contains(httpResponse.statusCode) else {
+            throw APIError.invalidResponse
+        }
+
+        print("📊 Bridge Response: \(httpResponse.statusCode)")
+        return try JSONDecoder().decode(GroverResponse.self, from: data)
+    }
+
+    /// Deutsch-Jozsa 알고리즘 실행
+    func runDeutschJozsa(numQubits: Int = 3, oracleType: String = "balanced", shots: Int = 1024) async throws -> DeutschJozsaResponse {
+        guard let url = URL(string: bridgeURL + "/deutsch-jozsa") else {
+            throw APIError.invalidURL
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let body: [String: Any] = [
+            "num_qubits": numQubits,
+            "oracle_type": oracleType,
+            "shots": shots
+        ]
+        request.httpBody = try JSONSerialization.data(withJSONObject: body)
+
+        print("🌐 Bridge Request: POST /deutsch-jozsa")
+
+        let (data, response) = try await session.data(for: request)
+
+        guard let httpResponse = response as? HTTPURLResponse,
+              (200...299).contains(httpResponse.statusCode) else {
+            throw APIError.invalidResponse
+        }
+
+        print("📊 Bridge Response: \(httpResponse.statusCode)")
+        return try JSONDecoder().decode(DeutschJozsaResponse.self, from: data)
+    }
 }
 
 // MARK: - Subscription Sync Response
@@ -251,4 +384,105 @@ enum APIError: LocalizedError {
 // MARK: - Error Response
 struct ErrorResponse: Codable {
     let detail: String?
+}
+
+// MARK: - QuantumBridge Response Models
+
+struct BridgeHealthResponse: Codable {
+    let status: String
+    let qiskitVersion: String?
+    let backends: [String]?
+    let timestamp: String
+
+    enum CodingKeys: String, CodingKey {
+        case status
+        case qiskitVersion = "qiskit_version"
+        case backends
+        case timestamp
+    }
+}
+
+struct BellStateResponse: Codable {
+    let stateType: String
+    let results: BellStateResult
+    let shots: Int
+
+    enum CodingKeys: String, CodingKey {
+        case stateType = "state_type"
+        case results
+        case shots
+    }
+}
+
+struct BellStateResult: Codable {
+    let counts: [String: Int]
+    let statevector: [[Double]]?
+}
+
+struct CircuitResponse: Codable {
+    let counts: [String: Int]
+    let shots: Int
+    let executionTime: Double?
+
+    enum CodingKeys: String, CodingKey {
+        case counts
+        case shots
+        case executionTime = "execution_time"
+    }
+}
+
+struct GroverResponse: Codable {
+    let algorithm: String
+    let results: GroverResult
+    let numQubits: Int
+    let markedStates: [Int]
+    let shots: Int
+
+    enum CodingKeys: String, CodingKey {
+        case algorithm
+        case results
+        case numQubits = "num_qubits"
+        case markedStates = "marked_states"
+        case shots
+    }
+}
+
+struct GroverResult: Codable {
+    let counts: [String: Int]
+    let iterations: Int
+    let successProbability: Double
+
+    enum CodingKeys: String, CodingKey {
+        case counts
+        case iterations
+        case successProbability = "success_probability"
+    }
+}
+
+struct DeutschJozsaResponse: Codable {
+    let algorithm: String
+    let results: DeutschJozsaResult
+    let numQubits: Int
+    let oracleType: String
+    let shots: Int
+
+    enum CodingKeys: String, CodingKey {
+        case algorithm
+        case results
+        case numQubits = "num_qubits"
+        case oracleType = "oracle_type"
+        case shots
+    }
+}
+
+struct DeutschJozsaResult: Codable {
+    let counts: [String: Int]
+    let determination: String
+    let isConstant: Bool
+
+    enum CodingKeys: String, CodingKey {
+        case counts
+        case determination
+        case isConstant = "is_constant"
+    }
 }

@@ -46,6 +46,7 @@
 				Models/QubitState.swift,
 				Models/Subscription.swift,
 				Models/UserProgress.swift,
+				QuantumNativeApp.swift,
 				Services/AchievementService.swift,
 				Services/APIClient.swift,
 				Services/AuthService.swift,
@@ -54,7 +55,6 @@
 				Services/ProgressService.swift,
 				Services/StorageService.swift,
 				Services/StoreKitService.swift,
-				QuantumNativeApp.swift,
 				ViewModels/AchievementViewModel.swift,
 				ViewModels/ProgressViewModel.swift,
 				Views/Components/CustomButton.swift,
@@ -93,6 +93,7 @@
 				Models/QubitState.swift,
 				Models/Subscription.swift,
 				Models/UserProgress.swift,
+				QuantumNativeApp.swift,
 				Services/AchievementService.swift,
 				Services/APIClient.swift,
 				Services/AuthService.swift,
@@ -101,7 +102,6 @@
 				Services/ProgressService.swift,
 				Services/StorageService.swift,
 				Services/StoreKitService.swift,
-				QuantumNativeApp.swift,
 				ViewModels/AchievementViewModel.swift,
 				ViewModels/ProgressViewModel.swift,
 				Views/Components/CustomButton.swift,
@@ -520,14 +520,15 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = QuantumNative;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Background_Color[sdk=iphoneos*]" = 0A0E27;
+				"INFOPLIST_KEY_UILaunchScreen_Background_Color[sdk=iphonesimulator*]" = 0A0E27;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Background_Color[sdk=iphoneos*]" = "0A0E27";
-				"INFOPLIST_KEY_UILaunchScreen_Background_Color[sdk=iphonesimulator*]" = "0A0E27";
 				"INFOPLIST_KEY_UILaunchScreen_ImageName[sdk=iphoneos*]" = Splash;
 				"INFOPLIST_KEY_UILaunchScreen_ImageName[sdk=iphonesimulator*]" = Splash;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
@@ -570,14 +571,15 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = QuantumNative;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Background_Color[sdk=iphoneos*]" = 0A0E27;
+				"INFOPLIST_KEY_UILaunchScreen_Background_Color[sdk=iphonesimulator*]" = 0A0E27;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Background_Color[sdk=iphoneos*]" = "0A0E27";
-				"INFOPLIST_KEY_UILaunchScreen_Background_Color[sdk=iphonesimulator*]" = "0A0E27";
 				"INFOPLIST_KEY_UILaunchScreen_ImageName[sdk=iphoneos*]" = Splash;
 				"INFOPLIST_KEY_UILaunchScreen_ImageName[sdk=iphonesimulator*]" = Splash;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;

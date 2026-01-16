@@ -23,21 +23,8 @@ enum OnboardingKeys {
 }
 
 // MARK: - Language Model
-struct AppLanguage: Identifiable, Equatable {
-    let id: String
-    let code: String
-    let name: String
-    let nativeName: String
-    let flag: String
-
-    static let supported: [AppLanguage] = [
-        AppLanguage(id: "en", code: "en", name: "English", nativeName: "English", flag: "🇺🇸"),
-        AppLanguage(id: "ko", code: "ko", name: "Korean", nativeName: "한국어", flag: "🇰🇷"),
-        AppLanguage(id: "ja", code: "ja", name: "Japanese", nativeName: "日本語", flag: "🇯🇵"),
-        AppLanguage(id: "zh-Hans", code: "zh-Hans", name: "Chinese", nativeName: "简体中文", flag: "🇨🇳"),
-        AppLanguage(id: "de", code: "de", name: "German", nativeName: "Deutsch", flag: "🇩🇪")
-    ]
-}
+// Now using LocalizationManager.AppLanguage instead
+typealias OnboardingLanguage = AppLanguage
 
 // MARK: - User Type Model
 struct UserType: Identifiable, Equatable {
@@ -59,8 +46,9 @@ struct UserType: Identifiable, Equatable {
 // MARK: - Onboarding View
 struct OnboardingView: View {
     @Binding var hasCompletedOnboarding: Bool
+    @StateObject private var localizationManager = LocalizationManager.shared
     @State private var currentStep: OnboardingStep = .language
-    @State private var selectedLanguage: AppLanguage? = nil
+    @State private var selectedLanguageEnum: AppLanguage? = nil
     @State private var selectedUserType: UserType? = nil
     @State private var languageRefreshKey = UUID()
 
@@ -74,7 +62,7 @@ struct OnboardingView: View {
 
     // Computed locale for real-time language change
     private var currentLocale: Locale {
-        Locale(identifier: selectedLanguage?.code ?? "en")
+        localizationManager.locale
     }
 
     var body: some View {
@@ -107,7 +95,8 @@ struct OnboardingView: View {
                 // Content
                 TabView(selection: $currentStep) {
                     LanguageSelectionStepView(
-                        selectedLanguage: $selectedLanguage,
+                        selectedLanguage: $selectedLanguageEnum,
+                        localizationManager: localizationManager,
                         onNext: {
                             languageRefreshKey = UUID()
                             currentStep = .welcome
@@ -146,10 +135,7 @@ struct OnboardingView: View {
     }
 
     private func completeOnboarding() {
-        if let language = selectedLanguage {
-            UserDefaults.standard.set(language.code, forKey: OnboardingKeys.selectedLanguage)
-            UserDefaults.standard.set([language.code], forKey: "AppleLanguages")
-        }
+        // Language is already set via LocalizationManager during selection
         if let userType = selectedUserType {
             UserDefaults.standard.set(userType.id, forKey: OnboardingKeys.selectedUserType)
         }
@@ -340,6 +326,7 @@ struct WelcomeStepView: View {
 // MARK: - Step 1: Language Selection (First screen)
 struct LanguageSelectionStepView: View {
     @Binding var selectedLanguage: AppLanguage?
+    @ObservedObject var localizationManager: LocalizationManager
     let onNext: () -> Void
     @State private var showContent = false
 
@@ -390,11 +377,15 @@ struct LanguageSelectionStepView: View {
             // Language grid
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
-                    ForEach(AppLanguage.supported) { language in
-                        LanguageCard(
+                    ForEach(AppLanguage.allCases) { language in
+                        LanguageCardNew(
                             language: language,
                             isSelected: selectedLanguage == language,
-                            onSelect: { selectedLanguage = language }
+                            onSelect: {
+                                selectedLanguage = language
+                                // Apply language immediately via LocalizationManager
+                                localizationManager.setLanguage(language)
+                            }
                         )
                     }
                 }
@@ -409,7 +400,7 @@ struct LanguageSelectionStepView: View {
             // Continue button
             Button(action: onNext) {
                 HStack(spacing: 10) {
-                    Text(NSLocalizedString("common.continue", comment: ""))
+                    Text(localizationManager.localizedString("common.continue"))
                         .font(.system(size: 17, weight: .semibold))
                     Image(systemName: "arrow.right")
                         .font(.system(size: 15, weight: .semibold))
@@ -435,13 +426,8 @@ struct LanguageSelectionStepView: View {
         }
         .onAppear {
             if selectedLanguage == nil {
-                let systemLang = Locale.current.language.languageCode?.identifier ?? "en"
-                selectedLanguage = AppLanguage.supported.first { $0.code.hasPrefix(systemLang) } ?? AppLanguage.supported.first
-                // Apply the default language immediately
-                if let lang = selectedLanguage {
-                    UserDefaults.standard.set([lang.code], forKey: "AppleLanguages")
-                    UserDefaults.standard.set(lang.code, forKey: OnboardingKeys.selectedLanguage)
-                }
+                // Set default language based on LocalizationManager's current selection
+                selectedLanguage = localizationManager.currentLanguage
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 showContent = true
@@ -450,7 +436,7 @@ struct LanguageSelectionStepView: View {
     }
 }
 
-struct LanguageCard: View {
+struct LanguageCardNew: View {
     let language: AppLanguage
     let isSelected: Bool
     let onSelect: () -> Void
@@ -458,21 +444,17 @@ struct LanguageCard: View {
     var body: some View {
         Button(action: {
             QuantumTheme.Haptics.selection()
-            // Apply language immediately when selected
-            UserDefaults.standard.set([language.code], forKey: "AppleLanguages")
-            UserDefaults.standard.set(language.code, forKey: OnboardingKeys.selectedLanguage)
-            UserDefaults.standard.synchronize()
             onSelect()
         }) {
             VStack(spacing: 6) {
                 Text(language.flag)
                     .font(.system(size: 36))
 
-                Text(language.nativeName)
+                Text(language.displayName)
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundColor(.white)
 
-                Text(language.name)
+                Text(language.localizedName)
                     .font(.system(size: 12))
                     .foregroundColor(.textSecondary)
             }

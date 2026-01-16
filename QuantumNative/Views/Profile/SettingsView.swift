@@ -19,9 +19,11 @@ struct SettingsView: View {
     @State private var showLanguagePicker = false
     @State private var showRestartAlert = false
 
-    // Get current selected language
+    // Get current selected language using LocalizationManager
+    @StateObject private var localizationManager = LocalizationManager.shared
+
     private var currentLanguage: AppLanguage {
-        AppLanguage.supported.first { $0.code == selectedLanguageCode } ?? AppLanguage.supported.first!
+        localizationManager.currentLanguage
     }
 
     var body: some View {
@@ -46,7 +48,7 @@ struct SettingsView: View {
 
                                     HStack(spacing: 6) {
                                         Text(currentLanguage.flag)
-                                        Text(currentLanguage.nativeName)
+                                        Text(currentLanguage.displayName)
                                             .foregroundColor(.textSecondary)
                                     }
 
@@ -282,6 +284,7 @@ struct LinkRow: View {
 struct LanguagePickerSheet: View {
     @Binding var selectedLanguageCode: String
     @Environment(\.dismiss) var dismiss
+    @StateObject private var localizationManager = LocalizationManager.shared
 
     var body: some View {
         NavigationStack {
@@ -296,7 +299,7 @@ struct LanguagePickerSheet: View {
                                 .font(.system(size: 20))
                                 .foregroundColor(.quantumCyan)
 
-                            Text(NSLocalizedString("settings.language.instant", comment: ""))
+                            Text(localizationManager.localizedString("settings.language.instant"))
                                 .font(.system(size: 14))
                                 .foregroundColor(.textSecondary)
                                 .multilineTextAlignment(.leading)
@@ -310,13 +313,11 @@ struct LanguagePickerSheet: View {
                         )
                         .padding(.bottom, 8)
 
-                        ForEach(AppLanguage.supported) { language in
+                        ForEach(AppLanguage.allCases) { language in
                             Button(action: {
                                 QuantumTheme.Haptics.selection()
-                                selectedLanguageCode = language.code
-                                UserDefaults.standard.set([language.code], forKey: "AppleLanguages")
-                                UserDefaults.standard.set(language.code, forKey: OnboardingKeys.selectedLanguage)
-                                UserDefaults.standard.synchronize()
+                                selectedLanguageCode = language.rawValue
+                                localizationManager.setLanguage(language)
                                 dismiss()
                             }) {
                                 HStack(spacing: 16) {
@@ -324,18 +325,18 @@ struct LanguagePickerSheet: View {
                                         .font(.system(size: 32))
 
                                     VStack(alignment: .leading, spacing: 4) {
-                                        Text(language.nativeName)
+                                        Text(language.displayName)
                                             .font(.system(size: 17, weight: .semibold))
                                             .foregroundColor(.white)
 
-                                        Text(language.name)
+                                        Text(language.localizedName)
                                             .font(.system(size: 14))
                                             .foregroundColor(.textSecondary)
                                     }
 
                                     Spacer()
 
-                                    if selectedLanguageCode == language.code {
+                                    if selectedLanguageCode == language.rawValue || localizationManager.currentLanguage == language {
                                         Image(systemName: "checkmark.circle.fill")
                                             .font(.system(size: 24))
                                             .foregroundColor(.quantumCyan)
@@ -344,15 +345,15 @@ struct LanguagePickerSheet: View {
                                 .padding(16)
                                 .background(
                                     RoundedRectangle(cornerRadius: 12)
-                                        .fill(selectedLanguageCode == language.code ? Color.quantumCyan.opacity(0.15) : Color.bgCard)
+                                        .fill(localizationManager.currentLanguage == language ? Color.quantumCyan.opacity(0.15) : Color.bgCard)
                                         .overlay(
                                             RoundedRectangle(cornerRadius: 12)
-                                                .stroke(selectedLanguageCode == language.code ? Color.quantumCyan : Color.white.opacity(0.1), lineWidth: 1)
+                                                .stroke(localizationManager.currentLanguage == language ? Color.quantumCyan : Color.white.opacity(0.1), lineWidth: 1)
                                         )
                                 )
                             }
-                            .scaleEffect(selectedLanguageCode == language.code ? 1.02 : 1.0)
-                            .animation(.spring(response: 0.3, dampingFraction: 0.7), value: selectedLanguageCode)
+                            .scaleEffect(localizationManager.currentLanguage == language ? 1.02 : 1.0)
+                            .animation(.spring(response: 0.3, dampingFraction: 0.7), value: localizationManager.currentLanguage)
                         }
                     }
                     .padding()

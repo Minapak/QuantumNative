@@ -594,11 +594,11 @@ enum QuantumGate {
 
 ### Admin Credentials (Development)
 
-```
-Email: admin@quantumnative.io
-Password: QuantumAdmin2026!
-```
+Admin credentials are stored securely via environment variables:
+- `ADMIN_EMAIL` - Admin account email
+- `ADMIN_PASSWORD` - Admin account password
 
+> Contact the development team for admin access.
 > Full QA/QC report available at `QA_QC_REPORT_2026-01-11.txt`
 > Complete architecture documentation at `PROJECT_ARCHITECTURE_2026-01-11.txt`
 

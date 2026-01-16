@@ -32,9 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **DEV mode premium bypass** for testing all features in DEBUG builds
-- **Admin login system** with offline mode support
-  - Email: `admin@swiftquantum.io`
-  - Password: `QuantumAdmin2026!`
+- **Admin login system** with offline mode support (credentials in environment variables)
 - Complete architecture documentation
 
 ### Changed

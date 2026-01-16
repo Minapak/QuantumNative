@@ -32,11 +32,12 @@ enum OdysseyTab: String, CaseIterable {
     }
 
     var displayName: String {
+        let manager = LocalizationManager.shared
         switch self {
-        case .campus: return NSLocalizedString("tab.campus", comment: "")
-        case .laboratory: return NSLocalizedString("tab.laboratory", comment: "")
-        case .bridge: return NSLocalizedString("tab.bridge", comment: "")
-        case .portfolio: return NSLocalizedString("tab.portfolio", comment: "")
+        case .campus: return manager.localizedString("tab.campus")
+        case .laboratory: return manager.localizedString("tab.laboratory")
+        case .bridge: return manager.localizedString("tab.bridge")
+        case .portfolio: return manager.localizedString("tab.portfolio")
         }
     }
 
@@ -82,6 +83,7 @@ struct MainTabView: View {
     @EnvironmentObject var profileViewModel: ProfileViewModel
 
     @StateObject private var storeKitService = StoreKitService.shared
+    @StateObject private var localizationManager = LocalizationManager.shared
     @ObservedObject var translationManager = QuantumTranslationManager.shared
 
     var body: some View {
@@ -120,6 +122,8 @@ struct MainTabView: View {
             // DEV mode badge removed for production release
         }
         .ignoresSafeArea(.keyboard)
+        .environment(\.locale, localizationManager.locale)
+        .id(localizationManager.currentLanguage) // Force view refresh on language change
         .onAppear {
             setupInitialData()
             translationManager.onDailyLogin()
@@ -127,11 +131,13 @@ struct MainTabView: View {
         .sheet(isPresented: $showPremiumUpgrade) {
             PremiumUpgradeView()
                 .environmentObject(progressViewModel)
+                .environment(\.locale, localizationManager.locale)
         }
         .sheet(isPresented: $showLoginPrompt) {
             LoginPromptSheet(onLogin: {
                 showLoginPrompt = false
             })
+            .environment(\.locale, localizationManager.locale)
         }
     }
 

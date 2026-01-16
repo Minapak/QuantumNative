@@ -396,13 +396,14 @@ class QuantumTranslationManager: ObservableObject {
 
 ```swift
 struct AdminCredentials {
-    static let email = "admin@swiftquantum.io"
-    static let password = "QuantumAdmin2026!"
+    // Credentials loaded from environment variables or secure configuration
+    static let email = ProcessInfo.processInfo.environment["ADMIN_EMAIL"] ?? ""
+    static let password = ProcessInfo.processInfo.environment["ADMIN_PASSWORD"] ?? ""
 }
 
 // AuthService.swift
 func login(email: String, password: String) async -> Bool {
-    // Admin check first
+    // Admin check first (credentials from secure config)
     if email == AdminCredentials.email &&
        password == AdminCredentials.password {
         return await loginAsAdmin()
@@ -612,9 +613,9 @@ struct QuantumTextStyle {
 - Purchase flow
 
 ### Manual Testing
-- Admin login: `admin@swiftquantum.io` / `QuantumAdmin2026!`
-- All premium features accessible
-- Full language switching
+- Admin login credentials available via environment variables
+- All premium features accessible in DEBUG mode
+- Full language switching supported
 
 ---
 

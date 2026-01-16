@@ -26,16 +26,11 @@ struct QuantumNativeApp: App {
     // Onboarding state for first-time users
     @AppStorage(OnboardingKeys.hasCompletedOnboarding) private var hasCompletedOnboarding = false
 
-    // Selected language for immediate locale change
-    @AppStorage(OnboardingKeys.selectedLanguage) private var selectedLanguage = "en"
+    // Localization Manager for instant language switching
+    @StateObject private var localizationManager = LocalizationManager.shared
 
     // Translation Manager for Solar Agent
     @ObservedObject private var translationManager = QuantumTranslationManager.shared
-
-    // Computed locale based on selected language
-    private var currentLocale: Locale {
-        Locale(identifier: selectedLanguage)
-    }
 
     var body: some Scene {
         WindowGroup {
@@ -56,7 +51,8 @@ struct QuantumNativeApp: App {
                     OnboardingView(hasCompletedOnboarding: $hasCompletedOnboarding)
                 }
             }
-            .environment(\.locale, currentLocale)
+            .environment(\.locale, localizationManager.locale)
+            .id(localizationManager.currentLanguage) // Force view refresh on language change
             .preferredColorScheme(.dark)
             .onAppear {
                 setupAppearance()

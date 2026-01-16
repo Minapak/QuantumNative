@@ -50,8 +50,10 @@ xcrun simctl launch "iPhone 17 Pro" com.eunminpark.quantumnative
 
 | Field | Value |
 |-------|-------|
-| Email | `admin@swiftquantum.io` |
-| Password | `QuantumAdmin2026!` |
+| Email | Set via `ADMIN_EMAIL` environment variable |
+| Password | Set via `ADMIN_PASSWORD` environment variable |
+
+> **Note:** Contact the development team for admin credentials. Do not commit credentials to version control.
 
 ### Admin Features
 - Full premium access (all 13 levels unlocked)
@@ -296,8 +298,7 @@ AppStoreScreenshots/
    - Add qubit → Apply H gate → Measure
    ↓
 5. Profile → Login
-   - Email: admin@swiftquantum.io
-   - Password: QuantumAdmin2026!
+   - Use admin credentials from environment variables
    ↓
 6. Bridge Terminal (Premium)
    - Submit Bell State job

@@ -693,6 +693,9 @@
 "odyssey.keywords" = "哈达玛、叠加态、CNOT、量子纠缠、测量";
 
 // MARK: - 新手引导
+"onboarding.language.title" = "选择语言";
+"onboarding.language.subtitle" = "选择您偏好的语言\n开启个性化体验";
+
 "onboarding.welcome.subtitle" = "通过互动模拟和真实IBM QPU访问，掌握量子计算";
 "onboarding.welcome.button" = "开始";
 

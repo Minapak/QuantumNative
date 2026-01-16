@@ -698,6 +698,9 @@
 "odyssey.keywords" = "Hadamard, 중첩, CNOT, 얽힘, 측정, 하다마드";
 
 // MARK: - 온보딩
+"onboarding.language.title" = "언어 선택";
+"onboarding.language.subtitle" = "원하는 언어를 선택하여\n맞춤형 경험을 시작하세요";
+
 "onboarding.welcome.subtitle" = "인터랙티브 시뮬레이션과 실제 IBM QPU 연동으로 양자 컴퓨팅을 마스터하세요";
 "onboarding.welcome.button" = "시작하기";
 

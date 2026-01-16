@@ -693,6 +693,9 @@
 "odyssey.keywords" = "アダマール、重ね合わせ、CNOT、量子もつれ、測定";
 
 // MARK: - オンボーディング
+"onboarding.language.title" = "言語を選択";
+"onboarding.language.subtitle" = "ご希望の言語を選択して\nパーソナライズされた体験を始めましょう";
+
 "onboarding.welcome.subtitle" = "インタラクティブなシミュレーションと実際のIBM QPUアクセスで量子コンピューティングをマスター";
 "onboarding.welcome.button" = "始める";
 

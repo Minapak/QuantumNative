@@ -693,6 +693,9 @@
 "odyssey.keywords" = "Hadamard, Superposition, CNOT, Verschränkung, Messung";
 
 // MARK: - Onboarding
+"onboarding.language.title" = "Sprache wählen";
+"onboarding.language.subtitle" = "Wählen Sie Ihre bevorzugte Sprache\nfür ein personalisiertes Erlebnis";
+
 "onboarding.welcome.subtitle" = "Meistern Sie Quantencomputing durch interaktive Simulationen und echten IBM QPU-Zugang";
 "onboarding.welcome.button" = "Loslegen";
 

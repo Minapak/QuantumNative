@@ -192,6 +192,7 @@ struct FloatingParticlesView: View {
 // MARK: - Step 2: Welcome (after language selection)
 struct WelcomeStepView: View {
     let onNext: () -> Void
+    @StateObject private var localizationManager = LocalizationManager.shared
     @State private var showContent = false
     @State private var rotationAngle: Double = 0
 
@@ -270,7 +271,7 @@ struct WelcomeStepView: View {
                             )
                         )
 
-                    Text(NSLocalizedString("onboarding.welcome.subtitle", comment: ""))
+                    Text(localizationManager.localizedString("onboarding.welcome.subtitle"))
                         .font(.system(size: 14))
                         .foregroundColor(.textSecondary)
                         .multilineTextAlignment(.center)
@@ -287,7 +288,7 @@ struct WelcomeStepView: View {
             // Start button
             Button(action: onNext) {
                 HStack(spacing: 10) {
-                    Text(NSLocalizedString("onboarding.welcome.button", comment: ""))
+                    Text(localizationManager.localizedString("onboarding.welcome.button"))
                         .font(.system(size: 17, weight: .semibold))
                     Image(systemName: "arrow.right")
                         .font(.system(size: 15, weight: .semibold))
@@ -360,11 +361,11 @@ struct LanguageSelectionStepView: View {
                         LinearGradient(colors: [.quantumOrange, .quantumPurple], startPoint: .topLeading, endPoint: .bottomTrailing)
                     )
 
-                Text("Choose Your Language")
+                Text(localizationManager.localizedString("onboarding.language.title"))
                     .font(.system(size: 24, weight: .bold))
                     .foregroundColor(.white)
 
-                Text("Select your preferred language\nto personalize your experience")
+                Text(localizationManager.localizedString("onboarding.language.subtitle"))
                     .font(.system(size: 14))
                     .foregroundColor(.textSecondary)
                     .multilineTextAlignment(.center)
@@ -478,6 +479,7 @@ struct LanguageCardNew: View {
 struct UserTypeSelectionStepView: View {
     @Binding var selectedUserType: UserType?
     let onNext: () -> Void
+    @StateObject private var localizationManager = LocalizationManager.shared
     @State private var showContent = false
 
     var body: some View {
@@ -490,11 +492,11 @@ struct UserTypeSelectionStepView: View {
                         LinearGradient(colors: [.quantumPurple, .quantumOrange], startPoint: .topLeading, endPoint: .bottomTrailing)
                     )
 
-                Text(NSLocalizedString("onboarding.userType.title", comment: ""))
+                Text(localizationManager.localizedString("onboarding.userType.title"))
                     .font(.system(size: 24, weight: .bold))
                     .foregroundColor(.white)
 
-                Text(NSLocalizedString("onboarding.userType.subtitle", comment: ""))
+                Text(localizationManager.localizedString("onboarding.userType.subtitle"))
                     .font(.system(size: 14))
                     .foregroundColor(.textSecondary)
                     .multilineTextAlignment(.center)
@@ -526,7 +528,7 @@ struct UserTypeSelectionStepView: View {
             // Continue button
             Button(action: onNext) {
                 HStack(spacing: 10) {
-                    Text(NSLocalizedString("common.continue", comment: ""))
+                    Text(localizationManager.localizedString("common.continue"))
                         .font(.system(size: 17, weight: .semibold))
                     Image(systemName: "arrow.right")
                         .font(.system(size: 15, weight: .semibold))
@@ -562,6 +564,7 @@ struct UserTypeCard: View {
     let userType: UserType
     let isSelected: Bool
     let onSelect: () -> Void
+    private let localizationManager = LocalizationManager.shared
 
     var body: some View {
         Button(action: {
@@ -582,11 +585,11 @@ struct UserTypeCard: View {
                 }
 
                 VStack(alignment: .leading, spacing: 3) {
-                    Text(NSLocalizedString(userType.titleKey, comment: ""))
+                    Text(localizationManager.localizedString(userType.titleKey))
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundColor(.white)
 
-                    Text(NSLocalizedString(userType.descKey, comment: ""))
+                    Text(localizationManager.localizedString(userType.descKey))
                         .font(.system(size: 12))
                         .foregroundColor(.textSecondary)
                         .lineLimit(2)
@@ -618,6 +621,7 @@ struct UserTypeCard: View {
 // MARK: - Step 4: Tutorial
 struct TutorialStepView: View {
     let onNext: () -> Void
+    @StateObject private var localizationManager = LocalizationManager.shared
     @State private var currentPage = 0
     @State private var showContent = false
 
@@ -690,7 +694,7 @@ struct TutorialStepView: View {
                         HStack(spacing: 6) {
                             Image(systemName: "arrow.left")
                                 .font(.system(size: 14))
-                            Text(NSLocalizedString("common.back", comment: ""))
+                            Text(localizationManager.localizedString("common.back"))
                                 .font(.system(size: 15, weight: .medium))
                         }
                         .foregroundColor(.textSecondary)
@@ -709,7 +713,7 @@ struct TutorialStepView: View {
                     }
                 }) {
                     HStack(spacing: 8) {
-                        Text(currentPage < tutorials.count - 1 ? NSLocalizedString("common.next", comment: "") : NSLocalizedString("onboarding.tutorial.letsgo", comment: ""))
+                        Text(currentPage < tutorials.count - 1 ? localizationManager.localizedString("common.next") : localizationManager.localizedString("onboarding.tutorial.letsgo"))
                             .font(.system(size: 17, weight: .semibold))
                         Image(systemName: currentPage < tutorials.count - 1 ? "arrow.right" : "sparkles")
                             .font(.system(size: 14, weight: .semibold))
@@ -744,15 +748,11 @@ struct TutorialPage: Identifiable {
     let subtitleKey: String
     let descriptionKey: String
     let tipKey: String
-
-    var title: String { NSLocalizedString(titleKey, comment: "") }
-    var subtitle: String { NSLocalizedString(subtitleKey, comment: "") }
-    var description: String { NSLocalizedString(descriptionKey, comment: "") }
-    var tip: String { NSLocalizedString(tipKey, comment: "") }
 }
 
 struct TutorialPageView: View {
     let tutorial: TutorialPage
+    private let localizationManager = LocalizationManager.shared
 
     var body: some View {
         VStack(spacing: 20) {
@@ -774,11 +774,11 @@ struct TutorialPageView: View {
 
             // Title
             VStack(spacing: 6) {
-                Text(tutorial.title)
+                Text(localizationManager.localizedString(tutorial.titleKey))
                     .font(.system(size: 26, weight: .bold))
                     .foregroundColor(.white)
 
-                Text(tutorial.subtitle)
+                Text(localizationManager.localizedString(tutorial.subtitleKey))
                     .font(.system(size: 15, weight: .medium))
                     .foregroundStyle(
                         LinearGradient(colors: tutorial.iconColors, startPoint: .leading, endPoint: .trailing)
@@ -786,7 +786,7 @@ struct TutorialPageView: View {
             }
 
             // Description
-            Text(tutorial.description)
+            Text(localizationManager.localizedString(tutorial.descriptionKey))
                 .font(.system(size: 15))
                 .foregroundColor(.textSecondary)
                 .multilineTextAlignment(.center)
@@ -799,7 +799,7 @@ struct TutorialPageView: View {
                     .font(.system(size: 18))
                     .foregroundColor(.quantumOrange)
 
-                Text(tutorial.tip)
+                Text(localizationManager.localizedString(tutorial.tipKey))
                     .font(.system(size: 13, weight: .medium))
                     .foregroundColor(.white)
             }
@@ -825,6 +825,7 @@ struct TutorialPageView: View {
 struct ReadyStepView: View {
     let selectedUserType: UserType?
     let onStart: () -> Void
+    @StateObject private var localizationManager = LocalizationManager.shared
     @State private var showContent = false
     @State private var pulseAnimation = false
 
@@ -879,17 +880,17 @@ struct ReadyStepView: View {
 
             // Message
             VStack(spacing: 14) {
-                Text(NSLocalizedString("onboarding.ready.title", comment: ""))
+                Text(localizationManager.localizedString("onboarding.ready.title"))
                     .font(.system(size: 30, weight: .bold))
                     .foregroundColor(.white)
 
                 if let userType = selectedUserType {
-                    Text(String(format: NSLocalizedString("onboarding.ready.personalized", comment: ""), NSLocalizedString(userType.titleKey, comment: "")))
+                    Text(String(format: localizationManager.localizedString("onboarding.ready.personalized"), localizationManager.localizedString(userType.titleKey)))
                         .font(.system(size: 15))
                         .foregroundColor(.textSecondary)
                 }
 
-                Text(NSLocalizedString("onboarding.ready.subtitle", comment: ""))
+                Text(localizationManager.localizedString("onboarding.ready.subtitle"))
                     .font(.system(size: 17, weight: .medium))
                     .foregroundStyle(
                         LinearGradient(colors: [.quantumOrange, .quantumPurple], startPoint: .leading, endPoint: .trailing)
@@ -908,7 +909,7 @@ struct ReadyStepView: View {
                 onStart()
             }) {
                 HStack(spacing: 10) {
-                    Text(NSLocalizedString("onboarding.ready.button", comment: ""))
+                    Text(localizationManager.localizedString("onboarding.ready.button"))
                         .font(.system(size: 18, weight: .bold))
                     Image(systemName: "arrow.right.circle.fill")
                         .font(.system(size: 20))
